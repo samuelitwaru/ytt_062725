@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.sdsvc_updateworkhourlog_level_detail,sdsvc_updateworkhourlog_level_detail" %>

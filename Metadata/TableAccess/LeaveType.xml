@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dependencies type="guid" guid="522ea46d-70fa-4d09-b259-aeb5e458565e">
+  <Table name="Company" />
+  <Table name="LeaveType" />
+  <Table name="LeaveRequest" />
+  <Table name="Employee" />
+  <Table name="Project" />
+  <Table name="EmployeeProject" />
+  <Table name="WorkHourLog" />
+  <Table name="SupportRequest" />
+  <Table name="EmployeeVacationSet" />
+</Dependencies>

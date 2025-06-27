@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.workwithplus.nativemobile.aexamplegetpdfurl,workwithplus\nativemobile\examplegetpdfurl" %>

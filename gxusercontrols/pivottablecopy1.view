@@ -1,0 +1,45 @@
+<div id='print' >
+<table class="gx-tab-spacing-fix-2 GridWithPaginationBar GridWithBorderColor WorkWith table-responsive" style='border: 1px solid #dddddd; border-collapse: collapse;'>
+	<thead  style='border: 1px solid #dddddd; border-collapse: collapse;'>
+		<tr>
+			<th style='border: 1px solid #dddddd; border-collapse: collapse;'>Projects:</th>
+			{{#SDTProjects}}
+			<th style='border: 1px solid #dddddd; border-collapse: collapse;' scope="col" ><a href='' {{gxTpr_ProjectClicked}}{{ProjectClicked}}>{{gxTpr_ProjectName}}{{ProjectName}}</a></th>
+			{{/SDTProjects}}
+			<th style='border: 1px solid #dddddd; border-collapse: collapse;'>Total Work Hours</th>
+			{{#ShowLeaveTotal}}<th class='leave'>Total Leave Hours</th>{{/ShowLeaveTotal}}{{#gxTpr_ShowLeaveTotal}}<th class='leave'>Total Leave Hours</th>{{/gxTpr_ShowLeaveTotal}}
+			<!--<th style='border: 1px solid #dddddd; border-collapse: collapse;'></th>-->
+		</tr>
+	</thead>
+	<tbody>
+		{{#SDTEmployeeProjectHoursCollection}}
+		<tr class="GridWithPaginationBar GridNoBorder WorkWithOdd">	
+			<td style='border: 1px solid #dddddd; border-collapse: collapse;font-weight: bold;background:#f5f5f5;'><a href=''  data-event="Click" >{{gxTpr_EmployeeName}}{{EmployeeName}}</a></td>
+			
+			{{#SDTProjects}}
+			<td id='{{gxTpr_EmployeeId}}{{EmployeeId}}-{{gxTpr_Id}}{{Id}}' style='border: 1px solid #dddddd; border-collapse: collapse;'></td>
+			{{/SDTProjects}}
+			
+			<td style='border: 1px solid #dddddd; border-collapse: collapse;font-weight: bold;background:#f5f5f5;'>
+				<span class="tag" style='padding: 0.5rem; {{#IsWorkTimeOptimal}} background:#00a95c; color:white; border-radius:5px;{{/IsWorkTimeOptimal}}{{#gxTpr_IsWorkTimeOptimal}} background:#00a95c; color:white; border-radius:5px;{{/gxTpr_IsWorkTimeOptimal}}'>{{gxTpr_TotalFormattedTime}}{{TotalFormattedTime}}</span>
+			</td>
+			<!--<td style='border: 1px solid #dddddd; border-collapse: collapse;font-weight: bold;background:#f5f5f5;'>{{gxTpr_TotalTime}}{{TotalTime}} {{gxTpr_ExpectedWorkTime}}{{ExpectedWorkTime}} {{gxTpr_IsWorkTimeOptimal}}{{IsWorkTimeOptimal}}</td>-->
+			{{#ShowLeaveTotal}}<td class='leave' style='border: 1px solid #dddddd;font-weight: bold; border-collapse: collapse;background:#f5f5f5;'>{{gxTpr_TotalFormattedLeave}}{{TotalFormattedLeave}}</td>{{/ShowLeaveTotal}}{{#gxTpr_ShowLeaveTotal}}<td class='leave' style='border: 1px solid #dddddd;font-weight: bold; border-collapse: collapse;background:#f5f5f5;'>{{gxTpr_TotalFormattedLeave}}{{TotalFormattedLeave}}</td>{{/gxTpr_ShowLeaveTotal}}
+			<!--<td style='border: 1px solid #dddddd; border-collapse: collapse;'><a href=''  data-event="Click" >Details</a></td>-->
+		</tr>
+		{{/SDTEmployeeProjectHoursCollection}}
+	</tbody>
+	
+	<tfoot>
+		<tr class="GridWithPaginationBar GridNoBorder WorkWithOdd">
+			<td style='border: 1px solid #dddddd; border-collapse: collapse;'>Total</td>
+			{{#SDTProjects}}
+			<td class='project-total' id='{{gxTpr_Id}}{{Id}}' style='border: 1px solid #dddddd; border-collapse: collapse;' scope="col">0</td>
+			{{/SDTProjects}}
+			<td id='totalWorkHours' style='border: 1px solid #dddddd; border-collapse: collapse;bold;background:#f5f5f5;'>{{gxTpr_TotalFormattedWorkTime}}{{TotalFormattedWorkTime}}</td>
+			{{#ShowLeaveTotal}}<td style='border: 1px solid #dddddd; border-collapse: collapse;'></td>{{/ShowLeaveTotal}}{{#gxTpr_ShowLeaveTotal}}<td style='border: 1px solid #dddddd; border-collapse: collapse;'></td>{{/gxTpr_ShowLeaveTotal}}
+			<!--<td style='border: 1px solid #dddddd; border-collapse: collapse;'></td>-->
+		</tr>
+	<tfoot>		
+</table>
+</div>

@@ -1,0 +1,29 @@
+@layer YTTV3SD_DSAndroid{
+:root
+{
+	--colors_primary : #007EFD;
+	--colors_primary10 : #007EFD1a;
+	--colors_primary30 : #007EFD4d;
+	--colors_primary50 : #007EFD80;
+	--colors_primary80 : #007EFDcc;
+	--colors_primarytone : #0689FD;
+	--colors_secondary : #4AA3FE;
+	--colors_fonticonfloating : var(--colors_primary);
+	--fonts_primary-font-family : Montserrat;
+	--fontsizes_body-xlarge : 20dip;
+	--fontsizes_body-large : 16dip;
+	--fontsizes_body-regular : 14dip;
+	--fontsizes_body-small : 12dip;
+	--fontsizes_body-xsmall : 8dip;
+	--fontsizes_attribute-label : 12dip;
+	--fontsizes_icon-default : 20dip;
+	--fontsizes_icon-floating : 24dip;
+	--fontsizes_icon-xsmall : 14dip;
+	--fontsizes_icon-small : 20dip;
+	--fontsizes_icon-regular : 26dip;
+	--fontsizes_icon-large : 38dip;
+	--fontsizes_icon-xlarge : 60dip;
+	--fontsizes_icon-notification-dot : 6dip;
+
+}
+}

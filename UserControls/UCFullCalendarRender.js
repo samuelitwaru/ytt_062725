@@ -1,0 +1,199 @@
+function UCFullCalendar($) {
+	  
+
+	var template = '<div style=\'display:none;\'>	{{events}}</div><div id=\'calendar\'></div>';
+	var partials = {  }; 
+	Mustache.parse(template);
+	var $container;
+	this.show = function() {
+			$container = $(this.getContainerControl());
+
+			// Raise before show scripts
+
+
+			//if (this.IsPostBack)
+				this.setHtml(Mustache.render(template, this, partials));
+			this.renderChildContainers();
+
+
+
+			// Raise after show scripts
+			this.Start(); 
+	}
+
+	this.Scripts = [];
+
+		this.Start = function() {
+
+			  	var events = JSON.parse(this.events)
+			//	document.addEventListener('DOMContentLoaded', function() {
+			    var calendarEl = document.getElementById('calendar');
+			    var calendar = new FullCalendar.Calendar(calendarEl, {
+			      headerToolbar: {
+				        left: 'prev,next today',
+				        center: 'title',
+				        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+			      },
+			      initialDate: '2023-01-12',
+			      navLinks: true, // can click day/week names to navigate views
+			      nowIndicator: true,
+					
+			      weekNumbers: true,
+			      weekNumberCalculation: 'ISO',
+					
+			      editable: true,
+			      selectable: true,
+			      dayMaxEvents: true, // allow "more" link when too many events
+			//      events: [
+			//        {
+			//          title: 'All Day Event',
+			//          start: '2023-01-01'
+			//        },
+			//        {
+			//          title: 'Long Event',
+			//          start: '2023-01-07',
+			//          end: '2023-01-10'
+			//        },
+			//        {
+			//          groupId: 999,
+			//          title: 'Repeating Event',
+			//          start: '2023-01-09T16:00:00'
+			//        },
+			//        {
+			//          groupId: 999,
+			//          title: 'Repeating Event',
+			//          start: '2023-01-16T16:00:00'
+			//        },
+			//        {
+			//          title: 'Conference',
+			//          start: '2023-01-11',
+			//          end: '2023-01-14'
+			//        },
+			//		{
+			//          title: 'Conference',
+			//          start: '2023-01-11',
+			//          end: '2023-01-14'
+			//        },
+			//        {
+			//          title: 'Meeting',
+			//          start: '2023-01-12T10:30:00',
+			//          end: '2023-01-12T12:30:00'
+			//        },
+			//        {
+			//          title: 'Lunch',
+			//          start: '2023-01-12T12:00:00'
+			//        },
+			//        {
+			//          title: 'Meeting',
+			//          start: '2023-01-12T14:30:00'
+			//        },
+			//        {
+			//          title: 'Happy Hour',
+			//          start: '2023-01-12T17:30:00'
+			//        },
+			//        {
+			//          title: 'Dinner',
+			//          start: '2023-01-12T20:00:00'
+			//        },
+			//        {
+			//          title: 'Birthday Party',
+			//          start: '2023-01-13T07:00:00'
+			//        },
+			//        {
+			//          title: 'Click for Google',
+			//          url: 'http://google.com/',
+			//          start: '2023-01-28'
+			//        }
+			//      ]
+					events: events
+				});
+			//
+			//	var calendar = new FullCalendar.Calendar(calendarEl, {
+			//      initialDate: '2023-01-07',
+			//      editable: true, // enable draggable events
+			//      selectable: true,
+			//      aspectRatio: 1.8,
+			//      headerToolbar: {
+			//        left: 'today prev,next',
+			//        center: 'title',
+			//        right: 'resourceTimelineDay,resourceTimelineThreeDays,timeGridWeek,dayGridMonth,listWeek'
+			//      },
+			//      initialView: 'resourceTimelineDay',
+			//      views: {
+			//        resourceTimelineThreeDays: {
+			//          type: 'resourceTimeline',
+			//          duration: { days: 3 },
+			//          buttonText: '3 days'
+			//        }
+			//      },
+			//      //resourceAreaHeaderContent: 'Rooms',
+			//      resources: [
+			//        { id: 'a', title: 'Auditorium A' },
+			//        { id: 'b', title: 'Auditorium B', eventColor: 'green' },
+			//        { id: 'c', title: 'Auditorium C', eventColor: 'orange' },
+			//        { id: 'd', title: 'Auditorium D', children: [
+			//          { id: 'd1', title: 'Room D1' },
+			//          { id: 'd2', title: 'Room D2' }
+			//        ] },
+			//        { id: 'e', title: 'Auditorium E' },
+			//        { id: 'f', title: 'Auditorium F', eventColor: 'red' },
+			//        { id: 'g', title: 'Auditorium G' },
+			//        { id: 'h', title: 'Auditorium H' },
+			//        { id: 'i', title: 'Auditorium I' },
+			//        { id: 'j', title: 'Auditorium J' },
+			//        { id: 'k', title: 'Auditorium K' },
+			//        { id: 'l', title: 'Auditorium L' },
+			//        { id: 'm', title: 'Auditorium M' },
+			//        { id: 'n', title: 'Auditorium N' },
+			//        { id: 'o', title: 'Auditorium O' },
+			//        { id: 'p', title: 'Auditorium P' },
+			//        { id: 'q', title: 'Auditorium Q' },
+			//        { id: 'r', title: 'Auditorium R' },
+			//        { id: 's', title: 'Auditorium S' },
+			//        { id: 't', title: 'Auditorium T' },
+			//        { id: 'u', title: 'Auditorium U' },
+			//        { id: 'v', title: 'Auditorium V' },
+			//        { id: 'w', title: 'Auditorium W' },
+			//        { id: 'x', title: 'Auditorium X' },
+			//        { id: 'y', title: 'Auditorium Y' },
+			//        { id: 'z', title: 'Auditorium Z' }
+			//      ],
+			//      events: [
+			//        { id: '1', resourceId: 'b', start: '2023-01-07T08:00:00', end: '2023-01-07T15:00:00', title: 'event 1' },
+			//        { id: '2', resourceId: 'c', start: '2023-01-07T11:00:00', end: '2023-01-08T06:00:00', title: 'event 2' },
+			//        { id: '3', resourceId: 'd', start: '2023-01-06', end: '2023-01-08', title: 'event 3' },
+			//        { id: '4', resourceId: 'e', start: '2023-01-07T09:00:00', end: '2023-01-07T14:00:00', title: 'event 4' },
+			//        { id: '5', resourceId: 'f', start: '2023-01-07T06:30:00', end: '2023-01-07T08:30:00', title: 'event 5' }
+			//      ]
+			//    });
+
+			    calendar.render();
+			//  });
+
+		}
+
+
+
+	this.autoToggleVisibility = true;
+
+	var childContainers = {};
+	this.renderChildContainers = function () {
+		$container
+			.find("[data-slot][data-parent='" + this.ContainerName + "']")
+			.each((function (i, slot) {
+				var $slot = $(slot),
+					slotName = $slot.attr('data-slot'),
+					slotContentEl;
+
+				slotContentEl = childContainers[slotName];
+				if (!slotContentEl) {				
+					slotContentEl = this.getChildContainer(slotName)
+					childContainers[slotName] = slotContentEl;
+					slotContentEl.parentNode.removeChild(slotContentEl);
+				}
+				$slot.append(slotContentEl);
+				$(slotContentEl).show();
+			}).closure(this));
+	};
+
+}

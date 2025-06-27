@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.yttv3sdnotauthorized_level_detail,yttv3sdnotauthorized" %>

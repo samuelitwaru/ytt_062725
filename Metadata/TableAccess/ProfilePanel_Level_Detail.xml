@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dependencies type="name" name="ProfilePanel_Level_Detail">
+  <Table name="Employee" />
+  <Table name="Company" />
+  <Table name="Project" />
+  <Table name="EmployeeProject" />
+  <Table name="WorkHourLog" />
+  <Table name="LeaveRequest" />
+  <Table name="SupportRequest" />
+  <Table name="EmployeeVacationSet" />
+</Dependencies>

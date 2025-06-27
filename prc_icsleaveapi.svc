@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.aprc_icsleaveapi,aprc_icsleaveapi" %>

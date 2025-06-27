@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: "API_TimeTracker"
+  description: "API_Time Tracker"
+  version: "20250626045740"
+servers:
+  - url: http://localhost:8082/YTT_version4NETPostgreSQL14/api
+paths:
+  /export-ics-leaves:
+    post:
+      tags:
+        - API_TimeTracker  
+      operationId: "API_TimeTracker.API_ICSLeaveAPI"
+      summary: "Export ICS Leaves"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/API_ICSLeaveAPIInput"
+      
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "string"
+
+
+        404:
+          description: "Not found"
+
+components:
+  securitySchemes:
+    oAuthGXGAM:
+      type: oauth2
+      description: GAM OAuth 2
+      flows:
+        password:          
+          tokenUrl: http://localhost:8082/YTT_version4NETPostgreSQL14/oauth/gam/v2.0/access_token
+          scopes: 
+            fullcontrol: Full access
+
+  schemas:
+    API_ICSLeaveAPIInput:  
+      properties:
+        Username:
+          type: "string"
+        Password:
+          type: "string"
+  
+ 

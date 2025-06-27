@@ -1,0 +1,18 @@
+
+<div style="display:none">
+	{{gxTpr_startDate}}{{startDate}}
+	{{gxTpr_endDate}}{{endDate}}
+	{{gxTpr_item}}{{item}}
+</div>
+<br />
+
+<div id="visualization" >
+
+</div>
+<div id="key" style="display:flex; margin-top: 10px">
+	<div style="display:flex;">
+		<div style="background: #dddddd; height:10px; width:10px; margin: 4px"></div> <label>Pending</label>
+		<div style="background: #D5DDF6; height:10px; width:10px; margin: 4px"></div> <label>Default</label>
+	</div>
+</div>
+

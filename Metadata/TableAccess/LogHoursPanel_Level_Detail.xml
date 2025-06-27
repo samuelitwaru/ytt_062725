@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dependencies type="name" name="LogHoursPanel_Level_Detail">
+  <Table name="WorkHourLog" />
+  <Table name="Employee" />
+  <Table name="Company" />
+  <Table name="Project" />
+  <Table name="EmployeeProject" />
+  <Table name="LeaveRequest" />
+  <Table name="SupportRequest" />
+  <Table name="EmployeeVacationSet" />
+</Dependencies>

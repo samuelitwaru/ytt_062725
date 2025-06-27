@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.gamsdnotauthorized_level_detail,gamsdnotauthorized" %>

@@ -1,0 +1,50 @@
+@layer YTTV3SD_DSAnyPlatform{
+:root
+{
+	--colors_controleditbackgroundonsurface : #FFFFFF;
+	--colors_controlonprimary : #000;
+	--colors_buttonbackground : #ccc;
+	--colors_primary : #007EFD;
+	--colors_primary10 : #007EFD1a;
+	--colors_primary30 : #007EFD4d;
+	--colors_primary50 : #007EFD80;
+	--colors_primary80 : #007EFDcc;
+	--colors_primarytone : #0689FD;
+	--colors_secondary : #4AA3FE;
+	--colors_fonticonfloating : var(--colors_primary);
+	--colors_headerbg : #fff;
+	--colors_pagetitle : #000;
+	--colors_disabledbtntext : #4f4f4f;
+	--colors_controlsecondonsurface : #666666;
+	--fonts_primary-font-family : Montserrat;
+	--fontsizes_body-xlarge : 20dip;
+	--fontsizes_body-large : 16dip;
+	--fontsizes_body-regular : 14dip;
+	--fontsizes_body-small : 12dip;
+	--fontsizes_body-xsmall : 8dip;
+	--fontsizes_attribute-label : 12dip;
+	--fontsizes_icon-default : 20dip;
+	--fontsizes_icon-floating : 24dip;
+	--fontsizes_icon-xsmall : 14dip;
+	--fontsizes_icon-small : 20dip;
+	--fontsizes_icon-regular : 26dip;
+	--fontsizes_icon-large : 38dip;
+	--fontsizes_icon-xlarge : 60dip;
+	--fontsizes_icon-notification-dot : 6dip;
+	--fontsizes_new_fontsizes : 15px;
+
+}
+
+[gx-data-color-scheme="Dark"]
+{
+	--colors_headerbg : #1E1E1EE0;
+	--colors_pagetitle : #F1E8E8;
+	--colors_buttonbackground : #312D2DF7;
+	--colors_controlonprimary : #D1CECE;
+	--colors_controleditbackgroundonsurface : transparent;
+	--colors_controlborderonsurface : #DDDDDDD4;
+	--colors_controlsecondonsurface : #999;
+	--colors_disabledbtntext : #ccc;
+
+}
+}

@@ -1,0 +1,30 @@
+swagger: '2.0'
+info:
+  title: "sdsvc_UpdateWorkHourLog_Level_Detail"
+  description: "sdsvc_UpdateWorkHourLog_Level_Detail"
+  version: "20250626045740"
+host: localhost:8082
+schemes:
+  - http
+basePath: /YTT_version4NETPostgreSQL14/
+produces:
+  - application/json
+paths:
+  /sdsvc_UpdateWorkHourLog_Level_Detail/Worklogproject:
+    get:
+      tags:
+        - sdsvc_UpdateWorkHourLog_Level_Detail  
+      operationId: "sdsvc_UpdateWorkHourLog_Level_Detail.Worklogproject"
+      summary: "Worklogproject"
+      
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "string"
+
+        404:
+          description: "Not found"
+
+definitions:
+  

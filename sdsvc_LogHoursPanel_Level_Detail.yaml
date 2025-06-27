@@ -1,0 +1,30 @@
+swagger: '2.0'
+info:
+  title: "sdsvc_LogHoursPanel_Level_Detail"
+  description: "sdsvc_LogHoursPanel_Level_Detail"
+  version: "20250626045740"
+host: localhost:8082
+schemes:
+  - http
+basePath: /YTT_version4NETPostgreSQL14/
+produces:
+  - application/json
+paths:
+  /sdsvc_LogHoursPanel_Level_Detail/Projectid:
+    get:
+      tags:
+        - sdsvc_LogHoursPanel_Level_Detail  
+      operationId: "sdsvc_LogHoursPanel_Level_Detail.Projectid"
+      summary: "Projectid"
+      
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "string"
+
+        404:
+          description: "Not found"
+
+definitions:
+  

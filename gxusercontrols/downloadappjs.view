@@ -1,0 +1,6 @@
+<style>
+	#DOWNLOADAPPContainer {
+		width: 100%;
+	}
+</style>
+<div id="sdapps-box-content" class="box-content" style="text-align: -webkit-center;"></div>

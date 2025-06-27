@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.workwithplus.nativemobile.aexamplegetimagefrombase64,workwithplus\nativemobile\examplegetimagefrombase64" %>

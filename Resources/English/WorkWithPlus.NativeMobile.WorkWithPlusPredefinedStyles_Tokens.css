@@ -1,0 +1,51 @@
+@layer WorkWithPlus.NativeMobile.WorkWithPlusPredefinedStyles{
+:root
+{
+	--colors_danger : #fb6e52;
+	--colors_danger50 : #fb6e5280;
+	--colors_warning : #f39c12;
+	--colors_warning50 : #f39c1280;
+	--colors_success : #00a65a;
+	--colors_success50 : #00a65a80;
+	--colors_info : #3c8dbc;
+	--colors_info50 : #3c8dbc80;
+	--colors_primary : #d5303e;
+	--colors_primary50 : #d5303e80;
+	--colors_secondary : #ffc2d0;
+	--colors_primarybackground : #f5f5f5;
+	--colors_primarysurface : #ffffff;
+	--colors_primarysurfaceborder : #dddddd;
+	--colors_darksurfaceelevated80 : #383838cc;
+	--colors_controlonprimary : #ffffff;
+	--colors_controlonsurface : #3a3a3a;
+	--colors_controlsecondonsurface : #666666;
+	--colors_controlthirdonsurface : #999999;
+	--colors_controlonlightsurface : #666666;
+	--colors_controlondarksurface : #bbbbbb;
+	--colors_controlborderonsurface40 : #e0e0e066;
+	--colors_fonticondefault : #3a3a3a;
+	--colors_fonticonfloating : #d5303e;
+	--fonts_primary-font-family : Montserrat;
+	--fontsizes_body-xlarge : 20dip;
+	--fontsizes_body-large : 16dip;
+	--fontsizes_body-regular : 14dip;
+	--fontsizes_body-small : 12dip;
+	--fontsizes_body-xsmall : 8dip;
+	--fontsizes_attribute-label : 12dip;
+	--fontsizes_icon-default : 20dip;
+	--fontsizes_icon-floating : 24dip;
+	--fontsizes_icon-xsmall : 14dip;
+	--fontsizes_icon-small : 20dip;
+	--fontsizes_icon-regular : 26dip;
+	--fontsizes_icon-large : 38dip;
+	--fontsizes_icon-xlarge : 60dip;
+	--fontsizes_icon-notification-dot : 6dip;
+
+}
+
+[gx-data-color-scheme="Dark"]
+{
+	--colors_fonticondefault : #fefefe;
+
+}
+}

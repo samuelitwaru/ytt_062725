@@ -1,0 +1,504 @@
+@layer AnyStylesImagesTokens {
+:root
+{
+	--GX-Image_SelectRow : url(../SelectRow.png);
+	--GX-Image_logo : url(../logo.png);
+	--GX-Image_GAM_GAMButtonFacebook : url(../GAM.GAMButtonFacebook.png);
+	--GX-Image_GAM_GAMButtonTwitterSmall : url(../GAM.GAMButtonTwitterSmall.png);
+	--GX-Image_GAM_GAMButtonTwitter : url(../GAM.GAMButtonTwitter.png);
+	--GX-Image_GAM_GAMButtonGoogle : url(../GAM.GAMButtonGoogle.png);
+	--GX-Image_GAM_GAMButtonGoogleSmall : url(../GAM.GAMButtonGoogleSmall.png);
+	--GX-Image_GAM_GAMButtonGAMRemoteSmall : url(../GAM.GAMButtonGAMRemoteSmall.png);
+	--GX-Image_GAM_GAMButtonGAMRemote : url(../GAM.GAMButtonGAMRemote.png);
+	--GX-Image_ActionNewDynamicFilter : url(../ActionNewDynamicFilter.png);
+	--GX-Image_ActionRemoveDynamicFilter : url(../ActionRemoveDynamicFilter.png);
+	--GX-Image_LogoLogin : url(../LogoLogin.png);
+	--GX-Image_StepSelectedUnSelected : url(../StepSelectedUnSelected.png);
+	--GX-Image_StepUnSelectedSelected : url(../StepUnSelectedSelected.png);
+	--GX-Image_WizardCompleted : url(../WizardCompleted.png);
+	--GX-Image_DVelopComboCollapse : url(../DVelopComboCollapse.png);
+	--GX-Image_DVelopComboExpand : url(../DVelopComboExpand.png);
+	--GX-Image_PromptMultipleSelection : url(../PromptMultipleSelection.png);
+	--GX-Image_BackgroundImage : url(../BackgroundImage.png);
+	--GX-Image_LoadingResults : url(../LoadingResults.gif);
+	--GX-Image_PanelCardGray_Expand : url(../PanelCardGray_Expand.png);
+	--GX-Image_AttHelpIcon : url(../AttHelpIcon.png);
+	--GX-Image_ErrorIcon : url(../ErrorIcon.png);
+	--GX-Image_WarningIcon : url(../WarningIcon.png);
+	--GX-Image_ActionDisplay : url(../ActionDisplay.png);
+	--GX-Image_Geolocation : url(../Geolocation.png);
+	--GX-Image_PageFirst : url(../PageFirst.png);
+	--GX-Image_PageLast : url(../PageLast.png);
+	--GX-Image_PageNext : url(../PageNext.png);
+	--GX-Image_PagePrevious : url(../PagePrevious.png);
+	--GX-Image_BtnDeleteImage : url(../BtnDeleteImage.png);
+	--GX-Image_BtnDisplayImage : url(../BtnDisplayImage.png);
+	--GX-Image_BtnUpdateImage : url(../BtnUpdateImage.png);
+	--GX-Image_ActionExport : url(../ActionExport.png);
+	--GX-Image_MultimediaClear : url(../MultimediaClear.png);
+	--GX-Image_MultimediaEdit : url(../MultimediaEdit.png);
+	--GX-Image_PlaceHolderVideo : url(../PlaceHolderVideo.png);
+	--GX-Image_PlaceHolderImage : url(../PlaceHolderImage.png);
+	--GX-Image_PlaceHolderAudio : url(../PlaceHolderAudio.png);
+	--GX-Image_VideoDownload : url(../VideoDownload.png);
+	--GX-Image_ActionDelete : url(../ActionDelete.png);
+	--GX-Image_WizardStepChecked : url(../WizardStepChecked.png);
+	--GX-Image_ActionCancel : url(../ActionCancel.png);
+	--GX-Image_HomeModulesBackground1 : url(../HomeModulesBackground1.jpg);
+	--GX-Image_HomeModulesBackground2 : url(../HomeModulesBackground2.jpg);
+	--GX-Image_HomeModulesBackground3 : url(../HomeModulesBackground3.jpg);
+	--GX-Image_HomeModulesBackground4 : url(../HomeModulesBackground4.jpg);
+	--GX-Image_HomeModulesBackground5 : url(../HomeModulesBackground5.jpg);
+	--GX-Image_HomeModulesBackground6 : url(../HomeModulesBackground6.jpg);
+	--GX-Image_ActionUpdate : url(../ActionUpdate.png);
+	--GX-Image_DDODefault : url(../DDODefault.png);
+	--GX-Image_DDOFiltered : url(../DDOFiltered.png);
+	--GX-Image_DDOFilteredSortedASC : url(../DDOFilteredSortedASC.png);
+	--GX-Image_DDOFilteredSortedDSC : url(../DDOFilteredSortedDSC.png);
+	--GX-Image_DDOMultiselOption : url(../DDOMultiselOption.png);
+	--GX-Image_DDOMultiselSelOption : url(../DDOMultiselSelOption.png);
+	--GX-Image_DDOOptionApplyFilter : url(../DDOOptionApplyFilter.png);
+	--GX-Image_DDOOptionCleanFilters : url(../DDOOptionCleanFilters.png);
+	--GX-Image_DDOOptionFilteringData : url(../DDOOptionFilteringData.gif);
+	--GX-Image_DDOOptionSortASC : url(../DDOOptionSortASC.png);
+	--GX-Image_DDOOptionSortDSC : url(../DDOOptionSortDSC.png);
+	--GX-Image_DDOSelectedOption : url(../DDOSelectedOption.png);
+	--GX-Image_DDOSortedASC : url(../DDOSortedASC.png);
+	--GX-Image_DDOSortedDSC : url(../DDOSortedDSC.png);
+	--GX-Image_ActionBack : url(../ActionBack.png);
+	--GX-Image_ActionSave : url(../ActionSave.png);
+	--GX-Image_ActionExportReport : url(../ActionExportReport.png);
+	--GX-Image_MoveDown : url(../MoveDown.png);
+	--GX-Image_MoveUp : url(../MoveUp.png);
+	--GX-Image_ActionFiltersSave : url(../ActionFiltersSave.png);
+	--GX-Image_ActionFiltersClean : url(../ActionFiltersClean.png);
+	--GX-Image_ActionManageFilters : url(../ActionManageFilters.png);
+	--GX-Image_ActionManage : url(../ActionManage.png);
+	--GX-Image_ClosePrompt : url(../ClosePrompt.png);
+	--GX-Image_calendar : url(../calendar.png);
+	--GX-Image_DeleteRow : url(../DeleteRow.gif);
+	--GX-Image_prompt : url(../prompt.png);
+	--GX-Image_UndeleteRow : url(../UndeleteRow.gif);
+	--GX-Image_RequiredTriangle : url(../RequiredTriangle.gif);
+	--GX-Image_ActionCopyRecord : url(../ActionCopyRecord.jpg);
+	--GX-Image_AssociationItemsLeft : url(../AssociationItemsLeft.png);
+	--GX-Image_AssociationItemsRight : url(../AssociationItemsRight.png);
+	--GX-Image_AssociationRight : url(../AssociationRight.png);
+	--GX-Image_AssociationLeft : url(../AssociationLeft.png);
+	--GX-Image_HomeBannerImageSample : url(../HomeBannerImageSample.png);
+	--GX-Image_ActionAdd : url(../ActionAdd.png);
+	--GX-Image_ActionCSV : url(../ActionCSV.png);
+	--GX-Image_NotAuthorizedImage : url(../NotAuthorizedImage.png);
+	--GX-Image_GAMActionMenu : url(../GAMActionMenu.png);
+	--GX-Image_wwp_nm_menubanner_tall : url(../wwp_nm_menubanner_tall.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_menubanner_tall : url(../WorkWithPlus.NativeMobile.wwp_nm_menubanner_tall.png);
+	--GX-Image_wwp_nm_menubanner : url(../wwp_nm_menubanner.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_menubanner : url(../WorkWithPlus.NativeMobile.wwp_nm_menubanner.png);
+	--GX-Image_wwp_nm_login_background : url(../wwp_nm_login_background.jpg);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_login_background : url(../WorkWithPlus.NativeMobile.wwp_nm_login_background.jpg);
+	--GX-Image_wwp_nm_menu_background : url(../wwp_nm_menu_background.jpg);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_menu_background : url(../WorkWithPlus.NativeMobile.wwp_nm_menu_background.jpg);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_cancel : url(../WorkWithPlus.NativeMobile.wwp_nm_action_cancel.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product1 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_product1.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product7 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_product7.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product2 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_product2.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product3 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_product3.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product4 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_product4.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product8 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_product8.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product5 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_product5.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product6 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_product6.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner1 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_banner1.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner2 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_banner2.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner3 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_banner3.jpg);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner4 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_banner4.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_activity1 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_activity1.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_activity2 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_activity2.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_activity3 : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_data_activity3.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample1 : url(../WorkWithPlus.NativeMobile.wwp_nm_option_sample1.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample2 : url(../WorkWithPlus.NativeMobile.wwp_nm_option_sample2.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample3 : url(../WorkWithPlus.NativeMobile.wwp_nm_option_sample3.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample4 : url(../WorkWithPlus.NativeMobile.wwp_nm_option_sample4.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample5 : url(../WorkWithPlus.NativeMobile.wwp_nm_option_sample5.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample6 : url(../WorkWithPlus.NativeMobile.wwp_nm_option_sample6.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_user_avatar : url(../WorkWithPlus.NativeMobile.wwp_nm_user_avatar.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_prompt : url(../WorkWithPlus.NativeMobile.wwp_nm_prompt.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_bookmarkfalse : url(../WorkWithPlus.NativeMobile.wwp_nm_action_bookmarkfalse.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_bookmarktrue : url(../WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_cart : url(../WorkWithPlus.NativeMobile.wwp_nm_action_cart.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_copy : url(../WorkWithPlus.NativeMobile.wwp_nm_action_copy.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_delete : url(../WorkWithPlus.NativeMobile.wwp_nm_action_delete.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_edit : url(../WorkWithPlus.NativeMobile.wwp_nm_action_edit.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_favfalse : url(../WorkWithPlus.NativeMobile.wwp_nm_action_favfalse.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_favtrue : url(../WorkWithPlus.NativeMobile.wwp_nm_action_favtrue.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_follow : url(../WorkWithPlus.NativeMobile.wwp_nm_action_follow.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_following : url(../WorkWithPlus.NativeMobile.wwp_nm_action_following.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_inbox : url(../WorkWithPlus.NativeMobile.wwp_nm_action_inbox.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_insert : url(../WorkWithPlus.NativeMobile.wwp_nm_action_insert.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_refresh : url(../WorkWithPlus.NativeMobile.wwp_nm_action_refresh.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_save : url(../WorkWithPlus.NativeMobile.wwp_nm_action_save.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_share : url(../WorkWithPlus.NativeMobile.wwp_nm_action_share.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_check_done : url(../WorkWithPlus.NativeMobile.wwp_nm_check_done.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_list_arrow : url(../WorkWithPlus.NativeMobile.wwp_nm_list_arrow.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_loginlock : url(../WorkWithPlus.NativeMobile.wwp_nm_loginlock.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_loginuser : url(../WorkWithPlus.NativeMobile.wwp_nm_loginuser.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_logout : url(../WorkWithPlus.NativeMobile.wwp_nm_logout.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_map_pin : url(../WorkWithPlus.NativeMobile.wwp_nm_map_pin.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample_stats : url(../WorkWithPlus.NativeMobile.wwp_nm_option_sample_stats.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample7 : url(../WorkWithPlus.NativeMobile.wwp_nm_option_sample7.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample8 : url(../WorkWithPlus.NativeMobile.wwp_nm_option_sample8.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample9 : url(../WorkWithPlus.NativeMobile.wwp_nm_option_sample9.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_red_dot : url(../WorkWithPlus.NativeMobile.wwp_nm_red_dot.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_logo : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_logo.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_logo_white : url(../WorkWithPlus.NativeMobile.wwp_nm_sample_logo_white.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_settings : url(../WorkWithPlus.NativeMobile.wwp_nm_settings.png);
+	--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_vertical_separator : url(../WorkWithPlus.NativeMobile.wwp_nm_vertical_separator.png);
+	--GX-Image_sdpresbannersample1 : url(../sdpresbannersample1.png);
+	--GX-Image_sdpresbannersample2 : url(../sdpresbannersample2.png);
+	--GX-Image_sdpresbannersample3 : url(../sdpresbannersample3.jpg);
+	--GX-Image_sdpresbannersample4 : url(../sdpresbannersample4.png);
+	--GX-Image_sdpressampleactivity1 : url(../sdpressampleactivity1.png);
+	--GX-Image_sdpressampleactivity2 : url(../sdpressampleactivity2.png);
+	--GX-Image_sdpressampleactivity3 : url(../sdpressampleactivity3.png);
+	--GX-Image_sdpressamplebacklogin : url(../sdpressamplebacklogin.jpg);
+	--GX-Image_sdpressampleproduct1 : url(../sdpressampleproduct1.png);
+	--GX-Image_sdpressampleproduct10 : url(../sdpressampleproduct10.png);
+	--GX-Image_sdpressampleproduct2 : url(../sdpressampleproduct2.png);
+	--GX-Image_sdpressampleproduct3 : url(../sdpressampleproduct3.png);
+	--GX-Image_sdpressampleproduct4 : url(../sdpressampleproduct4.png);
+	--GX-Image_sdpressampleproduct5 : url(../sdpressampleproduct5.png);
+	--GX-Image_sdpressampleproduct6 : url(../sdpressampleproduct6.png);
+	--GX-Image_sdpressampleproduct7 : url(../sdpressampleproduct7.png);
+	--GX-Image_sdpressampleproduct8 : url(../sdpressampleproduct8.png);
+	--GX-Image_sdpressampleproduct9 : url(../sdpressampleproduct9.png);
+	--GX-Image_sdpressampleproductbanner1 : url(../sdpressampleproductbanner1.png);
+	--GX-Image_sdpressampleproductbanner2 : url(../sdpressampleproductbanner2.png);
+	--GX-Image_sdpressampleproductbanner3 : url(../sdpressampleproductbanner3.png);
+	--GX-Image_sdpressampleproductbanner4 : url(../sdpressampleproductbanner4.png);
+	--GX-Image_sdpressampleproductbanner5 : url(../sdpressampleproductbanner5.png);
+	--GX-Image_SDPResUserAccount : url(../SDPResUserAccount.png);
+	--GX-Image_SDPResUserCustomer : url(../SDPResUserCustomer.png);
+	--GX-Image_SDPResUserCustomerService : url(../SDPResUserCustomerService.png);
+	--GX-Image_SDPResUserLogistics : url(../SDPResUserLogistics.png);
+	--GX-Image_SDPResUserProduct : url(../SDPResUserProduct.png);
+	--GX-Image_SDPResUserSupplier : url(../SDPResUserSupplier.png);
+	--GX-Image_SDPResUserValueAdded : url(../SDPResUserValueAdded.png);
+	--GX-Image_SDPResUserWarehouse : url(../SDPResUserWarehouse.png);
+	--GX-Image_GAMButtonFacebookSmall : url(../GAMButtonFacebookSmall.png);
+	--GX-Image_sdpreshomebusiness : url(../sdpreshomebusiness.png);
+	--GX-Image_sdpreshomecustomer : url(../sdpreshomecustomer.png);
+	--GX-Image_sdpreshomemgmnt : url(../sdpreshomemgmnt.png);
+	--GX-Image_sdpreshomemore : url(../sdpreshomemore.png);
+	--GX-Image_sdpreshomeorders : url(../sdpreshomeorders.png);
+	--GX-Image_sdpreshomeprof : url(../sdpreshomeprof.png);
+	--GX-Image_sdpreshomerethistory : url(../sdpreshomerethistory.png);
+	--GX-Image_sdpreshomereturns : url(../sdpreshomereturns.png);
+	--GX-Image_sdpreshomesales : url(../sdpreshomesales.png);
+	--GX-Image_sdpreshomesaleshistory : url(../sdpreshomesaleshistory.png);
+	--GX-Image_sdpreshomestatoption1 : url(../sdpreshomestatoption1.png);
+	--GX-Image_sdpreshomestatoption2 : url(../sdpreshomestatoption2.png);
+	--GX-Image_sdpreshomestatoption3 : url(../sdpreshomestatoption3.png);
+	--GX-Image_sdpreshomestatoption4 : url(../sdpreshomestatoption4.png);
+	--GX-Image_sdpreshomestatoption5 : url(../sdpreshomestatoption5.png);
+	--GX-Image_sdpreshomestatoption6 : url(../sdpreshomestatoption6.png);
+	--GX-Image_sdpreshomestatoption7 : url(../sdpreshomestatoption7.png);
+	--GX-Image_sdpreshomestatoption8 : url(../sdpreshomestatoption8.png);
+	--GX-Image_sdpreshomestatsmoney : url(../sdpreshomestatsmoney.png);
+	--GX-Image_sdpreshomestatssales : url(../sdpreshomestatssales.png);
+	--GX-Image_SDPResSampleOption1 : url(../SDPResSampleOption1.png);
+	--GX-Image_SDPResSampleOption2 : url(../SDPResSampleOption2.png);
+	--GX-Image_SDPResSampleOption3 : url(../SDPResSampleOption3.png);
+	--GX-Image_SDPResSampleOption4 : url(../SDPResSampleOption4.png);
+	--GX-Image_SDPResSampleOption5 : url(../SDPResSampleOption5.png);
+	--GX-Image_SDPResSampleOption6 : url(../SDPResSampleOption6.png);
+	--GX-Image_SDPResSampleOption7 : url(../SDPResSampleOption7.png);
+	--GX-Image_SDPResSampleOption8 : url(../SDPResSampleOption8.png);
+	--GX-Image_SDPResSampleOption9 : url(../SDPResSampleOption9.png);
+	--GX-Image_SDPResTableOption1 : url(../SDPResTableOption1.png);
+	--GX-Image_SDPResTableOption2 : url(../SDPResTableOption2.png);
+	--GX-Image_SDPResTableOption3 : url(../SDPResTableOption3.png);
+	--GX-Image_SDPResTableOption4 : url(../SDPResTableOption4.png);
+	--GX-Image_SDPResTableOption5 : url(../SDPResTableOption5.png);
+	--GX-Image_SDPResTableOption6 : url(../SDPResTableOption6.png);
+	--GX-Image_SDPResTableOption7 : url(../SDPResTableOption7.png);
+	--GX-Image_SDPResTabOption1 : url(../SDPResTabOption1.png);
+	--GX-Image_SDPResTabOption1act : url(../SDPResTabOption1act.png);
+	--GX-Image_SDPResTabOption2 : url(../SDPResTabOption2.png);
+	--GX-Image_SDPResTabOption2act : url(../SDPResTabOption2act.png);
+	--GX-Image_SDPResTabOption3 : url(../SDPResTabOption3.png);
+	--GX-Image_SDPResTabOption3act : url(../SDPResTabOption3act.png);
+	--GX-Image_SDPResTabOption4 : url(../SDPResTabOption4.png);
+	--GX-Image_SDPResTabOption4act : url(../SDPResTabOption4act.png);
+	--GX-Image_SDPResTabOption5 : url(../SDPResTabOption5.png);
+	--GX-Image_SDPResTabOption5act : url(../SDPResTabOption5act.png);
+	--GX-Image_wwp_nm_sample_fitness_icon : url(../wwp_nm_sample_fitness_icon.png);
+	--GX-Image_sdpressampleappicon3 : url(../sdpressampleappicon3.png);
+	--GX-Image_sdpressampleappicon3_ios : url(../sdpressampleappicon3_ios.jpg);
+	--GX-Image_sdpressampleback8 : url(../sdpressampleback8.png);
+	--GX-Image_yukon_login_screen : url(../yukon_login_screen.png);
+	--GX-Image_yukon_app_logo : url(../yukon_app_logo.png);
+	--GX-Image_yukon_splash_screen : url(../yukon_splash_screen.png);
+	--GX-Image_user_prof_icon : url(../user_prof_icon.png);
+	--GX-Image_yukon_notification_icon : url(../yukon_notification_icon.png);
+	--GX-Image_spinnerOne : url(../spinnerOne.gif);
+	--GX-Image_spinnerThree : url(../spinnerThree.gif);
+	--GX-Image_spinnerTwo : url(../spinnerTwo.gif);
+	--GX-Image_yukon_ios_logo : url(../yukon_ios_logo.png);
+	--GX-Image_Favicon : url(../Favicon.png);
+	--GX-Image_android_app_logo : url(../android_app_logo.png);
+	--GX-Image_ios_app_icon : url(../ios_app_icon.png);
+	--GX-Image_yukon_splash_screen2 : url(../yukon_splash_screen2.png);
+	--GX-Image_new_login_bg : url(../new_login_bg.png);
+	--GX-Image_yukon_get_started_bg : url(../yukon_get_started_bg.png);
+	--GX-Image_yukon_login_logo : url(../yukon_login_logo.png);
+}
+
+.GX_Image_SelectRow_Class{content: var(--GX-Image_SelectRow);}
+.GX_Image_logo_Class{content: var(--GX-Image_logo);}
+.GX_Image_GAM_GAMButtonFacebook_Class{content: var(--GX-Image_GAM_GAMButtonFacebook);}
+.GX_Image_GAM_GAMButtonTwitterSmall_Class{content: var(--GX-Image_GAM_GAMButtonTwitterSmall);}
+.GX_Image_GAM_GAMButtonTwitter_Class{content: var(--GX-Image_GAM_GAMButtonTwitter);}
+.GX_Image_GAM_GAMButtonGoogle_Class{content: var(--GX-Image_GAM_GAMButtonGoogle);}
+.GX_Image_GAM_GAMButtonGoogleSmall_Class{content: var(--GX-Image_GAM_GAMButtonGoogleSmall);}
+.GX_Image_GAM_GAMButtonGAMRemoteSmall_Class{content: var(--GX-Image_GAM_GAMButtonGAMRemoteSmall);}
+.GX_Image_GAM_GAMButtonGAMRemote_Class{content: var(--GX-Image_GAM_GAMButtonGAMRemote);}
+.GX_Image_ActionNewDynamicFilter_Class{content: var(--GX-Image_ActionNewDynamicFilter);}
+.GX_Image_ActionRemoveDynamicFilter_Class{content: var(--GX-Image_ActionRemoveDynamicFilter);}
+.GX_Image_LogoLogin_Class{content: var(--GX-Image_LogoLogin);}
+.GX_Image_StepSelectedUnSelected_Class{content: var(--GX-Image_StepSelectedUnSelected);}
+.GX_Image_StepUnSelectedSelected_Class{content: var(--GX-Image_StepUnSelectedSelected);}
+.GX_Image_WizardCompleted_Class{content: var(--GX-Image_WizardCompleted);}
+.GX_Image_DVelopComboCollapse_Class{content: var(--GX-Image_DVelopComboCollapse);}
+.GX_Image_DVelopComboExpand_Class{content: var(--GX-Image_DVelopComboExpand);}
+.GX_Image_PromptMultipleSelection_Class{content: var(--GX-Image_PromptMultipleSelection);}
+.GX_Image_BackgroundImage_Class{content: var(--GX-Image_BackgroundImage);}
+.GX_Image_LoadingResults_Class{content: var(--GX-Image_LoadingResults);}
+.GX_Image_PanelCardGray_Expand_Class{content: var(--GX-Image_PanelCardGray_Expand);}
+.GX_Image_AttHelpIcon_Class{content: var(--GX-Image_AttHelpIcon);}
+.GX_Image_ErrorIcon_Class{content: var(--GX-Image_ErrorIcon);}
+.GX_Image_WarningIcon_Class{content: var(--GX-Image_WarningIcon);}
+.GX_Image_ActionDisplay_Class{content: var(--GX-Image_ActionDisplay);}
+.GX_Image_Geolocation_Class{content: var(--GX-Image_Geolocation);}
+.GX_Image_PageFirst_Class{content: var(--GX-Image_PageFirst);}
+.GX_Image_PageLast_Class{content: var(--GX-Image_PageLast);}
+.GX_Image_PageNext_Class{content: var(--GX-Image_PageNext);}
+.GX_Image_PagePrevious_Class{content: var(--GX-Image_PagePrevious);}
+.GX_Image_BtnDeleteImage_Class{content: var(--GX-Image_BtnDeleteImage);}
+.GX_Image_BtnDisplayImage_Class{content: var(--GX-Image_BtnDisplayImage);}
+.GX_Image_BtnUpdateImage_Class{content: var(--GX-Image_BtnUpdateImage);}
+.GX_Image_ActionExport_Class{content: var(--GX-Image_ActionExport);}
+.GX_Image_MultimediaClear_Class{content: var(--GX-Image_MultimediaClear);}
+.GX_Image_MultimediaEdit_Class{content: var(--GX-Image_MultimediaEdit);}
+.GX_Image_PlaceHolderVideo_Class{content: var(--GX-Image_PlaceHolderVideo);}
+.GX_Image_PlaceHolderImage_Class{content: var(--GX-Image_PlaceHolderImage);}
+.GX_Image_PlaceHolderAudio_Class{content: var(--GX-Image_PlaceHolderAudio);}
+.GX_Image_VideoDownload_Class{content: var(--GX-Image_VideoDownload);}
+.GX_Image_ActionDelete_Class{content: var(--GX-Image_ActionDelete);}
+.GX_Image_WizardStepChecked_Class{content: var(--GX-Image_WizardStepChecked);}
+.GX_Image_ActionCancel_Class{content: var(--GX-Image_ActionCancel);}
+.GX_Image_HomeModulesBackground1_Class{content: var(--GX-Image_HomeModulesBackground1);}
+.GX_Image_HomeModulesBackground2_Class{content: var(--GX-Image_HomeModulesBackground2);}
+.GX_Image_HomeModulesBackground3_Class{content: var(--GX-Image_HomeModulesBackground3);}
+.GX_Image_HomeModulesBackground4_Class{content: var(--GX-Image_HomeModulesBackground4);}
+.GX_Image_HomeModulesBackground5_Class{content: var(--GX-Image_HomeModulesBackground5);}
+.GX_Image_HomeModulesBackground6_Class{content: var(--GX-Image_HomeModulesBackground6);}
+.GX_Image_ActionUpdate_Class{content: var(--GX-Image_ActionUpdate);}
+.GX_Image_DDODefault_Class{content: var(--GX-Image_DDODefault);}
+.GX_Image_DDOFiltered_Class{content: var(--GX-Image_DDOFiltered);}
+.GX_Image_DDOFilteredSortedASC_Class{content: var(--GX-Image_DDOFilteredSortedASC);}
+.GX_Image_DDOFilteredSortedDSC_Class{content: var(--GX-Image_DDOFilteredSortedDSC);}
+.GX_Image_DDOMultiselOption_Class{content: var(--GX-Image_DDOMultiselOption);}
+.GX_Image_DDOMultiselSelOption_Class{content: var(--GX-Image_DDOMultiselSelOption);}
+.GX_Image_DDOOptionApplyFilter_Class{content: var(--GX-Image_DDOOptionApplyFilter);}
+.GX_Image_DDOOptionCleanFilters_Class{content: var(--GX-Image_DDOOptionCleanFilters);}
+.GX_Image_DDOOptionFilteringData_Class{content: var(--GX-Image_DDOOptionFilteringData);}
+.GX_Image_DDOOptionSortASC_Class{content: var(--GX-Image_DDOOptionSortASC);}
+.GX_Image_DDOOptionSortDSC_Class{content: var(--GX-Image_DDOOptionSortDSC);}
+.GX_Image_DDOSelectedOption_Class{content: var(--GX-Image_DDOSelectedOption);}
+.GX_Image_DDOSortedASC_Class{content: var(--GX-Image_DDOSortedASC);}
+.GX_Image_DDOSortedDSC_Class{content: var(--GX-Image_DDOSortedDSC);}
+.GX_Image_ActionBack_Class{content: var(--GX-Image_ActionBack);}
+.GX_Image_ActionSave_Class{content: var(--GX-Image_ActionSave);}
+.GX_Image_ActionExportReport_Class{content: var(--GX-Image_ActionExportReport);}
+.GX_Image_MoveDown_Class{content: var(--GX-Image_MoveDown);}
+.GX_Image_MoveUp_Class{content: var(--GX-Image_MoveUp);}
+.GX_Image_ActionFiltersSave_Class{content: var(--GX-Image_ActionFiltersSave);}
+.GX_Image_ActionFiltersClean_Class{content: var(--GX-Image_ActionFiltersClean);}
+.GX_Image_ActionManageFilters_Class{content: var(--GX-Image_ActionManageFilters);}
+.GX_Image_ActionManage_Class{content: var(--GX-Image_ActionManage);}
+.GX_Image_ClosePrompt_Class{content: var(--GX-Image_ClosePrompt);}
+.GX_Image_calendar_Class{content: var(--GX-Image_calendar);}
+.GX_Image_DeleteRow_Class{content: var(--GX-Image_DeleteRow);}
+.GX_Image_prompt_Class{content: var(--GX-Image_prompt);}
+.GX_Image_UndeleteRow_Class{content: var(--GX-Image_UndeleteRow);}
+.GX_Image_RequiredTriangle_Class{content: var(--GX-Image_RequiredTriangle);}
+.GX_Image_ActionCopyRecord_Class{content: var(--GX-Image_ActionCopyRecord);}
+.GX_Image_AssociationItemsLeft_Class{content: var(--GX-Image_AssociationItemsLeft);}
+.GX_Image_AssociationItemsRight_Class{content: var(--GX-Image_AssociationItemsRight);}
+.GX_Image_AssociationRight_Class{content: var(--GX-Image_AssociationRight);}
+.GX_Image_AssociationLeft_Class{content: var(--GX-Image_AssociationLeft);}
+.GX_Image_HomeBannerImageSample_Class{content: var(--GX-Image_HomeBannerImageSample);}
+.GX_Image_ActionAdd_Class{content: var(--GX-Image_ActionAdd);}
+.GX_Image_ActionCSV_Class{content: var(--GX-Image_ActionCSV);}
+.GX_Image_NotAuthorizedImage_Class{content: var(--GX-Image_NotAuthorizedImage);}
+.GX_Image_GAMActionMenu_Class{content: var(--GX-Image_GAMActionMenu);}
+.GX_Image_wwp_nm_menubanner_tall_Class{content: var(--GX-Image_wwp_nm_menubanner_tall);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_menubanner_tall_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_menubanner_tall);}
+.GX_Image_wwp_nm_menubanner_Class{content: var(--GX-Image_wwp_nm_menubanner);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_menubanner_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_menubanner);}
+.GX_Image_wwp_nm_login_background_Class{content: var(--GX-Image_wwp_nm_login_background);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_login_background_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_login_background);}
+.GX_Image_wwp_nm_menu_background_Class{content: var(--GX-Image_wwp_nm_menu_background);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_menu_background_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_menu_background);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_cancel_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_cancel);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product1_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product1);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product7_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product7);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product2_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product2);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product3_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product3);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product4_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product4);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product8_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product8);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product5_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product5);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product6_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_product6);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner1_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner1);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner2_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner2);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner3_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner3);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner4_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_banner4);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_activity1_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_activity1);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_activity2_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_activity2);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_activity3_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_data_activity3);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample1_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample1);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample2_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample2);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample3_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample3);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample4_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample4);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample5_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample5);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample6_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample6);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_user_avatar_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_user_avatar);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_prompt_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_prompt);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_bookmarkfalse_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_bookmarkfalse);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_bookmarktrue_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_bookmarktrue);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_cart_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_cart);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_copy_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_copy);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_delete_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_delete);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_edit_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_edit);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_favfalse_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_favfalse);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_favtrue_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_favtrue);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_follow_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_follow);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_following_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_following);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_inbox_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_inbox);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_insert_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_insert);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_refresh_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_refresh);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_save_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_save);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_action_share_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_action_share);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_check_done_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_check_done);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_list_arrow_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_list_arrow);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_loginlock_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_loginlock);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_loginuser_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_loginuser);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_logout_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_logout);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_map_pin_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_map_pin);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample_stats_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample_stats);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample7_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample7);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample8_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample8);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample9_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_option_sample9);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_red_dot_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_red_dot);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_logo_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_logo);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_sample_logo_white_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_sample_logo_white);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_settings_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_settings);}
+.GX_Image_WorkWithPlus_NativeMobile_wwp_nm_vertical_separator_Class{content: var(--GX-Image_WorkWithPlus_NativeMobile_wwp_nm_vertical_separator);}
+.GX_Image_sdpresbannersample1_Class{content: var(--GX-Image_sdpresbannersample1);}
+.GX_Image_sdpresbannersample2_Class{content: var(--GX-Image_sdpresbannersample2);}
+.GX_Image_sdpresbannersample3_Class{content: var(--GX-Image_sdpresbannersample3);}
+.GX_Image_sdpresbannersample4_Class{content: var(--GX-Image_sdpresbannersample4);}
+.GX_Image_sdpressampleactivity1_Class{content: var(--GX-Image_sdpressampleactivity1);}
+.GX_Image_sdpressampleactivity2_Class{content: var(--GX-Image_sdpressampleactivity2);}
+.GX_Image_sdpressampleactivity3_Class{content: var(--GX-Image_sdpressampleactivity3);}
+.GX_Image_sdpressamplebacklogin_Class{content: var(--GX-Image_sdpressamplebacklogin);}
+.GX_Image_sdpressampleproduct1_Class{content: var(--GX-Image_sdpressampleproduct1);}
+.GX_Image_sdpressampleproduct10_Class{content: var(--GX-Image_sdpressampleproduct10);}
+.GX_Image_sdpressampleproduct2_Class{content: var(--GX-Image_sdpressampleproduct2);}
+.GX_Image_sdpressampleproduct3_Class{content: var(--GX-Image_sdpressampleproduct3);}
+.GX_Image_sdpressampleproduct4_Class{content: var(--GX-Image_sdpressampleproduct4);}
+.GX_Image_sdpressampleproduct5_Class{content: var(--GX-Image_sdpressampleproduct5);}
+.GX_Image_sdpressampleproduct6_Class{content: var(--GX-Image_sdpressampleproduct6);}
+.GX_Image_sdpressampleproduct7_Class{content: var(--GX-Image_sdpressampleproduct7);}
+.GX_Image_sdpressampleproduct8_Class{content: var(--GX-Image_sdpressampleproduct8);}
+.GX_Image_sdpressampleproduct9_Class{content: var(--GX-Image_sdpressampleproduct9);}
+.GX_Image_sdpressampleproductbanner1_Class{content: var(--GX-Image_sdpressampleproductbanner1);}
+.GX_Image_sdpressampleproductbanner2_Class{content: var(--GX-Image_sdpressampleproductbanner2);}
+.GX_Image_sdpressampleproductbanner3_Class{content: var(--GX-Image_sdpressampleproductbanner3);}
+.GX_Image_sdpressampleproductbanner4_Class{content: var(--GX-Image_sdpressampleproductbanner4);}
+.GX_Image_sdpressampleproductbanner5_Class{content: var(--GX-Image_sdpressampleproductbanner5);}
+.GX_Image_SDPResUserAccount_Class{content: var(--GX-Image_SDPResUserAccount);}
+.GX_Image_SDPResUserCustomer_Class{content: var(--GX-Image_SDPResUserCustomer);}
+.GX_Image_SDPResUserCustomerService_Class{content: var(--GX-Image_SDPResUserCustomerService);}
+.GX_Image_SDPResUserLogistics_Class{content: var(--GX-Image_SDPResUserLogistics);}
+.GX_Image_SDPResUserProduct_Class{content: var(--GX-Image_SDPResUserProduct);}
+.GX_Image_SDPResUserSupplier_Class{content: var(--GX-Image_SDPResUserSupplier);}
+.GX_Image_SDPResUserValueAdded_Class{content: var(--GX-Image_SDPResUserValueAdded);}
+.GX_Image_SDPResUserWarehouse_Class{content: var(--GX-Image_SDPResUserWarehouse);}
+.GX_Image_GAMButtonFacebookSmall_Class{content: var(--GX-Image_GAMButtonFacebookSmall);}
+.GX_Image_sdpreshomebusiness_Class{content: var(--GX-Image_sdpreshomebusiness);}
+.GX_Image_sdpreshomecustomer_Class{content: var(--GX-Image_sdpreshomecustomer);}
+.GX_Image_sdpreshomemgmnt_Class{content: var(--GX-Image_sdpreshomemgmnt);}
+.GX_Image_sdpreshomemore_Class{content: var(--GX-Image_sdpreshomemore);}
+.GX_Image_sdpreshomeorders_Class{content: var(--GX-Image_sdpreshomeorders);}
+.GX_Image_sdpreshomeprof_Class{content: var(--GX-Image_sdpreshomeprof);}
+.GX_Image_sdpreshomerethistory_Class{content: var(--GX-Image_sdpreshomerethistory);}
+.GX_Image_sdpreshomereturns_Class{content: var(--GX-Image_sdpreshomereturns);}
+.GX_Image_sdpreshomesales_Class{content: var(--GX-Image_sdpreshomesales);}
+.GX_Image_sdpreshomesaleshistory_Class{content: var(--GX-Image_sdpreshomesaleshistory);}
+.GX_Image_sdpreshomestatoption1_Class{content: var(--GX-Image_sdpreshomestatoption1);}
+.GX_Image_sdpreshomestatoption2_Class{content: var(--GX-Image_sdpreshomestatoption2);}
+.GX_Image_sdpreshomestatoption3_Class{content: var(--GX-Image_sdpreshomestatoption3);}
+.GX_Image_sdpreshomestatoption4_Class{content: var(--GX-Image_sdpreshomestatoption4);}
+.GX_Image_sdpreshomestatoption5_Class{content: var(--GX-Image_sdpreshomestatoption5);}
+.GX_Image_sdpreshomestatoption6_Class{content: var(--GX-Image_sdpreshomestatoption6);}
+.GX_Image_sdpreshomestatoption7_Class{content: var(--GX-Image_sdpreshomestatoption7);}
+.GX_Image_sdpreshomestatoption8_Class{content: var(--GX-Image_sdpreshomestatoption8);}
+.GX_Image_sdpreshomestatsmoney_Class{content: var(--GX-Image_sdpreshomestatsmoney);}
+.GX_Image_sdpreshomestatssales_Class{content: var(--GX-Image_sdpreshomestatssales);}
+.GX_Image_SDPResSampleOption1_Class{content: var(--GX-Image_SDPResSampleOption1);}
+.GX_Image_SDPResSampleOption2_Class{content: var(--GX-Image_SDPResSampleOption2);}
+.GX_Image_SDPResSampleOption3_Class{content: var(--GX-Image_SDPResSampleOption3);}
+.GX_Image_SDPResSampleOption4_Class{content: var(--GX-Image_SDPResSampleOption4);}
+.GX_Image_SDPResSampleOption5_Class{content: var(--GX-Image_SDPResSampleOption5);}
+.GX_Image_SDPResSampleOption6_Class{content: var(--GX-Image_SDPResSampleOption6);}
+.GX_Image_SDPResSampleOption7_Class{content: var(--GX-Image_SDPResSampleOption7);}
+.GX_Image_SDPResSampleOption8_Class{content: var(--GX-Image_SDPResSampleOption8);}
+.GX_Image_SDPResSampleOption9_Class{content: var(--GX-Image_SDPResSampleOption9);}
+.GX_Image_SDPResTableOption1_Class{content: var(--GX-Image_SDPResTableOption1);}
+.GX_Image_SDPResTableOption2_Class{content: var(--GX-Image_SDPResTableOption2);}
+.GX_Image_SDPResTableOption3_Class{content: var(--GX-Image_SDPResTableOption3);}
+.GX_Image_SDPResTableOption4_Class{content: var(--GX-Image_SDPResTableOption4);}
+.GX_Image_SDPResTableOption5_Class{content: var(--GX-Image_SDPResTableOption5);}
+.GX_Image_SDPResTableOption6_Class{content: var(--GX-Image_SDPResTableOption6);}
+.GX_Image_SDPResTableOption7_Class{content: var(--GX-Image_SDPResTableOption7);}
+.GX_Image_SDPResTabOption1_Class{content: var(--GX-Image_SDPResTabOption1);}
+.GX_Image_SDPResTabOption1act_Class{content: var(--GX-Image_SDPResTabOption1act);}
+.GX_Image_SDPResTabOption2_Class{content: var(--GX-Image_SDPResTabOption2);}
+.GX_Image_SDPResTabOption2act_Class{content: var(--GX-Image_SDPResTabOption2act);}
+.GX_Image_SDPResTabOption3_Class{content: var(--GX-Image_SDPResTabOption3);}
+.GX_Image_SDPResTabOption3act_Class{content: var(--GX-Image_SDPResTabOption3act);}
+.GX_Image_SDPResTabOption4_Class{content: var(--GX-Image_SDPResTabOption4);}
+.GX_Image_SDPResTabOption4act_Class{content: var(--GX-Image_SDPResTabOption4act);}
+.GX_Image_SDPResTabOption5_Class{content: var(--GX-Image_SDPResTabOption5);}
+.GX_Image_SDPResTabOption5act_Class{content: var(--GX-Image_SDPResTabOption5act);}
+.GX_Image_wwp_nm_sample_fitness_icon_Class{content: var(--GX-Image_wwp_nm_sample_fitness_icon);}
+.GX_Image_sdpressampleappicon3_Class{content: var(--GX-Image_sdpressampleappicon3);}
+.GX_Image_sdpressampleappicon3_ios_Class{content: var(--GX-Image_sdpressampleappicon3_ios);}
+.GX_Image_sdpressampleback8_Class{content: var(--GX-Image_sdpressampleback8);}
+.GX_Image_yukon_login_screen_Class{content: var(--GX-Image_yukon_login_screen);}
+.GX_Image_yukon_app_logo_Class{content: var(--GX-Image_yukon_app_logo);}
+.GX_Image_yukon_splash_screen_Class{content: var(--GX-Image_yukon_splash_screen);}
+.GX_Image_user_prof_icon_Class{content: var(--GX-Image_user_prof_icon);}
+.GX_Image_yukon_notification_icon_Class{content: var(--GX-Image_yukon_notification_icon);}
+.GX_Image_spinnerOne_Class{content: var(--GX-Image_spinnerOne);}
+.GX_Image_spinnerThree_Class{content: var(--GX-Image_spinnerThree);}
+.GX_Image_spinnerTwo_Class{content: var(--GX-Image_spinnerTwo);}
+.GX_Image_yukon_ios_logo_Class{content: var(--GX-Image_yukon_ios_logo);}
+.GX_Image_Favicon_Class{content: var(--GX-Image_Favicon);}
+.GX_Image_android_app_logo_Class{content: var(--GX-Image_android_app_logo);}
+.GX_Image_ios_app_icon_Class{content: var(--GX-Image_ios_app_icon);}
+.GX_Image_yukon_splash_screen2_Class{content: var(--GX-Image_yukon_splash_screen2);}
+.GX_Image_new_login_bg_Class{content: var(--GX-Image_new_login_bg);}
+.GX_Image_yukon_get_started_bg_Class{content: var(--GX-Image_yukon_get_started_bg);}
+.GX_Image_yukon_login_logo_Class{content: var(--GX-Image_yukon_login_logo);}
+}

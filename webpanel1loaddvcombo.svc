@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.webpanel1loaddvcombo,webpanel1loaddvcombo" %>

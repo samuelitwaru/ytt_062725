@@ -1,0 +1,30 @@
+swagger: '2.0'
+info:
+  title: "sdsvc_UpdateLeaveRequest_Level_Detail"
+  description: "sdsvc_UpdateLeaveRequest_Level_Detail"
+  version: "20250626045740"
+host: localhost:8082
+schemes:
+  - http
+basePath: /YTT_version4NETPostgreSQL14/
+produces:
+  - application/json
+paths:
+  /sdsvc_UpdateLeaveRequest_Level_Detail/Leavetypeid:
+    get:
+      tags:
+        - sdsvc_UpdateLeaveRequest_Level_Detail  
+      operationId: "sdsvc_UpdateLeaveRequest_Level_Detail.Leavetypeid"
+      summary: "Leavetypeid"
+      
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            type: "string"
+
+        404:
+          description: "Not found"
+
+definitions:
+  

@@ -1,0 +1,45 @@
+{
+	"Name": "UC_SetWeekTableHeaders",
+	"Target": "",
+	"IsControlType": false,
+	 "Template": "", 
+	"Events": [
+	],
+	"Properties": [
+		{
+			"Id": "fromDate",
+			"Name": "fromDate",
+			"Type": "string",
+			"Default": ""
+		} ,
+		{
+			"Id": "toDate",
+			"Name": "toDate",
+			"Type": "string",
+			"Default": ""
+		} 
+	],
+	"Methods": {
+		"Public": [
+		],
+		"Private": [
+		]
+	},
+	"Scripts": {
+		"AfterShow": [
+			{
+				"Name": "Start",
+				"Source": "		try {			this.formatDate = function (date) {				const options = { weekday: \'short\' }; // e.g., Mon, Tue				const weekday = date.toLocaleDateString(\'en-US\', options);				const day = String(date.getDate()).padStart(2, \'0\'); // Zero-padded day				return `${weekday} ${day}`;			}					const UC = this			const headers = document.querySelectorAll(\"#GridContainerTbl th.WeekDay span\");						let count = 0;						const fromDate = new Date(this.fromDate);			const toDate = new Date(this.toDate);			while (fromDate <= toDate) {				const html = this.formatDate(fromDate);				headers[count].innerHTML = html;				fromDate.setDate(fromDate.getDate() + 1);				count += 1;			}		} catch (e){			console.error(e)		}			",
+				"AngularLocation": ""
+			} 
+		],
+		"BeforeShow": [
+		]
+	},
+	"Dependencies": [
+	],
+	"Imports": [
+	],
+	"Styles": [
+	]
+}

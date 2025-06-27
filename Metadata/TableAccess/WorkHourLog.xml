@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dependencies type="guid" guid="a10fe8e8-6bde-4a27-afb2-8448005a06e5">
+  <Table name="Project" />
+  <Table name="Employee" />
+  <Table name="EmployeeProject" />
+  <Table name="WorkHourLog" />
+</Dependencies>

@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CallableObject guid="e079510a-1d91-4ce0-b9f2-162e5a5bbec0" name="DPDateFormat" description="DPDate Format" namespace="GeneXus.Programs">
+  <Signature name="Par">
+    <Parameter name="EmployeeId">
+      <Field>
+        <Properties>
+          <Property>
+            <Name>Type</Name>
+            <Value>Numeric</Value>
+          </Property>
+          <Property>
+            <Name>Length</Name>
+            <Value>10</Value>
+          </Property>
+        </Properties>
+      </Field>
+    </Parameter>
+    <Parameter name="Date">
+      <Field>
+        <Properties>
+          <Property>
+            <Name>Type</Name>
+            <Value>Date</Value>
+          </Property>
+          <Property>
+            <Name>Length</Name>
+            <Value>8</Value>
+          </Property>
+        </Properties>
+      </Field>
+    </Parameter>
+    <Parameter name="ReturnValue" accessor="out">
+      <Field name="WWPDateRangePickerOptions" description="WWPDate Range Picker Options">
+        <Fields>
+          <Field name="PickerType" description="Picker type: Custom Range Picker, Predefined Range Picker or Sigle Date Time Picker">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>Character</Value>
+              </Property>
+              <Property>
+                <Name>Length</Name>
+                <Value>20</Value>
+              </Property>
+            </Properties>
+          </Field>
+          <Field name="MinDate" description="The earliest date a user may select.">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>DateTime</Value>
+              </Property>
+              <Property>
+                <Name>Length</Name>
+                <Value>8</Value>
+              </Property>
+              <Property>
+                <Name>Decimals</Name>
+                <Value>5</Value>
+              </Property>
+              <Property>
+                <Name>Picture</Name>
+                <Value>99/99/99 99:99</Value>
+              </Property>
+            </Properties>
+          </Field>
+          <Field name="MaxDate" description="The latest date a user may select">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>DateTime</Value>
+              </Property>
+              <Property>
+                <Name>Length</Name>
+                <Value>8</Value>
+              </Property>
+              <Property>
+                <Name>Decimals</Name>
+                <Value>5</Value>
+              </Property>
+              <Property>
+                <Name>Picture</Name>
+                <Value>99/99/99 99:99</Value>
+              </Property>
+            </Properties>
+          </Field>
+          <Field name="Locale" description="Language and Format settings">
+            <Fields>
+              <Field name="Id" description="Locale name. Will be fetched from shared/locale folder. Ex: Spanish, English">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>20</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Format" description="DateTime Format: ej: MM/DD/YYYY (overrides locale settings)">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>20</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+          <Field name="DatePicker" description="Date Picker">
+            <Fields>
+              <Field name="Show" description="Show Date Picker">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="ShowDropdowns" description="Show year and month select boxes above calendars to jump to a specific month and year.">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="MinYear" description="The minimum year shown in the dropdowns when showDropdowns is set to true.">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Numeric</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>8</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>ZZZZZZZ9</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="MaxYear" description="The maximum year shown in the dropdowns when showDropdowns is set to true.">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Numeric</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>8</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>ZZZZZZZ9</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="ShowWeekNumbers" description="Show localized week numbers at the start of each week on the calendars.">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="LinkedCalendars" description="When enabled, the two calendars displayed will always be for two sequential months (i.e. January and February), and both will be advanced when clicking the left or right arrows above the calendars. When disabled, the two calendars can be individually advan">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+          <Field name="TimePicker" description="Timer Picker related configuration">
+            <Fields>
+              <Field name="Show" description="Show Time Picker">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Increment" description="Increment of the minutes selection list for times (i.e. 30 to allow only selection of times ending in 0 or 30).">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Numeric</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>8</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>ZZZZZZZ9</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Hour24" description="Use 24-hour instead of 12-hour times, removing the AM/PM selection.">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="ShowSeconds" description="Show seconds in the timePicker.">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+          <Field name="Ranges" description="Custom Ranges for DatePicker" collection="true">
+            <Fields>
+              <Field name="DisplayName" description="Display Name">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>20</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="StartDate" description="Start Date for Range">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>DateTime</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>8</Value>
+                  </Property>
+                  <Property>
+                    <Name>Decimals</Name>
+                    <Value>5</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>99/99/99 99:99</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="EndDate" description="End Date for Range">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>DateTime</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>8</Value>
+                  </Property>
+                  <Property>
+                    <Name>Decimals</Name>
+                    <Value>5</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>99/99/99 99:99</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+          <Field name="ShowCustomRangeLabel" description="Displays &quot;Custom Range&quot; at the end of the list of predefined ranges, when the ranges option is used. This option will be highlighted whenever the current date range selection does not match one of the predefined ranges. Clicking it will display the calenda">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>Boolean</Value>
+              </Property>
+            </Properties>
+          </Field>
+          <Field name="Advanced" description="Advanced">
+            <Fields>
+              <Field name="OpenLocation" description="Whether the picker appears aligned to the left, to the right, or centered under the HTML element it's attached to.">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>20</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="AutoApply" description="Hide the apply and cancel buttons, and automatically apply a new date range as soon as two dates are clicked">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="AutoUpdateInput" description="Indicates whether the date range picker should automatically update the value of the &lt;input&gt; element it's attached to at initialization and when the selected dates change.">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+          <Field name="FormattedDays" description="Specify specific dates to format and/or disable" collection="true">
+            <Fields>
+              <Field name="Date" description="Date">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>DateTime</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>8</Value>
+                  </Property>
+                  <Property>
+                    <Name>Decimals</Name>
+                    <Value>5</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>99/99/99 99:99</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Disabled" description="Disabled">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Class" description="Class">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>VarChar</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>40</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Tooltip" description="Tooltip">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>VarChar</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>40</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+        </Fields>
+      </Field>
+    </Parameter>
+  </Signature>
+</CallableObject>

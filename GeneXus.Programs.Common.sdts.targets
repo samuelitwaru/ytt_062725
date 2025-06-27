@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<ItemGroup>
+</ItemGroup>
+
+<ItemGroup>
+ 	<Compile Include="$(WebDirectory)\type_SdtColorSDTCollection_ColorSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtEmployeeListSDT_EmployeeListSDTItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxMap.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxMap_Circle.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxMap_Point.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxMap_Polygon.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxMap_Polygon_Path.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxMap_Line.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxMap_Line_Point.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtGxMap_RoutePoint.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtLocationHoliDayUpdateSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtLocationHoliDayUpdateSDT_itemsItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtLocationHoliDayUpdateSDT_itemsItem_creator.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtLocationHoliDayUpdateSDT_itemsItem_organizer.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtLocationHoliDayUpdateSDT_itemsItem_start.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtLocationHoliDayUpdateSDT_itemsItem_end.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtLocationHoliDayUpdateSDT_itemsItem_extendedProperties.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtLocationHoliDayUpdateSDT_itemsItem_extendedProperties_private.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtRoleSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSchedulerEvents.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSchedulerEvents_event.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSchedulerEvents_Day.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployee.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployee_ProjectItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeHours_SDTEmployeeHoursItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeLeaveDay.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeLeaveDetails.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeLeaveDetails_LeaveRequestItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeLeaveDetails_LeaveTypeItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeLeaveDetails_LeaveTypeItem_LeaveRequestItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeProject_SDTEmployeeProjectItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeToLogHours_SDTEmployeeToLogHoursItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeWeekReport.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeWorkHourLogs.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTEmployeeWorkHourLogs_WorkHourLogItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTLeaveEvent.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTLeaveEventGroup.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTLeaveReport.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTLeaveReport_PeriodCollectionItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTLeaveType.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTPage.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTProject.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTWorkHourLog_SDTWorkHourLogItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTWorkHourLogReport.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDTWorkHourLogReport_WeekCollectionItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDT_EmployeeBalanceAction.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDT_EmployeeProjectMatrix.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDT_EmployeeProjectMatrix_ProjectsItem.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDT_ErrorResponse.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDT_HolidayEvent.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtSDT_Project.cs" />
+ 	<Compile Include="$(WebDirectory)\type_SdtWorkLogsSDT.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIChatCompletionRequest.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIChatCompletionRequest_functionsItem.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIChatCompletionRequest_functionsItem_parameters.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIChatCompletionRequest_functionsItem_parameters_properties.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIChatCompletionRequest_messagesItem.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIChatCompletionResponse.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIChatCompletionResponse_choicesItem.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIChatCompletionResponse_choicesItem_message.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIChatCompletionResponse_choicesItem_message_function_call.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIChatCompletionResponse_usage.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIListData.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIListData_ListQuery.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIListData_ListQuery_FiltersToFixItem.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIListData_RedirectToList.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AIListData_Examples.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AINLQueryResponse.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AINLQueryResponse_Sort.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\ai\type_SdtWWP_AINLQueryResponse_FilterValue.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\nativemobile\type_SdtChartData.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\nativemobile\type_SdtDoubleItemListData_DoubleItemListDataItem.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\nativemobile\type_SdtLaunchpadOptions_Option.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\nativemobile\type_SdtMenuOptions_MenuOptionsItem.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\nativemobile\type_SdtRangedRadialGaugeConfig.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\nativemobile\type_SdtWWPCalendarEntry.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\nativemobile\type_SdtWWPCalendarInfo.cs" />
+ 	<Compile Include="$(WebDirectory)\workwithplus\nativemobile\type_SdtWWPProductData.cs" />
+ 	<Compile Include="$(WebDirectory)\wwpbaseobjects\type_SdtGoogleDocsResult.cs" />
+ 	<Compile Include="$(WebDirectory)\wwpbaseobjects\type_SdtGoogleDocsResult_Doc.cs" />
+ 	<Compile Include="$(WebDirectory)\wwpbaseobjects\notifications\common\type_SdtWWP_SDTNotificationMetadata.cs" />
+ 	<Compile Include="$(WebDirectory)\wwpbaseobjects\notifications\common\type_SdtWWP_SDTNotificationsData_WWP_SDTNotificationsDataItem.cs" />
+ 	<Compile Include="$(WebDirectory)\wwpbaseobjects\type_SdtWWPContext.cs" />
+
+</ItemGroup>
+
+</Project>

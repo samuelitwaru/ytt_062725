@@ -1,0 +1,74 @@
+{ 
+    "Resources" : [ { 
+        "IsDefault" : true,
+        "ResourceFile" : "Images_DEFAULT.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "GeneXusUnanimo.UnanimoWeb",
+        "ResourceFile" : "Images_English_GeneXusUnanimo_UnanimoWeb.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "GeneXusUnanimo.Unanimo",
+        "ResourceFile" : "Images_English_GeneXusUnanimo_Unanimo.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "GeneXusUnanimo.UnanimoControls",
+        "ResourceFile" : "Images_English_GeneXusUnanimo_UnanimoControls.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "GeneXusUnanimo.UnanimoMobile",
+        "ResourceFile" : "Images_English_GeneXusUnanimo_UnanimoMobile.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "GeneXusUnanimo.UnanimoAngular",
+        "ResourceFile" : "Images_English_GeneXusUnanimo_UnanimoAngular.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "YTTV3",
+        "ResourceFile" : "Images_English_YTTV3.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "WorkWithPlusDS",
+        "ResourceFile" : "Images_English_WorkWithPlusDS.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "WWPBaseObjects.WorkWithPlusBaseDS",
+        "ResourceFile" : "Images_English_WWPBaseObjects_WorkWithPlusBaseDS.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "WorkWithPlus.NativeMobile.WorkWithPlusDSNative",
+        "ResourceFile" : "Images_English_WorkWithPlus_NativeMobile_WorkWithPlusDSNative.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "WorkWithPlus.NativeMobile.WorkWithPlusPredefinedStyles",
+        "ResourceFile" : "Images_English_WorkWithPlus_NativeMobile_WorkWithPlusPredefinedStyles.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "WorkWithPlus.NativeMobile.WorkWithPlusDSFontIcons",
+        "ResourceFile" : "Images_English_WorkWithPlus_NativeMobile_WorkWithPlusDSFontIcons.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "YTTV3SD_DSAnyPlatform",
+        "ResourceFile" : "Images_English_YTTV3SD_DSAnyPlatform.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "YTTV3SD_DSAndroid",
+        "ResourceFile" : "Images_English_YTTV3SD_DSAndroid.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "YTTV3SD_DSApple",
+        "ResourceFile" : "Images_English_YTTV3SD_DSApple.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "GeneXusReporting.DashboardViewerWeb",
+        "ResourceFile" : "Images_English_GeneXusReporting_DashboardViewerWeb.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "GeneXusReporting.QueryViewerWeb",
+        "ResourceFile" : "Images_English_GeneXusReporting_QueryViewerWeb.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "GeneXusReporting.QueryViewer",
+        "ResourceFile" : "Images_English_GeneXusReporting_QueryViewer.json"
+    } ]
+}

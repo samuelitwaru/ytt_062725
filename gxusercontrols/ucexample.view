@@ -1,0 +1,9 @@
+<div>
+	<button  data-event="Click" >Button 1</button>
+	<button  data-event="Click2" >Button 2</button>
+	
+	<div class="extra content">
+       <a> <i class="user icon"></i> {{gxTpr_ExtraContent}}{{ExtraContent}} </a> 
+       <div data-slot="extraContent" data-parent="{{ContainerName}}"></div>
+   </div> 
+</div>

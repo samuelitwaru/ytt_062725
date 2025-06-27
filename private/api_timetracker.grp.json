@@ -1,0 +1,16 @@
+{
+"ObjectType":"ServiceGroup",
+"Name":"API_TimeTracker",
+"BasePath":"api",
+"Mappings":
+[
+{
+"Verb":"POST",
+"PathRegexp":"export-ics-leaves",
+"Path":"export-ics-leaves",
+"Name":"api_icsleaveapi",
+"Bodystyle":"Wrapped",
+"VariableAlias": [],
+"ServiceMethod":"gxep_api_icsleaveapi",
+"Implementation":"Prc_ICSLeaveAPI"
+}]}

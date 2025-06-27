@@ -1,0 +1,6 @@
+<div style='display:none;'>
+	{{gxTpr_events}}{{events}}
+</div>
+
+<div id='calendar'></div>
+

@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.leavetype_bc,leavetype_bc" %>

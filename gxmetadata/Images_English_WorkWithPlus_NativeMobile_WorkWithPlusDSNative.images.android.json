@@ -1,0 +1,461 @@
+{ 
+    "ResourcesLocation" : "Resources",
+    "Language" : "English",
+    "Theme" : "WorkWithPlus.NativeMobile.WorkWithPlusDSNative",
+    "Images" : [ { 
+        "Name" : "logo",
+        "Type" : "I",
+        "Guid" : "4b7c8d3b-9d59-4d39-b71d-3e57f0096512",
+        "Location" : "logo.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "GAM.GAMButtonGAMRemoteSmall",
+        "Type" : "I",
+        "Guid" : "6cdd3e18-cc5b-44e0-bd22-3efaf48a6c40",
+        "Location" : "GAM.GAMButtonGAMRemoteSmall.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "LogoLogin",
+        "Type" : "I",
+        "Guid" : "e9edf59f-db45-4e16-b6a6-2c2b6611a4a3",
+        "Location" : "LogoLogin.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "BackgroundImage",
+        "Type" : "I",
+        "Guid" : "d35b0751-c891-4630-a4fa-dbae97994509",
+        "Location" : "BackgroundImage.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "LoadingResults",
+        "Type" : "I",
+        "Guid" : "d5b04b36-95ad-4b56-adb5-905e950f2966",
+        "Location" : "LoadingResults.gif",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "PanelCardGray_Expand",
+        "Type" : "I",
+        "Guid" : "7379fd0b-68ee-4027-a3ce-187f263a77dd",
+        "Location" : "PanelCardGray_Expand.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "ErrorIcon",
+        "Type" : "I",
+        "Guid" : "b63f5646-3a80-45fa-b28f-1940d496304c",
+        "Location" : "ErrorIcon.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WarningIcon",
+        "Type" : "I",
+        "Guid" : "4041cec4-85fe-4bd8-aaa2-a8a2026c306c",
+        "Location" : "WarningIcon.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "PageFirst",
+        "Type" : "I",
+        "Guid" : "90274dae-49c6-47ae-98c4-7a8f5eb82c12",
+        "Location" : "PageFirst.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "PageLast",
+        "Type" : "I",
+        "Guid" : "eb16c005-5a7d-48a8-a16c-d7dcc1909b6e",
+        "Location" : "PageLast.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "PageNext",
+        "Type" : "I",
+        "Guid" : "ffebe689-f176-4a2f-914b-2ea1a59db803",
+        "Location" : "PageNext.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "PagePrevious",
+        "Type" : "I",
+        "Guid" : "cdf36de9-aae4-40c2-928b-5dd2f7589dc9",
+        "Location" : "PagePrevious.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "ActionExport",
+        "Type" : "I",
+        "Guid" : "da69a816-fd11-445b-8aaf-1a2f7f1acc93",
+        "Location" : "ActionExport.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "VideoDownload",
+        "Type" : "I",
+        "Guid" : "0c21d616-7754-482e-8fdd-db45c4cf1655",
+        "Location" : "VideoDownload.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "ActionDelete",
+        "Type" : "I",
+        "Guid" : "7695fe89-52c9-4b7e-871e-0e11548f823e",
+        "Location" : "ActionDelete.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WizardStepChecked",
+        "Type" : "I",
+        "Guid" : "865df215-b0dc-43d2-9da0-5b72cef9880a",
+        "Location" : "WizardStepChecked.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "ActionCancel",
+        "Type" : "I",
+        "Guid" : "f454b006-8fb2-471d-b379-a84a77f89118",
+        "Location" : "ActionCancel.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "DDOSortedASC",
+        "Type" : "I",
+        "Guid" : "b9f89e2f-f9e1-4533-b84e-c591709915f9",
+        "Location" : "DDOSortedASC.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "DDOSortedDSC",
+        "Type" : "I",
+        "Guid" : "c9603047-0d43-4b43-98f8-9206148120d4",
+        "Location" : "DDOSortedDSC.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "ClosePrompt",
+        "Type" : "I",
+        "Guid" : "10b4b52b-f115-45cb-bb07-61218258d20b",
+        "Location" : "ClosePrompt.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "prompt",
+        "Type" : "I",
+        "Guid" : "f5b04895-0024-488b-8e3b-b687ca4598ee",
+        "Location" : "prompt.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "NotAuthorizedImage",
+        "Type" : "I",
+        "Guid" : "e6fdc3e4-4823-4a14-9675-9bdbf65409eb",
+        "Location" : "NotAuthorizedImage.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "wwp_nm_menubanner_tall",
+        "Type" : "I",
+        "Guid" : "803573e2-803d-475d-9386-dc037e0fb2ac",
+        "Location" : "wwp_nm_menubanner_tall.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_menubanner_tall",
+        "Type" : "I",
+        "Guid" : "c04be984-ddeb-430b-890f-b3232d38613b",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_menubanner_tall.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "wwp_nm_menubanner",
+        "Type" : "I",
+        "Guid" : "7582f3e0-a2d0-4065-ac9e-b87699829a67",
+        "Location" : "wwp_nm_menubanner.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_menubanner",
+        "Type" : "I",
+        "Guid" : "cb693319-3e16-4063-bad4-27c7601bf564",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_menubanner.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_login_background",
+        "Type" : "I",
+        "Guid" : "55742074-ae8d-4214-8c90-83b284f463b5",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_login_background.jpg",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "wwp_nm_menu_background",
+        "Type" : "I",
+        "Guid" : "e1374a5b-fea5-4f2a-bcc0-c95e1d5d3867",
+        "Location" : "wwp_nm_menu_background.jpg",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_menu_background",
+        "Type" : "I",
+        "Guid" : "03d3760e-a1ba-45fd-8509-de0f3c3e344f",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_menu_background.jpg",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
+        "Type" : "I",
+        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
+        "Type" : "I",
+        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-0_75x.png",
+        "Density" : 0.75,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
+        "Type" : "I",
+        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-1x.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
+        "Type" : "I",
+        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-1_5x.png",
+        "Density" : 1.5,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
+        "Type" : "I",
+        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-2x.png",
+        "Density" : 2,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
+        "Type" : "I",
+        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-3x.png",
+        "Density" : 3,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
+        "Type" : "I",
+        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-4x.png",
+        "Density" : 4,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar",
+        "Type" : "I",
+        "Guid" : "9b60406f-2e43-467c-92b6-b2d04aad0f71",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar",
+        "Type" : "I",
+        "Guid" : "9b60406f-2e43-467c-92b6-b2d04aad0f71",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar-0_75x.png",
+        "Density" : 0.75,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar",
+        "Type" : "I",
+        "Guid" : "9b60406f-2e43-467c-92b6-b2d04aad0f71",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar-1_5x.png",
+        "Density" : 1.5,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar",
+        "Type" : "I",
+        "Guid" : "9b60406f-2e43-467c-92b6-b2d04aad0f71",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar-2x.png",
+        "Density" : 2,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar",
+        "Type" : "I",
+        "Guid" : "9b60406f-2e43-467c-92b6-b2d04aad0f71",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar-3x.png",
+        "Density" : 3,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar",
+        "Type" : "I",
+        "Guid" : "9b60406f-2e43-467c-92b6-b2d04aad0f71",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar-4x.png",
+        "Density" : 4,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue",
+        "Type" : "I",
+        "Guid" : "9266f92c-633a-4208-b165-217577bb6f52",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue",
+        "Type" : "I",
+        "Guid" : "9266f92c-633a-4208-b165-217577bb6f52",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue-1_5x.png",
+        "Density" : 1.5,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue",
+        "Type" : "I",
+        "Guid" : "9266f92c-633a-4208-b165-217577bb6f52",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue-2x.png",
+        "Density" : 2,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue",
+        "Type" : "I",
+        "Guid" : "9266f92c-633a-4208-b165-217577bb6f52",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue-3x.png",
+        "Density" : 3,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue",
+        "Type" : "I",
+        "Guid" : "9266f92c-633a-4208-b165-217577bb6f52",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_bookmarktrue-4x.png",
+        "Density" : 4,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_share",
+        "Type" : "I",
+        "Guid" : "92fb2ccd-36a7-4ad4-82df-1273212bb6d9",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_share.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_share",
+        "Type" : "I",
+        "Guid" : "92fb2ccd-36a7-4ad4-82df-1273212bb6d9",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_share-4x.png",
+        "Density" : 4,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_share",
+        "Type" : "I",
+        "Guid" : "92fb2ccd-36a7-4ad4-82df-1273212bb6d9",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_share-3x.png",
+        "Density" : 3,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_share",
+        "Type" : "I",
+        "Guid" : "92fb2ccd-36a7-4ad4-82df-1273212bb6d9",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_share-2x.png",
+        "Density" : 2,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_share",
+        "Type" : "I",
+        "Guid" : "92fb2ccd-36a7-4ad4-82df-1273212bb6d9",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_share-1_5x.png",
+        "Density" : 1.5,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_sample_logo",
+        "Type" : "I",
+        "Guid" : "e173660b-e755-4f94-b754-4620b777278b",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_sample_logo.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_settings",
+        "Type" : "I",
+        "Guid" : "74aa9c74-0ca8-442f-a408-2a6d290cd047",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_settings.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_settings",
+        "Type" : "I",
+        "Guid" : "74aa9c74-0ca8-442f-a408-2a6d290cd047",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_settings-2x.png",
+        "Density" : 2,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_settings",
+        "Type" : "I",
+        "Guid" : "74aa9c74-0ca8-442f-a408-2a6d290cd047",
+        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_settings-3x.png",
+        "Density" : 3,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "yukon_login_screen",
+        "Type" : "I",
+        "Guid" : "87c8ef83-0237-433d-988a-25f086763b39",
+        "Location" : "yukon_login_screen.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "yukon_notification_icon",
+        "Type" : "I",
+        "Guid" : "f350e375-163b-472b-b88a-49cc641f05b9",
+        "Location" : "yukon_notification_icon.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "Favicon",
+        "Type" : "I",
+        "Guid" : "fac54406-4978-42bf-9e0f-abe1151bba87",
+        "Location" : "Favicon.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "android_app_logo",
+        "Type" : "I",
+        "Guid" : "64f45d9c-bb5d-47c6-98fe-ce77e71e7eac",
+        "Location" : "android_app_logo.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "ios_app_icon",
+        "Type" : "I",
+        "Guid" : "b2cac1f7-1b2f-45e0-b2c7-f9077b34a42d",
+        "Location" : "ios_app_icon.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "yukon_splash_screen2",
+        "Type" : "I",
+        "Guid" : "82f85e05-c89c-4418-b196-96a7f9d0a1a9",
+        "Location" : "yukon_splash_screen2.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "new_login_bg",
+        "Type" : "I",
+        "Guid" : "6cf135ad-862d-4296-be0b-02a3bb15f591",
+        "Location" : "new_login_bg.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "yukon_get_started_bg",
+        "Type" : "I",
+        "Guid" : "7b431b2f-c0fd-44dd-a3c5-2809844348e4",
+        "Location" : "yukon_get_started_bg.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    }, { 
+        "Name" : "yukon_login_logo",
+        "Type" : "I",
+        "Guid" : "8043abc0-1e6e-4605-96a6-9babd495e72f",
+        "Location" : "yukon_login_logo.png",
+        "Density" : 1,
+        "FlipsForRTL" : false
+    } ]
+}

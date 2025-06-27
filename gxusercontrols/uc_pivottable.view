@@ -1,0 +1,87 @@
+<style>
+	/* Freeze the last 3 columns */
+	.project-header {
+		padding: 5px; 
+		background:#f5f5f5;
+	}
+	
+	td.freeze, th.freeze {
+		position: sticky;
+		right: 0;
+		background-color: white; 
+		z-index: 2;
+		min-width:80px;
+	}
+	
+	td.freeze-1, th.freeze-1 {
+		right: 0px;
+		margin-right:10px;
+	}
+	
+	td.freeze-2, th.freeze-2 {
+		right: 80px;
+	}
+	
+	td.freeze-3, th.freeze-3 {
+		right: 160px; 
+	}
+</style>
+
+
+
+<div id="print" style="overflow:scroll; scrollbar-width:none; border: 1px solid #dddddd; margin-right:-3px;">
+ 	
+	<table class="my-sticky-column-table">
+		
+		<thead  style="position:sticky; top:0; z-index:5">
+			<tr>
+				<th id='firstHeaderData' class='text-center' style="position:sticky;left:0; background:white;">Projects per employee:</th>
+				<!-- Project Header Cells Go Here -->
+				<th style="background:#f5f5f5;" class="freeze freeze-3 work text-center">Total Work Hours</th>
+				<th style="padding:5px; background:#f5f5f5;" class="freeze freeze-2 leave text-center">Total Leave Hours</th>
+				<th style="padding:5px; background:#f5f5f5;" class="freeze freeze-1 leave text-center">Total</th>
+			</tr>
+		</thead>
+		
+		<tbody style='max-height:100px'>
+			{{#SDT_EmployeeProjectMatrixCollection}}
+			<tr class="GridWithPaginationBar GridNoBorder WorkWithOdd text-center">	
+				<td id="{{gxTpr_EmployeeId}}{{EmployeeId}}" style="font-weight: bold;background:#f5f5f5; position:sticky; left:0; z-index:1" class='text-center'><a class="employee-link" id="link-{{gxTpr_EmployeeId}}{{EmployeeId}}" href="">{{gxTpr_EmployeeName}}{{EmployeeName}}</a></td>
+				
+				<!-- Project Column Cells Go Here -->
+				
+				<td class="freeze freeze-3 work text-center" style="font-weight: bold;background:#f5f5f5;">{{gxTpr_FormattedWorkHours}}{{FormattedWorkHours}}</td>
+				<td class="freeze freeze-2 leave text-center" style="font-weight: bold; background:#f5f5f5;">{{gxTpr_FormattedLeaveHours}}{{FormattedLeaveHours}}</td>
+				<td class="freeze freeze-1 leave" style="font-weight: bold; background:#f5f5f5;">{{gxTpr_FormattedEmployeeHours}}{{FormattedEmployeeHours}}</td>
+				
+			</tr>
+			{{/SDT_EmployeeProjectMatrixCollection}}
+			
+		</tbody>
+		
+		<tfoot>
+			<tr class="GridWithPaginationBar GridNoBorder WorkWithOdd">
+				<td id='project-footer' class="text-center" style="font-weight: bold;background:#fff; position:sticky; left:0; z-index:1">Total</td>
+				<!-- Project Footer Cells Go Here -->
+				<td id='totalWorkHours' class="freeze freeze-3 work text-center" style="bold;background:#f5f5f5;"></td>
+				<td class="freeze freeze-2 leave text-center project-header" style="bold;background:#f5f5f5;"></td>
+				<td class="freeze freeze-1 leave text-center project-header" style="bold;background:#f5f5f5;">{{gxTpr_FormattedOverallTotalHours}}{{FormattedOverallTotalHours}}</td>
+			</tr>
+		<tfoot>		
+	</table>
+</div>
+
+
+<script type="text/javascript">
+	function init(){
+		$(window).on('resize', function() {
+			// Your code here
+			var newHeight = $(window).height();
+			$('#print').css("max-height", newHeight-100)
+			// Perform actions based on the new height
+		});
+	}
+    $(document).ready(function() {
+		init()
+  	});
+  </script>

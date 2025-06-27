@@ -1,0 +1,79 @@
+function PaginationBar($) {
+	 this.setPages = function(value) {
+			this.Pages = value;
+		}
+
+		this.getPages = function() {
+			return this.Pages;
+		} 
+	  
+	  
+
+	var template = '<div class=\"gx_usercontrol\" id=\"GRIDPAGINATIONBARContainer\">	<div id=\"GRIDPAGINATIONBARContainer_DVPaginationBar\" class=\"PaginationBar\" style=\"display: table; width: 100%;\">		<div class=\"PaginationBarButtons\" style=\"float: right;\">			<ul class=\"pagination\">				<li class=\"prev\"><a href=\"#\">Prev</a></li>				{{#Pages}}					<li   data-event=\"Click\"  class=\"hidden-xs {{#IsCurrent}}active{{/IsCurrent}}\"><a href=\"#\">{{Page}}</a></li>				{{/Pages}}				<li class=\"next\"><a href=\"#\">Next</a></li>			</ul>		</div>		<!--<div class=\"PaginationBarCaption dropdown\" style=\"float: left;\">			<div class=\"dropdown rowsperpage dropup\">				<button class=\"btn btn-primary dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">Page 4 of 6<span class=\"caret\"></span></button>				<ul class=\"dropdown-menu\">					<li class=\"caption\"><span href=\"#\">Rows per page:</span></li>					<li val=\"5\"><a href=\"#\"><span>5 rows</span></a></li>					<li val=\"10\"><a href=\"#\"><span>10 rows</span></a></li>					<li val=\"20\"><a href=\"#\"><span>20 rows</span></a></li>					<li class=\"selected\" val=\"50\"><a href=\"#\"><span>50 rows</span></a></li>					<li class=\"divider\"></li><li class=\"caption\"><span href=\"#\">Go to page:</span></li>					<li class=\"goTo\"><input type=\"number\" value=\"1\" max=\"999\"><i class=\"fas fa-redo\" title=\"Refresh\"></i>					</li>				</ul>			</div>			</div>-->	</div></div>';
+	var partials = {  }; 
+	Mustache.parse(template);
+	var _iOnClick = 0; 
+	var $container;
+	this.show = function() {
+			$container = $(this.getContainerControl());
+
+			// Raise before show scripts
+
+			_iOnClick = 0; 
+
+			//if (this.IsPostBack)
+				this.setHtml(Mustache.render(template, this, partials));
+			this.renderChildContainers();
+
+			$(this.getContainerControl())
+				.find("[data-event='Click']")
+				.on('click', this.onClickHandler.closure(this))
+				.each(function (i) {
+					this.setAttribute("data-items-index", i + 1);
+				}); 
+
+			// Raise after show scripts
+
+	}
+
+	this.Scripts = [];
+
+
+
+		this.onClickHandler = function (e) {
+			if (e) {
+				var target = e.currentTarget;
+				e.preventDefault();
+				 this.PagesCurrentIndex = (parseInt($(target).attr('data-items-index'), 10) || 1);  
+				 
+				 
+			}
+
+			if (this.Click) {
+				this.Click();
+			}
+		} 
+
+	this.autoToggleVisibility = true;
+
+	var childContainers = {};
+	this.renderChildContainers = function () {
+		$container
+			.find("[data-slot][data-parent='" + this.ContainerName + "']")
+			.each((function (i, slot) {
+				var $slot = $(slot),
+					slotName = $slot.attr('data-slot'),
+					slotContentEl;
+
+				slotContentEl = childContainers[slotName];
+				if (!slotContentEl) {				
+					slotContentEl = this.getChildContainer(slotName)
+					childContainers[slotName] = slotContentEl;
+					slotContentEl.parentNode.removeChild(slotContentEl);
+				}
+				$slot.append(slotContentEl);
+				$(slotContentEl).show();
+			}).closure(this));
+	};
+
+}

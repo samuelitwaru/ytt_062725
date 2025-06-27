@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dependencies type="name" name="LeaveRequestsGridPanel_Level_Detail_Grid">
+  <Table name="LeaveType" />
+  <Table name="LeaveRequest" />
+  <Table name="Employee" />
+  <Table name="Company" />
+  <Table name="Project" />
+  <Table name="EmployeeProject" />
+  <Table name="WorkHourLog" />
+  <Table name="SupportRequest" />
+  <Table name="EmployeeVacationSet" />
+</Dependencies>

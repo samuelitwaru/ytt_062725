@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.landingpanel_level_detail,landingpanel" %>

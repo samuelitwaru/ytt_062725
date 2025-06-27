@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CallableObject guid="8f59f23d-a9a9-45e6-9a6b-532bdc2d0296" name="LoadEventsSampleDP" description="Load Events Sample DP" namespace="GeneXus.Programs">
+  <Signature name="par">
+    <Parameter name="dateFrom">
+      <Field>
+        <Properties>
+          <Property>
+            <Name>Type</Name>
+            <Value>Date</Value>
+          </Property>
+          <Property>
+            <Name>Length</Name>
+            <Value>8</Value>
+          </Property>
+        </Properties>
+      </Field>
+    </Parameter>
+    <Parameter name="dateTo">
+      <Field>
+        <Properties>
+          <Property>
+            <Name>Type</Name>
+            <Value>Date</Value>
+          </Property>
+          <Property>
+            <Name>Length</Name>
+            <Value>8</Value>
+          </Property>
+        </Properties>
+      </Field>
+    </Parameter>
+    <Parameter name="ReturnValue" accessor="out">
+      <Field name="SchedulerEvents" description="Scheduler Events">
+        <Fields>
+          <Field name="Items" description="Items" collection="true">
+            <Fields>
+              <Field name="Id" description="Id">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>20</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Name" description="Name">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Notes" description="Notes">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Link" description="Link">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="StartTime" description="Start Time">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>DateTime</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>10</Value>
+                  </Property>
+                  <Property>
+                    <Name>Decimals</Name>
+                    <Value>5</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>99/99/9999 99:99</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="EndTime" description="End Time">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>DateTime</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>10</Value>
+                  </Property>
+                  <Property>
+                    <Name>Decimals</Name>
+                    <Value>5</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>99/99/9999 99:99</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="AdditionalInformation" description="Additional Information">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Color" description="Color">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="BackgroundColor" description="Background Color">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="NameWeekView" description="Name Week View">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="NameMonthView" description="Name Month View">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="NameDayView" description="Name Day View">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="ToolTip" description="Tool Tip">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+          <Field name="SpecialDays" description="Days" collection="true">
+            <Fields>
+              <Field name="Date" description="Date">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Date</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>8</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>99/99/99</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="Color" description="Color">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Character</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>9999</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
+        </Fields>
+      </Field>
+    </Parameter>
+  </Signature>
+</CallableObject>

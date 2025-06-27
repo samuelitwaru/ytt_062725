@@ -1,0 +1,6 @@
+<div id="tooltip" class="tooltip1">
+	<span class="fa fa-info-circle fa-lg"></span>
+  	<span class="tooltip1text">
+		<strong>Zoom in/out:</strong> Hold Ctrl + Scroll up/down
+	</span>
+</div>

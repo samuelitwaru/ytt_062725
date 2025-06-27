@@ -1,0 +1,50 @@
+{
+	"Name": "UC_CalendarNavigation",
+	"Target": "",
+	"IsControlType": false,
+	"Template": "<div></div>", 
+	"Events": [
+		{
+			"Name": "NavigationClicked",
+			"On": "navigationclicked",
+			"Parameters": ""
+		} 
+	],
+	"Properties": [
+		{
+			"Id": "selectedYear",
+			"Name": "selectedYear",
+			"Type": "numeric",
+			"Default": ""
+		} ,
+		{
+			"Id": "selectedMonth",
+			"Name": "selectedMonth",
+			"Type": "numeric",
+			"Default": ""
+		} 
+	],
+	"Methods": {
+		"Public": [
+		],
+		"Private": [
+		]
+	},
+	"Scripts": {
+		"AfterShow": [
+			{
+				"Name": "Start",
+				"Source": "		const UC = this				const monthSelect = $(\'.monthselect\')		const yearSelect = $(\'.yearselect\')				function addEventListeners () {			$(document).on(\'click\', \'.prev.available\', function() {				const month = parseInt($(\'.monthselect\')[0].value)				const year = parseInt($(\'.yearselect\')[0].value)				UC.selectedYear = year				UC.selectedMonth = month				UC.NavigationClicked()			});					$(document).on(\'click\', \'.next.available\', function() {				const month = parseInt($(\'.monthselect\')[0].value)				const year = parseInt($(\'.yearselect\')[0].value)				UC.selectedYear = year				UC.selectedMonth = month				UC.NavigationClicked()			});					}				$(document).ready(function() {			console.log(\'Document is ready!\');			addEventListeners()		});			",
+				"AngularLocation": ""
+			} 
+		],
+		"BeforeShow": [
+		]
+	},
+	"Dependencies": [
+	],
+	"Imports": [
+	],
+	"Styles": [
+	]
+}

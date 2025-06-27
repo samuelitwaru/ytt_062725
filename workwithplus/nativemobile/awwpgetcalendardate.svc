@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.workwithplus.nativemobile.awwpgetcalendardate,workwithplus\nativemobile\wwpgetcalendardate" %>

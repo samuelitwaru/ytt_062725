@@ -1,0 +1,90 @@
+@layer WorkWithPlus.NativeMobile.WorkWithPlusDSNative{
+:root
+{
+	--colors_primary : #d5303e;
+	--colors_primary10 : #d5303e1a;
+	--colors_primary30 : #d5303e4d;
+	--colors_primary50 : #d5303e80;
+	--colors_primary80 : #d5303ecc;
+	--colors_primarytone : #c92432;
+	--colors_secondary : #ffc2d0;
+	--colors_darksurface : #1e1e1e;
+	--colors_darksurface20 : #1e1e1e33;
+	--colors_darksurface50 : #1e1e1e80;
+	--colors_darksurface80 : #1e1e1ecc;
+	--colors_darksurfaceelevated : #383838;
+	--colors_darksurfaceelevated80 : #383838cc;
+	--colors_darksurfaceelevated90 : #383838e6;
+	--colors_lightsurface : #ffffff;
+	--colors_lightsurface20 : #ffffff33;
+	--colors_lightsurface50 : #ffffff80;
+	--colors_lightsurface80 : #ffffffcc;
+	--colors_lightsurface90 : #ffffffe6;
+	--colors_importanttext : #ff2f2a;
+	--colors_controlonprimary : #ffffff;
+	--colors_controlonprimary80 : #ffffffcc;
+	--colors_controlonlightsurface : #666666;
+	--colors_controlondarksurface : #bbbbbb;
+	--colors_controleditbackgroundonsurface : transparent;
+	--colors_controlviewbackgroundonsurface : transparent;
+	--colors_controlbackgroundonsurface : #e0e0e0;
+	--colors_controlbackgroundonsurface20 : #e0e0e033;
+	--colors_controlborderonsurface : #e0e0e0;
+	--colors_controlborderonsurface40 : #e0e0e066;
+	--colors_controlonsurface : #3a3a3a;
+	--colors_controlsecondonsurface : #666666;
+	--colors_controlthirdonsurface : #999999;
+	--colors_controlthirdonsurface40 : #99999966;
+	--colors_primarybackground : #f5f5f5;
+	--colors_primarysurface : var(--colors_lightsurface);
+	--colors_primarysurface20 : var(--colors_lightsurface20);
+	--colors_primarysurface50 : var(--colors_lightsurface50);
+	--colors_primarysurface80 : var(--colors_lightsurface80);
+	--colors_primarysurfaceborder : #dddddd;
+	--colors_statusbar : var(--colors_controlthirdonsurface);
+	--colors_applicationbar : var(--colors_primarysurface);
+	--colors_fonticondefault : var(--colors_controlonsurface);
+	--colors_readonlytext : var(--colors_controlthirdonsurface);
+	--spacing_cardpadding : 12dip;
+	--spacing_cardrounding : 8dip;
+	--spacing_cardelevation : 4;
+	--spacing_attributelabelwidth : 160dip;
+	--spacing_attributeshortlabelwidth : 60dip;
+	--spacing_attributeedithpadding : 12dip;
+	--spacing_attributeviewhpadding : 12dip;
+	--spacing_tabselevation : 1;
+	--spacing_applicationbarelevation : 4;
+	--spacing_floatingactioniconrounding : 16dip;
+	--spacing_floatingactionbuttonrounding : 16dip;
+	--fonts_primary-font-family : Montserrat;
+
+}
+
+[gx-data-color-scheme="Dark"]
+{
+	--colors_darksurface : #1e1e1e;
+	--colors_darksurface20 : #1e1e1e33;
+	--colors_darksurface50 : #1e1e1e80;
+	--colors_darksurface80 : #1e1e1ecc;
+	--colors_controlbackgroundonsurface : #ffffff;
+	--colors_controlbackgroundonsurface20 : #ffffff33;
+	--colors_controlborderonsurface : #303030;
+	--colors_controlborderonsurface40 : #30303066;
+	--colors_controlonsurface : #fefefe;
+	--colors_controlsecondonsurface : #999;
+	--colors_controlthirdonsurface : #bbbbbb;
+	--colors_controlthirdonsurface40 : #bbbbbb66;
+	--colors_primarybackground : #121212;
+	--colors_primarysurface : var(--colors_darksurface);
+	--colors_primarysurface20 : var(--colors_darksurface20);
+	--colors_primarysurface50 : var(--colors_darksurface50);
+	--colors_primarysurface80 : var(--colors_darksurface80);
+	--colors_primarysurfaceborder : #121212;
+	--colors_statusbar : var(--colors_primarybackground);
+	--colors_applicationbar : var(--colors_primarysurface);
+	--colors_fonticondefault : var(--colors_controlonsurface);
+	--spacing_tabselevation : 0;
+	--spacing_applicationbarelevation : 0;
+
+}
+}

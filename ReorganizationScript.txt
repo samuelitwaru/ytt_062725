@@ -1,0 +1,143 @@
+CREATE SEQUENCE TrnNewId MINVALUE 1 INCREMENT 1;
+CREATE TABLE TrnNew (TrnNewId bigint NOT NULL DEFAULT nextval('TrnNewId'), TrnNewName CHAR(100) NOT NULL , TrnNewDate date NOT NULL , TrnNewImage BYTEA NOT NULL , TrnNewImage_GXI VARCHAR(2048) , PRIMARY KEY(TrnNewId));
+
+CREATE TABLE EmployeeVacationSet (EmployeeId bigint NOT NULL , VacationSetDate date NOT NULL , VacationSetDays NUMERIC(3,1) NOT NULL , VacationSetDescription VARCHAR(200) , PRIMARY KEY(EmployeeId, VacationSetDate));
+
+CREATE SEQUENCE SupportRequestId MINVALUE 1 INCREMENT 1;
+CREATE TABLE SupportRequest (SupportRequestId bigint NOT NULL DEFAULT nextval('SupportRequestId'), SupportRequestSubject VARCHAR(201) NOT NULL , SupportRequestDescription VARCHAR(200) NOT NULL , EmployeeId bigint NOT NULL , PRIMARY KEY(SupportRequestId));
+CREATE INDEX ISUPPORTREQUEST1 ON SupportRequest (EmployeeId );
+
+CREATE SEQUENCE SiteSettingId MINVALUE 1 INCREMENT 1;
+CREATE TABLE SiteSetting (SiteSettingId bigint NOT NULL DEFAULT nextval('SiteSettingId'), CompanyId bigint NOT NULL , IsLogHourOpen BOOLEAN NOT NULL , PRIMARY KEY(SiteSettingId));
+CREATE INDEX ISITESETTING1 ON SiteSetting (CompanyId );
+
+CREATE SEQUENCE CompanyLocationId MINVALUE 1 INCREMENT 1;
+CREATE TABLE CompanyLocation (CompanyLocationId bigint NOT NULL DEFAULT nextval('CompanyLocationId'), CompanyLocationName CHAR(100) NOT NULL , CompanyLocationCode CHAR(20) NOT NULL , PRIMARY KEY(CompanyLocationId));
+CREATE UNIQUE INDEX UCOMPANYLOCATION ON CompanyLocation (CompanyLocationName );
+
+CREATE TABLE Device (DeviceId CHAR(128) NOT NULL , DeviceType smallint NOT NULL , DeviceToken CHAR(1000) NOT NULL , DeviceName CHAR(100) NOT NULL , DeviceUser VARCHAR(100) , PRIMARY KEY(DeviceId));
+
+CREATE SEQUENCE LeaveRequestId MINVALUE 1 INCREMENT 1;
+CREATE TABLE LeaveRequest (LeaveRequestId bigint NOT NULL DEFAULT nextval('LeaveRequestId'), LeaveTypeId bigint NOT NULL , LeaveRequestDate date NOT NULL , LeaveRequestStartDate date NOT NULL , LeaveRequestEndDate date NOT NULL , LeaveRequestDuration NUMERIC(3,1) NOT NULL , LeaveRequestStatus CHAR(20) NOT NULL , LeaveRequestDescription VARCHAR(200) NOT NULL , LeaveRequestRejectionReason VARCHAR(200) NOT NULL , EmployeeId bigint NOT NULL , LeaveRequestHalfDay CHAR(20) , PRIMARY KEY(LeaveRequestId));
+CREATE INDEX ILEAVEREQUEST1 ON LeaveRequest (EmployeeId );
+CREATE INDEX ILEAVEREQUEST2 ON LeaveRequest (LeaveTypeId );
+
+CREATE SEQUENCE LeaveTypeId MINVALUE 1 INCREMENT 1;
+CREATE TABLE LeaveType (LeaveTypeId bigint NOT NULL DEFAULT nextval('LeaveTypeId'), LeaveTypeName CHAR(100) NOT NULL , CompanyId bigint NOT NULL , LeaveTypeVacationLeave CHAR(20) NOT NULL , LeaveTypeLoggingWorkHours CHAR(20) NOT NULL , LeaveTypeColorPending CHAR(20) , LeaveTypeColorApproved CHAR(20) , PRIMARY KEY(LeaveTypeId));
+CREATE INDEX ILEAVETYPE1 ON LeaveType (CompanyId );
+
+CREATE SEQUENCE WorkHourLogId MINVALUE 10000 INCREMENT 1;
+CREATE TABLE WorkHourLog (WorkHourLogId bigint NOT NULL DEFAULT nextval('WorkHourLogId'), WorkHourLogDate date NOT NULL , WorkHourLogDuration VARCHAR(40) NOT NULL , WorkHourLogHour smallint NOT NULL , WorkHourLogMinute smallint NOT NULL , WorkHourLogDescription TEXT NOT NULL , EmployeeId bigint NOT NULL , ProjectId bigint NOT NULL , PRIMARY KEY(WorkHourLogId));
+CREATE INDEX IWORKHOURLOG1 ON WorkHourLog (EmployeeId ,ProjectId );
+CREATE INDEX UWORKHOURLOG ON WorkHourLog (WorkHourLogDate );
+
+CREATE SEQUENCE HolidayId MINVALUE 1 INCREMENT 1;
+CREATE TABLE Holiday (HolidayId bigint NOT NULL DEFAULT nextval('HolidayId'), HolidayName CHAR(100) NOT NULL , HolidayStartDate date NOT NULL , HolidayEndDate date , HolidayServiceId CHAR(40) , CompanyId bigint NOT NULL , HolidayIsActive BOOLEAN NOT NULL , PRIMARY KEY(HolidayId));
+CREATE UNIQUE INDEX UHOLIDAY ON Holiday (HolidayServiceId );
+CREATE INDEX IHOLIDAY1 ON Holiday (CompanyId );
+
+CREATE TABLE EmployeeProject (EmployeeId bigint NOT NULL , ProjectId bigint NOT NULL , EmployeeIsActiveInProject BOOLEAN NOT NULL , PRIMARY KEY(EmployeeId, ProjectId));
+CREATE INDEX IEMPLOYEEPROJECT1 ON EmployeeProject (ProjectId );
+
+CREATE SEQUENCE EmployeeId MINVALUE 601 INCREMENT 1;
+CREATE TABLE Employee (EmployeeId bigint NOT NULL DEFAULT nextval('EmployeeId'), EmployeeFirstName CHAR(100) NOT NULL , EmployeeLastName CHAR(100) NOT NULL , EmployeeEmail VARCHAR(100) NOT NULL , CompanyId bigint NOT NULL , EmployeeIsManager BOOLEAN NOT NULL , GAMUserGUID VARCHAR(100) NOT NULL , EmployeeIsActive BOOLEAN NOT NULL , EmployeeVactionDays NUMERIC(3,1) NOT NULL , EmployeeBalance NUMERIC(3,1) NOT NULL , EmployeeName CHAR(100) NOT NULL , EmployeeVacationDaysSetDate date NOT NULL , EmployeeAPIPassword VARCHAR(40) NOT NULL , EmployeeFTEHours smallint NOT NULL , PRIMARY KEY(EmployeeId));
+CREATE UNIQUE INDEX UEMPLOYEE ON Employee (EmployeeEmail );
+CREATE INDEX IEMPLOYEE1 ON Employee (CompanyId );
+CREATE INDEX UEMPLOYEE1 ON Employee (EmployeeName );
+
+CREATE SEQUENCE ProjectId MINVALUE 172 INCREMENT 1;
+CREATE TABLE Project (ProjectId bigint NOT NULL DEFAULT nextval('ProjectId'), ProjectName CHAR(100) NOT NULL , ProjectDescription VARCHAR(200) NOT NULL , ProjectStatus CHAR(20) NOT NULL , ProjectManagerId bigint , PRIMARY KEY(ProjectId));
+CREATE UNIQUE INDEX UPROJECT ON Project (ProjectName );
+CREATE INDEX IPROJECT1 ON Project (ProjectManagerId ,ProjectId );
+
+CREATE SEQUENCE CompanyId MINVALUE 1 INCREMENT 1;
+CREATE TABLE Company (CompanyId bigint NOT NULL DEFAULT nextval('CompanyId'), CompanyName CHAR(100) NOT NULL , CompanyLocationId bigint NOT NULL , PRIMARY KEY(CompanyId));
+CREATE UNIQUE INDEX UCOMPANY ON Company (CompanyName );
+CREATE INDEX ICOMPANY1 ON Company (CompanyLocationId );
+
+CREATE TABLE UserCustomizations (UserCustomizationsId CHAR(40) NOT NULL , UserCustomizationsKey VARCHAR(200) NOT NULL , UserCustomizationsValue TEXT NOT NULL , PRIMARY KEY(UserCustomizationsId, UserCustomizationsKey));
+
+CREATE TABLE WWP_MailAttachments (WWPMailId bigint NOT NULL , WWPMailAttachmentName VARCHAR(40) NOT NULL , WWPMailAttachmentFile TEXT NOT NULL , PRIMARY KEY(WWPMailId, WWPMailAttachmentName));
+
+CREATE SEQUENCE WWPMailId MINVALUE 1 INCREMENT 1;
+CREATE TABLE WWP_Mail (WWPMailId bigint NOT NULL DEFAULT nextval('WWPMailId'), WWPMailSubject VARCHAR(80) NOT NULL , WWPMailBody TEXT NOT NULL , WWPMailTo TEXT , WWPMailCC TEXT , WWPMailBCC TEXT , WWPMailSenderAddress TEXT NOT NULL , WWPMailSenderName TEXT NOT NULL , WWPMailStatus smallint NOT NULL , WWPMailCreated timestamp without time zone NOT NULL , WWPMailScheduled timestamp without time zone NOT NULL , WWPMailProcessed timestamp without time zone , WWPMailDetail TEXT , WWPNotificationId bigint , PRIMARY KEY(WWPMailId));
+CREATE INDEX IWWP_MAIL1 ON WWP_Mail (WWPNotificationId );
+
+CREATE TABLE WWP_MailTemplate (WWPMailTemplateName VARCHAR(40) NOT NULL , WWPMailTemplateDescription VARCHAR(100) NOT NULL , WWPMailTemplateSubject VARCHAR(80) NOT NULL , WWPMailTemplateBody TEXT NOT NULL , WWPMailTemplateSenderAddress TEXT NOT NULL , WWPMailTemplateSenderName TEXT NOT NULL , PRIMARY KEY(WWPMailTemplateName));
+
+CREATE SEQUENCE WWPNotificationId MINVALUE 1 INCREMENT 1;
+CREATE TABLE WWP_Notification (WWPNotificationId bigint NOT NULL DEFAULT nextval('WWPNotificationId'), WWPNotificationDefinitionId bigint NOT NULL , WWPNotificationCreated timestamp without time zone NOT NULL , WWPNotificationIcon VARCHAR(100) NOT NULL , WWPNotificationTitle VARCHAR(200) NOT NULL , WWPNotificationShortDescriptio VARCHAR(200) NOT NULL , WWPNotificationLink VARCHAR(1000) NOT NULL , WWPNotificationIsRead BOOLEAN NOT NULL , WWPUserExtendedId CHAR(40) , WWPNotificationMetadata TEXT , PRIMARY KEY(WWPNotificationId));
+CREATE INDEX IWWP_NOTIFICATION1 ON WWP_Notification (WWPUserExtendedId );
+CREATE INDEX IWWP_NOTIFICATION2 ON WWP_Notification (WWPNotificationDefinitionId );
+CREATE INDEX WWP_NOTIFICATIONCREATEDDATE ON WWP_Notification (WWPNotificationCreated DESC);
+
+CREATE SEQUENCE WWPNotificationDefinitionId MINVALUE 1 INCREMENT 1;
+CREATE TABLE WWP_NotificationDefinition (WWPNotificationDefinitionId bigint NOT NULL DEFAULT nextval('WWPNotificationDefinitionId'), WWPNotificationDefinitionName VARCHAR(100) NOT NULL , WWPNotificationDefinitionAppli smallint NOT NULL , WWPNotificationDefinitionAllow BOOLEAN NOT NULL , WWPNotificationDefinitionDescr VARCHAR(200) NOT NULL , WWPNotificationDefinitionIcon VARCHAR(40) NOT NULL , WWPNotificationDefinitionTitle VARCHAR(200) NOT NULL , WWPNotificationDefinitionShort VARCHAR(200) NOT NULL , WWPNotificationDefinitionLongD VARCHAR(1000) NOT NULL , WWPNotificationDefinitionLink VARCHAR(1000) NOT NULL , WWPEntityId bigint NOT NULL , WWPNotificationDefinitionSecFu VARCHAR(200) NOT NULL , PRIMARY KEY(WWPNotificationDefinitionId));
+CREATE INDEX IWWP_NOTIFICATIONDEFINITION1 ON WWP_NotificationDefinition (WWPEntityId );
+
+CREATE TABLE WWP_WebClient (WWPWebClientId CHAR(100) NOT NULL , WWPWebClientBrowserId smallint NOT NULL , WWPWebClientBrowserVersion TEXT NOT NULL , WWPWebClientFirstRegistered timestamp without time zone NOT NULL , WWPWebClientLastRegistered timestamp without time zone NOT NULL , WWPUserExtendedId CHAR(40) , PRIMARY KEY(WWPWebClientId));
+CREATE INDEX IWWP_WEBCLIENT1 ON WWP_WebClient (WWPUserExtendedId );
+
+CREATE SEQUENCE WWPWebNotificationId MINVALUE 1 INCREMENT 1;
+CREATE TABLE WWP_WebNotification (WWPWebNotificationId bigint NOT NULL DEFAULT nextval('WWPWebNotificationId'), WWPWebNotificationTitle VARCHAR(40) NOT NULL , WWPNotificationId bigint , WWPWebNotificationText VARCHAR(120) NOT NULL , WWPWebNotificationIcon VARCHAR(255) NOT NULL , WWPWebNotificationClientId TEXT NOT NULL , WWPWebNotificationStatus smallint NOT NULL , WWPWebNotificationCreated timestamp without time zone NOT NULL , WWPWebNotificationScheduled timestamp without time zone NOT NULL , WWPWebNotificationProcessed timestamp without time zone NOT NULL , WWPWebNotificationRead timestamp without time zone , WWPWebNotificationDetail TEXT , WWPWebNotificationReceived BOOLEAN , PRIMARY KEY(WWPWebNotificationId));
+CREATE INDEX IWWP_WEBNOTIFICATION1 ON WWP_WebNotification (WWPNotificationId );
+
+CREATE SEQUENCE WWPSMSId MINVALUE 1 INCREMENT 1;
+CREATE TABLE WWP_SMS (WWPSMSId bigint NOT NULL DEFAULT nextval('WWPSMSId'), WWPSMSMessage TEXT NOT NULL , WWPSMSSenderNumber TEXT NOT NULL , WWPSMSRecipientNumbers TEXT NOT NULL , WWPSMSStatus smallint NOT NULL , WWPSMSCreated timestamp without time zone NOT NULL , WWPSMSScheduled timestamp without time zone NOT NULL , WWPSMSProcessed timestamp without time zone , WWPSMSDetail TEXT , WWPNotificationId bigint , PRIMARY KEY(WWPSMSId));
+CREATE INDEX IWWP_SMS1 ON WWP_SMS (WWPNotificationId );
+
+CREATE SEQUENCE WWPSubscriptionId MINVALUE 1 INCREMENT 1;
+CREATE TABLE WWP_Subscription (WWPSubscriptionId bigint NOT NULL DEFAULT nextval('WWPSubscriptionId'), WWPNotificationDefinitionId bigint NOT NULL , WWPUserExtendedId CHAR(40) , WWPSubscriptionEntityRecordId VARCHAR(2000) NOT NULL , WWPSubscriptionEntityRecordDes VARCHAR(200) NOT NULL , WWPSubscriptionRoleId CHAR(40) , WWPSubscriptionSubscribed BOOLEAN NOT NULL , PRIMARY KEY(WWPSubscriptionId));
+CREATE INDEX IWWP_SUBSCRIPTION1 ON WWP_Subscription (WWPUserExtendedId );
+CREATE INDEX IWWP_SUBSCRIPTION2 ON WWP_Subscription (WWPNotificationDefinitionId );
+
+CREATE SEQUENCE WWPEntityId MINVALUE 1 INCREMENT 1;
+CREATE TABLE WWP_Entity (WWPEntityId bigint NOT NULL DEFAULT nextval('WWPEntityId'), WWPEntityName VARCHAR(100) NOT NULL , PRIMARY KEY(WWPEntityId));
+
+CREATE TABLE WWP_Parameter (WWPParameterKey VARCHAR(300) NOT NULL , WWPParameterCategory VARCHAR(200) NOT NULL , WWPParameterDescription VARCHAR(200) NOT NULL , WWPParameterValue TEXT NOT NULL , WWPParameterDisableDelete BOOLEAN NOT NULL , PRIMARY KEY(WWPParameterKey));
+
+CREATE TABLE WWP_UserExtended (WWPUserExtendedId CHAR(40) NOT NULL , WWPUserExtendedPhoto BYTEA NOT NULL , WWPUserExtendedPhoto_GXI VARCHAR(2048) , WWPUserExtendedName VARCHAR(100) NOT NULL , WWPUserExtendedFullName VARCHAR(100) NOT NULL , WWPUserExtendedPhone CHAR(20) NOT NULL , WWPUserExtendedEmail VARCHAR(100) NOT NULL , WWPUserExtendedEmaiNotif BOOLEAN NOT NULL , WWPUserExtendedSMSNotif BOOLEAN NOT NULL , WWPUserExtendedMobileNotif BOOLEAN NOT NULL , WWPUserExtendedDesktopNotif BOOLEAN NOT NULL , WWPUserExtendedDeleted BOOLEAN NOT NULL , WWPUserExtendedDeletedIn timestamp without time zone , PRIMARY KEY(WWPUserExtendedId));
+
+ALTER TABLE WWP_Subscription ADD CONSTRAINT IWWP_SUBSCRIPTION2 FOREIGN KEY (WWPNotificationDefinitionId) REFERENCES WWP_NotificationDefinition (WWPNotificationDefinitionId);
+ALTER TABLE WWP_Subscription ADD CONSTRAINT IWWP_SUBSCRIPTION1 FOREIGN KEY (WWPUserExtendedId) REFERENCES WWP_UserExtended (WWPUserExtendedId);
+
+ALTER TABLE WWP_SMS ADD CONSTRAINT IWWP_SMS1 FOREIGN KEY (WWPNotificationId) REFERENCES WWP_Notification (WWPNotificationId);
+
+ALTER TABLE WWP_WebNotification ADD CONSTRAINT IWWP_WEBNOTIFICATION1 FOREIGN KEY (WWPNotificationId) REFERENCES WWP_Notification (WWPNotificationId);
+
+ALTER TABLE WWP_WebClient ADD CONSTRAINT IWWP_WEBCLIENT1 FOREIGN KEY (WWPUserExtendedId) REFERENCES WWP_UserExtended (WWPUserExtendedId);
+
+ALTER TABLE WWP_NotificationDefinition ADD CONSTRAINT IWWP_NOTIFICATIONDEFINITION1 FOREIGN KEY (WWPEntityId) REFERENCES WWP_Entity (WWPEntityId);
+
+ALTER TABLE WWP_Notification ADD CONSTRAINT IWWP_NOTIFICATION2 FOREIGN KEY (WWPNotificationDefinitionId) REFERENCES WWP_NotificationDefinition (WWPNotificationDefinitionId);
+ALTER TABLE WWP_Notification ADD CONSTRAINT IWWP_NOTIFICATION1 FOREIGN KEY (WWPUserExtendedId) REFERENCES WWP_UserExtended (WWPUserExtendedId);
+
+ALTER TABLE WWP_Mail ADD CONSTRAINT IWWP_MAIL1 FOREIGN KEY (WWPNotificationId) REFERENCES WWP_Notification (WWPNotificationId);
+
+ALTER TABLE WWP_MailAttachments ADD CONSTRAINT IWWP_MAILATTACHMENTS1 FOREIGN KEY (WWPMailId) REFERENCES WWP_Mail (WWPMailId);
+
+ALTER TABLE Company ADD CONSTRAINT ICOMPANY1 FOREIGN KEY (CompanyLocationId) REFERENCES CompanyLocation (CompanyLocationId);
+
+ALTER TABLE Project ADD CONSTRAINT GX_000F004I FOREIGN KEY (ProjectManagerId) REFERENCES Employee (EmployeeId);
+ALTER TABLE Project ADD CONSTRAINT IPROJECT1 FOREIGN KEY (ProjectManagerId, ProjectId) REFERENCES EmployeeProject (EmployeeId, ProjectId);
+
+ALTER TABLE Employee ADD CONSTRAINT IEMPLOYEE1 FOREIGN KEY (CompanyId) REFERENCES Company (CompanyId);
+
+ALTER TABLE EmployeeProject ADD CONSTRAINT IEMPLOYEEPROJECT2 FOREIGN KEY (EmployeeId) REFERENCES Employee (EmployeeId);
+ALTER TABLE EmployeeProject ADD CONSTRAINT IEMPLOYEEPROJECT1 FOREIGN KEY (ProjectId) REFERENCES Project (ProjectId);
+
+ALTER TABLE Holiday ADD CONSTRAINT IHOLIDAY1 FOREIGN KEY (CompanyId) REFERENCES Company (CompanyId);
+
+ALTER TABLE WorkHourLog ADD CONSTRAINT IWORKHOURLOG1 FOREIGN KEY (EmployeeId, ProjectId) REFERENCES EmployeeProject (EmployeeId, ProjectId);
+
+ALTER TABLE LeaveType ADD CONSTRAINT ILEAVETYPE1 FOREIGN KEY (CompanyId) REFERENCES Company (CompanyId);
+
+ALTER TABLE LeaveRequest ADD CONSTRAINT ILEAVEREQUEST2 FOREIGN KEY (LeaveTypeId) REFERENCES LeaveType (LeaveTypeId);
+ALTER TABLE LeaveRequest ADD CONSTRAINT ILEAVEREQUEST1 FOREIGN KEY (EmployeeId) REFERENCES Employee (EmployeeId);
+
+ALTER TABLE SiteSetting ADD CONSTRAINT ISITESETTING1 FOREIGN KEY (CompanyId) REFERENCES Company (CompanyId);
+
+ALTER TABLE SupportRequest ADD CONSTRAINT ISUPPORTREQUEST1 FOREIGN KEY (EmployeeId) REFERENCES Employee (EmployeeId);
+
+ALTER TABLE EmployeeVacationSet ADD CONSTRAINT IEMPLOYEEVACATIONSET1 FOREIGN KEY (EmployeeId) REFERENCES Employee (EmployeeId);
+

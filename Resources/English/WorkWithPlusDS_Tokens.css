@@ -1,0 +1,7 @@
+@layer WorkWithPlusDS{
+:root
+{
+	--GX-Image_spinnerFour : url(../WorkWithPlusDS/spinnerFour.gif);
+}
+.GX_Image_spinnerFour_Class{content: var(--GX-Image_spinnerFour);}
+}

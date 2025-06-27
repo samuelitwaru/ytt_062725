@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Objects xmlns="qv">
+  <Object name="General.UI.SidebarItemsDP" id="1" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="SidebarItemsDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.WWP_Parameter_DataProvider" id="2" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="WWP_Parameter_DataProvider" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus_Web.GetHomeSampleData" id="3" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="GetHomeSampleData" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.GetHomeSampleNameValueData" id="4" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="GetHomeSampleNameValueData" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus_Web.WWP_LoadTreeViewSampleData" id="5" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="WWP_LoadTreeViewSampleData" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus_Web.GetHomeModulesSample" id="6" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="GetHomeModulesSample" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus_Web.GetMainHomeModulesSample" id="7" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="GetMainHomeModulesSample" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus_Web.GetSomeHomeModulesSample" id="8" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="GetSomeHomeModulesSample" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.GetHomeSampleDataService" id="9" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="GetHomeSampleDataService" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.SecGAMGetAdvancedSecurityWWPFunctionalities" id="10" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="SecGAMGetAdvancedSecurityWWPFunctionalities" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.Notifications.Common.WWP_AutomaticNotificationDefinitionsToLoad" id="11" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="WWP_AutomaticNotificationDefinitionsToLoad" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.Notifications.Common.WWP_GetNotificationsForUser" id="12" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="WWP_GetNotificationsForUser" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WWPBaseObjects.MenuOptionsData" id="13" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="MenuOptionsData" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="Company_DataProvider" id="14" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="Company_DataProvider" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="Project_DataProvider" id="15" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="Project_DataProvider" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="Employee_DataProvider" id="16" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="Employee_DataProvider" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkHourLog_DataProvider" id="17" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="WorkHourLog_DataProvider" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.NativeMobile.ExampleMapLocations" id="19" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="ExampleMapLocations" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.NativeMobile.ExampleProductsListDP" id="20" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="ExampleProductsListDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.NativeMobile.TemplateBannerDP" id="21" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="TemplateBannerDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.NativeMobile.TemplateCarouselDP" id="22" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="TemplateCarouselDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.NativeMobile.TemplateMapLocationsDP" id="23" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="TemplateMapLocationsDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.NativeMobile.TemplateMenuDP" id="24" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="TemplateMenuDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.NativeMobile.TemplateMenuInfoDP" id="25" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="TemplateMenuInfoDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.NativeMobile.TemplateStoryListDP" id="26" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="TemplateStoryListDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus.NativeMobile.TemplateUserSettingsDP" id="27" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="TemplateUserSettingsDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="LeaveType_DataProvider" id="28" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="LeaveType_DataProvider" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="LeaveRequest_DataProvider" id="29" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="LeaveRequest_DataProvider" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPLeaveReport" id="31" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DataProvider1" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="LoadEventsSampleDP" id="32" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="LoadEventsSampleDP" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="CompanyLocation_DataProvider" id="33" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="CompanyLocation_DataProvider" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPGetEmployeeProjectMatrix" id="35" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPGetEmployeeProjects" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPDateFormat" id="36" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPDateFormat" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPEmployeeProjects" id="37" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPEmployeeProjects" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="WorkWithPlus_Web.GetNotificationSamples" id="38" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="GetNotificationSamples" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPEmployeesByProject" id="39" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPEmployeesByProject" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="EmployeeWorkHourLogs" id="40" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="WorkHourLogsByEmployee" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPWorkHourLog" id="41" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPWorkHourLog" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPLeaveType" id="42" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPLeaveType" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPLeaveEvent" id="43" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPLeaveEvent" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPLeaveEventGroup" id="44" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPLeaveEventGroup" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPEmployeeWeekReport" id="45" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPEmployeeWeekReport" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPEmployees" id="46" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPEmployees" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPEmployeeToLogHours" id="47" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPEmployeeToLogHours" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="DPEmployeeToLogHoursProjects" id="48" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPEmployeeToLogHoursProjects" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
+  <Object name="PeriodicWorkHourLog" id="1" type="Query" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="PeriodicWorkHourLog" xmlns="qv">
+    <DefaultOutput type="OutputTypeTable" xmlns="qv" />
+  </Object>
+  <Object name="DBEmployeeHours_Filter1" id="0" type="Query" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DBEmployeeHours" xmlns="qv">
+    <DefaultOutput type="OutputTypeTable" xmlns="qv" />
+  </Object>
+</Objects>

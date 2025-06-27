@@ -1,0 +1,4560 @@
+openapi: 3.0.0
+info:
+  title: "YTT_version4"
+  version: "20250626045740"
+servers:
+  - url: http://localhost:8082/YTT_version4NETPostgreSQL14/rest
+paths:
+  /Device/{DeviceId}:
+    get:
+      tags:
+        - Device
+      operationId: "GetDevice"
+      summary: "Find an existing Device"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "DeviceId"
+          in: "path"
+          description: "Device Id"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+    post:
+      tags:
+        - Device
+      operationId: "InsertDevice"
+      summary: "Add a new Device"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "DeviceId"
+          in: "path"
+          description: "Device Id"
+          required: true
+          schema:
+            type: "string"
+      requestBody:
+        description: "Device properties"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Device"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+    put:
+      tags:
+        - Device
+      operationId: "UpdateDevice"
+      summary: "Update an existing Device"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "DeviceId"
+          in: "path"
+          description: "Device Id"
+          required: true
+          schema:
+            type: "string"
+      requestBody:
+        description: "Device properties"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Device"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        409:
+          description: "Device was changed"
+    delete:
+      tags:
+        - Device
+      operationId: "DeleteDevice"
+      summary: "Delete an existing Device"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "DeviceId"
+          in: "path"
+          description: "Device Id"
+          required: true
+          schema:
+            type: "string"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        204:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+  /LeaveType/{LeaveTypeId}:
+    get:
+      tags:
+        - LeaveType
+      operationId: "GetLeaveType"
+      summary: "Find an existing LeaveType"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "LeaveTypeId"
+          in: "path"
+          description: "Leave Type Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveType"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+    post:
+      tags:
+        - LeaveType
+      operationId: "InsertLeaveType"
+      summary: "Add a new LeaveType"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "LeaveTypeId"
+          in: "path"
+          description: "Leave Type Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        description: "LeaveType properties"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveType"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveType"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveType"
+    put:
+      tags:
+        - LeaveType
+      operationId: "UpdateLeaveType"
+      summary: "Update an existing LeaveType"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "LeaveTypeId"
+          in: "path"
+          description: "Leave Type Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        description: "LeaveType properties"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveType"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveType"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        409:
+          description: "LeaveType was changed"
+    delete:
+      tags:
+        - LeaveType
+      operationId: "DeleteLeaveType"
+      summary: "Delete an existing LeaveType"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "LeaveTypeId"
+          in: "path"
+          description: "Leave Type Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveType"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        204:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveType"
+  /WorkHourLog/{WorkHourLogId}:
+    get:
+      tags:
+        - WorkHourLog
+      operationId: "GetWorkHourLog"
+      summary: "Find an existing WorkHourLog"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "WorkHourLogId"
+          in: "path"
+          description: "Work Hour Log Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkHourLog"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+    post:
+      tags:
+        - WorkHourLog
+      operationId: "InsertWorkHourLog"
+      summary: "Add a new WorkHourLog"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "WorkHourLogId"
+          in: "path"
+          description: "Work Hour Log Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        description: "WorkHourLog properties"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkHourLog"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkHourLog"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkHourLog"
+    put:
+      tags:
+        - WorkHourLog
+      operationId: "UpdateWorkHourLog"
+      summary: "Update an existing WorkHourLog"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "WorkHourLogId"
+          in: "path"
+          description: "Work Hour Log Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        description: "WorkHourLog properties"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkHourLog"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkHourLog"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        409:
+          description: "WorkHourLog was changed"
+    delete:
+      tags:
+        - WorkHourLog
+      operationId: "DeleteWorkHourLog"
+      summary: "Delete an existing WorkHourLog"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "WorkHourLogId"
+          in: "path"
+          description: "Work Hour Log Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkHourLog"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        204:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkHourLog"
+  /CompanyLocationWWGetFilterData:
+    post:
+      tags:
+        - CompanyLocationWWGetFilterData
+      operationId: "CompanyLocationWWGetFilterData"
+      summary: "Company Location WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompanyLocationWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompanyLocationWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /CompanyWWGetFilterData:
+    post:
+      tags:
+        - CompanyWWGetFilterData
+      operationId: "CompanyWWGetFilterData"
+      summary: "Company WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CompanyWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CompanyWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /EmployeeListGetFilterData:
+    post:
+      tags:
+        - EmployeeListGetFilterData
+      operationId: "EmployeeListGetFilterData"
+      summary: "Employee List Get Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmployeeListGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmployeeListGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /EmployeeWWGetFilterData:
+    post:
+      tags:
+        - EmployeeWWGetFilterData
+      operationId: "EmployeeWWGetFilterData"
+      summary: "Employee WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EmployeeWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmployeeWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /ExportICSLeaves:
+    post:
+      tags:
+        - ExportICSLeaves
+      operationId: "ExportICSLeaves"
+      summary: "Export ICSLeaves"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExportICSLeavesInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExportICSLeavesOutput"
+        404:
+          description: "Not found"
+  /GAMSDChangePasswordUser:
+    post:
+      tags:
+        - GAMSDChangePasswordUser
+      operationId: "GAMSDChangePasswordUser"
+      summary: "GAMSDChange Password User"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GAMSDChangePasswordUserInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GAMSDChangePasswordUserOutput"
+        404:
+          description: "Not found"
+  /GAMSDRegisterUser:
+    post:
+      tags:
+        - GAMSDRegisterUser
+      operationId: "GAMSDRegisterUser"
+      summary: "Register New User"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GAMSDRegisterUserInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GAMSDRegisterUserOutput"
+        404:
+          description: "Not found"
+  /GAMSDUpdateRegisterUser:
+    post:
+      tags:
+        - GAMSDUpdateRegisterUser
+      operationId: "GAMSDUpdateRegisterUser"
+      summary: "Update Register User"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GAMSDUpdateRegisterUserInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GAMSDUpdateRegisterUserOutput"
+        404:
+          description: "Not found"
+  /General/Services/DirectionsServiceRequest:
+    post:
+      tags:
+        - General.Services
+      operationId: "General.Services.DirectionsServiceRequest"
+      summary: "Directions Service Request"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/General.Services.DirectionsServiceRequestInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/General.Services.DirectionsServiceRequestOutput"
+        404:
+          description: "Not found"
+  /General/Services/GxAfterEventReplicator:
+    post:
+      tags:
+        - General.Services
+      operationId: "General.Services.GxAfterEventReplicator"
+      summary: "Gx After Event Replicator"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/General.Services.GxAfterEventReplicatorInput"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /General/Services/GxBeforeEventReplicator:
+    post:
+      tags:
+        - General.Services
+      operationId: "General.Services.GxBeforeEventReplicator"
+      summary: "Gx Before Event Replicator"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/General.Services.GxBeforeEventReplicatorInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/General.Services.GxBeforeEventReplicatorOutput"
+        404:
+          description: "Not found"
+  /General/Services/GxOnPendingEventFailed:
+    post:
+      tags:
+        - General.Services
+      operationId: "General.Services.GxOnPendingEventFailed"
+      summary: "Gx On Pending Event Failed"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/General.Services.GxOnPendingEventFailedInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/General.Services.GxOnPendingEventFailedOutput"
+        404:
+          description: "Not found"
+  /General/Services/NotificationsRegistrationHandler:
+    post:
+      tags:
+        - General.Services
+      operationId: "General.Services.NotificationsRegistrationHandler"
+      summary: "Notifications Registration Handler"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/General.Services.NotificationsRegistrationHandlerInput"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /GetLeaveRequestDays:
+    post:
+      tags:
+        - GetLeaveRequestDays
+      operationId: "GetLeaveRequestDays"
+      summary: "Get Leave Request Days"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetLeaveRequestDaysInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetLeaveRequestDaysOutput"
+        404:
+          description: "Not found"
+  /GetLoggedInEmployeeId:
+    post:
+      tags:
+        - GetLoggedInEmployeeId
+      operationId: "GetLoggedInEmployeeId"
+      summary: "Get Logged In Employee Id"
+      security: 
+        - oAuthGXGAM: []
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetLoggedInEmployeeIdOutput"
+        404:
+          description: "Not found"
+  /GetLoggedWorkDays:
+    post:
+      tags:
+        - GetLoggedWorkDays
+      operationId: "GetLoggedWorkDays"
+      summary: "Get Logged Work Days"
+      security: 
+        - oAuthGXGAM: []
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetLoggedWorkDaysOutput"
+        404:
+          description: "Not found"
+  /GetWeeklyHours:
+    post:
+      tags:
+        - GetWeeklyHours
+      operationId: "GetWeeklyHours"
+      summary: "Get Weekly Hours"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetWeeklyHoursInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GetWeeklyHoursOutput"
+        404:
+          description: "Not found"
+  /HolidayWWGetFilterData:
+    post:
+      tags:
+        - HolidayWWGetFilterData
+      operationId: "HolidayWWGetFilterData"
+      summary: "Holiday WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HolidayWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HolidayWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /IsTimeTrackerOpen:
+    post:
+      tags:
+        - IsTimeTrackerOpen
+      operationId: "IsTimeTrackerOpen"
+      summary: "Is Time Tracker Open"
+      security: 
+        - oAuthGXGAM: []
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/IsTimeTrackerOpenOutput"
+        404:
+          description: "Not found"
+  /LeaveRequestApprovedGetFilterData:
+    post:
+      tags:
+        - LeaveRequestApprovedGetFilterData
+      operationId: "LeaveRequestApprovedGetFilterData"
+      summary: "Leave Request Approved Get Filter Data"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveRequestApprovedGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestApprovedGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /LeaveRequestListGetFilterData:
+    post:
+      tags:
+        - LeaveRequestListGetFilterData
+      operationId: "LeaveRequestListGetFilterData"
+      summary: "Leave Request List Get Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveRequestListGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestListGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /LeaveRequestPendingGetFilterData:
+    post:
+      tags:
+        - LeaveRequestPendingGetFilterData
+      operationId: "LeaveRequestPendingGetFilterData"
+      summary: "Leave Request Pending Get Filter Data"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveRequestPendingGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestPendingGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /LeaveRequestRejectedGetFilterData:
+    post:
+      tags:
+        - LeaveRequestRejectedGetFilterData
+      operationId: "LeaveRequestRejectedGetFilterData"
+      summary: "Leave Request Rejected Get Filter Data"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveRequestRejectedGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestRejectedGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /LeaveRequestsGetFilterData:
+    post:
+      tags:
+        - LeaveRequestsGetFilterData
+      operationId: "LeaveRequestsGetFilterData"
+      summary: "Leave Requests Get Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveRequestsGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestsGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /LeaveRequestWWGetFilterData:
+    post:
+      tags:
+        - LeaveRequestWWGetFilterData
+      operationId: "LeaveRequestWWGetFilterData"
+      summary: "Leave Request WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveRequestWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /LeaveTypeWWGetFilterData:
+    post:
+      tags:
+        - LeaveTypeWWGetFilterData
+      operationId: "LeaveTypeWWGetFilterData"
+      summary: "Leave Type WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveTypeWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveTypeWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /Prc_ICSLeaveAPI:
+    post:
+      tags:
+        - Prc_ICSLeaveAPI
+      operationId: "Prc_ICSLeaveAPI"
+      summary: "Prc_ICSLeave API"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Prc_ICSLeaveAPIOutput"
+        404:
+          description: "Not found"
+  /ProjectWWGetFilterData:
+    post:
+      tags:
+        - ProjectWWGetFilterData
+      operationId: "ProjectWWGetFilterData"
+      summary: "Project WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /ReportsWorkHourLogDetailsGetFilterData:
+    post:
+      tags:
+        - ReportsWorkHourLogDetailsGetFilterData
+      operationId: "ReportsWorkHourLogDetailsGetFilterData"
+      summary: "Reports Work Hour Log Details Get Filter Data"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReportsWorkHourLogDetailsGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ReportsWorkHourLogDetailsGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /SDAssignUserDevice:
+    post:
+      tags:
+        - SDAssignUserDevice
+      operationId: "SDAssignUserDevice"
+      summary: "SDAssign User Device"
+      security: 
+        - oAuthGXGAM: []
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /SDGetDailyLogHours:
+    post:
+      tags:
+        - SDGetDailyLogHours
+      operationId: "SDGetDailyLogHours"
+      summary: "SDGet Daily Log Hours"
+      security: 
+        - oAuthGXGAM: []
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SDGetDailyLogHoursOutput"
+        404:
+          description: "Not found"
+  /SDGetLogDaysMissed:
+    post:
+      tags:
+        - SDGetLogDaysMissed
+      operationId: "SDGetLogDaysMissed"
+      summary: "SDGet Log Days Missed"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SDGetLogDaysMissedOutput"
+        404:
+          description: "Not found"
+  /SDGetLoggedWorkDays:
+    post:
+      tags:
+        - SDGetLoggedWorkDays
+      operationId: "SDGetLoggedWorkDays"
+      summary: "SDGet Logged Work Days"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SDGetLoggedWorkDaysInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SDGetLoggedWorkDaysOutput"
+        404:
+          description: "Not found"
+  /SDGetMonthHours:
+    post:
+      tags:
+        - SDGetMonthHours
+      operationId: "SDGetMonthHours"
+      summary: "Get Month Hours Procedure"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SDGetMonthHoursOutput"
+        404:
+          description: "Not found"
+  /SDGetWeekHours:
+    post:
+      tags:
+        - SDGetWeekHours
+      operationId: "SDGetWeekHours"
+      summary: "SDGet Week Hours"
+      security: 
+        - oAuthGXGAM: []
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SDGetWeekHoursOutput"
+        404:
+          description: "Not found"
+  /SDisGAMUserBlocked:
+    post:
+      tags:
+        - SDisGAMUserBlocked
+      operationId: "SDisGAMUserBlocked"
+      summary: "SDis GAMUser Blocked"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SDisGAMUserBlockedInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SDisGAMUserBlockedOutput"
+        404:
+          description: "Not found"
+  /SDSendLeaveRequestMail:
+    post:
+      tags:
+        - SDSendLeaveRequestMail
+      operationId: "SDSendLeaveRequestMail"
+      summary: "SDSend Leave Request Mail"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SDSendLeaveRequestMailInput"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /SendLeaveRequestDeletionMail:
+    post:
+      tags:
+        - SendLeaveRequestDeletionMail
+      operationId: "SendLeaveRequestDeletionMail"
+      summary: "Send Leave Request Deletion Mail"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SendLeaveRequestDeletionMailInput"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /SendLeaveUpdatetMail:
+    post:
+      tags:
+        - SendLeaveUpdatetMail
+      operationId: "SendLeaveUpdatetMail"
+      summary: "Send Leave Updatet Mail"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SendLeaveUpdatetMailInput"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /SiteSettingLoadDVCombo:
+    post:
+      tags:
+        - SiteSettingLoadDVCombo
+      operationId: "SiteSettingLoadDVCombo"
+      summary: "Site Setting Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SiteSettingLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SiteSettingLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /TestProjectLogsByEmployeeGetFilterData:
+    post:
+      tags:
+        - TestProjectLogsByEmployeeGetFilterData
+      operationId: "TestProjectLogsByEmployeeGetFilterData"
+      summary: "Test Project Logs By Employee Get Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TestProjectLogsByEmployeeGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestProjectLogsByEmployeeGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /TrnNewWWGetFilterData:
+    post:
+      tags:
+        - TrnNewWWGetFilterData
+      operationId: "TrnNewWWGetFilterData"
+      summary: "Trn New WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TrnNewWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TrnNewWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /WebPanel1LoadDVCombo:
+    post:
+      tags:
+        - WebPanel1LoadDVCombo
+      operationId: "WebPanel1LoadDVCombo"
+      summary: "Web Panel1 Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WebPanel1LoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WebPanel1LoadDVComboOutput"
+        404:
+          description: "Not found"
+  /WorkHourLogByEmployeeGetFilterData:
+    post:
+      tags:
+        - WorkHourLogByEmployeeGetFilterData
+      operationId: "WorkHourLogByEmployeeGetFilterData"
+      summary: "Work Hour Log By Employee Get Filter Data"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkHourLogByEmployeeGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkHourLogByEmployeeGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /WorkHourLogListGetFilterData:
+    post:
+      tags:
+        - WorkHourLogListGetFilterData
+      operationId: "WorkHourLogListGetFilterData"
+      summary: "Work Hour Log List Get Filter Data"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkHourLogListGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkHourLogListGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /WorkHourLogLoadDVCombo:
+    post:
+      tags:
+        - WorkHourLogLoadDVCombo
+      operationId: "WorkHourLogLoadDVCombo"
+      summary: "Work Hour Log Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkHourLogLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkHourLogLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /WorkHourLogWWGetFilterData:
+    post:
+      tags:
+        - WorkHourLogWWGetFilterData
+      operationId: "WorkHourLogWWGetFilterData"
+      summary: "Work Hour Log WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkHourLogWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkHourLogWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/ExampleGetImageFromBase64:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.ExampleGetImageFromBase64"
+      summary: "Get Image From Base64"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.ExampleGetImageFromBase64Input"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/ExampleGetPDFUrl:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.ExampleGetPDFUrl"
+      summary: "Example Get PDFUrl"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.ExampleGetPDFUrlInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.ExampleGetPDFUrlOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPCreateLocationsList:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPCreateLocationsList"
+      summary: "Create Locations List"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPCreateLocationsListInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPCreateLocationsListOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPDoubleMenuFromLaunchpad/gxobject:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "UploadWorkWithPlus.NativeMobile.WWPDoubleMenuFromLaunchpad"
+      summary: "Upload a binary for WWPDoubleMenuFromLaunchpad"
+      responses:
+        200:
+          description: "Successful operation"
+        400:
+          description: "Bad request"
+        500:
+          description: "Internal Server Error"
+  /WorkWithPlus/NativeMobile/WWPDoubleMenuFromLaunchpad:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPDoubleMenuFromLaunchpad"
+      summary: "Double Menu From Launchpad"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPDoubleMenuFromLaunchpadInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPDoubleMenuFromLaunchpadOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetCalendarDate:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetCalendarDate"
+      summary: "Get Calendar Date"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetCalendarDateInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetCalendarDateOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetCalendarDateFromNr:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetCalendarDateFromNr"
+      summary: "Get Calendar Date From Nr"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetCalendarDateFromNrInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetCalendarDateFromNrOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetDecimalFromHex:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetDecimalFromHex"
+      summary: "Get Decimal From Hex"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetDecimalFromHexInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetDecimalFromHexOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetLinearGaugeConfigFromPercentage:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetLinearGaugeConfigFromPercentage"
+      summary: "Get Linear Gauge Config From Percentage"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetLinearGaugeConfigFromPercentageInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetLinearGaugeConfigFromPercentageOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetRadialGauge:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetRadialGauge"
+      summary: "Get Radial Gauge Copy1"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRadialGaugeInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRadialGaugeOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetRadialGaugeDark:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetRadialGaugeDark"
+      summary: "Get Radial Gauge Dark"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRadialGaugeDarkInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRadialGaugeDarkOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetRadialGaugeLight:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetRadialGaugeLight"
+      summary: "Get Radial Gauge Light"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRadialGaugeLightInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRadialGaugeLightOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetRadialGaugeWhite:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetRadialGaugeWhite"
+      summary: "Get Radial Gauge White"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRadialGaugeWhiteInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRadialGaugeWhiteOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetRangedRadialGauge:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetRangedRadialGauge"
+      summary: "Get Ranged Radial Gauge"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRangedRadialGaugeInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRangedRadialGaugeOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetRangedRadialGaugeFromConfig:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetRangedRadialGaugeFromConfig"
+      summary: "Get Ranged Radial Gauge From Config"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRangedRadialGaugeFromConfigInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetRangedRadialGaugeFromConfigOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPGetUnicodeFromHex:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPGetUnicodeFromHex"
+      summary: "Get Unicode From Hex"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetUnicodeFromHexInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPGetUnicodeFromHexOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPMapPointFromString:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPMapPointFromString"
+      summary: "WWPMap Point From String"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPMapPointFromStringInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPMapPointFromStringOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPParseHexColor:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPParseHexColor"
+      summary: "WWPParse Hex Color"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPParseHexColorInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPParseHexColorOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPProductsListToDoubleOptionsSDT/gxobject:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "UploadWorkWithPlus.NativeMobile.WWPProductsListToDoubleOptionsSDT"
+      summary: "Upload a binary for WWPProductsListToDoubleOptionsSDT"
+      responses:
+        200:
+          description: "Successful operation"
+        400:
+          description: "Bad request"
+        500:
+          description: "Internal Server Error"
+  /WorkWithPlus/NativeMobile/WWPProductsListToDoubleOptionsSDT:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPProductsListToDoubleOptionsSDT"
+      summary: "WWPProducts List To Double Options SDT"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPProductsListToDoubleOptionsSDTInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPProductsListToDoubleOptionsSDTOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPWebServerSessionGet:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPWebServerSessionGet"
+      summary: "WWPWeb Server Session Get"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPWebServerSessionGetInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPWebServerSessionGetOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPWebServerSessionGetNum:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPWebServerSessionGetNum"
+      summary: "Web Server Session Get Num"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPWebServerSessionGetNumInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPWebServerSessionGetNumOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPWebServerSessionSet:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPWebServerSessionSet"
+      summary: "Web Server Session Set"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPWebServerSessionSetInput"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/WWPWebServerSessionSetNum:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.WWPWebServerSessionSetNum"
+      summary: "Web Server Session Set Num"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPWebServerSessionSetNumInput"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /WorkWithPlus/WWP_ParameterWWGetFilterData:
+    post:
+      tags:
+        - WorkWithPlus
+      operationId: "WorkWithPlus.WWP_ParameterWWGetFilterData"
+      summary: "WWPParameter WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.WWP_ParameterWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.WWP_ParameterWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /WPLeaveReportLoadDVCombo:
+    post:
+      tags:
+        - WPLeaveReportLoadDVCombo
+      operationId: "WPLeaveReportLoadDVCombo"
+      summary: "WPLeave Report Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WPLeaveReportLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WPLeaveReportLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /GAMSDChangePassword_Level_Detail:
+    get:
+      tags:
+        - GAMSDChangePassword_Level_Detail
+      operationId: "GAMSDChangePassword_Level_Detail"
+      summary: "GAMSDChangePassword_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GAMSDChangePassword_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /GAMSDNotAuthorized_Level_Detail:
+    get:
+      tags:
+        - GAMSDNotAuthorized_Level_Detail
+      operationId: "GAMSDNotAuthorized_Level_Detail"
+      summary: "GAMSDNotAuthorized_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GAMSDNotAuthorized_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /GAMSDUpdateUser_Level_Detail:
+    get:
+      tags:
+        - GAMSDUpdateUser_Level_Detail
+      operationId: "GAMSDUpdateUser_Level_Detail"
+      summary: "GAMSDUpdateUser_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GAMSDUpdateUser_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /LandingPanel_Level_Detail:
+    get:
+      tags:
+        - LandingPanel_Level_Detail
+      operationId: "LandingPanel_Level_Detail"
+      summary: "LandingPanel_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /LeaveRequestPanel_Level_Detail:
+    get:
+      tags:
+        - LeaveRequestPanel_Level_Detail
+      operationId: "LeaveRequestPanel_Level_Detail"
+      summary: "LeaveRequestPanel_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestPanel_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /LeaveRequestsGridPanel_Level_Detail_Grid:
+    get:
+      tags:
+        - LeaveRequestsGridPanel_Level_Detail_Grid
+      operationId: "LeaveRequestsGridPanel_Level_Detail_Grid"
+      summary: "LeaveRequestsGridPanel_Level_Detail_Grid"
+      parameters:
+        - name: "Searchtext"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+        - name: "Start"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "Count"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LeaveRequestsGridPanel_Level_Detail_GridSdt_Item"  
+        404:
+          description: "Not found"
+  /LeaveRequestsGridPanel_Level_Detail:
+    get:
+      tags:
+        - LeaveRequestsGridPanel_Level_Detail
+      operationId: "LeaveRequestsGridPanel_Level_Detail"
+      summary: "LeaveRequestsGridPanel_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestsGridPanel_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /LogHoursPanel_Level_Detail:
+    get:
+      tags:
+        - LogHoursPanel_Level_Detail
+      operationId: "LogHoursPanel_Level_Detail"
+      summary: "LogHoursPanel_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LogHoursPanel_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /LoginPanel_Level_Detail:
+    get:
+      tags:
+        - LoginPanel_Level_Detail
+      operationId: "LoginPanel_Level_Detail"
+      summary: "LoginPanel_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoginPanel_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /PasswordChangePanel_Level_Detail:
+    get:
+      tags:
+        - PasswordChangePanel_Level_Detail
+      operationId: "PasswordChangePanel_Level_Detail"
+      summary: "PasswordChangePanel_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PasswordChangePanel_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /ProfilePanel_Level_Detail:
+    get:
+      tags:
+        - ProfilePanel_Level_Detail
+      operationId: "ProfilePanel_Level_Detail"
+      summary: "ProfilePanel_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProfilePanel_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /UpdateLeaveRequest_Level_Detail:
+    get:
+      tags:
+        - UpdateLeaveRequest_Level_Detail
+      operationId: "UpdateLeaveRequest_Level_Detail"
+      summary: "UpdateLeaveRequest_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateLeaveRequest_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /UpdateWorkHourLog_Level_Detail:
+    get:
+      tags:
+        - UpdateWorkHourLog_Level_Detail
+      operationId: "UpdateWorkHourLog_Level_Detail"
+      summary: "UpdateWorkHourLog_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UpdateWorkHourLog_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /ViewLeaveRequest_Level_Detail:
+    get:
+      tags:
+        - ViewLeaveRequest_Level_Detail
+      operationId: "ViewLeaveRequest_Level_Detail"
+      summary: "ViewLeaveRequest_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ViewLeaveRequest_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /WorkLogsGridCollectionPanel_Level_Detail:
+    get:
+      tags:
+        - WorkLogsGridCollectionPanel_Level_Detail
+      operationId: "WorkLogsGridCollectionPanel_Level_Detail"
+      summary: "WorkLogsGridCollectionPanel_Level_Detail"
+      parameters:
+        - name: "Logdate"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+            format: "date"
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkLogsGridCollectionPanel_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /YTTV3SD_Level_Detail:
+    get:
+      tags:
+        - YTTV3SD_Level_Detail
+      operationId: "YTTV3SD_Level_Detail"
+      summary: "YTTV3SD_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/YTTV3SD_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /YTTV3SDNotAuthorized_Level_Detail:
+    get:
+      tags:
+        - YTTV3SDNotAuthorized_Level_Detail
+      operationId: "YTTV3SDNotAuthorized_Level_Detail"
+      summary: "YTTV3SDNotAuthorized_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/access_token:
+    post:
+      tags:
+        - oauth
+      operationId: "oauth.access_token"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/logout:
+    post:
+      tags:
+        - oauth
+      operationId: "oauth.logout"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/userinfo:
+    get:
+      tags:
+        - oauth
+      operationId: "oauth.userinfo"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /gx_valid_service:
+    post:
+      tags:
+        - GXValidService
+      operationId: "gx_valid_service"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/gam/signin:
+    post:
+      tags:
+        - oauth.gam
+      operationId: "oauth.gam.signin"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/gam/callback:
+    get:
+      tags:
+        - oauth.gam
+      operationId: "oauth.gam.callback"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/gam/access_token:
+    post:
+      tags:
+        - oauth.gam
+      operationId: "oauth.gam.access_token"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/gam/userinfo:
+    post:
+      tags:
+        - oauth.gam
+      operationId: "oauth.gam.userinfo"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/gam/signout:
+    post:
+      tags:
+        - oauth.gam
+      operationId: "oauth.gam.signout"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/RequestTokenService:
+    post:
+      tags:
+        - oauth
+      operationId: "oauth.RequestTokenService"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /oauth/QueryAccessToken:
+    post:
+      tags:
+        - oauth
+      operationId: "oauth.QueryAccessToken"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /saml/gam/signout:
+    post:
+      tags:
+        - saml.gam
+      operationId: "saml.gam.signout"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /saml/gam/signin:
+    post:
+      tags:
+        - saml.gam
+      operationId: "saml.gam.signin"
+      summary: "GeneXus GAM Services"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /gxmulticall:
+    post:
+      tags:
+        - GeneXusSDMulticall
+      operationId: "gxmulticall"
+      summary: "GeneXus Multicall Service for Smart Devices Application"
+      responses:
+        200:
+          description: "Successful operation"
+        404:
+          description: "Not found"
+  /sdsvc_LeaveRequestPanel_Level_Detail/Leavetypeid:
+    get:
+      tags:
+        - sdsvc_LeaveRequestPanel_Level_Detail  
+      operationId: "sdsvc_LeaveRequestPanel_Level_Detail.Leavetypeid"
+      summary: "Leavetypeid"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "string"
+        404:
+          description: "Not found"
+  /sdsvc_LogHoursPanel_Level_Detail/Projectid:
+    get:
+      tags:
+        - sdsvc_LogHoursPanel_Level_Detail  
+      operationId: "sdsvc_LogHoursPanel_Level_Detail.Projectid"
+      summary: "Projectid"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "string"
+        404:
+          description: "Not found"
+  /sdsvc_UpdateLeaveRequest_Level_Detail/Leavetypeid:
+    get:
+      tags:
+        - sdsvc_UpdateLeaveRequest_Level_Detail  
+      operationId: "sdsvc_UpdateLeaveRequest_Level_Detail.Leavetypeid"
+      summary: "Leavetypeid"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "string"
+        404:
+          description: "Not found"
+  /sdsvc_UpdateWorkHourLog_Level_Detail/Worklogproject:
+    get:
+      tags:
+        - sdsvc_UpdateWorkHourLog_Level_Detail  
+      operationId: "sdsvc_UpdateWorkHourLog_Level_Detail.Worklogproject"
+      summary: "Worklogproject"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "string"
+        404:
+          description: "Not found"
+  /sdsvc_ViewLeaveRequest_Level_Detail/Leavetypeid:
+    get:
+      tags:
+        - sdsvc_ViewLeaveRequest_Level_Detail  
+      operationId: "sdsvc_ViewLeaveRequest_Level_Detail.Leavetypeid"
+      summary: "Leavetypeid"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: "string"
+        404:
+          description: "Not found"
+components:
+  securitySchemes:
+    oAuthGXGAM:
+      type: oauth2
+      description: GAM OAuth 2
+      flows:
+        password:          
+          tokenUrl: http://localhost:8082/YTT_version4NETPostgreSQL14/oauth/gam/v2.0/access_token
+          scopes: 
+            fullcontrol: Full access
+  schemas:
+    Device:
+      properties:
+        DeviceId:
+          description: "Device Id"
+          type: "string"
+        DeviceType:
+          description: "Device Type"
+          type: "integer"
+          format: "int32"
+        DeviceToken:
+          description: "Device Token"
+          type: "string"
+        DeviceName:
+          description: "Device Name"
+          type: "string"
+        DeviceUser:
+          description: "Device User"
+          type: "string"
+        gx_md5_hash:
+          description: "gx_md5_hash is an identifier for a specific version of a resource, it is used for optimistic concurrency check. It is required for update and delete operations and  ignored on insert."
+          type: "string"
+      required:
+        - gx_md5_hash
+    LeaveType:
+      properties:
+        LeaveTypeId:
+          description: "Leave Type Id"
+          type: "integer"
+          format: "int64"
+        LeaveTypeName:
+          description: "Leave Type Name"
+          type: "string"
+        LeaveTypeVacationLeave:
+          description: "Leave Type Vacation Leave"
+          type: "string"
+        LeaveTypeLoggingWorkHours:
+          description: "Leave Type Logging Work Hours"
+          type: "string"
+        LeaveTypeColorPending:
+          description: "Leave Type Color Pending"
+          type: "string"
+        LeaveTypeColorApproved:
+          description: "Leave Type Color Approved"
+          type: "string"
+        CompanyId:
+          description: "Company Id"
+          type: "integer"
+          format: "int64"
+        gx_md5_hash:
+          description: "gx_md5_hash is an identifier for a specific version of a resource, it is used for optimistic concurrency check. It is required for update and delete operations and  ignored on insert."
+          type: "string"
+      required:
+        - gx_md5_hash
+    WorkHourLog:
+      properties:
+        WorkHourLogId:
+          description: "Work Hour Log Id"
+          type: "integer"
+          format: "int64"
+        WorkHourLogDate:
+          description: "Work Hour Log Date"
+          type: "string"
+          format: "date"
+        WorkHourLogDuration:
+          description: "Work Hour Log Duration"
+          type: "string"
+        WorkHourLogHour:
+          description: "Work Hour Log Hour"
+          type: "integer"
+          format: "int32"
+        WorkHourLogMinute:
+          description: "Work Hour Log Minute"
+          type: "integer"
+          format: "int32"
+        WorkHourLogDescription:
+          description: "Work Hour Log Description"
+          type: "string"
+        EmployeeId:
+          description: "Employee Id"
+          type: "integer"
+          format: "int64"
+        EmployeeFirstName:
+          description: "Employee First Name"
+          type: "string"
+        ProjectId:
+          description: "Project Id"
+          type: "integer"
+          format: "int64"
+        ProjectName:
+          description: "Project Name"
+          type: "string"
+        gx_md5_hash:
+          description: "gx_md5_hash is an identifier for a specific version of a resource, it is used for optimistic concurrency check. It is required for update and delete operations and  ignored on insert."
+          type: "string"
+      required:
+        - gx_md5_hash
+    CompanyLocationWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    CompanyWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    EmployeeListGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    EmployeeWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    ExportICSLeavesOutput:
+      properties:
+        Filename:
+          type: "string"
+        ErrorMessage:
+          type: "string"
+    GAMSDChangePasswordUserOutput:
+      properties:
+        Messages:
+          description: "Messages"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.Common.Messages_Message"
+    GAMSDRegisterUserOutput:
+      properties:
+        Messages:
+          description: "Messages"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.Common.Messages_Message"
+    GAMSDUpdateRegisterUserOutput:
+      properties:
+        Messages:
+          description: "Messages"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.Common.Messages_Message"
+    General.Services.DirectionsServiceRequestOutput:
+      properties:
+        Routes:
+          description: "Route"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.Common.Route"
+        errorMessages:
+          description: "Messages"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.Common.Messages_Message"
+    General.Services.GxBeforeEventReplicatorOutput:
+      properties:
+        GxPendingEvents:
+          description: "Synchronization Event List"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationEventList_SynchronizationEventListItem"
+        EventResults:
+          description: "Synchronization Event Result List"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationEventResultList_SynchronizationEventResultListItem"
+    General.Services.GxOnPendingEventFailedOutput:
+      properties:
+        Continue:
+          type: "boolean"
+    GetLeaveRequestDaysOutput:
+      properties:
+        FinalDuration:
+          type: "number"
+          format: "double"
+    GetLoggedInEmployeeIdOutput:
+      properties:
+        EmployeeId:
+          type: "integer"
+          format: "int64"
+    GetLoggedWorkDaysOutput:
+      properties:
+        CalendarInfo:
+          description: "WWPCalendar Info"
+          $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPCalendarInfo"
+    GetWeeklyHoursOutput:
+      properties:
+        WeeklyTotal:
+          type: "string"
+        DailyTotal:
+          type: "string"
+        MonthlyTotal:
+          type: "string"
+    HolidayWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    IsTimeTrackerOpenOutput:
+      properties:
+        isOpen:
+          type: "boolean"
+    LeaveRequestApprovedGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    LeaveRequestListGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    LeaveRequestPendingGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    LeaveRequestRejectedGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    LeaveRequestsGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    LeaveRequestWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    LeaveTypeWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    Prc_ICSLeaveAPIOutput:
+      properties:
+        ICSLeaveExport:
+          type: "string"
+    ProjectWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    ReportsWorkHourLogDetailsGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    SDGetDailyLogHoursOutput:
+      properties:
+        dailyLogs:
+          type: array
+          items:
+            type: "number"
+            format: "double"
+    SDGetLogDaysMissedOutput:
+      properties:
+        totalDaysMissed:
+          type: "integer"
+          format: "int32"
+    SDGetLoggedWorkDaysOutput:
+      properties:
+        WorkLogCollection:
+          description: "Work Logs SDT"
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkLogsSDT"
+    SDGetMonthHoursOutput:
+      properties:
+        TotalDuration:
+          type: "string"
+    SDGetWeekHoursOutput:
+      properties:
+        TotalDuration:
+          type: "string"
+        TotalHoursAndMinutes:
+          type: "integer"
+          format: "int32"
+    SDisGAMUserBlockedOutput:
+      properties:
+        isInactive:
+          type: "boolean"
+    SiteSettingLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
+          type: "string"
+    TestProjectLogsByEmployeeGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    TrnNewWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    WebPanel1LoadDVComboOutput:
+      properties:
+        Combo_DataJson:
+          type: "string"
+    WorkHourLogByEmployeeGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    WorkHourLogListGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    WorkHourLogLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
+          type: "string"
+    WorkHourLogWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    WorkWithPlus.NativeMobile.ExampleGetPDFUrlOutput:
+      properties:
+        PDFUrl:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPCreateLocationsListOutput:
+      properties:
+        MapItems:
+          description: "Geolocation Info"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.Common.GeolocationInfo"
+    WorkWithPlus.NativeMobile.WWPDoubleMenuFromLaunchpadOutput:
+      properties:
+        SDPDoubleMenuOptions:
+          description: "Double Item List Data"
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkWithPlus.NativeMobile.DoubleItemListData_DoubleItemListDataItem"
+    WorkWithPlus.NativeMobile.WWPGetCalendarDateOutput:
+      properties:
+        DateJson:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetCalendarDateFromNrOutput:
+      properties:
+        DateJson:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetDecimalFromHexOutput:
+      properties:
+        DecimalValue:
+          type: "integer"
+          format: "int64"
+    WorkWithPlus.NativeMobile.WWPGetLinearGaugeConfigFromPercentageOutput:
+      properties:
+        GaugeData:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetRadialGaugeOutput:
+      properties:
+        HTML:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetRadialGaugeDarkOutput:
+      properties:
+        HTML:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetRadialGaugeLightOutput:
+      properties:
+        HTML:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetRadialGaugeWhiteOutput:
+      properties:
+        HTML:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetRangedRadialGaugeOutput:
+      properties:
+        GaugeRegions:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetRangedRadialGaugeFromConfigOutput:
+      properties:
+        HTML:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetUnicodeFromHexOutput:
+      properties:
+        UnicodeCharacter:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPMapPointFromStringOutput:
+      properties:
+        Geopoint:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPParseHexColorOutput:
+      properties:
+        IntR:
+          type: "integer"
+          format: "int32"
+        IntG:
+          type: "integer"
+          format: "int32"
+        IntB:
+          type: "integer"
+          format: "int32"
+        IntA:
+          type: "integer"
+          format: "int32"
+        HexR:
+          type: "string"
+        HexG:
+          type: "string"
+        HexB:
+          type: "string"
+        HexA:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPProductsListToDoubleOptionsSDTOutput:
+      properties:
+        DoubleMenuOptions:
+          description: "Double Item List Data"
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkWithPlus.NativeMobile.DoubleItemListData_DoubleItemListDataItem"
+    WorkWithPlus.NativeMobile.WWPWebServerSessionGetOutput:
+      properties:
+        ParameterValue:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPWebServerSessionGetNumOutput:
+      properties:
+        ParameterNumValue:
+          type: "number"
+          format: "double"
+    WorkWithPlus.WWP_ParameterWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
+    WPLeaveReportLoadDVComboOutput:
+      properties:
+        Combo_DataJson:
+          type: "string"
+    CompanyLocationWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    CompanyWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    EmployeeListGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    EmployeeWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    ExportICSLeavesInput:  
+      properties:
+        FromDate:
+          type: "string"
+          format: "date"
+        ToDate:
+          type: "string"
+          format: "date"
+        CompanyLocationId:
+          type: "integer"
+          format: "int64"
+        EmployeeIds:
+          type: array
+          items:
+            type: "integer"
+            format: "int64"
+    GAMSDChangePasswordUserInput:  
+      properties:
+        isPasswordExpires:
+          type: "boolean"
+        UserName:
+          type: "string"
+        UserPassword:
+          type: "string"
+        UserPasswordNew:
+          type: "string"
+        UserPasswordNewConf:
+          type: "string"
+    GAMSDRegisterUserInput:  
+      properties:
+        UserName:
+          type: "string"
+        Email:
+          type: "string"
+        FirstName:
+          type: "string"
+        LastName:
+          type: "string"
+        Password:
+          type: "string"
+        ConfirmPassword:
+          type: "string"
+    GAMSDUpdateRegisterUserInput:  
+      properties:
+        UserGUID:
+          type: "string"
+        UserName:
+          type: "string"
+        Email:
+          type: "string"
+        FirstName:
+          type: "string"
+        LastName:
+          type: "string"
+    General.Services.DirectionsServiceRequestInput:  
+      properties:
+        DirectionsServiceProvider:
+          type: "string"
+        DirectionsRequestParameters:
+          description: "Directions Request Parameters"
+          $ref: "#/components/schemas/GeneXus.Common.DirectionsRequestParameters"
+    General.Services.GxAfterEventReplicatorInput:  
+      properties:
+        EventResults:
+          description: "Synchronization Event Result List"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationEventResultList_SynchronizationEventResultListItem"
+        GxSynchroInfo:
+          description: "Synchronization Info"
+          $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationInfo"
+    General.Services.GxBeforeEventReplicatorInput:  
+      properties:
+        GxPendingEvents:
+          description: "Synchronization Event List"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationEventList_SynchronizationEventListItem"
+        GxSyncroInfo:
+          description: "Synchronization Info"
+          $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationInfo"
+        EventResults:
+          description: "Synchronization Event Result List"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationEventResultList_SynchronizationEventResultListItem"
+    General.Services.GxOnPendingEventFailedInput:  
+      properties:
+        PendingEvent:
+          description: "Synchronization Event List"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationEventList_SynchronizationEventListItem"
+        BCName:
+          type: "string"
+        BCJson:
+          type: "string"
+        EventResult:
+          description: "Synchronization Event Result List"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationEventResultList_SynchronizationEventResultListItem"
+        GxSyncroInfo:
+          description: "Synchronization Info"
+          $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationInfo"
+    General.Services.NotificationsRegistrationHandlerInput:  
+      properties:
+        DeviceType:
+          type: "integer"
+          format: "int32"
+        DeviceId:
+          type: "string"
+        DeviceToken:
+          type: "string"
+        DeviceName:
+          type: "string"
+    GetLeaveRequestDaysInput:  
+      properties:
+        StartDate:
+          type: "string"
+          format: "date"
+        EndDate:
+          type: "string"
+          format: "date"
+        LeaveRequestHalfDay:
+          type: "string"
+        EmployeeId:
+          type: "integer"
+          format: "int64"
+    GetWeeklyHoursInput:  
+      properties:
+        WeekDate:
+          type: "string"
+          format: "date"
+        EmployeeId:
+          type: "integer"
+          format: "int64"
+    HolidayWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    LeaveRequestApprovedGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    LeaveRequestListGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    LeaveRequestPendingGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    LeaveRequestRejectedGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    LeaveRequestsGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    LeaveRequestWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    LeaveTypeWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    ProjectWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    ReportsWorkHourLogDetailsGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    SDGetLoggedWorkDaysInput:  
+      properties:
+        LogDate:
+          type: "string"
+          format: "date"
+    SDisGAMUserBlockedInput:  
+      properties:
+        UserEmail:
+          type: "string"
+    SDSendLeaveRequestMailInput:  
+      properties:
+        LeaveRequestStartDate:
+          type: "string"
+          format: "date"
+        LeaveRequestEndDate:
+          type: "string"
+          format: "date"
+        LeaveRequestDescription:
+          type: "string"
+        LeaveTypeName:
+          type: "string"
+        LeaveRequestHalfDay:
+          type: "string"
+        EmployeeName:
+          type: "string"
+        EmployeeId:
+          type: "integer"
+          format: "int64"
+    SendLeaveRequestDeletionMailInput:  
+      properties:
+        LeaveRequestId:
+          type: "integer"
+          format: "int64"
+    SendLeaveUpdatetMailInput:  
+      properties:
+        LeaveRequestId:
+          type: "integer"
+          format: "int64"
+    SiteSettingLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        SiteSettingId:
+          type: "integer"
+          format: "int64"
+        SearchTxtParms:
+          type: "string"
+    TestProjectLogsByEmployeeGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    TrnNewWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    WebPanel1LoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+    WorkHourLogByEmployeeGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    WorkHourLogListGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    WorkHourLogLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        WorkHourLogId:
+          type: "integer"
+          format: "int64"
+        Cond_EmployeeId:
+          type: "integer"
+          format: "int64"
+        SearchTxtParms:
+          type: "string"
+    WorkHourLogWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    WorkWithPlus.NativeMobile.ExampleGetImageFromBase64Input:  
+      properties:
+        ImageBase64:
+          type: "string"
+    WorkWithPlus.NativeMobile.ExampleGetPDFUrlInput:  
+      properties:
+        ServerUrl:
+          type: "string"
+        TransactionWithBlobId:
+          type: "integer"
+          format: "int32"
+    WorkWithPlus.NativeMobile.WWPCreateLocationsListInput:  
+      properties:
+        SelectedItem:
+          type: "string"
+        SelectedItemText:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPDoubleMenuFromLaunchpadInput:  
+      properties:
+        SDPLaunchpadOptions:
+          description: "Launchpad Options"
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkWithPlus.NativeMobile.LaunchpadOptions_Option"
+    WorkWithPlus.NativeMobile.WWPGetCalendarDateInput:  
+      properties:
+        Date:
+          type: "string"
+          format: "date"
+    WorkWithPlus.NativeMobile.WWPGetCalendarDateFromNrInput:  
+      properties:
+        Year:
+          type: "integer"
+          format: "int32"
+        Month:
+          type: "integer"
+          format: "int32"
+        Day:
+          type: "integer"
+          format: "int32"
+    WorkWithPlus.NativeMobile.WWPGetDecimalFromHexInput:  
+      properties:
+        HexadecimalValueIn:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetLinearGaugeConfigFromPercentageInput:  
+      properties:
+        Percentage:
+          type: "integer"
+          format: "int32"
+    WorkWithPlus.NativeMobile.WWPGetRadialGaugeInput:  
+      properties:
+        Value:
+          type: "integer"
+          format: "int32"
+        InnerText:
+          type: "string"
+        ProgressColor:
+          type: "string"
+        TextColor:
+          type: "string"
+        ShadowColor:
+          type: "string"
+        AllowAnimation:
+          type: "boolean"
+    WorkWithPlus.NativeMobile.WWPGetRadialGaugeDarkInput:  
+      properties:
+        Value:
+          type: "integer"
+          format: "int32"
+        ProgressColor:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetRadialGaugeLightInput:  
+      properties:
+        Value:
+          type: "integer"
+          format: "int32"
+        ProgressColor:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetRadialGaugeWhiteInput:  
+      properties:
+        Value:
+          type: "integer"
+          format: "int32"
+    WorkWithPlus.NativeMobile.WWPGetRangedRadialGaugeInput:  
+      properties:
+        Value:
+          type: "integer"
+          format: "int32"
+        Text:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPGetRangedRadialGaugeFromConfigInput:  
+      properties:
+        GaugeConfig:
+          description: "Ranged Radial Gauge Config"
+          $ref: "#/components/schemas/WorkWithPlus.NativeMobile.RangedRadialGaugeConfig"
+    WorkWithPlus.NativeMobile.WWPGetUnicodeFromHexInput:  
+      properties:
+        HexaUnicode:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPMapPointFromStringInput:  
+      properties:
+        SelectedItem:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPParseHexColorInput:  
+      properties:
+        ColorStringIn:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPProductsListToDoubleOptionsSDTInput:  
+      properties:
+        ProductDataList:
+          description: "WWPProduct Data"
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPProductData"
+    WorkWithPlus.NativeMobile.WWPWebServerSessionGetInput:  
+      properties:
+        ParameterKey:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPWebServerSessionGetNumInput:  
+      properties:
+        ParameterKey:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPWebServerSessionSetInput:  
+      properties:
+        ParameterKey:
+          type: "string"
+        ParameterValue:
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPWebServerSessionSetNumInput:  
+      properties:
+        ParameterKey:
+          type: "string"
+        ParameterValue:
+          type: "number"
+          format: "double"
+    WorkWithPlus.WWP_ParameterWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
+          type: "string"
+    WPLeaveReportLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+    GeneXus.Common.DirectionsRequestParameters:
+      properties:
+        sourceLocation:
+          description: "Source Location"
+          type: "string"
+        destinationLocation:
+          description: "Destination Location"
+          type: "string"
+        waypoints:
+          description: "Intermediate waypoints"
+          type: array
+          items:
+            type: "string"
+        optimizeWaypoints:
+          description: "optimize Waypoints"
+          type: "boolean"
+        transportType:
+          description: "transport Type"
+          type: "string"
+        requestAlternateRoutes:
+          description: "request Alternate Routes"
+          type: "boolean"
+        additionalParameters:
+          description: "Configuration Property"
+          type: array
+          items:
+            $ref: "#/components/schemas/GeneXus.Common.Notifications.ConfigurationProperty"
+    GeneXus.Common.GeolocationInfo:
+      properties:
+        Location:
+          description: "Location"
+          type: "string"
+        Description:
+          description: "Description"
+          type: "string"
+        Time:
+          description: "Time"
+          type: "string"
+          format: "date-time"
+        Precision:
+          description: "Precision"
+          type: "number"
+          format: "double"
+        RestrictedAccuracy:
+          description: "Restricted Accuracy"
+          type: "boolean"
+        Heading:
+          description: "Heading"
+          type: "number"
+          format: "double"
+        Speed:
+          description: "Speed"
+          type: "number"
+          format: "double"
+    GeneXus.Common.Messages_Message:
+      properties:
+        Id:
+          description: "Id"
+          type: "string"
+        Type:
+          description: "Type"
+          type: "integer"
+          format: "int32"
+        Description:
+          description: "Description"
+          type: "string"
+    GeneXus.Common.Notifications.ConfigurationProperty:
+      properties:
+        PropertyName:
+          description: "Property Name"
+          type: "string"
+        PropertyValue:
+          description: "Property Value"
+          type: "string"
+    GeneXus.Common.Route:
+      properties:
+        name:
+          description: "The expected travel time in seconds"
+          type: "string"
+        advisoryNotices:
+          description: "A collection of advisory notice strings for the route"
+          type: array
+          items:
+            type: "string"
+        distance:
+          description: "The route distance in meters"
+          type: "number"
+          format: "double"
+        expectedTravelTime:
+          description: "The expected travel time in seconds"
+          type: "number"
+          format: "double"
+        transportType:
+          description: "The overall route transport type"
+          type: "string"
+        geoline:
+          description: "The route geometry"
+          type: "string"
+    GeneXus.SD.Synchronization.SynchronizationEventList_SynchronizationEventListItem:
+      properties:
+        EventId:
+          description: "Pending Event Id"
+          type: "string"
+          format: "uuid"
+        EventTimestamp:
+          description: "Pending Event Timestamp"
+          type: "string"
+          format: "date-time"
+        EventBC:
+          description: "Pending Event BC"
+          type: "string"
+        EventAction:
+          description: "Pending Event Action"
+          type: "integer"
+          format: "int32"
+        EventData:
+          description: "Pending Event Data"
+          type: "string"
+        EventStatus:
+          description: "Pending Event Status"
+          type: "integer"
+          format: "int32"
+        EventErrors:
+          description: "Pending Event Extras"
+          type: "string"
+    GeneXus.SD.Synchronization.SynchronizationEventResultList_SynchronizationEventResultListItem:
+      properties:
+        EventId:
+          description: "Pending Event Id"
+          type: "string"
+          format: "uuid"
+        EventTimestamp:
+          description: "Pending Event Timestamp"
+          type: "string"
+          format: "date-time"
+        EventStatus:
+          description: "Pending Event Status"
+          type: "integer"
+          format: "int32"
+        EventErrors:
+          description: "Pending Event Errors"
+          type: "string"
+        Mappings:
+          type: array
+          items:
+            description: MappingsItem
+            $ref: "#/components/schemas/GeneXus.SD.Synchronization.SynchronizationEventResultList.Mappings_MappingsItem"
+    GeneXus.SD.Synchronization.SynchronizationEventResultList.Mappings_MappingsItem:
+      properties:
+        Table:
+          description: "Table"
+          type: "string"
+        Updates:
+          description: "Updates"
+          type: "string"
+        Conditions:
+          description: "Conditions"
+          type: "string"
+      x-gx-level: "SynchronizationEventResultList"
+    GeneXus.SD.Synchronization.SynchronizationInfo:
+      properties:
+        GxAppVersion:
+          description: "Application Version"
+          type: "string"
+        Synchronizer:
+          description: "Synchronizer"
+          type: "string"
+    WorkLogsSDT:
+      properties:
+        WorkHourLogId:
+          description: "Work Hour Log Id"
+          type: "integer"
+          format: "int64"
+        WorkHourLogDate:
+          description: "Work Hour Log Date"
+          type: "string"
+          format: "date"
+        WorkHourLogDuration:
+          description: "Work Hour Log Duration"
+          type: "string"
+        WorkHourLogHour:
+          description: "Work Hour Log Hour"
+          type: "integer"
+          format: "int32"
+        WorkHourLogMinute:
+          description: "Work Hour Log Minute"
+          type: "integer"
+          format: "int32"
+        WorkHourLogDescription:
+          description: "Work Hour Log Description"
+          type: "string"
+        EmployeeId:
+          description: "Employee Id"
+          type: "integer"
+          format: "int64"
+        EmployeeFirstName:
+          description: "Employee First Name"
+          type: "string"
+        ProjectId:
+          description: "Project Id"
+          type: "integer"
+          format: "int64"
+        ProjectName:
+          description: "Project Name"
+          type: "string"
+        LogDetails:
+          description: "Log Details"
+          type: "string"
+    WorkWithPlus.NativeMobile.DoubleItemListData_DoubleItemListDataItem:
+      properties:
+        Type:
+          description: "Type"
+          type: "integer"
+          format: "int32"
+        Option1Title:
+          description: "Option1 Title"
+          type: "string"
+        Option1Image:
+          description: "Option1 Image"
+          type: "string"
+        Option1Subtitle:
+          description: "Option1 Subtitle"
+          type: "string"
+        Option1Information1:
+          description: "Option1 Information1"
+          type: "string"
+        Option1Information2:
+          description: "Option1 Information2"
+          type: "string"
+        Option1Id:
+          description: "Option1 Id"
+          type: "string"
+        Option1ComponentToCall:
+          description: "Option1 Component To Call"
+          type: "string"
+        Option2Title:
+          description: "Option2 Title"
+          type: "string"
+        Option2Image:
+          description: "Option2 Image"
+          type: "string"
+        Option2Subtitle:
+          description: "Option2 Subtitle"
+          type: "string"
+        Option2Id:
+          description: "Option2 Id"
+          type: "string"
+        Option2ComponentToCall:
+          description: "Option2 Component To Call"
+          type: "string"
+        Option2Information1:
+          description: "Option2 Information1"
+          type: "string"
+        Option2Information2:
+          description: "Option2 Information2"
+          type: "string"
+    WorkWithPlus.NativeMobile.LaunchpadOptions_Option:
+      properties:
+        Name:
+          description: "Name"
+          type: "string"
+        Description:
+          description: "Description"
+          type: "string"
+        Information:
+          description: "Information"
+          type: "string"
+        Link:
+          description: "Link"
+          type: "string"
+        Icon:
+          description: "Icon"
+          type: "string"
+        OrderIndex:
+          description: "Order Index"
+          type: "integer"
+          format: "int64"
+        TileSize:
+          description: "Tile Size"
+          type: "integer"
+          format: "int32"
+        TileType:
+          description: "Tile Type"
+          type: "integer"
+          format: "int32"
+    WorkWithPlus.NativeMobile.RangedRadialGaugeConfig:
+      properties:
+        Value:
+          description: "Value (in degrees)"
+          type: "integer"
+          format: "int32"
+        Text:
+          description: "Text"
+          type: "string"
+        Width:
+          description: "Width"
+          type: "integer"
+          format: "int32"
+        Height:
+          description: "Height"
+          type: "integer"
+          format: "int32"
+        Range1ColorStart:
+          description: "Range1 Color Start"
+          type: "string"
+        Range1ColorEnd:
+          description: "Range1 Color End"
+          type: "string"
+        Range2ColorStart:
+          description: "Range2 Color Start"
+          type: "string"
+        Range2ColorEnd:
+          description: "Range2 Color End"
+          type: "string"
+        Range3ColorStart:
+          description: "Range3 Color Start"
+          type: "string"
+        Range3ColorEnd:
+          description: "Range3 Color End"
+          type: "string"
+        Range4ColorStart:
+          description: "Range4 Color Start"
+          type: "string"
+        Range4ColorEnd:
+          description: "Range4 Color End"
+          type: "string"
+        Range5ColorStart:
+          description: "Range5 Color Start"
+          type: "string"
+        Range5ColorEnd:
+          description: "Range5 Color End"
+          type: "string"
+        ValueMarkerColor:
+          description: "Value Marker Color"
+          type: "string"
+    WorkWithPlus.NativeMobile.WWPCalendarEntry:
+      properties:
+        Year:
+          description: "Year"
+          type: "integer"
+          format: "int32"
+        Month:
+          description: "Month"
+          type: "integer"
+          format: "int32"
+        Day:
+          description: "Day"
+          type: "integer"
+          format: "int32"
+        Color:
+          description: "Color"
+          type: "string"
+        Text:
+          description: "Text"
+          type: "string"
+        Status:
+          description: "Status"
+          type: "integer"
+          format: "int32"
+        Content:
+          description: "Content"
+          type: "string"
+        Time:
+          description: "Time"
+          type: "string"
+          format: "date-time"
+    WorkWithPlus.NativeMobile.WWPCalendarInfo:
+      properties:
+        Events:
+          description: "WWPCalendar Entry"
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPCalendarEntry"
+        Disabled:
+          description: "WWPCalendar Entry"
+          type: array
+          items:
+            $ref: "#/components/schemas/WorkWithPlus.NativeMobile.WWPCalendarEntry"
+    WorkWithPlus.NativeMobile.WWPProductData:
+      properties:
+        Id:
+          description: "Id"
+          type: "string"
+        Type:
+          description: "Type"
+          type: "integer"
+          format: "int32"
+        Title:
+          description: "Title"
+          type: "string"
+        Description:
+          description: "Description"
+          type: "string"
+        Image:
+          description: "Image"
+          type: "string"
+        Subtitle:
+          description: "Subtitle"
+          type: "string"
+        Information1:
+          description: "Information1"
+          type: "string"
+        Information2:
+          description: "Information2"
+          type: "string"
+        ComponentToCall:
+          description: "Component To Call"
+          type: "string"
+    GAMSDChangePassword_Level_DetailSdt:
+      properties:
+        Username:
+          description: "Username"
+          type: "string"
+        Userpassword:
+          description: "Userpassword"
+          type: "string"
+        Userpasswordnew:
+          description: "Userpasswordnew"
+          type: "string"
+        Userpasswordnewconf:
+          description: "Userpasswordnewconf"
+          type: "string"
+        Ispasswordexpires:
+          description: "Ispasswordexpires"
+          type: "boolean"
+    GAMSDNotAuthorized_Level_DetailSdt:
+      properties:
+        User:
+          description: "User"
+          type: "string"
+        Password:
+          description: "Password"
+          type: "string"
+    GAMSDUpdateUser_Level_DetailSdt:
+      properties:
+        Username:
+          description: "Username"
+          type: "string"
+        Email:
+          description: "Email"
+          type: "string"
+        Firstname:
+          description: "Firstname"
+          type: "string"
+        Lastname:
+          description: "Lastname"
+          type: "string"
+        Userguid:
+          description: "Userguid"
+          type: "string"
+    LeaveRequestPanel_Level_DetailSdt:
+      properties:
+        Leavetypeid:
+          description: "Leavetypeid"
+          type: "integer"
+          format: "int64"
+        Leaverequeststartdate:
+          description: "Leaverequeststartdate"
+          type: "string"
+          format: "date"
+        Leaverequestenddate:
+          description: "Leaverequestenddate"
+          type: "string"
+          format: "date"
+        Leaverequesthalfday:
+          description: "Leaverequesthalfday"
+          type: "string"
+        Leaverequestduration:
+          description: "Leaverequestduration"
+          type: "number"
+          format: "double"
+        Leaverequestdescription:
+          description: "Leaverequestdescription"
+          type: "string"
+        Employeeid:
+          description: "Employeeid"
+          type: "integer"
+          format: "int64"
+        Today:
+          description: "Today"
+          type: "string"
+          format: "date"
+        Employyeeavailablevacationdays:
+          description: "Employyeeavailablevacationdays"
+          type: "integer"
+          format: "int32"
+        Msgvar:
+          description: "Msgvar"
+          type: "string"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+        Gxdesc_leavetypeid:
+          description: "Gxdesc_leavetypeid"
+          type: "string"
+    LeaveRequestsGridPanel_Level_Detail_GridSdt_Item:
+      properties:
+        LeaveRequestId:
+          description: "Leave Request Id"
+          type: "integer"
+          format: "int64"
+        LeaveRequestDescription:
+          description: "Leave Request Description"
+          type: "string"
+        LeaveRequestStatus:
+          description: "Leave Request Status"
+          type: "string"
+        Leaveinfo:
+          description: "Leaveinfo"
+          type: "string"
+        Leaveperiod:
+          description: "Leaveperiod"
+          type: "string"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+    LeaveRequestsGridPanel_Level_DetailSdt:
+      properties:
+        Msgvar:
+          description: "Msgvar"
+          type: "string"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+    LogHoursPanel_Level_DetailSdt:
+      properties:
+        Workhourlogdate:
+          description: "Workhourlogdate"
+          type: "string"
+          format: "date"
+        Projectid:
+          description: "Projectid"
+          type: "integer"
+          format: "int32"
+        Loghour:
+          description: "Loghour"
+          type: "integer"
+          format: "int32"
+        Logminute:
+          description: "Logminute"
+          type: "integer"
+          format: "int32"
+        Workhourlogdescription:
+          description: "Workhourlogdescription"
+          type: "string"
+        Employeeid:
+          description: "Employeeid"
+          type: "integer"
+          format: "int64"
+        Today:
+          description: "Today"
+          type: "string"
+          format: "date"
+        Msgvar:
+          description: "Msgvar"
+          type: "string"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+    LoginPanel_Level_DetailSdt:
+      properties:
+        User:
+          description: "User"
+          type: "string"
+        Password:
+          description: "Password"
+          type: "string"
+    PasswordChangePanel_Level_DetailSdt:
+      properties:
+        Oldpassword:
+          description: "Oldpassword"
+          type: "string"
+        Newpassword:
+          description: "Newpassword"
+          type: "string"
+        Confirmpassword:
+          description: "Confirmpassword"
+          type: "string"
+        Ispasswordexpires:
+          description: "Ispasswordexpires"
+          type: "boolean"
+        Username:
+          description: "Username"
+          type: "string"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+    ProfilePanel_Level_DetailSdt:
+      properties:
+        Gxprops_menuoptions:
+          description: "Gxprops_menuoptions"
+          type: "string"
+        Menuoptions:
+          description: "Menu Options"
+          type: array
+          items:
+            $ref: "#/components/schemas/MenuOptions_MenuOptionsItem"
+        Name:
+          description: "Name"
+          type: "string"
+        Email:
+          description: "Email"
+          type: "string"
+        Usercompany:
+          description: "Usercompany"
+          type: "string"
+        Role:
+          description: "Role"
+          type: "string"
+    MenuOptions_MenuOptionsItem:
+      properties:
+        Title:
+          description: "Title"
+          type: "string"
+        Icon:
+          description: "Icon"
+          type: "string"
+        Type:
+          description: "Type"
+          type: "integer"
+          format: "int32"
+        ComponentToCall:
+          description: "Component To Call"
+          type: "string"
+        Id:
+          description: "Id"
+          type: "string"
+        IdNum:
+          description: "Id Num"
+          type: "integer"
+          format: "int32"
+        OrderIndex:
+          description: "Order Index"
+          type: "integer"
+          format: "int32"
+        BadgeCount:
+          description: "Badge Count"
+          type: "integer"
+          format: "int32"
+        Information:
+          description: "Information"
+          type: "string"
+        FontIcon:
+          description: "Font Icon"
+          type: "string"
+        FontIconClass:
+          description: "Font Icon Class"
+          type: "string"
+    UpdateLeaveRequest_Level_DetailSdt:
+      properties:
+        Leaverequestdate:
+          description: "Leaverequestdate"
+          type: "string"
+          format: "date"
+        Leavetypeid:
+          description: "Leavetypeid"
+          type: "integer"
+          format: "int64"
+        Leaverequeststartdate:
+          description: "Leaverequeststartdate"
+          type: "string"
+          format: "date"
+        Leaverequestenddate:
+          description: "Leaverequestenddate"
+          type: "string"
+          format: "date"
+        Leaverequestduration:
+          description: "Leaverequestduration"
+          type: "number"
+          format: "double"
+        Leaverequesthalfday:
+          description: "Leaverequesthalfday"
+          type: "string"
+        Leaverequestdescription:
+          description: "Leaverequestdescription"
+          type: "string"
+        Leaverequest:
+          description: "Leaverequest"
+          type: "integer"
+          format: "int32"
+        Today:
+          description: "Today"
+          type: "string"
+          format: "date"
+        Msgvar:
+          description: "Msgvar"
+          type: "string"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+        Gxdesc_leavetypeid:
+          description: "Gxdesc_leavetypeid"
+          type: "string"
+    UpdateWorkHourLog_Level_DetailSdt:
+      properties:
+        Worklogdate:
+          description: "Worklogdate"
+          type: "string"
+          format: "date"
+        Worklogproject:
+          description: "Worklogproject"
+          type: "integer"
+          format: "int32"
+        Workloghour:
+          description: "Workloghour"
+          type: "integer"
+          format: "int32"
+        Worklogminute:
+          description: "Worklogminute"
+          type: "integer"
+          format: "int32"
+        Worklogdescription:
+          description: "Worklogdescription"
+          type: "string"
+        Workhourlog:
+          description: "Workhourlog"
+          type: "integer"
+          format: "int32"
+        Today:
+          description: "Today"
+          type: "string"
+          format: "date"
+        Msgvar:
+          description: "Msgvar"
+          type: "string"
+    ViewLeaveRequest_Level_DetailSdt:
+      properties:
+        Leaverequestdate:
+          description: "Leaverequestdate"
+          type: "string"
+          format: "date"
+        Leavetypeid:
+          description: "Leavetypeid"
+          type: "integer"
+          format: "int64"
+        Leaverequeststartdate:
+          description: "Leaverequeststartdate"
+          type: "string"
+          format: "date"
+        Leaverequestenddate:
+          description: "Leaverequestenddate"
+          type: "string"
+          format: "date"
+        Leaverequestduration:
+          description: "Leaverequestduration"
+          type: "number"
+          format: "double"
+        Leaverequestdescription:
+          description: "Leaverequestdescription"
+          type: "string"
+        Leaverejectionreason:
+          description: "Leaverejectionreason"
+          type: "string"
+        Gxdesc_leavetypeid:
+          description: "Gxdesc_leavetypeid"
+          type: "string"
+    WorkLogsGridCollectionPanel_Level_DetailSdt:
+      properties:
+        Worklogssdts:
+          description: "Work Logs SDT"
+          $ref: "#/components/schemas/WorkLogsSDT"
+        Logdate:
+          description: "Logdate"
+          type: "string"
+          format: "date"
+        Datetoday:
+          description: "Datetoday"
+          type: "string"
+          format: "date"
+        Lateupdatemsgvar:
+          description: "Lateupdatemsgvar"
+          type: "string"
+        Latedeletemsgvar:
+          description: "Latedeletemsgvar"
+          type: "string"
+        Msgvar:
+          description: "Msgvar"
+          type: "string"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+        Gxdyncall:
+          description: "Gxdyncall"
+          type: "string"
+    YTTV3SD_Level_DetailSdt:
+      properties:
+        Pagetitle:
+          description: "Pagetitle"
+          type: "string"
+    GxJsonError:
+      properties:
+        error:
+          $ref: "#/components/schemas/GxJsonError.error"
+    GxJsonError.error:
+      properties:
+        code:
+          type: "string"
+        message:
+          type: "string"
+      x-gx-level: "GxJsonError"

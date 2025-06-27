@@ -1,0 +1,393 @@
+function DownloadAppJs($) {
+
+	var template = '<style>	#DOWNLOADAPPContainer {		width: 100%;	}</style><div id=\"sdapps-box-content\" class=\"box-content\" style=\"text-align: -webkit-center;\"></div>';
+	var partials = {  }; 
+	Mustache.parse(template);
+	var $container;
+	this.show = function() {
+			$container = $(this.getContainerControl());
+
+			// Raise before show scripts
+
+
+			//if (this.IsPostBack)
+				this.setHtml(Mustache.render(template, this, partials));
+			this.renderChildContainers();
+
+
+
+			// Raise after show scripts
+			this.Start(); 
+	}
+
+	this.Scripts = [];
+
+		this.Start = function() {
+
+					try {
+						var DeveloperMenu = {
+							initialize: function () {
+								Function.prototype.closure = function (obj, args, appendArgs) {
+									var fun = this;
+									return function () {
+										var funcArgs = args || arguments;
+										if (appendArgs === true) {
+											funcArgs = Array.prototype.slice.call(arguments, 0);
+											funcArgs = funcArgs.concat(args);
+										}
+										return fun.apply(obj || window, funcArgs);
+									};
+								};
+								
+								DeveloperMenu.Menu.QRCodesMode = document.location.search.substring(1) == 'qrcode';
+								//alert("0");
+								DeveloperMenu.Menu.initialize();
+								//alert("1");
+								DeveloperMenu.Menu.loadSdApplications();
+							},
+							
+							Devices: {
+								Android: "Android",
+								iOS: "iOS"
+							},
+							
+							Dom: {
+								el: function (id) {
+									if (id != null && id.tagName)
+									return id;
+									return document.getElementById(id);
+								},
+								
+								byTag: function (name, root) {
+									root = root || document;
+									return root.getElementsByTagName(name);
+								},
+								
+								byClass: function (name, tag, root) {
+									if (document.getElementsByClassName) {
+										var root = root || document;
+										return root.getElementsByClassName(name);
+									}
+									else {
+										var classElements = [];
+										var els = this.byTag(tag || '*', root);
+										var len = els.length;
+										var pattern = new RegExp("(^|\\s)" + name + "(\\s|$)");
+										for (i = 0, j = 0; i < len; i++) {
+											if (pattern.test(els[i].className)) {
+												classElements[j] = els[i];
+												j++;
+											}
+										}
+										return classElements;
+									}
+								},
+								
+								hasClass: function (id, className) {
+									var el = DeveloperMenu.Dom.el(id);
+									if (el) {
+										return className && (' ' + el.className + ' ').indexOf(' ' + className + ' ') != -1;
+									}
+								},
+								
+								addClass: function (id, className) {
+									var el = DeveloperMenu.Dom.el(id);
+									if (el) {
+										if (className && !this.hasClass(id, className)) {
+											el.className = el.className + " " + className;
+										}
+									}
+								},
+								
+								classReCache: {},
+								removeClass: function (id, className) {
+									var el = DeveloperMenu.Dom.el(id);
+									if (el) {
+										if (this.hasClass(id, className)) {
+											var re = this.classReCache[className];
+											if (!re) {
+												re = new RegExp('(?:^|\\s+)' + className + '(?:\\s+|$)', "g");
+												this.classReCache[className] = re;
+											}
+											el.className = el.className.replace(re, " ");
+										}
+									}
+								},
+								
+								attachEvent: function (el, evtName, handler, scope) {
+									if (scope)
+									handler = handler.closure(scope);
+									if (el.addEventListener)
+									el.addEventListener(evtName, handler, false);
+									else
+									el.attachEvent('on' + evtName, handler);
+								},
+								
+								getComputedStyle: function (el, style) {
+									var computedStyle;
+									if (typeof el.currentStyle != 'undefined') {
+										computedStyle = el.currentStyle;
+									}
+									else {
+										computedStyle = document.defaultView.getComputedStyle(el, null);
+									}
+									
+									return computedStyle[style];
+								},
+								
+								getEventTarget: function (e, className, levels) {
+									var node = e.target || e.srcElement,
+									depth = levels + 1;
+									while (node && depth--) {
+										if (this.hasClass(node, className))
+										return node;
+										node = node.parentNode;
+									}
+								}
+							},
+							
+							Util: {
+								getStaticUrl: function () {
+									return DeveloperMenu.Util.staticUrl;
+								},
+								
+								getCurrentUrl: function () {
+									var href = document.location.href;
+									return href.substring(0, href.lastIndexOf('/'));
+								},
+								
+								getAppBaseUrl: function () {
+									var appBaseUrl = this.getCurrentUrl();
+									var staticUrl = this.getStaticUrl();
+									if (staticUrl)
+									appBaseUrl = appBaseUrl.replace(new RegExp(staticUrl + "$"), "");
+									
+									if (appBaseUrl.substring(appBaseUrl.length - 1) == "/")
+									appBaseUrl = appBaseUrl.substr(0, appBaseUrl.length - 1)
+									
+									return appBaseUrl;
+								},
+								
+								QR_CODE_GENERATOR_URL: "http://sdx.genexus.com/agetqrcode.aspx?",
+								
+								getQRCodeImage: function (url) {
+									return this.QR_CODE_GENERATOR_URL + url;
+								}
+								
+							},
+							
+							Browser: {
+								isIE: function () {
+									var ua = navigator.userAgent;
+									return (ua.indexOf("MSIE") != -1 || ua.indexOf("Trident") != -1 || ua.indexOf("Edge") != -1);
+								}
+							},
+							
+							Menu: {
+								initialize: function () {
+									DeveloperMenu.Util.staticUrl = "";
+								},
+								
+								useDescription: function () {
+									if (gx.navMenuDsc !== undefined) {
+										return gx.navMenuDsc;
+									}
+									return false;
+								},
+								
+								loadFile: function (options) {
+									var req = DeveloperMenu.Ajax.getRequestObj(),
+									successFn,
+									failureFn;
+									if (req) {
+										failureFn = function (req) {
+											options.failure.call(this, req);
+											if (options.allways) {
+												options.allways.call(this, req)
+											}
+										};
+										
+										successFn = function (req) {
+											if (req.readyState == 4) {
+												if (req.status == 200) {
+													options.success.call(this, req);
+													if (options.allways) {
+														options.allways.call(this, req)
+													}
+													return;
+												}
+												failureFn.call(this, req);
+											}
+										}
+										
+										if (DeveloperMenu.Browser.isIE())
+										req.onreadystatechange = successFn.closure(options.scope, [req]);
+										else {
+											req.onload = successFn.closure(options.scope, [req]);
+											req.onerror = failureFn.closure(options.scope, [req]);
+										}
+										
+										req.open(options.method || 'GET', options.url);
+										
+										req.send();
+									}
+								},
+								
+								loadSdApplications: function () {
+									//alert(2);
+									this.renderAndroidMenu();
+								},
+								
+								getFileNameByDevice: function (app, device) {
+									if (device == DeveloperMenu.Devices.Android)
+									return app + '.' + "apk";
+									return "";
+								},
+								
+								renderAndroidMenu: function () {
+									var buffer = [],
+									androidMenuElement = DeveloperMenu.Dom.el("sdapps-box-content"),
+									fileName,
+									fileUrl,
+									qrCodeUrl; 
+									//alert(3);
+									fileName = this.getFileNameByDevice('YTTV3SD', DeveloperMenu.Devices.Android);
+									fileUrl = DeveloperMenu.Util.getAppBaseUrl() + "/" + fileName;
+									qrCodeUrl = DeveloperMenu.Util.getQRCodeImage(fileUrl);
+									
+									iosFileUrl = "https://testflight.apple.com/join/uzWt41rj";
+									iosQrCodeUrl = DeveloperMenu.Util.getQRCodeImage(iosFileUrl);
+									
+									buffer.push([
+									'<div class="row">',
+									'<div class="col-md-6">',
+									'<div class="action-box qrcode-box"  style="float: right; margin-right: 80px;">',
+									'<figure>',
+									'<a class="qrcode-link" href="', fileUrl, '" target="_blank"><img width="182" class="qrcode" src="', qrCodeUrl, '" alt="Timetracker android QR code"/></a>',
+									'<figcaption>',
+									'<header>',
+									'<h2>Android App</h2>',
+									'</header>',
+									'<a href="', fileUrl, '" target="_blank">Download</a>',
+									'</figcaption>',
+									'</figure>',
+									'<!--<img src="devmenu/Zoom_In.png" alt="Zoom QR code" title="Click to zoom QR code" class="qrcode-zoom"/>-->',
+									'</div>',
+									'</div>',
+									'<div class="col-md-6">',
+									'<div class="action-box qrcode-box" style="float: left; margin-left: 80px;">',
+									'<figure>',
+									'<a class="qrcode-link" href="', iosFileUrl, '" target="_blank"><img class="qrcode" src="', iosQrCodeUrl, '" alt="Timetracker iOS QR code"/></a>',
+									'<figcaption>',
+									'<header>',
+									'<h2>IOS App</h2>',
+									'</header>',
+									'<a href="', iosFileUrl, '" target="_blank">Get iOS App</a>',
+									'</figcaption>',
+									'</figure>',
+									'<!--<img src="devmenu/Zoom_In.png" alt="Zoom QR code" title="Click to zoom QR code" class="qrcode-zoom"/>-->',
+									'</div>',
+									'</div>',
+									'<!--<div class="col-md-2 col-sm-1"></div>-->',
+									'</div>'
+									].join(""));
+									
+									androidMenuElement.innerHTML = buffer.join("");
+									this.checkSDDownloadLinks();
+								},
+								
+								checkSDDownloadLinks: function () {
+									setTimeout((function () {
+										var appMatrixEl = DeveloperMenu.Dom.el('sdapps-box');
+										var links = DeveloperMenu.Dom.byClass('qrcode-link', 'a', appMatrixEl);
+										for (var i = 0, len = links.length; i < len; i++) {
+											this.checkDownloadLink(links[i]);
+										}
+									}).closure(this), 100);
+								},
+								
+								checkDownloadLink: function (qrCodeUrlEl) {
+									var qrCodeBox = qrCodeUrlEl.parentNode.parentNode;
+									var turnBoxOff = function () {
+										DeveloperMenu.Dom.addClass(qrCodeBox, "off");
+										qrCodeBox.setAttribute('title', 'Package is not available for download.');
+									};
+									this.loadFile({
+										url: qrCodeUrlEl.href,
+										success: function (req) {
+											if (req.readyState == 4) {
+												if (req.status == 404) {
+													turnBoxOff();
+												}
+											}
+										},
+										failure: turnBoxOff,
+										method: "HEAD",
+										scope: this
+									});
+								}
+							},
+							
+							Ajax: {
+								getRequestObj: function () {
+									var req = null;
+									if (window.XMLHttpRequest) {
+										req = new XMLHttpRequest();
+									}
+									if (!req) {
+										try {
+											req = new ActiveXObject('Msxml2.XMLHTTP');
+										}
+										catch (e) {
+											try {
+												req = new ActiveXObject('Microsoft.XMLHTTP');
+											}
+											catch (e) { }
+										}
+									}
+									return req;
+								}
+							}
+						};
+						if (DeveloperMenu.Browser.isIE())
+						document.createElement("header");
+						
+						$( document ).ready(function() {
+							//alert("here");
+							setTimeout(function() {
+								DeveloperMenu.initialize();
+							}, 500);
+							
+						});
+					} catch (e) {
+						console.error(e)
+					}
+					
+				
+		}
+
+
+
+	this.autoToggleVisibility = true;
+
+	var childContainers = {};
+	this.renderChildContainers = function () {
+		$container
+			.find("[data-slot][data-parent='" + this.ContainerName + "']")
+			.each((function (i, slot) {
+				var $slot = $(slot),
+					slotName = $slot.attr('data-slot'),
+					slotContentEl;
+
+				slotContentEl = childContainers[slotName];
+				if (!slotContentEl) {				
+					slotContentEl = this.getChildContainer(slotName)
+					childContainers[slotName] = slotContentEl;
+					slotContentEl.parentNode.removeChild(slotContentEl);
+				}
+				$slot.append(slotContentEl);
+				$(slotContentEl).show();
+			}).closure(this));
+	};
+
+}

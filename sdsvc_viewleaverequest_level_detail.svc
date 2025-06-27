@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.sdsvc_viewleaverequest_level_detail,sdsvc_viewleaverequest_level_detail" %>
