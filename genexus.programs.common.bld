@@ -1,7 +1,4 @@
-WorkWithPlus_CommonObjects.dll
 GeneXus.dll
-WorkWithPlus_Web.dll
-GeneXusSecurity.dll
 type_SdtGAMSDChangePassword_Level_DetailSdt.cs
 type_SdtGAMSDNotAuthorized_Level_DetailSdt.cs
 type_SdtGAMSDUpdateUser_Level_DetailSdt.cs
@@ -29,7 +26,6 @@ wwpbaseobjects\type_SdtWWP_Entity.cs
 wwpbaseobjects\type_SdtWWP_UserExtended.cs
 wwpbaseobjects\notifications\web\type_SdtWWP_WebClient.cs
 wwpbaseobjects\notifications\common\type_SdtWWP_NotificationDefinition.cs
-workwithplus\type_SdtWWP_Parameter.cs
 wwpbaseobjects\mail\type_SdtWWP_MailTemplate.cs
 wwpbaseobjects\subscriptions\type_SdtWWP_Subscription.cs
 wwpbaseobjects\notifications\web\type_SdtWWP_WebNotification.cs
@@ -38,16 +34,17 @@ wwpbaseobjects\sms\type_SdtWWP_SMS.cs
 wwpbaseobjects\notifications\common\type_SdtWWP_Notification.cs
 wwpbaseobjects\mail\type_SdtWWP_Mail.cs
 wwpbaseobjects\mail\type_SdtWWP_Mail_Attachments.cs
+type_SdtDevice.cs
+workwithplus\type_SdtWWP_Parameter.cs
+type_SdtProject.cs
 type_SdtCompany.cs
+type_SdtWorkHourLog.cs
 type_SdtEmployee.cs
 type_SdtEmployee_Project.cs
 type_SdtEmployee_VacationSet.cs
-type_SdtProject.cs
-type_SdtWorkHourLog.cs
 type_SdtLeaveType.cs
-type_SdtLeaveRequest.cs
-type_SdtDevice.cs
 type_SdtCompanyLocation.cs
+type_SdtLeaveRequest.cs
 gxdomainexporttype.cs
 gxdomainpage.cs
 gxdomainactiontexts.cs

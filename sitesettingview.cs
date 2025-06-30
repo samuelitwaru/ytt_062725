@@ -809,12 +809,6 @@ namespace GeneXus.Programs {
             S112 ();
             if (returnInSub) return;
          }
-         AV15AIAppliedFilters = AV14Session.Get("SiteSettingViewQueryAppliedFilters");
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( StringUtil.Trim( AV15AIAppliedFilters))) )
-         {
-            GX_msglist.addItem(AV15AIAppliedFilters);
-            AV14Session.Remove("SiteSettingViewQueryAppliedFilters");
-         }
       }
 
       protected void nextLoad( )
@@ -912,7 +906,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256267553063", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256275283752", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -928,7 +922,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("sitesettingview.js", "?20256267553063", false, true);
+         context.AddJavascriptSource("sitesettingview.js", "?20256275283753", false, true);
          context.AddJavascriptSource("shared/HistoryManager/HistoryManager.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/json2005.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/rsh.js", "", false, true);
@@ -1024,8 +1018,6 @@ namespace GeneXus.Programs {
          AV6WWPContext = new GeneXus.Programs.wwpbaseobjects.SdtWWPContext(context);
          H00572_A160SiteSettingId = new long[1] ;
          H00572_A161IsLogHourOpen = new bool[] {false} ;
-         AV15AIAppliedFilters = "";
-         AV14Session = context.GetSession();
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.sitesettingview__default(),
@@ -1098,8 +1090,6 @@ namespace GeneXus.Programs {
       private bool A161IsLogHourOpen ;
       private bool AV9Exists ;
       private bool bDynCreated_Generalwc ;
-      private string AV15AIAppliedFilters ;
-      private IGxSession AV14Session ;
       private GXWebComponent WebComp_Generalwc ;
       private GXUserControl ucTabs ;
       private GXWebForm Form ;

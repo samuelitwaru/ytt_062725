@@ -255,9 +255,6 @@ namespace GeneXus.Programs {
          {
             enableOutput();
          }
-         context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
-         context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
-         context.AddJavascriptSource("DVelop/Bootstrap/Panel/BootstrapPanelRender.js", "", false, true);
          context.WriteHtmlText( Form.Headerrawhtml) ;
          context.CloseHtmlHeader();
          if ( context.isSpaRequest( ) )
@@ -314,16 +311,6 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "vNAME", StringUtil.RTrim( AV5Name));
          GxWebStd.gx_hidden_field( context, "gxhash_vNAME", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV5Name, "")), context));
          GxWebStd.gx_hidden_field( context, "vTYPEIDDSP", StringUtil.RTrim( AV7TypeIdDsp));
-         GxWebStd.gx_hidden_field( context, "DVPANEL_TABLEATTRIBUTES_Width", StringUtil.RTrim( Dvpanel_tableattributes_Width));
-         GxWebStd.gx_hidden_field( context, "DVPANEL_TABLEATTRIBUTES_Autowidth", StringUtil.BoolToStr( Dvpanel_tableattributes_Autowidth));
-         GxWebStd.gx_hidden_field( context, "DVPANEL_TABLEATTRIBUTES_Autoheight", StringUtil.BoolToStr( Dvpanel_tableattributes_Autoheight));
-         GxWebStd.gx_hidden_field( context, "DVPANEL_TABLEATTRIBUTES_Cls", StringUtil.RTrim( Dvpanel_tableattributes_Cls));
-         GxWebStd.gx_hidden_field( context, "DVPANEL_TABLEATTRIBUTES_Title", StringUtil.RTrim( Dvpanel_tableattributes_Title));
-         GxWebStd.gx_hidden_field( context, "DVPANEL_TABLEATTRIBUTES_Collapsible", StringUtil.BoolToStr( Dvpanel_tableattributes_Collapsible));
-         GxWebStd.gx_hidden_field( context, "DVPANEL_TABLEATTRIBUTES_Collapsed", StringUtil.BoolToStr( Dvpanel_tableattributes_Collapsed));
-         GxWebStd.gx_hidden_field( context, "DVPANEL_TABLEATTRIBUTES_Showcollapseicon", StringUtil.BoolToStr( Dvpanel_tableattributes_Showcollapseicon));
-         GxWebStd.gx_hidden_field( context, "DVPANEL_TABLEATTRIBUTES_Iconposition", StringUtil.RTrim( Dvpanel_tableattributes_Iconposition));
-         GxWebStd.gx_hidden_field( context, "DVPANEL_TABLEATTRIBUTES_Autoscroll", StringUtil.BoolToStr( Dvpanel_tableattributes_Autoscroll));
       }
 
       public override void RenderHtmlCloseForm( )
@@ -416,7 +403,17 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, divTablemain_Internalname, 1, 0, "px", 0, "px", "TableMainTransaction", "start", "top", "", "", "div");
+            GxWebStd.gx_div_start( context, divTablemain_Internalname, 1, 100, "%", 0, "px", "TableMainTransaction", "start", "top", " "+"data-gx-smarttable"+" ", "grid-template-columns:100fr;grid-template-rows:auto auto auto;", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, divLefttable_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, divMaintable_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
             /* Div Control */
@@ -436,19 +433,6 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
-            /* User Defined Control */
-            ucDvpanel_tableattributes.SetProperty("Width", Dvpanel_tableattributes_Width);
-            ucDvpanel_tableattributes.SetProperty("AutoWidth", Dvpanel_tableattributes_Autowidth);
-            ucDvpanel_tableattributes.SetProperty("AutoHeight", Dvpanel_tableattributes_Autoheight);
-            ucDvpanel_tableattributes.SetProperty("Cls", Dvpanel_tableattributes_Cls);
-            ucDvpanel_tableattributes.SetProperty("Title", Dvpanel_tableattributes_Title);
-            ucDvpanel_tableattributes.SetProperty("Collapsible", Dvpanel_tableattributes_Collapsible);
-            ucDvpanel_tableattributes.SetProperty("Collapsed", Dvpanel_tableattributes_Collapsed);
-            ucDvpanel_tableattributes.SetProperty("ShowCollapseIcon", Dvpanel_tableattributes_Showcollapseicon);
-            ucDvpanel_tableattributes.SetProperty("IconPosition", Dvpanel_tableattributes_Iconposition);
-            ucDvpanel_tableattributes.SetProperty("AutoScroll", Dvpanel_tableattributes_Autoscroll);
-            ucDvpanel_tableattributes.Render(context, "dvelop.gxbootstrap.panel_al", Dvpanel_tableattributes_Internalname, "DVPANEL_TABLEATTRIBUTESContainer");
-            context.WriteHtmlText( "<div class=\"gx_usercontrol_child\" id=\""+"DVPANEL_TABLEATTRIBUTESContainer"+"TableAttributes"+"\" style=\"display:none;\">") ;
             /* Div Control */
             GxWebStd.gx_div_start( context, divTableattributes_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
             /* Div Control */
@@ -461,9 +445,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_label_element( context, cmbavTypeid_Internalname, "Type", " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 22,'',false,'',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 24,'',false,'',0)\"";
             /* ComboBox */
-            GxWebStd.gx_combobox_ctrl1( context, cmbavTypeid, cmbavTypeid_Internalname, StringUtil.RTrim( AV6TypeId), 1, cmbavTypeid_Jsonclick, 7, "'"+""+"'"+",false,"+"'"+"e11171_client"+"'", "char", "", 1, cmbavTypeid.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,22);\"", "", true, 0, "HLP_GAMAuthenticationTypeEntry.htm");
+            GxWebStd.gx_combobox_ctrl1( context, cmbavTypeid, cmbavTypeid_Internalname, StringUtil.RTrim( AV6TypeId), 1, cmbavTypeid_Jsonclick, 7, "'"+""+"'"+",false,"+"'"+"e11171_client"+"'", "char", "", 1, cmbavTypeid.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,24);\"", "", true, 0, "HLP_GAMAuthenticationTypeEntry.htm");
             cmbavTypeid.CurrentValue = StringUtil.RTrim( AV6TypeId);
             AssignProp("", false, cmbavTypeid_Internalname, "Values", (string)(cmbavTypeid.ToJavascriptSource()), true);
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -477,16 +461,16 @@ namespace GeneXus.Programs {
             if ( ! isFullAjaxMode( ) )
             {
                /* WebComponent */
-               GxWebStd.gx_hidden_field( context, "W0025"+"", StringUtil.RTrim( WebComp_Wcentrypanel_Component));
+               GxWebStd.gx_hidden_field( context, "W0027"+"", StringUtil.RTrim( WebComp_Wcentrypanel_Component));
                context.WriteHtmlText( "<div") ;
                GxWebStd.ClassAttribute( context, "gxwebcomponent");
-               context.WriteHtmlText( " id=\""+"gxHTMLWrpW0025"+""+"\""+"") ;
+               context.WriteHtmlText( " id=\""+"gxHTMLWrpW0027"+""+"\""+"") ;
                context.WriteHtmlText( ">") ;
                if ( StringUtil.Len( WebComp_Wcentrypanel_Component) != 0 )
                {
                   if ( StringUtil.StrCmp(StringUtil.Lower( OldWcentrypanel), StringUtil.Lower( WebComp_Wcentrypanel_Component)) != 0 )
                   {
-                     context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0025"+"");
+                     context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0027"+"");
                   }
                   WebComp_Wcentrypanel.componentdraw();
                   if ( StringUtil.StrCmp(StringUtil.Lower( OldWcentrypanel), StringUtil.Lower( WebComp_Wcentrypanel_Component)) != 0 )
@@ -499,10 +483,17 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
-            context.WriteHtmlText( "</div>") ;
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, divRighttable_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -613,9 +604,9 @@ namespace GeneXus.Programs {
                         sEvtType = StringUtil.Left( sEvt, 4);
                         sEvt = StringUtil.Right( sEvt, (short)(StringUtil.Len( sEvt)-4));
                         nCmpId = (short)(Math.Round(NumberUtil.Val( sEvtType, "."), 18, MidpointRounding.ToEven));
-                        if ( nCmpId == 25 )
+                        if ( nCmpId == 27 )
                         {
-                           OldWcentrypanel = cgiGet( "W0025");
+                           OldWcentrypanel = cgiGet( "W0027");
                            if ( ( StringUtil.Len( OldWcentrypanel) == 0 ) || ( StringUtil.StrCmp(OldWcentrypanel, WebComp_Wcentrypanel_Component) != 0 ) )
                            {
                               WebComp_Wcentrypanel = getWebComponent(GetType(), "GeneXus.Programs", OldWcentrypanel, new Object[] {context} );
@@ -625,7 +616,7 @@ namespace GeneXus.Programs {
                            }
                            if ( StringUtil.Len( WebComp_Wcentrypanel_Component) != 0 )
                            {
-                              WebComp_Wcentrypanel.componentprocess("W0025", "", sEvt);
+                              WebComp_Wcentrypanel.componentprocess("W0027", "", sEvt);
                            }
                            WebComp_Wcentrypanel_Component = OldWcentrypanel;
                         }
@@ -785,16 +776,6 @@ namespace GeneXus.Programs {
             /* Read saved values. */
             Gx_mode = cgiGet( "vMODE");
             AV5Name = cgiGet( "vNAME");
-            Dvpanel_tableattributes_Width = cgiGet( "DVPANEL_TABLEATTRIBUTES_Width");
-            Dvpanel_tableattributes_Autowidth = StringUtil.StrToBool( cgiGet( "DVPANEL_TABLEATTRIBUTES_Autowidth"));
-            Dvpanel_tableattributes_Autoheight = StringUtil.StrToBool( cgiGet( "DVPANEL_TABLEATTRIBUTES_Autoheight"));
-            Dvpanel_tableattributes_Cls = cgiGet( "DVPANEL_TABLEATTRIBUTES_Cls");
-            Dvpanel_tableattributes_Title = cgiGet( "DVPANEL_TABLEATTRIBUTES_Title");
-            Dvpanel_tableattributes_Collapsible = StringUtil.StrToBool( cgiGet( "DVPANEL_TABLEATTRIBUTES_Collapsible"));
-            Dvpanel_tableattributes_Collapsed = StringUtil.StrToBool( cgiGet( "DVPANEL_TABLEATTRIBUTES_Collapsed"));
-            Dvpanel_tableattributes_Showcollapseicon = StringUtil.StrToBool( cgiGet( "DVPANEL_TABLEATTRIBUTES_Showcollapseicon"));
-            Dvpanel_tableattributes_Iconposition = cgiGet( "DVPANEL_TABLEATTRIBUTES_Iconposition");
-            Dvpanel_tableattributes_Autoscroll = StringUtil.StrToBool( cgiGet( "DVPANEL_TABLEATTRIBUTES_Autoscroll"));
             /* Read variables values. */
             cmbavTypeid.CurrentValue = cgiGet( cmbavTypeid_Internalname);
             AV6TypeId = cgiGet( cmbavTypeid_Internalname);
@@ -861,12 +842,12 @@ namespace GeneXus.Programs {
             if ( StringUtil.Len( WebComp_Wcentrypanel_Component) != 0 )
             {
                WebComp_Wcentrypanel.setjustcreated();
-               WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0025",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
+               WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0027",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
                WebComp_Wcentrypanel.componentbind(new Object[] {(string)"",(string)"",(string)""});
             }
             if ( isFullAjaxMode( ) || isAjaxCallMode( ) && bDynCreated_Wcentrypanel )
             {
-               context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0025"+"");
+               context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0027"+"");
                WebComp_Wcentrypanel.componentdraw();
                context.httpAjaxContext.ajax_rspEndCmp();
             }
@@ -888,12 +869,12 @@ namespace GeneXus.Programs {
             if ( StringUtil.Len( WebComp_Wcentrypanel_Component) != 0 )
             {
                WebComp_Wcentrypanel.setjustcreated();
-               WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0025",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
+               WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0027",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
                WebComp_Wcentrypanel.componentbind(new Object[] {(string)"",(string)"",(string)""});
             }
             if ( isFullAjaxMode( ) || isAjaxCallMode( ) && bDynCreated_Wcentrypanel )
             {
-               context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0025"+"");
+               context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0027"+"");
                WebComp_Wcentrypanel.componentdraw();
                context.httpAjaxContext.ajax_rspEndCmp();
             }
@@ -917,12 +898,12 @@ namespace GeneXus.Programs {
                if ( StringUtil.Len( WebComp_Wcentrypanel_Component) != 0 )
                {
                   WebComp_Wcentrypanel.setjustcreated();
-                  WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0025",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
+                  WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0027",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
                   WebComp_Wcentrypanel.componentbind(new Object[] {(string)"",(string)"",(string)""});
                }
                if ( isFullAjaxMode( ) || isAjaxCallMode( ) && bDynCreated_Wcentrypanel )
                {
-                  context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0025"+"");
+                  context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0027"+"");
                   WebComp_Wcentrypanel.componentdraw();
                   context.httpAjaxContext.ajax_rspEndCmp();
                }
@@ -993,7 +974,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256267504990", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025627525832", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1009,10 +990,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("gamauthenticationtypeentry.js", "?20256267504990", false, true);
-         context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
-         context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
-         context.AddJavascriptSource("DVelop/Bootstrap/Panel/BootstrapPanelRender.js", "", false, true);
+         context.AddJavascriptSource("gamauthenticationtypeentry.js", "?2025627525832", false, true);
          /* End function include_jscripts */
       }
 
@@ -1045,10 +1023,12 @@ namespace GeneXus.Programs {
 
       protected void init_default_properties( )
       {
+         divLefttable_Internalname = "LEFTTABLE";
          cmbavTypeid_Internalname = "vTYPEID";
          divTableattributes_Internalname = "TABLEATTRIBUTES";
-         Dvpanel_tableattributes_Internalname = "DVPANEL_TABLEATTRIBUTES";
          divTablecontent_Internalname = "TABLECONTENT";
+         divMaintable_Internalname = "MAINTABLE";
+         divRighttable_Internalname = "RIGHTTABLE";
          divTablemain_Internalname = "TABLEMAIN";
          divLayoutmaintable_Internalname = "LAYOUTMAINTABLE";
          Form.Internalname = "FORM";
@@ -1065,16 +1045,6 @@ namespace GeneXus.Programs {
          cmbavTypeid_Jsonclick = "";
          cmbavTypeid.Enabled = 1;
          divLayoutmaintable_Class = "Table TableTransactionTemplate";
-         Dvpanel_tableattributes_Autoscroll = Convert.ToBoolean( 0);
-         Dvpanel_tableattributes_Iconposition = "Right";
-         Dvpanel_tableattributes_Showcollapseicon = Convert.ToBoolean( 0);
-         Dvpanel_tableattributes_Collapsed = Convert.ToBoolean( 0);
-         Dvpanel_tableattributes_Collapsible = Convert.ToBoolean( 0);
-         Dvpanel_tableattributes_Title = "Authentication Type";
-         Dvpanel_tableattributes_Cls = "PanelNoHeader";
-         Dvpanel_tableattributes_Autoheight = Convert.ToBoolean( -1);
-         Dvpanel_tableattributes_Autowidth = Convert.ToBoolean( 0);
-         Dvpanel_tableattributes_Width = "100%";
          Form.Headerrawhtml = "";
          Form.Background = "";
          Form.Textcolor = 0;
@@ -1126,7 +1096,6 @@ namespace GeneXus.Programs {
          sPrefix = "";
          ClassString = "";
          StyleString = "";
-         ucDvpanel_tableattributes = new GXUserControl();
          TempTags = "";
          AV6TypeId = "";
          WebComp_Wcentrypanel_Component = "";
@@ -1163,19 +1132,16 @@ namespace GeneXus.Programs {
       private string FormProcess ;
       private string bodyStyle ;
       private string GXKey ;
-      private string Dvpanel_tableattributes_Width ;
-      private string Dvpanel_tableattributes_Cls ;
-      private string Dvpanel_tableattributes_Title ;
-      private string Dvpanel_tableattributes_Iconposition ;
       private string GX_FocusControl ;
       private string sPrefix ;
       private string divLayoutmaintable_Internalname ;
       private string divLayoutmaintable_Class ;
       private string divTablemain_Internalname ;
+      private string divLefttable_Internalname ;
+      private string divMaintable_Internalname ;
       private string ClassString ;
       private string StyleString ;
       private string divTablecontent_Internalname ;
-      private string Dvpanel_tableattributes_Internalname ;
       private string divTableattributes_Internalname ;
       private string cmbavTypeid_Internalname ;
       private string TempTags ;
@@ -1183,18 +1149,13 @@ namespace GeneXus.Programs {
       private string cmbavTypeid_Jsonclick ;
       private string WebComp_Wcentrypanel_Component ;
       private string OldWcentrypanel ;
+      private string divRighttable_Internalname ;
       private string sEvt ;
       private string EvtGridId ;
       private string EvtRowId ;
       private string sEvtType ;
       private bool entryPointCalled ;
       private bool toggleJsOutput ;
-      private bool Dvpanel_tableattributes_Autowidth ;
-      private bool Dvpanel_tableattributes_Autoheight ;
-      private bool Dvpanel_tableattributes_Collapsible ;
-      private bool Dvpanel_tableattributes_Collapsed ;
-      private bool Dvpanel_tableattributes_Showcollapseicon ;
-      private bool Dvpanel_tableattributes_Autoscroll ;
       private bool wbLoad ;
       private bool Rfr0gs ;
       private bool wbErr ;
@@ -1202,7 +1163,6 @@ namespace GeneXus.Programs {
       private bool returnInSub ;
       private bool bDynCreated_Wcentrypanel ;
       private GXWebComponent WebComp_Wcentrypanel ;
-      private GXUserControl ucDvpanel_tableattributes ;
       private GXWebForm Form ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;

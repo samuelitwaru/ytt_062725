@@ -809,12 +809,6 @@ namespace GeneXus.Programs {
             S112 ();
             if (returnInSub) return;
          }
-         AV11AIAppliedFilters = AV10Session.Get("HolidayViewQueryAppliedFilters");
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( StringUtil.Trim( AV11AIAppliedFilters))) )
-         {
-            GX_msglist.addItem(AV11AIAppliedFilters);
-            AV10Session.Remove("HolidayViewQueryAppliedFilters");
-         }
       }
 
       protected void nextLoad( )
@@ -912,7 +906,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025626754129", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256275263454", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -928,7 +922,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("holidayview.js", "?2025626754129", false, true);
+         context.AddJavascriptSource("holidayview.js", "?20256275263454", false, true);
          context.AddJavascriptSource("shared/HistoryManager/HistoryManager.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/json2005.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/rsh.js", "", false, true);
@@ -1025,8 +1019,6 @@ namespace GeneXus.Programs {
          H002K2_A113HolidayId = new long[1] ;
          H002K2_A114HolidayName = new string[] {""} ;
          A114HolidayName = "";
-         AV11AIAppliedFilters = "";
-         AV10Session = context.GetSession();
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.holidayview__default(),
@@ -1099,8 +1091,6 @@ namespace GeneXus.Programs {
       private bool returnInSub ;
       private bool AV9Exists ;
       private bool bDynCreated_Generalwc ;
-      private string AV11AIAppliedFilters ;
-      private IGxSession AV10Session ;
       private GXWebComponent WebComp_Generalwc ;
       private GXUserControl ucTabs ;
       private GXWebForm Form ;

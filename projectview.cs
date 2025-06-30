@@ -880,12 +880,6 @@ namespace GeneXus.Programs {
             S112 ();
             if (returnInSub) return;
          }
-         AV15AIAppliedFilters = AV14Session.Get("ProjectViewQueryAppliedFilters");
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( StringUtil.Trim( AV15AIAppliedFilters))) )
-         {
-            GX_msglist.addItem(AV15AIAppliedFilters);
-            AV14Session.Remove("ProjectViewQueryAppliedFilters");
-         }
       }
 
       protected void nextLoad( )
@@ -1017,7 +1011,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256267552889", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256275282910", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1033,7 +1027,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("projectview.js", "?20256267552889", false, true);
+         context.AddJavascriptSource("projectview.js", "?20256275282911", false, true);
          context.AddJavascriptSource("shared/HistoryManager/HistoryManager.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/json2005.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/rsh.js", "", false, true);
@@ -1135,8 +1129,6 @@ namespace GeneXus.Programs {
          H004Y2_A102ProjectId = new long[1] ;
          H004Y2_A103ProjectName = new string[] {""} ;
          A103ProjectName = "";
-         AV15AIAppliedFilters = "";
-         AV14Session = context.GetSession();
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.projectview__default(),
@@ -1216,8 +1208,6 @@ namespace GeneXus.Programs {
       private bool AV9Exists ;
       private bool bDynCreated_Generalwc ;
       private bool bDynCreated_Projectemployeewc ;
-      private string AV15AIAppliedFilters ;
-      private IGxSession AV14Session ;
       private GXWebComponent WebComp_Generalwc ;
       private GXWebComponent WebComp_Projectemployeewc ;
       private GXUserControl ucTabs ;

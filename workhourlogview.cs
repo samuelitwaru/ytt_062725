@@ -809,12 +809,6 @@ namespace GeneXus.Programs {
             S112 ();
             if (returnInSub) return;
          }
-         AV11AIAppliedFilters = AV10Session.Get("WorkHourLogViewQueryAppliedFilters");
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( StringUtil.Trim( AV11AIAppliedFilters))) )
-         {
-            GX_msglist.addItem(AV11AIAppliedFilters);
-            AV10Session.Remove("WorkHourLogViewQueryAppliedFilters");
-         }
       }
 
       protected void nextLoad( )
@@ -912,7 +906,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256267541533", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202562752771", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -928,7 +922,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("workhourlogview.js", "?20256267541534", false, true);
+         context.AddJavascriptSource("workhourlogview.js", "?202562752771", false, true);
          context.AddJavascriptSource("shared/HistoryManager/HistoryManager.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/json2005.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/rsh.js", "", false, true);
@@ -1025,8 +1019,6 @@ namespace GeneXus.Programs {
          H002W2_A118WorkHourLogId = new long[1] ;
          H002W2_A119WorkHourLogDate = new DateTime[] {DateTime.MinValue} ;
          A119WorkHourLogDate = DateTime.MinValue;
-         AV11AIAppliedFilters = "";
-         AV10Session = context.GetSession();
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.workhourlogview__default(),
@@ -1099,8 +1091,6 @@ namespace GeneXus.Programs {
       private bool returnInSub ;
       private bool AV9Exists ;
       private bool bDynCreated_Generalwc ;
-      private string AV11AIAppliedFilters ;
-      private IGxSession AV10Session ;
       private GXWebComponent WebComp_Generalwc ;
       private GXUserControl ucTabs ;
       private GXWebForm Form ;

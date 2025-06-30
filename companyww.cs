@@ -161,9 +161,6 @@ namespace GeneXus.Programs {
          AV34TFCompanyName_Sel = GetPar( "TFCompanyName_Sel");
          AV56TFCompanyLocationName = GetPar( "TFCompanyLocationName");
          AV57TFCompanyLocationName_Sel = GetPar( "TFCompanyLocationName_Sel");
-         AV8RedirectToFirstDetail = StringUtil.StrToBool( GetPar( "RedirectToFirstDetail"));
-         AV58QueryIntent = GetPar( "QueryIntent");
-         AV9GridAppliedFilters = GetPar( "GridAppliedFilters");
          AV46IsAuthorized_Update = StringUtil.StrToBool( GetPar( "IsAuthorized_Update"));
          AV48IsAuthorized_Delete = StringUtil.StrToBool( GetPar( "IsAuthorized_Delete"));
          AV53IsAuthorized_Insert = StringUtil.StrToBool( GetPar( "IsAuthorized_Insert"));
@@ -173,7 +170,7 @@ namespace GeneXus.Programs {
             GxWebError = 1;
             return  ;
          }
-         gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV8RedirectToFirstDetail, AV58QueryIntent, AV9GridAppliedFilters, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
+         gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
          AddString( context.getJSONResponse( )) ;
          /* End function gxgrGrid_refresh_invoke */
       }
@@ -347,10 +344,6 @@ namespace GeneXus.Programs {
       {
          GxWebStd.gx_hidden_field( context, "vPGMNAME", StringUtil.RTrim( AV59Pgmname));
          GxWebStd.gx_hidden_field( context, "gxhash_vPGMNAME", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV59Pgmname, "")), context));
-         GxWebStd.gx_boolean_hidden_field( context, "vREDIRECTTOFIRSTDETAIL", AV8RedirectToFirstDetail);
-         GxWebStd.gx_hidden_field( context, "gxhash_vREDIRECTTOFIRSTDETAIL", GetSecureSignedToken( "", AV8RedirectToFirstDetail, context));
-         GxWebStd.gx_hidden_field( context, "vQUERYINTENT", AV58QueryIntent);
-         GxWebStd.gx_hidden_field( context, "gxhash_vQUERYINTENT", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV58QueryIntent, "")), context));
          GxWebStd.gx_boolean_hidden_field( context, "vISAUTHORIZED_UPDATE", AV46IsAuthorized_Update);
          GxWebStd.gx_hidden_field( context, "gxhash_vISAUTHORIZED_UPDATE", GetSecureSignedToken( "", AV46IsAuthorized_Update, context));
          GxWebStd.gx_boolean_hidden_field( context, "vISAUTHORIZED_DELETE", AV48IsAuthorized_Delete);
@@ -413,10 +406,6 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "vTFCOMPANYLOCATIONNAME_SEL", StringUtil.RTrim( AV57TFCompanyLocationName_Sel));
          GxWebStd.gx_hidden_field( context, "vORDEREDBY", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV17OrderedBy), 4, 0, ".", "")));
          GxWebStd.gx_boolean_hidden_field( context, "vORDEREDDSC", AV18OrderedDsc);
-         GxWebStd.gx_boolean_hidden_field( context, "vREDIRECTTOFIRSTDETAIL", AV8RedirectToFirstDetail);
-         GxWebStd.gx_hidden_field( context, "gxhash_vREDIRECTTOFIRSTDETAIL", GetSecureSignedToken( "", AV8RedirectToFirstDetail, context));
-         GxWebStd.gx_hidden_field( context, "vQUERYINTENT", AV58QueryIntent);
-         GxWebStd.gx_hidden_field( context, "gxhash_vQUERYINTENT", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV58QueryIntent, "")), context));
          GxWebStd.gx_boolean_hidden_field( context, "vISAUTHORIZED_UPDATE", AV46IsAuthorized_Update);
          GxWebStd.gx_hidden_field( context, "gxhash_vISAUTHORIZED_UPDATE", GetSecureSignedToken( "", AV46IsAuthorized_Update, context));
          GxWebStd.gx_boolean_hidden_field( context, "vISAUTHORIZED_DELETE", AV48IsAuthorized_Delete);
@@ -1120,9 +1109,6 @@ namespace GeneXus.Programs {
                                        string AV34TFCompanyName_Sel ,
                                        string AV56TFCompanyLocationName ,
                                        string AV57TFCompanyLocationName_Sel ,
-                                       bool AV8RedirectToFirstDetail ,
-                                       string AV58QueryIntent ,
-                                       string AV9GridAppliedFilters ,
                                        bool AV46IsAuthorized_Update ,
                                        bool AV48IsAuthorized_Delete ,
                                        bool AV53IsAuthorized_Insert )
@@ -1253,17 +1239,13 @@ namespace GeneXus.Programs {
       {
          GxWebStd.gx_hidden_field( context, "vPGMNAME", StringUtil.RTrim( AV59Pgmname));
          GxWebStd.gx_hidden_field( context, "gxhash_vPGMNAME", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV59Pgmname, "")), context));
-         GxWebStd.gx_hidden_field( context, "gxhash_COMPANYID"+"_"+sGXsfl_39_idx, GetSecureSignedToken( sGXsfl_39_idx, context.localUtil.Format( (decimal)(A100CompanyId), "ZZZZZZZZZ9"), context));
-         GxWebStd.gx_boolean_hidden_field( context, "vREDIRECTTOFIRSTDETAIL", AV8RedirectToFirstDetail);
-         GxWebStd.gx_hidden_field( context, "gxhash_vREDIRECTTOFIRSTDETAIL", GetSecureSignedToken( "", AV8RedirectToFirstDetail, context));
-         GxWebStd.gx_hidden_field( context, "vQUERYINTENT", AV58QueryIntent);
-         GxWebStd.gx_hidden_field( context, "gxhash_vQUERYINTENT", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV58QueryIntent, "")), context));
          GxWebStd.gx_boolean_hidden_field( context, "vISAUTHORIZED_UPDATE", AV46IsAuthorized_Update);
          GxWebStd.gx_hidden_field( context, "gxhash_vISAUTHORIZED_UPDATE", GetSecureSignedToken( "", AV46IsAuthorized_Update, context));
          GxWebStd.gx_boolean_hidden_field( context, "vISAUTHORIZED_DELETE", AV48IsAuthorized_Delete);
          GxWebStd.gx_hidden_field( context, "gxhash_vISAUTHORIZED_DELETE", GetSecureSignedToken( "", AV48IsAuthorized_Delete, context));
          GxWebStd.gx_boolean_hidden_field( context, "vISAUTHORIZED_INSERT", AV53IsAuthorized_Insert);
          GxWebStd.gx_hidden_field( context, "gxhash_vISAUTHORIZED_INSERT", GetSecureSignedToken( "", AV53IsAuthorized_Insert, context));
+         GxWebStd.gx_hidden_field( context, "gxhash_COMPANYID"+"_"+sGXsfl_39_idx, GetSecureSignedToken( sGXsfl_39_idx, context.localUtil.Format( (decimal)(A100CompanyId), "ZZZZZZZZZ9"), context));
       }
 
       protected int subGrid_fnc_Pagecount( )
@@ -1336,7 +1318,7 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "GRID_nFirstRecordOnPage", StringUtil.LTrim( StringUtil.NToC( (decimal)(GRID_nFirstRecordOnPage), 15, 0, ".", "")));
          if ( isFullAjaxMode( ) )
          {
-            gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV8RedirectToFirstDetail, AV58QueryIntent, AV9GridAppliedFilters, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
+            gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
          }
          send_integrity_footer_hashes( ) ;
          return 0 ;
@@ -1362,7 +1344,7 @@ namespace GeneXus.Programs {
          GridContainer.AddObjectProperty("GRID_nFirstRecordOnPage", GRID_nFirstRecordOnPage);
          if ( isFullAjaxMode( ) )
          {
-            gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV8RedirectToFirstDetail, AV58QueryIntent, AV9GridAppliedFilters, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
+            gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
          }
          send_integrity_footer_hashes( ) ;
          return (short)(((GRID_nEOF==0) ? 0 : 2)) ;
@@ -1386,7 +1368,7 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "GRID_nFirstRecordOnPage", StringUtil.LTrim( StringUtil.NToC( (decimal)(GRID_nFirstRecordOnPage), 15, 0, ".", "")));
          if ( isFullAjaxMode( ) )
          {
-            gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV8RedirectToFirstDetail, AV58QueryIntent, AV9GridAppliedFilters, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
+            gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
          }
          send_integrity_footer_hashes( ) ;
          return 0 ;
@@ -1418,7 +1400,7 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "GRID_nFirstRecordOnPage", StringUtil.LTrim( StringUtil.NToC( (decimal)(GRID_nFirstRecordOnPage), 15, 0, ".", "")));
          if ( isFullAjaxMode( ) )
          {
-            gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV8RedirectToFirstDetail, AV58QueryIntent, AV9GridAppliedFilters, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
+            gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
          }
          send_integrity_footer_hashes( ) ;
          return 0 ;
@@ -1442,7 +1424,7 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "GRID_nFirstRecordOnPage", StringUtil.LTrim( StringUtil.NToC( (decimal)(GRID_nFirstRecordOnPage), 15, 0, ".", "")));
          if ( isFullAjaxMode( ) )
          {
-            gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV8RedirectToFirstDetail, AV58QueryIntent, AV9GridAppliedFilters, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
+            gxgrGrid_refresh( subGrid_Rows, AV17OrderedBy, AV18OrderedDsc, AV20FilterFullText, AV30ManageFiltersExecutionStep, AV25ColumnsSelector, AV59Pgmname, AV33TFCompanyName, AV34TFCompanyName_Sel, AV56TFCompanyLocationName, AV57TFCompanyLocationName_Sel, AV46IsAuthorized_Update, AV48IsAuthorized_Delete, AV53IsAuthorized_Insert) ;
          }
          send_integrity_footer_hashes( ) ;
          return (int)(0) ;
@@ -1728,27 +1710,6 @@ namespace GeneXus.Programs {
          new WorkWithPlus.workwithplus_web.wwp_getappliedfiltersdescription(context ).execute(  AV59Pgmname, out  GXt_char2) ;
          AV9GridAppliedFilters = GXt_char2;
          AssignAttri("", false, "AV9GridAppliedFilters", AV9GridAppliedFilters);
-         AV58QueryIntent = StringUtil.Trim( AV27Session.Get(AV59Pgmname+"QueryIntent"));
-         AssignAttri("", false, "AV58QueryIntent", AV58QueryIntent);
-         GxWebStd.gx_hidden_field( context, "gxhash_vQUERYINTENT", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( AV58QueryIntent, "")), context));
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58QueryIntent)) )
-         {
-            AV27Session.Remove(AV59Pgmname+"QueryIntent");
-            if ( StringUtil.StrCmp(AV58QueryIntent, "5") == 0 )
-            {
-               if ( new WorkWithPlus.workwithplus_commongam.secgamisauthbyfunctionalitykey(context).executeUdp(  "company_Insert") )
-               {
-                  CallWebObject(formatLink("company.aspx", new object[] {UrlEncode(StringUtil.RTrim("INS")),UrlEncode(StringUtil.LTrimStr(0,1,0))}, new string[] {"Mode","CompanyId"}) );
-                  context.wjLocDisableFrm = 1;
-               }
-            }
-            else
-            {
-               AV8RedirectToFirstDetail = true;
-               AssignAttri("", false, "AV8RedirectToFirstDetail", AV8RedirectToFirstDetail);
-               GxWebStd.gx_hidden_field( context, "gxhash_vREDIRECTTOFIRSTDETAIL", GetSecureSignedToken( "", AV8RedirectToFirstDetail, context));
-            }
-         }
          AV60Companywwds_1_filterfulltext = AV20FilterFullText;
          AV61Companywwds_2_tfcompanyname = AV33TFCompanyName;
          AV62Companywwds_3_tfcompanyname_sel = AV34TFCompanyName_Sel;
@@ -1833,37 +1794,6 @@ namespace GeneXus.Programs {
       {
          /* Grid_Load Routine */
          returnInSub = false;
-         if ( AV8RedirectToFirstDetail )
-         {
-            if ( StringUtil.StrCmp(AV58QueryIntent, "2") == 0 )
-            {
-               AV27Session.Set("CompanyViewQueryAppliedFilters", AV9GridAppliedFilters);
-               if ( new WorkWithPlus.workwithplus_commongam.secgamisauthbyfunctionalitykey(context).executeUdp(  "companyview_Execute") )
-               {
-                  CallWebObject(formatLink("companyview.aspx", new object[] {UrlEncode(StringUtil.LTrimStr(A100CompanyId,10,0)),UrlEncode(StringUtil.RTrim(""))}, new string[] {"CompanyId","TabCode"}) );
-                  context.wjLocDisableFrm = 1;
-               }
-            }
-            else if ( StringUtil.StrCmp(AV58QueryIntent, "3") == 0 )
-            {
-               if ( new WorkWithPlus.workwithplus_commongam.secgamisauthbyfunctionalitykey(context).executeUdp(  "company_Update") )
-               {
-                  CallWebObject(formatLink("company.aspx", new object[] {UrlEncode(StringUtil.RTrim("UPD")),UrlEncode(StringUtil.LTrimStr(A100CompanyId,10,0))}, new string[] {"Mode","CompanyId"}) );
-                  context.wjLocDisableFrm = 1;
-               }
-            }
-            else if ( StringUtil.StrCmp(AV58QueryIntent, "4") == 0 )
-            {
-               if ( new WorkWithPlus.workwithplus_commongam.secgamisauthbyfunctionalitykey(context).executeUdp(  "company_Delete") )
-               {
-                  CallWebObject(formatLink("company.aspx", new object[] {UrlEncode(StringUtil.RTrim("DLT")),UrlEncode(StringUtil.LTrimStr(A100CompanyId,10,0))}, new string[] {"Mode","CompanyId"}) );
-                  context.wjLocDisableFrm = 1;
-               }
-            }
-            AV8RedirectToFirstDetail = false;
-            AssignAttri("", false, "AV8RedirectToFirstDetail", AV8RedirectToFirstDetail);
-            GxWebStd.gx_hidden_field( context, "gxhash_vREDIRECTTOFIRSTDETAIL", GetSecureSignedToken( "", AV8RedirectToFirstDetail, context));
-         }
          AV45Update = "<i class=\"fa fa-pen\"></i>";
          AssignAttri("", false, edtavUpdate_Internalname, AV45Update);
          if ( AV46IsAuthorized_Update )
@@ -2293,7 +2223,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256267543910", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256275272847", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2309,7 +2239,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("companyww.js", "?20256267543912", false, true);
+         context.AddJavascriptSource("companyww.js", "?20256275272852", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2703,23 +2633,23 @@ namespace GeneXus.Programs {
 
       public override void InitializeDynEvents( )
       {
-         setEventMetadata("REFRESH","""{"handler":"Refresh","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9","hsh":true}]""");
-         setEventMetadata("REFRESH",""","oparms":[{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"edtCompanyName_Visible","ctrl":"COMPANYNAME","prop":"Visible"},{"av":"edtCompanyLocationName_Visible","ctrl":"COMPANYLOCATIONNAME","prop":"Visible"},{"av":"AV43GridCurrentPage","fld":"vGRIDCURRENTPAGE","pic":"ZZZZZZZZZ9"},{"av":"AV44GridPageCount","fld":"vGRIDPAGECOUNT","pic":"ZZZZZZZZZ9"},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"edtavUpdate_Visible","ctrl":"vUPDATE","prop":"Visible"},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"edtavDelete_Visible","ctrl":"vDELETE","prop":"Visible"},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"ctrl":"BTNINSERT","prop":"Visible"},{"av":"AV28ManageFiltersData","fld":"vMANAGEFILTERSDATA"},{"av":"AV15GridState","fld":"vGRIDSTATE"}]}""");
-         setEventMetadata("GRIDPAGINATIONBAR.CHANGEPAGE","""{"handler":"E122T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Gridpaginationbar_Selectedpage","ctrl":"GRIDPAGINATIONBAR","prop":"SelectedPage"}]}""");
-         setEventMetadata("GRIDPAGINATIONBAR.CHANGEROWSPERPAGE","""{"handler":"E132T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Gridpaginationbar_Rowsperpageselectedvalue","ctrl":"GRIDPAGINATIONBAR","prop":"RowsPerPageSelectedValue"}]""");
+         setEventMetadata("REFRESH","""{"handler":"Refresh","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true}]""");
+         setEventMetadata("REFRESH",""","oparms":[{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"edtCompanyName_Visible","ctrl":"COMPANYNAME","prop":"Visible"},{"av":"edtCompanyLocationName_Visible","ctrl":"COMPANYLOCATIONNAME","prop":"Visible"},{"av":"AV43GridCurrentPage","fld":"vGRIDCURRENTPAGE","pic":"ZZZZZZZZZ9"},{"av":"AV44GridPageCount","fld":"vGRIDPAGECOUNT","pic":"ZZZZZZZZZ9"},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"edtavUpdate_Visible","ctrl":"vUPDATE","prop":"Visible"},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"edtavDelete_Visible","ctrl":"vDELETE","prop":"Visible"},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"ctrl":"BTNINSERT","prop":"Visible"},{"av":"AV28ManageFiltersData","fld":"vMANAGEFILTERSDATA"},{"av":"AV15GridState","fld":"vGRIDSTATE"}]}""");
+         setEventMetadata("GRIDPAGINATIONBAR.CHANGEPAGE","""{"handler":"E122T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Gridpaginationbar_Selectedpage","ctrl":"GRIDPAGINATIONBAR","prop":"SelectedPage"}]}""");
+         setEventMetadata("GRIDPAGINATIONBAR.CHANGEROWSPERPAGE","""{"handler":"E132T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Gridpaginationbar_Rowsperpageselectedvalue","ctrl":"GRIDPAGINATIONBAR","prop":"RowsPerPageSelectedValue"}]""");
          setEventMetadata("GRIDPAGINATIONBAR.CHANGEROWSPERPAGE",""","oparms":[{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"}]}""");
-         setEventMetadata("DDO_GRID.ONOPTIONCLICKED","""{"handler":"E152T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Ddo_grid_Activeeventkey","ctrl":"DDO_GRID","prop":"ActiveEventKey"},{"av":"Ddo_grid_Selectedvalue_get","ctrl":"DDO_GRID","prop":"SelectedValue_get"},{"av":"Ddo_grid_Selectedcolumn","ctrl":"DDO_GRID","prop":"SelectedColumn"},{"av":"Ddo_grid_Filteredtext_get","ctrl":"DDO_GRID","prop":"FilteredText_get"}]""");
+         setEventMetadata("DDO_GRID.ONOPTIONCLICKED","""{"handler":"E152T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Ddo_grid_Activeeventkey","ctrl":"DDO_GRID","prop":"ActiveEventKey"},{"av":"Ddo_grid_Selectedvalue_get","ctrl":"DDO_GRID","prop":"SelectedValue_get"},{"av":"Ddo_grid_Selectedcolumn","ctrl":"DDO_GRID","prop":"SelectedColumn"},{"av":"Ddo_grid_Filteredtext_get","ctrl":"DDO_GRID","prop":"FilteredText_get"}]""");
          setEventMetadata("DDO_GRID.ONOPTIONCLICKED",""","oparms":[{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"Ddo_grid_Sortedstatus","ctrl":"DDO_GRID","prop":"SortedStatus"}]}""");
-         setEventMetadata("GRID.LOAD","""{"handler":"E202T2","iparms":[{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9","hsh":true},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true}]""");
-         setEventMetadata("GRID.LOAD",""","oparms":[{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV45Update","fld":"vUPDATE"},{"av":"edtavUpdate_Link","ctrl":"vUPDATE","prop":"Link"},{"av":"AV47Delete","fld":"vDELETE"},{"av":"edtavDelete_Link","ctrl":"vDELETE","prop":"Link"}]}""");
-         setEventMetadata("DDO_GRIDCOLUMNSSELECTOR.ONCOLUMNSCHANGED","""{"handler":"E162T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Ddo_gridcolumnsselector_Columnsselectorvalues","ctrl":"DDO_GRIDCOLUMNSSELECTOR","prop":"ColumnsSelectorValues"},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9","hsh":true}]""");
-         setEventMetadata("DDO_GRIDCOLUMNSSELECTOR.ONCOLUMNSCHANGED",""","oparms":[{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"edtCompanyName_Visible","ctrl":"COMPANYNAME","prop":"Visible"},{"av":"edtCompanyLocationName_Visible","ctrl":"COMPANYLOCATIONNAME","prop":"Visible"},{"av":"AV43GridCurrentPage","fld":"vGRIDCURRENTPAGE","pic":"ZZZZZZZZZ9"},{"av":"AV44GridPageCount","fld":"vGRIDPAGECOUNT","pic":"ZZZZZZZZZ9"},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"edtavUpdate_Visible","ctrl":"vUPDATE","prop":"Visible"},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"edtavDelete_Visible","ctrl":"vDELETE","prop":"Visible"},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"ctrl":"BTNINSERT","prop":"Visible"},{"av":"AV28ManageFiltersData","fld":"vMANAGEFILTERSDATA"},{"av":"AV15GridState","fld":"vGRIDSTATE"}]}""");
-         setEventMetadata("DDO_MANAGEFILTERS.ONOPTIONCLICKED","""{"handler":"E112T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Ddo_managefilters_Activeeventkey","ctrl":"DDO_MANAGEFILTERS","prop":"ActiveEventKey"},{"av":"AV15GridState","fld":"vGRIDSTATE"},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9","hsh":true}]""");
-         setEventMetadata("DDO_MANAGEFILTERS.ONOPTIONCLICKED",""","oparms":[{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV15GridState","fld":"vGRIDSTATE"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"Ddo_grid_Selectedvalue_set","ctrl":"DDO_GRID","prop":"SelectedValue_set"},{"av":"Ddo_grid_Filteredtext_set","ctrl":"DDO_GRID","prop":"FilteredText_set"},{"av":"Ddo_grid_Sortedstatus","ctrl":"DDO_GRID","prop":"SortedStatus"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"edtCompanyName_Visible","ctrl":"COMPANYNAME","prop":"Visible"},{"av":"edtCompanyLocationName_Visible","ctrl":"COMPANYLOCATIONNAME","prop":"Visible"},{"av":"AV43GridCurrentPage","fld":"vGRIDCURRENTPAGE","pic":"ZZZZZZZZZ9"},{"av":"AV44GridPageCount","fld":"vGRIDPAGECOUNT","pic":"ZZZZZZZZZ9"},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"edtavUpdate_Visible","ctrl":"vUPDATE","prop":"Visible"},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"edtavDelete_Visible","ctrl":"vDELETE","prop":"Visible"},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"ctrl":"BTNINSERT","prop":"Visible"},{"av":"AV28ManageFiltersData","fld":"vMANAGEFILTERSDATA"}]}""");
-         setEventMetadata("'DOINSERT'","""{"handler":"E172T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9","hsh":true}]""");
-         setEventMetadata("'DOINSERT'",""","oparms":[{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"edtCompanyName_Visible","ctrl":"COMPANYNAME","prop":"Visible"},{"av":"edtCompanyLocationName_Visible","ctrl":"COMPANYLOCATIONNAME","prop":"Visible"},{"av":"AV43GridCurrentPage","fld":"vGRIDCURRENTPAGE","pic":"ZZZZZZZZZ9"},{"av":"AV44GridPageCount","fld":"vGRIDPAGECOUNT","pic":"ZZZZZZZZZ9"},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"edtavUpdate_Visible","ctrl":"vUPDATE","prop":"Visible"},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"edtavDelete_Visible","ctrl":"vDELETE","prop":"Visible"},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"ctrl":"BTNINSERT","prop":"Visible"},{"av":"AV28ManageFiltersData","fld":"vMANAGEFILTERSDATA"},{"av":"AV15GridState","fld":"vGRIDSTATE"}]}""");
+         setEventMetadata("GRID.LOAD","""{"handler":"E202T2","iparms":[{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true}]""");
+         setEventMetadata("GRID.LOAD",""","oparms":[{"av":"AV45Update","fld":"vUPDATE"},{"av":"edtavUpdate_Link","ctrl":"vUPDATE","prop":"Link"},{"av":"AV47Delete","fld":"vDELETE"},{"av":"edtavDelete_Link","ctrl":"vDELETE","prop":"Link"}]}""");
+         setEventMetadata("DDO_GRIDCOLUMNSSELECTOR.ONCOLUMNSCHANGED","""{"handler":"E162T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Ddo_gridcolumnsselector_Columnsselectorvalues","ctrl":"DDO_GRIDCOLUMNSSELECTOR","prop":"ColumnsSelectorValues"}]""");
+         setEventMetadata("DDO_GRIDCOLUMNSSELECTOR.ONCOLUMNSCHANGED",""","oparms":[{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"edtCompanyName_Visible","ctrl":"COMPANYNAME","prop":"Visible"},{"av":"edtCompanyLocationName_Visible","ctrl":"COMPANYLOCATIONNAME","prop":"Visible"},{"av":"AV43GridCurrentPage","fld":"vGRIDCURRENTPAGE","pic":"ZZZZZZZZZ9"},{"av":"AV44GridPageCount","fld":"vGRIDPAGECOUNT","pic":"ZZZZZZZZZ9"},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"edtavUpdate_Visible","ctrl":"vUPDATE","prop":"Visible"},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"edtavDelete_Visible","ctrl":"vDELETE","prop":"Visible"},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"ctrl":"BTNINSERT","prop":"Visible"},{"av":"AV28ManageFiltersData","fld":"vMANAGEFILTERSDATA"},{"av":"AV15GridState","fld":"vGRIDSTATE"}]}""");
+         setEventMetadata("DDO_MANAGEFILTERS.ONOPTIONCLICKED","""{"handler":"E112T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Ddo_managefilters_Activeeventkey","ctrl":"DDO_MANAGEFILTERS","prop":"ActiveEventKey"},{"av":"AV15GridState","fld":"vGRIDSTATE"}]""");
+         setEventMetadata("DDO_MANAGEFILTERS.ONOPTIONCLICKED",""","oparms":[{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV15GridState","fld":"vGRIDSTATE"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"Ddo_grid_Selectedvalue_set","ctrl":"DDO_GRID","prop":"SelectedValue_set"},{"av":"Ddo_grid_Filteredtext_set","ctrl":"DDO_GRID","prop":"FilteredText_set"},{"av":"Ddo_grid_Sortedstatus","ctrl":"DDO_GRID","prop":"SortedStatus"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"edtCompanyName_Visible","ctrl":"COMPANYNAME","prop":"Visible"},{"av":"edtCompanyLocationName_Visible","ctrl":"COMPANYLOCATIONNAME","prop":"Visible"},{"av":"AV43GridCurrentPage","fld":"vGRIDCURRENTPAGE","pic":"ZZZZZZZZZ9"},{"av":"AV44GridPageCount","fld":"vGRIDPAGECOUNT","pic":"ZZZZZZZZZ9"},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"edtavUpdate_Visible","ctrl":"vUPDATE","prop":"Visible"},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"edtavDelete_Visible","ctrl":"vDELETE","prop":"Visible"},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"ctrl":"BTNINSERT","prop":"Visible"},{"av":"AV28ManageFiltersData","fld":"vMANAGEFILTERSDATA"}]}""");
+         setEventMetadata("'DOINSERT'","""{"handler":"E172T2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9","hsh":true}]""");
+         setEventMetadata("'DOINSERT'",""","oparms":[{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"edtCompanyName_Visible","ctrl":"COMPANYNAME","prop":"Visible"},{"av":"edtCompanyLocationName_Visible","ctrl":"COMPANYLOCATIONNAME","prop":"Visible"},{"av":"AV43GridCurrentPage","fld":"vGRIDCURRENTPAGE","pic":"ZZZZZZZZZ9"},{"av":"AV44GridPageCount","fld":"vGRIDPAGECOUNT","pic":"ZZZZZZZZZ9"},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"edtavUpdate_Visible","ctrl":"vUPDATE","prop":"Visible"},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"edtavDelete_Visible","ctrl":"vDELETE","prop":"Visible"},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"ctrl":"BTNINSERT","prop":"Visible"},{"av":"AV28ManageFiltersData","fld":"vMANAGEFILTERSDATA"},{"av":"AV15GridState","fld":"vGRIDSTATE"}]}""");
          setEventMetadata("DDO_AGEXPORT.ONOPTIONCLICKED","""{"handler":"E142T2","iparms":[{"av":"Ddo_agexport_Activeeventkey","ctrl":"DDO_AGEXPORT","prop":"ActiveEventKey"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"AV15GridState","fld":"vGRIDSTATE"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"}]""");
-         setEventMetadata("DDO_AGEXPORT.ONOPTIONCLICKED",""","oparms":[{"av":"AV15GridState","fld":"vGRIDSTATE"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV8RedirectToFirstDetail","fld":"vREDIRECTTOFIRSTDETAIL","hsh":true},{"av":"AV58QueryIntent","fld":"vQUERYINTENT","hsh":true},{"av":"AV9GridAppliedFilters","fld":"vGRIDAPPLIEDFILTERS"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Ddo_grid_Sortedstatus","ctrl":"DDO_GRID","prop":"SortedStatus"},{"av":"Ddo_grid_Selectedvalue_set","ctrl":"DDO_GRID","prop":"SelectedValue_set"},{"av":"Ddo_grid_Filteredtext_set","ctrl":"DDO_GRID","prop":"FilteredText_set"}]}""");
+         setEventMetadata("DDO_AGEXPORT.ONOPTIONCLICKED",""","oparms":[{"av":"AV15GridState","fld":"vGRIDSTATE"},{"av":"AV17OrderedBy","fld":"vORDEREDBY","pic":"ZZZ9"},{"av":"AV18OrderedDsc","fld":"vORDEREDDSC"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"AV20FilterFullText","fld":"vFILTERFULLTEXT"},{"av":"AV30ManageFiltersExecutionStep","fld":"vMANAGEFILTERSEXECUTIONSTEP","pic":"9"},{"av":"AV25ColumnsSelector","fld":"vCOLUMNSSELECTOR"},{"av":"AV59Pgmname","fld":"vPGMNAME","hsh":true},{"av":"AV33TFCompanyName","fld":"vTFCOMPANYNAME"},{"av":"AV34TFCompanyName_Sel","fld":"vTFCOMPANYNAME_SEL"},{"av":"AV56TFCompanyLocationName","fld":"vTFCOMPANYLOCATIONNAME"},{"av":"AV57TFCompanyLocationName_Sel","fld":"vTFCOMPANYLOCATIONNAME_SEL"},{"av":"AV46IsAuthorized_Update","fld":"vISAUTHORIZED_UPDATE","hsh":true},{"av":"AV48IsAuthorized_Delete","fld":"vISAUTHORIZED_DELETE","hsh":true},{"av":"AV53IsAuthorized_Insert","fld":"vISAUTHORIZED_INSERT","hsh":true},{"av":"Ddo_grid_Sortedstatus","ctrl":"DDO_GRID","prop":"SortedStatus"},{"av":"Ddo_grid_Selectedvalue_set","ctrl":"DDO_GRID","prop":"SelectedValue_set"},{"av":"Ddo_grid_Filteredtext_set","ctrl":"DDO_GRID","prop":"FilteredText_set"}]}""");
          setEventMetadata("NULL","""{"handler":"Valid_Companylocationname","iparms":[]}""");
          return  ;
       }
@@ -2752,13 +2682,12 @@ namespace GeneXus.Programs {
          AV34TFCompanyName_Sel = "";
          AV56TFCompanyLocationName = "";
          AV57TFCompanyLocationName_Sel = "";
-         AV58QueryIntent = "";
-         AV9GridAppliedFilters = "";
          sDynURL = "";
          FormProcess = "";
          bodyStyle = "";
          GXKey = "";
          AV28ManageFiltersData = new GXBaseCollection<WorkWithPlus.workwithplus_web.SdtDVB_SDTDropDownOptionsData_Item>( context, "Item", "");
+         AV9GridAppliedFilters = "";
          AV51AGExportData = new GXBaseCollection<WorkWithPlus.workwithplus_web.SdtDVB_SDTDropDownOptionsData_Item>( context, "Item", "");
          AV39DDO_TitleSettingsIcons = new WorkWithPlus.workwithplus_web.SdtDVB_SDTDropDownOptionsTitleSettingsIcons(context);
          AV15GridState = new WorkWithPlus.workwithplus_web.SdtWWPGridState(context);
@@ -3034,7 +2963,6 @@ namespace GeneXus.Programs {
       private bool entryPointCalled ;
       private bool toggleJsOutput ;
       private bool AV18OrderedDsc ;
-      private bool AV8RedirectToFirstDetail ;
       private bool AV46IsAuthorized_Update ;
       private bool AV48IsAuthorized_Delete ;
       private bool AV53IsAuthorized_Insert ;
@@ -3057,7 +2985,6 @@ namespace GeneXus.Programs {
       private string AV29ManageFiltersXml ;
       private string AV24UserCustomValue ;
       private string AV20FilterFullText ;
-      private string AV58QueryIntent ;
       private string AV9GridAppliedFilters ;
       private string lV60Companywwds_1_filterfulltext ;
       private string AV60Companywwds_1_filterfulltext ;

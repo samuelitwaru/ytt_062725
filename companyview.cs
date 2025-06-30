@@ -1022,12 +1022,6 @@ namespace GeneXus.Programs {
             S112 ();
             if (returnInSub) return;
          }
-         AV11AIAppliedFilters = AV10Session.Get("CompanyViewQueryAppliedFilters");
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( StringUtil.Trim( AV11AIAppliedFilters))) )
-         {
-            GX_msglist.addItem(AV11AIAppliedFilters);
-            AV10Session.Remove("CompanyViewQueryAppliedFilters");
-         }
       }
 
       protected void nextLoad( )
@@ -1227,7 +1221,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256267541346", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256275263622", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1243,7 +1237,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("companyview.js", "?20256267541346", false, true);
+         context.AddJavascriptSource("companyview.js", "?20256275263622", false, true);
          context.AddJavascriptSource("shared/HistoryManager/HistoryManager.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/json2005.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/rsh.js", "", false, true);
@@ -1355,8 +1349,6 @@ namespace GeneXus.Programs {
          H002S2_A100CompanyId = new long[1] ;
          H002S2_A101CompanyName = new string[] {""} ;
          A101CompanyName = "";
-         AV11AIAppliedFilters = "";
-         AV10Session = context.GetSession();
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.companyview__default(),
@@ -1450,8 +1442,6 @@ namespace GeneXus.Programs {
       private bool bDynCreated_Employeewc ;
       private bool bDynCreated_Holidaywc ;
       private bool bDynCreated_Leavetypewc ;
-      private string AV11AIAppliedFilters ;
-      private IGxSession AV10Session ;
       private GXWebComponent WebComp_Generalwc ;
       private GXWebComponent WebComp_Employeewc ;
       private GXWebComponent WebComp_Holidaywc ;
