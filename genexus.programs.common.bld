@@ -1,4 +1,6 @@
 GeneXus.dll
+WorkWithPlus_Web.dll
+GeneXusSecurity.dll
 type_SdtGAMSDChangePassword_Level_DetailSdt.cs
 type_SdtGAMSDNotAuthorized_Level_DetailSdt.cs
 type_SdtGAMSDUpdateUser_Level_DetailSdt.cs
@@ -39,11 +41,11 @@ workwithplus\type_SdtWWP_Parameter.cs
 type_SdtProject.cs
 type_SdtCompany.cs
 type_SdtWorkHourLog.cs
+type_SdtLeaveType.cs
+type_SdtCompanyLocation.cs
 type_SdtEmployee.cs
 type_SdtEmployee_Project.cs
 type_SdtEmployee_VacationSet.cs
-type_SdtLeaveType.cs
-type_SdtCompanyLocation.cs
 type_SdtLeaveRequest.cs
 gxdomainexporttype.cs
 gxdomainpage.cs

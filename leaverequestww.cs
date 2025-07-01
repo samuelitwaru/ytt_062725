@@ -1118,6 +1118,10 @@ namespace GeneXus.Programs {
                               nGXsfl_39_idx = (int)(Math.Round(NumberUtil.Val( sEvtType, "."), 18, MidpointRounding.ToEven));
                               sGXsfl_39_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_39_idx), 4, 0), 4, "0");
                               SubsflControlProps_392( ) ;
+                              AV65Update = cgiGet( edtavUpdate_Internalname);
+                              AssignAttri("", false, edtavUpdate_Internalname, AV65Update);
+                              AV67Delete = cgiGet( edtavDelete_Internalname);
+                              AssignAttri("", false, edtavDelete_Internalname, AV67Delete);
                               AV84LeaveRequestDescriprionVariableWithTags = cgiGet( edtavLeaverequestdescriprionvariablewithtags_Internalname);
                               AssignAttri("", false, edtavLeaverequestdescriprionvariablewithtags_Internalname, AV84LeaveRequestDescriprionVariableWithTags);
                               AV83LeaveRequestDescriprionVariable = cgiGet( edtavLeaverequestdescriprionvariable_Internalname);
@@ -1126,10 +1130,6 @@ namespace GeneXus.Programs {
                               AssignAttri("", false, edtavLeaverequestrejectionreasonvariablewithtags_Internalname, AV86LeaveRequestRejectionReasonVariableWithTags);
                               AV85LeaveRequestRejectionReasonVariable = cgiGet( edtavLeaverequestrejectionreasonvariable_Internalname);
                               AssignAttri("", false, edtavLeaverequestrejectionreasonvariable_Internalname, AV85LeaveRequestRejectionReasonVariable);
-                              AV65Update = cgiGet( edtavUpdate_Internalname);
-                              AssignAttri("", false, edtavUpdate_Internalname, AV65Update);
-                              AV67Delete = cgiGet( edtavDelete_Internalname);
-                              AssignAttri("", false, edtavDelete_Internalname, AV67Delete);
                               A127LeaveRequestId = (long)(Math.Round(context.localUtil.CToN( cgiGet( edtLeaveRequestId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
                               A124LeaveTypeId = (long)(Math.Round(context.localUtil.CToN( cgiGet( edtLeaveTypeId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
                               A125LeaveTypeName = cgiGet( edtLeaveTypeName_Internalname);
@@ -1379,12 +1379,12 @@ namespace GeneXus.Programs {
       {
          /* GeneXus formulas. */
          AV91Pgmname = "LeaveRequestWW";
+         edtavUpdate_Enabled = 0;
+         edtavDelete_Enabled = 0;
          edtavLeaverequestdescriprionvariablewithtags_Enabled = 0;
          edtavLeaverequestdescriprionvariable_Enabled = 0;
          edtavLeaverequestrejectionreasonvariablewithtags_Enabled = 0;
          edtavLeaverequestrejectionreasonvariable_Enabled = 0;
-         edtavUpdate_Enabled = 0;
-         edtavDelete_Enabled = 0;
       }
 
       protected void RF4A2( )
@@ -1784,12 +1784,12 @@ namespace GeneXus.Programs {
       protected void before_start_formulas( )
       {
          AV91Pgmname = "LeaveRequestWW";
+         edtavUpdate_Enabled = 0;
+         edtavDelete_Enabled = 0;
          edtavLeaverequestdescriprionvariablewithtags_Enabled = 0;
          edtavLeaverequestdescriprionvariable_Enabled = 0;
          edtavLeaverequestrejectionreasonvariablewithtags_Enabled = 0;
          edtavLeaverequestrejectionreasonvariable_Enabled = 0;
-         edtavUpdate_Enabled = 0;
-         edtavDelete_Enabled = 0;
          edtLeaveRequestId_Enabled = 0;
          edtLeaveTypeId_Enabled = 0;
          edtLeaveTypeName_Enabled = 0;
@@ -2911,7 +2911,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256275291970", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202563011255385", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2927,7 +2927,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("leaverequestww.js", "?20256275291974", false, true);
+         context.AddJavascriptSource("leaverequestww.js", "?202563011255389", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2966,12 +2966,12 @@ namespace GeneXus.Programs {
 
       protected void SubsflControlProps_392( )
       {
+         edtavUpdate_Internalname = "vUPDATE_"+sGXsfl_39_idx;
+         edtavDelete_Internalname = "vDELETE_"+sGXsfl_39_idx;
          edtavLeaverequestdescriprionvariablewithtags_Internalname = "vLEAVEREQUESTDESCRIPRIONVARIABLEWITHTAGS_"+sGXsfl_39_idx;
          edtavLeaverequestdescriprionvariable_Internalname = "vLEAVEREQUESTDESCRIPRIONVARIABLE_"+sGXsfl_39_idx;
          edtavLeaverequestrejectionreasonvariablewithtags_Internalname = "vLEAVEREQUESTREJECTIONREASONVARIABLEWITHTAGS_"+sGXsfl_39_idx;
          edtavLeaverequestrejectionreasonvariable_Internalname = "vLEAVEREQUESTREJECTIONREASONVARIABLE_"+sGXsfl_39_idx;
-         edtavUpdate_Internalname = "vUPDATE_"+sGXsfl_39_idx;
-         edtavDelete_Internalname = "vDELETE_"+sGXsfl_39_idx;
          edtLeaveRequestId_Internalname = "LEAVEREQUESTID_"+sGXsfl_39_idx;
          edtLeaveTypeId_Internalname = "LEAVETYPEID_"+sGXsfl_39_idx;
          edtLeaveTypeName_Internalname = "LEAVETYPENAME_"+sGXsfl_39_idx;
@@ -2988,12 +2988,12 @@ namespace GeneXus.Programs {
 
       protected void SubsflControlProps_fel_392( )
       {
+         edtavUpdate_Internalname = "vUPDATE_"+sGXsfl_39_fel_idx;
+         edtavDelete_Internalname = "vDELETE_"+sGXsfl_39_fel_idx;
          edtavLeaverequestdescriprionvariablewithtags_Internalname = "vLEAVEREQUESTDESCRIPRIONVARIABLEWITHTAGS_"+sGXsfl_39_fel_idx;
          edtavLeaverequestdescriprionvariable_Internalname = "vLEAVEREQUESTDESCRIPRIONVARIABLE_"+sGXsfl_39_fel_idx;
          edtavLeaverequestrejectionreasonvariablewithtags_Internalname = "vLEAVEREQUESTREJECTIONREASONVARIABLEWITHTAGS_"+sGXsfl_39_fel_idx;
          edtavLeaverequestrejectionreasonvariable_Internalname = "vLEAVEREQUESTREJECTIONREASONVARIABLE_"+sGXsfl_39_fel_idx;
-         edtavUpdate_Internalname = "vUPDATE_"+sGXsfl_39_fel_idx;
-         edtavDelete_Internalname = "vDELETE_"+sGXsfl_39_fel_idx;
          edtLeaveRequestId_Internalname = "LEAVEREQUESTID_"+sGXsfl_39_fel_idx;
          edtLeaveTypeId_Internalname = "LEAVETYPEID_"+sGXsfl_39_fel_idx;
          edtLeaveTypeName_Internalname = "LEAVETYPENAME_"+sGXsfl_39_fel_idx;
@@ -3075,12 +3075,30 @@ namespace GeneXus.Programs {
             /* Subfile cell */
             if ( GridContainer.GetWrapped() == 1 )
             {
-               context.WriteHtmlText( "<td valign=\"middle\" align=\""+"start"+"\""+" style=\""+((edtavLeaverequestdescriprionvariablewithtags_Visible==0) ? "display:none;" : "")+"\">") ;
+               context.WriteHtmlText( "<td valign=\"middle\" align=\""+"start"+"\""+" style=\""+((edtavUpdate_Visible==0) ? "display:none;" : "")+"\">") ;
             }
             /* Single line edit */
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 40,'',false,'" + sGXsfl_39_idx + "',39)\"";
+            ROClassString = edtavUpdate_Class;
+            GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavUpdate_Internalname,StringUtil.RTrim( AV65Update),(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,40);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)edtavUpdate_Link,(string)"",(string)"Update",(string)"",(string)edtavUpdate_Jsonclick,(short)0,(string)edtavUpdate_Class,(string)"",(string)ROClassString,(string)"WWIconActionColumn",(string)"",(int)edtavUpdate_Visible,(int)edtavUpdate_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)20,(short)0,(short)1,(short)39,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
+            /* Subfile cell */
+            if ( GridContainer.GetWrapped() == 1 )
+            {
+               context.WriteHtmlText( "<td valign=\"middle\" align=\""+"start"+"\""+" style=\""+((edtavDelete_Visible==0) ? "display:none;" : "")+"\">") ;
+            }
+            /* Single line edit */
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 41,'',false,'" + sGXsfl_39_idx + "',39)\"";
+            ROClassString = edtavDelete_Class;
+            GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavDelete_Internalname,StringUtil.RTrim( AV67Delete),(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,41);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)edtavDelete_Link,(string)"",(string)"Delete",(string)"",(string)edtavDelete_Jsonclick,(short)0,(string)edtavDelete_Class,(string)"",(string)ROClassString,(string)"WWIconActionColumn",(string)"",(int)edtavDelete_Visible,(int)edtavDelete_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)20,(short)0,(short)1,(short)39,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
+            /* Subfile cell */
+            if ( GridContainer.GetWrapped() == 1 )
+            {
+               context.WriteHtmlText( "<td valign=\"middle\" align=\""+"start"+"\""+" style=\""+((edtavLeaverequestdescriprionvariablewithtags_Visible==0) ? "display:none;" : "")+"\">") ;
+            }
+            /* Single line edit */
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 42,'',false,'" + sGXsfl_39_idx + "',39)\"";
             ROClassString = "Attribute";
-            GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavLeaverequestdescriprionvariablewithtags_Internalname,(string)AV84LeaveRequestDescriprionVariableWithTags,(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,40);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtavLeaverequestdescriprionvariablewithtags_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(int)edtavLeaverequestdescriprionvariablewithtags_Visible,(int)edtavLeaverequestdescriprionvariablewithtags_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)100,(short)0,(short)1,(short)39,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
+            GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavLeaverequestdescriprionvariablewithtags_Internalname,(string)AV84LeaveRequestDescriprionVariableWithTags,(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,42);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtavLeaverequestdescriprionvariablewithtags_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(int)edtavLeaverequestdescriprionvariablewithtags_Visible,(int)edtavLeaverequestdescriprionvariablewithtags_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)100,(short)0,(short)1,(short)39,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
             /* Subfile cell */
             if ( GridContainer.GetWrapped() == 1 )
             {
@@ -3095,9 +3113,9 @@ namespace GeneXus.Programs {
                context.WriteHtmlText( "<td valign=\"middle\" align=\""+"start"+"\""+" style=\""+((edtavLeaverequestrejectionreasonvariablewithtags_Visible==0) ? "display:none;" : "")+"\">") ;
             }
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 42,'',false,'" + sGXsfl_39_idx + "',39)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 44,'',false,'" + sGXsfl_39_idx + "',39)\"";
             ROClassString = "Attribute";
-            GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavLeaverequestrejectionreasonvariablewithtags_Internalname,(string)AV86LeaveRequestRejectionReasonVariableWithTags,(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,42);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtavLeaverequestrejectionreasonvariablewithtags_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(int)edtavLeaverequestrejectionreasonvariablewithtags_Visible,(int)edtavLeaverequestrejectionreasonvariablewithtags_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)100,(short)0,(short)1,(short)39,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
+            GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavLeaverequestrejectionreasonvariablewithtags_Internalname,(string)AV86LeaveRequestRejectionReasonVariableWithTags,(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,44);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtavLeaverequestrejectionreasonvariablewithtags_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(int)edtavLeaverequestrejectionreasonvariablewithtags_Visible,(int)edtavLeaverequestrejectionreasonvariablewithtags_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)100,(short)0,(short)1,(short)39,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
             /* Subfile cell */
             if ( GridContainer.GetWrapped() == 1 )
             {
@@ -3106,24 +3124,6 @@ namespace GeneXus.Programs {
             /* Single line edit */
             ROClassString = "Attribute";
             GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavLeaverequestrejectionreasonvariable_Internalname,(string)AV85LeaveRequestRejectionReasonVariable,(string)"",""+" onchange=\""+""+";gx.evt.onchange(this, event)\" ",(string)"'"+""+"'"+",false,"+"'"+"e224a2_client"+"'",(string)"",(string)"",(string)"",(string)"",(string)edtavLeaverequestrejectionreasonvariable_Jsonclick,(short)7,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(short)0,(int)edtavLeaverequestrejectionreasonvariable_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)500,(short)0,(short)0,(short)39,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
-            /* Subfile cell */
-            if ( GridContainer.GetWrapped() == 1 )
-            {
-               context.WriteHtmlText( "<td valign=\"middle\" align=\""+"start"+"\""+" style=\""+((edtavUpdate_Visible==0) ? "display:none;" : "")+"\">") ;
-            }
-            /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 44,'',false,'" + sGXsfl_39_idx + "',39)\"";
-            ROClassString = edtavUpdate_Class;
-            GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavUpdate_Internalname,StringUtil.RTrim( AV65Update),(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,44);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)edtavUpdate_Link,(string)"",(string)"Update",(string)"",(string)edtavUpdate_Jsonclick,(short)0,(string)edtavUpdate_Class,(string)"",(string)ROClassString,(string)"WWIconActionColumn",(string)"",(int)edtavUpdate_Visible,(int)edtavUpdate_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)20,(short)0,(short)1,(short)39,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
-            /* Subfile cell */
-            if ( GridContainer.GetWrapped() == 1 )
-            {
-               context.WriteHtmlText( "<td valign=\"middle\" align=\""+"start"+"\""+" style=\""+((edtavDelete_Visible==0) ? "display:none;" : "")+"\">") ;
-            }
-            /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 45,'',false,'" + sGXsfl_39_idx + "',39)\"";
-            ROClassString = edtavDelete_Class;
-            GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavDelete_Internalname,StringUtil.RTrim( AV67Delete),(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,45);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)edtavDelete_Link,(string)"",(string)"Delete",(string)"",(string)edtavDelete_Jsonclick,(short)0,(string)edtavDelete_Class,(string)"",(string)ROClassString,(string)"WWIconActionColumn",(string)"",(int)edtavDelete_Visible,(int)edtavDelete_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)20,(short)0,(short)1,(short)39,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
             /* Subfile cell */
             if ( GridContainer.GetWrapped() == 1 )
             {
@@ -3295,6 +3295,12 @@ namespace GeneXus.Programs {
                   }
                }
             }
+            context.WriteHtmlText( "<th align=\""+"start"+"\" "+" nowrap=\"nowrap\" "+" class=\""+edtavUpdate_Class+"\" "+" style=\""+((edtavUpdate_Visible==0) ? "display:none;" : "")+""+"\" "+">") ;
+            context.SendWebValue( "") ;
+            context.WriteHtmlTextNl( "</th>") ;
+            context.WriteHtmlText( "<th align=\""+"start"+"\" "+" nowrap=\"nowrap\" "+" class=\""+edtavDelete_Class+"\" "+" style=\""+((edtavDelete_Visible==0) ? "display:none;" : "")+""+"\" "+">") ;
+            context.SendWebValue( "") ;
+            context.WriteHtmlTextNl( "</th>") ;
             context.WriteHtmlText( "<th align=\""+"start"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+((edtavLeaverequestdescriprionvariablewithtags_Visible==0) ? "display:none;" : "")+""+"\" "+">") ;
             context.SendWebValue( "Leave Description") ;
             context.WriteHtmlTextNl( "</th>") ;
@@ -3305,12 +3311,6 @@ namespace GeneXus.Programs {
             context.SendWebValue( "Rejection reason") ;
             context.WriteHtmlTextNl( "</th>") ;
             context.WriteHtmlText( "<th align=\""+"start"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+"display:none;"+""+"\" "+">") ;
-            context.SendWebValue( "") ;
-            context.WriteHtmlTextNl( "</th>") ;
-            context.WriteHtmlText( "<th align=\""+"start"+"\" "+" nowrap=\"nowrap\" "+" class=\""+edtavUpdate_Class+"\" "+" style=\""+((edtavUpdate_Visible==0) ? "display:none;" : "")+""+"\" "+">") ;
-            context.SendWebValue( "") ;
-            context.WriteHtmlTextNl( "</th>") ;
-            context.WriteHtmlText( "<th align=\""+"start"+"\" "+" nowrap=\"nowrap\" "+" class=\""+edtavDelete_Class+"\" "+" style=\""+((edtavDelete_Visible==0) ? "display:none;" : "")+""+"\" "+">") ;
             context.SendWebValue( "") ;
             context.WriteHtmlTextNl( "</th>") ;
             context.WriteHtmlText( "<th align=\""+"end"+"\" "+" nowrap=\"nowrap\" "+" class=\""+"Attribute"+"\" "+" style=\""+"display:none;"+""+"\" "+">") ;
@@ -3373,6 +3373,20 @@ namespace GeneXus.Programs {
             GridContainer.AddObjectProperty("CmpContext", "");
             GridContainer.AddObjectProperty("InMasterPage", "false");
             GridColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            GridColumn.AddObjectProperty("Value", GXUtil.ValueEncode( StringUtil.RTrim( AV65Update)));
+            GridColumn.AddObjectProperty("Class", StringUtil.RTrim( edtavUpdate_Class));
+            GridColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavUpdate_Enabled), 5, 0, ".", "")));
+            GridColumn.AddObjectProperty("Link", StringUtil.RTrim( edtavUpdate_Link));
+            GridColumn.AddObjectProperty("Visible", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavUpdate_Visible), 5, 0, ".", "")));
+            GridContainer.AddColumnProperties(GridColumn);
+            GridColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
+            GridColumn.AddObjectProperty("Value", GXUtil.ValueEncode( StringUtil.RTrim( AV67Delete)));
+            GridColumn.AddObjectProperty("Class", StringUtil.RTrim( edtavDelete_Class));
+            GridColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavDelete_Enabled), 5, 0, ".", "")));
+            GridColumn.AddObjectProperty("Link", StringUtil.RTrim( edtavDelete_Link));
+            GridColumn.AddObjectProperty("Visible", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavDelete_Visible), 5, 0, ".", "")));
+            GridContainer.AddColumnProperties(GridColumn);
+            GridColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
             GridColumn.AddObjectProperty("Value", GXUtil.ValueEncode( AV84LeaveRequestDescriprionVariableWithTags));
             GridColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavLeaverequestdescriprionvariablewithtags_Enabled), 5, 0, ".", "")));
             GridColumn.AddObjectProperty("Visible", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavLeaverequestdescriprionvariablewithtags_Visible), 5, 0, ".", "")));
@@ -3389,20 +3403,6 @@ namespace GeneXus.Programs {
             GridColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
             GridColumn.AddObjectProperty("Value", GXUtil.ValueEncode( AV85LeaveRequestRejectionReasonVariable));
             GridColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavLeaverequestrejectionreasonvariable_Enabled), 5, 0, ".", "")));
-            GridContainer.AddColumnProperties(GridColumn);
-            GridColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-            GridColumn.AddObjectProperty("Value", GXUtil.ValueEncode( StringUtil.RTrim( AV65Update)));
-            GridColumn.AddObjectProperty("Class", StringUtil.RTrim( edtavUpdate_Class));
-            GridColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavUpdate_Enabled), 5, 0, ".", "")));
-            GridColumn.AddObjectProperty("Link", StringUtil.RTrim( edtavUpdate_Link));
-            GridColumn.AddObjectProperty("Visible", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavUpdate_Visible), 5, 0, ".", "")));
-            GridContainer.AddColumnProperties(GridColumn);
-            GridColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
-            GridColumn.AddObjectProperty("Value", GXUtil.ValueEncode( StringUtil.RTrim( AV67Delete)));
-            GridColumn.AddObjectProperty("Class", StringUtil.RTrim( edtavDelete_Class));
-            GridColumn.AddObjectProperty("Enabled", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavDelete_Enabled), 5, 0, ".", "")));
-            GridColumn.AddObjectProperty("Link", StringUtil.RTrim( edtavDelete_Link));
-            GridColumn.AddObjectProperty("Visible", StringUtil.LTrim( StringUtil.NToC( (decimal)(edtavDelete_Visible), 5, 0, ".", "")));
             GridContainer.AddColumnProperties(GridColumn);
             GridColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
             GridColumn.AddObjectProperty("Value", GXUtil.ValueEncode( StringUtil.LTrim( StringUtil.NToC( (decimal)(A127LeaveRequestId), 10, 0, ".", ""))));
@@ -3472,12 +3472,12 @@ namespace GeneXus.Programs {
          divTablerightheader_Internalname = "TABLERIGHTHEADER";
          divTableheadercontent_Internalname = "TABLEHEADERCONTENT";
          divTableheader_Internalname = "TABLEHEADER";
+         edtavUpdate_Internalname = "vUPDATE";
+         edtavDelete_Internalname = "vDELETE";
          edtavLeaverequestdescriprionvariablewithtags_Internalname = "vLEAVEREQUESTDESCRIPRIONVARIABLEWITHTAGS";
          edtavLeaverequestdescriprionvariable_Internalname = "vLEAVEREQUESTDESCRIPRIONVARIABLE";
          edtavLeaverequestrejectionreasonvariablewithtags_Internalname = "vLEAVEREQUESTREJECTIONREASONVARIABLEWITHTAGS";
          edtavLeaverequestrejectionreasonvariable_Internalname = "vLEAVEREQUESTREJECTIONREASONVARIABLE";
-         edtavUpdate_Internalname = "vUPDATE";
-         edtavDelete_Internalname = "vDELETE";
          edtLeaveRequestId_Internalname = "LEAVEREQUESTID";
          edtLeaveTypeId_Internalname = "LEAVETYPEID";
          edtLeaveTypeName_Internalname = "LEAVETYPENAME";
@@ -3537,14 +3537,6 @@ namespace GeneXus.Programs {
          edtLeaveTypeName_Jsonclick = "";
          edtLeaveTypeId_Jsonclick = "";
          edtLeaveRequestId_Jsonclick = "";
-         edtavDelete_Jsonclick = "";
-         edtavDelete_Class = "Attribute";
-         edtavDelete_Link = "";
-         edtavDelete_Enabled = 1;
-         edtavUpdate_Jsonclick = "";
-         edtavUpdate_Class = "Attribute";
-         edtavUpdate_Link = "";
-         edtavUpdate_Enabled = 1;
          edtavLeaverequestrejectionreasonvariable_Jsonclick = "";
          edtavLeaverequestrejectionreasonvariable_Enabled = 1;
          edtavLeaverequestrejectionreasonvariablewithtags_Jsonclick = "";
@@ -3553,6 +3545,14 @@ namespace GeneXus.Programs {
          edtavLeaverequestdescriprionvariable_Enabled = 1;
          edtavLeaverequestdescriprionvariablewithtags_Jsonclick = "";
          edtavLeaverequestdescriprionvariablewithtags_Enabled = 1;
+         edtavDelete_Jsonclick = "";
+         edtavDelete_Class = "Attribute";
+         edtavDelete_Link = "";
+         edtavDelete_Enabled = 1;
+         edtavUpdate_Jsonclick = "";
+         edtavUpdate_Class = "Attribute";
+         edtavUpdate_Link = "";
+         edtavUpdate_Enabled = 1;
          subGrid_Class = "GridWithPaginationBar WorkWith";
          subGrid_Backcolorstyle = 0;
          edtavDelete_Visible = -1;
@@ -3608,7 +3608,7 @@ namespace GeneXus.Programs {
          Ddo_grid_Fixable = "T";
          Ddo_grid_Includesortasc = "||T|T|T|T|T|T";
          Ddo_grid_Columnssortvalues = "||2|3|4|5|6|7";
-         Ddo_grid_Columnids = "0:LeaveRequestDescriprionVariable|2:LeaveRequestRejectionReasonVariable|8:LeaveTypeName|10:LeaveRequestStartDate|11:LeaveRequestEndDate|12:LeaveRequestHalfDay|13:LeaveRequestDuration|14:LeaveRequestStatus";
+         Ddo_grid_Columnids = "2:LeaveRequestDescriprionVariable|4:LeaveRequestRejectionReasonVariable|8:LeaveTypeName|10:LeaveRequestStartDate|11:LeaveRequestEndDate|12:LeaveRequestHalfDay|13:LeaveRequestDuration|14:LeaveRequestStatus";
          Ddo_grid_Gridinternalname = "";
          Popover_leaverequestrejectionreasonvariable_Keepopened = Convert.ToBoolean( 0);
          Popover_leaverequestrejectionreasonvariable_Position = "Left";
@@ -3788,12 +3788,12 @@ namespace GeneXus.Programs {
          EvtGridId = "";
          EvtRowId = "";
          sEvtType = "";
+         AV65Update = "";
+         AV67Delete = "";
          AV84LeaveRequestDescriprionVariableWithTags = "";
          AV83LeaveRequestDescriprionVariable = "";
          AV86LeaveRequestRejectionReasonVariableWithTags = "";
          AV85LeaveRequestRejectionReasonVariable = "";
-         AV65Update = "";
-         AV67Delete = "";
          A125LeaveTypeName = "";
          A128LeaveRequestDate = DateTime.MinValue;
          A129LeaveRequestStartDate = DateTime.MinValue;
@@ -3874,12 +3874,12 @@ namespace GeneXus.Programs {
          AV91Pgmname = "LeaveRequestWW";
          /* GeneXus formulas. */
          AV91Pgmname = "LeaveRequestWW";
+         edtavUpdate_Enabled = 0;
+         edtavDelete_Enabled = 0;
          edtavLeaverequestdescriprionvariablewithtags_Enabled = 0;
          edtavLeaverequestdescriprionvariable_Enabled = 0;
          edtavLeaverequestrejectionreasonvariablewithtags_Enabled = 0;
          edtavLeaverequestrejectionreasonvariable_Enabled = 0;
-         edtavUpdate_Enabled = 0;
-         edtavDelete_Enabled = 0;
       }
 
       private short GRID_nEOF ;
@@ -3916,12 +3916,12 @@ namespace GeneXus.Programs {
       private int bttBtninsert_Visible ;
       private int edtavFilterfulltext_Enabled ;
       private int subGrid_Islastpage ;
+      private int edtavUpdate_Enabled ;
+      private int edtavDelete_Enabled ;
       private int edtavLeaverequestdescriprionvariablewithtags_Enabled ;
       private int edtavLeaverequestdescriprionvariable_Enabled ;
       private int edtavLeaverequestrejectionreasonvariablewithtags_Enabled ;
       private int edtavLeaverequestrejectionreasonvariable_Enabled ;
-      private int edtavUpdate_Enabled ;
-      private int edtavDelete_Enabled ;
       private int GXPagingFrom2 ;
       private int GXPagingTo2 ;
       private int AV106Leaverequestwwds_16_tfleaverequeststatus_sels_Count ;
@@ -4100,14 +4100,14 @@ namespace GeneXus.Programs {
       private string EvtGridId ;
       private string EvtRowId ;
       private string sEvtType ;
-      private string edtavLeaverequestdescriprionvariablewithtags_Internalname ;
-      private string edtavLeaverequestdescriprionvariable_Internalname ;
-      private string edtavLeaverequestrejectionreasonvariablewithtags_Internalname ;
-      private string edtavLeaverequestrejectionreasonvariable_Internalname ;
       private string AV65Update ;
       private string edtavUpdate_Internalname ;
       private string AV67Delete ;
       private string edtavDelete_Internalname ;
+      private string edtavLeaverequestdescriprionvariablewithtags_Internalname ;
+      private string edtavLeaverequestdescriprionvariable_Internalname ;
+      private string edtavLeaverequestrejectionreasonvariablewithtags_Internalname ;
+      private string edtavLeaverequestrejectionreasonvariable_Internalname ;
       private string edtLeaveRequestId_Internalname ;
       private string edtLeaveTypeId_Internalname ;
       private string A125LeaveTypeName ;
@@ -4145,12 +4145,12 @@ namespace GeneXus.Programs {
       private string subGrid_Class ;
       private string subGrid_Linesclass ;
       private string ROClassString ;
+      private string edtavUpdate_Jsonclick ;
+      private string edtavDelete_Jsonclick ;
       private string edtavLeaverequestdescriprionvariablewithtags_Jsonclick ;
       private string edtavLeaverequestdescriprionvariable_Jsonclick ;
       private string edtavLeaverequestrejectionreasonvariablewithtags_Jsonclick ;
       private string edtavLeaverequestrejectionreasonvariable_Jsonclick ;
-      private string edtavUpdate_Jsonclick ;
-      private string edtavDelete_Jsonclick ;
       private string edtLeaveRequestId_Jsonclick ;
       private string edtLeaveTypeId_Jsonclick ;
       private string edtLeaveTypeName_Jsonclick ;

@@ -86,6 +86,9 @@ namespace GeneXus.Programs {
             pr_default.close(1);
             AV13VacationSetDays = (decimal)(AV13VacationSetDays+c179VacationSetDays);
             /* End optimized group. */
+            GXt_decimal1 = AV12VacationDays;
+            new prc_getemployeeapprovedvacationdays(context ).execute(  A106EmployeeId,  context.localUtil.YMDToD( AV11Year, 1, 1),  context.localUtil.YMDToD( AV11Year, 12, 31), out  GXt_decimal1) ;
+            AV12VacationDays = GXt_decimal1;
             /* Exiting from a For First loop. */
             if (true) break;
          }
@@ -128,6 +131,7 @@ namespace GeneXus.Programs {
       private decimal AV13VacationSetDays ;
       private decimal c179VacationSetDays ;
       private decimal AV12VacationDays ;
+      private decimal GXt_decimal1 ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
       private IDataStoreProvider pr_default ;

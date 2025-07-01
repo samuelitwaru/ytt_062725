@@ -477,9 +477,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;justify-content:center;align-items:center;", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, divMaintable_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
+            GxWebStd.gx_div_start( context, divMaintable_Internalname, 1, divMaintable_Width, "px", 0, "px", "Table", "start", "top", "", "", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
             /* Div Control */
@@ -1519,6 +1519,8 @@ namespace GeneXus.Programs {
                GX_msglist.addItem("Confirm deletion.");
             }
          }
+         divMaintable_Width = 750;
+         AssignProp("", false, divMaintable_Internalname, "Width", StringUtil.LTrimStr( (decimal)(divMaintable_Width), 9, 0), true);
          Dvelop_confirmpanel_rejectbutton_Bodycontentinternalname = edtavDvelop_confirmpanel_rejectbutton_comment_Internalname;
          ucDvelop_confirmpanel_rejectbutton.SendProperty(context, "", false, Dvelop_confirmpanel_rejectbutton_Internalname, "BodyContentInternalName", Dvelop_confirmpanel_rejectbutton_Bodycontentinternalname);
          /* Execute user subroutine: 'ATTRIBUTESSECURITYCODE' */
@@ -2092,7 +2094,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025627528353", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202563011231632", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2108,7 +2110,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("details.js", "?2025627528353", false, true);
+         context.AddJavascriptSource("details.js", "?202563011231632", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/ConfirmPanel/BootstrapConfirmPanelRender.js", "", false, true);
@@ -2258,6 +2260,7 @@ namespace GeneXus.Programs {
          edtavLeaverequest_employeename_Jsonclick = "";
          edtavLeaverequest_employeename_Enabled = 0;
          divTableeditaction_Visible = 1;
+         divMaintable_Width = 0;
          divLayoutmaintable_Class = "Table TableTransactionTemplate";
          Dvelop_confirmpanel_deletebutton_Confirmtype = "1";
          Dvelop_confirmpanel_deletebutton_Yesbuttonposition = "left";
@@ -2437,6 +2440,7 @@ namespace GeneXus.Programs {
       private short nDonePA ;
       private short gxcookieaux ;
       private short nGXWrapped ;
+      private int divMaintable_Width ;
       private int divTableeditaction_Visible ;
       private int edtavLeaverequest_employeename_Enabled ;
       private int edtavDeductfromvacationdaysvariable_Enabled ;
