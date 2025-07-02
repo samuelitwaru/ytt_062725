@@ -189,11 +189,11 @@ namespace GeneXus.Programs {
 
       protected void gxnrGridlanguages_newrow_invoke( )
       {
-         nRC_GXsfl_567 = (int)(Math.Round(NumberUtil.Val( GetPar( "nRC_GXsfl_567"), "."), 18, MidpointRounding.ToEven));
-         nGXsfl_567_idx = (int)(Math.Round(NumberUtil.Val( GetPar( "nGXsfl_567_idx"), "."), 18, MidpointRounding.ToEven));
-         sGXsfl_567_idx = GetPar( "sGXsfl_567_idx");
+         nRC_GXsfl_569 = (int)(Math.Round(NumberUtil.Val( GetPar( "nRC_GXsfl_569"), "."), 18, MidpointRounding.ToEven));
+         nGXsfl_569_idx = (int)(Math.Round(NumberUtil.Val( GetPar( "nGXsfl_569_idx"), "."), 18, MidpointRounding.ToEven));
+         sGXsfl_569_idx = GetPar( "sGXsfl_569_idx");
          chkavOnline.Enabled = (int)(Math.Round(NumberUtil.Val( GetNextPar( ), "."), 18, MidpointRounding.ToEven));
-         AssignProp("", false, chkavOnline_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(chkavOnline.Enabled), 5, 0), !bGXsfl_567_Refreshing);
+         AssignProp("", false, chkavOnline_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(chkavOnline.Enabled), 5, 0), !bGXsfl_569_Refreshing);
          setAjaxCallMode();
          if ( ! IsValidAjaxCall( true) )
          {
@@ -208,7 +208,7 @@ namespace GeneXus.Programs {
       {
          subGridlanguages_Rows = (int)(Math.Round(NumberUtil.Val( GetPar( "subGridlanguages_Rows"), "."), 18, MidpointRounding.ToEven));
          chkavOnline.Enabled = (int)(Math.Round(NumberUtil.Val( GetNextPar( ), "."), 18, MidpointRounding.ToEven));
-         AssignProp("", false, chkavOnline_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(chkavOnline.Enabled), 5, 0), !bGXsfl_567_Refreshing);
+         AssignProp("", false, chkavOnline_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(chkavOnline.Enabled), 5, 0), !bGXsfl_569_Refreshing);
          Gx_mode = GetPar( "Mode");
          AV156ReturnMenuOptionsWithoutPermission = StringUtil.StrToBool( GetPar( "ReturnMenuOptionsWithoutPermission"));
          AV61UseAbsoluteUrlByEnvironment = StringUtil.StrToBool( GetPar( "UseAbsoluteUrlByEnvironment"));
@@ -433,7 +433,7 @@ namespace GeneXus.Programs {
          /* Send hidden variables. */
          /* Send saved values. */
          send_integrity_footer_hashes( ) ;
-         GxWebStd.gx_hidden_field( context, "nRC_GXsfl_567", StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_567), 8, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "nRC_GXsfl_569", StringUtil.LTrim( StringUtil.NToC( (decimal)(nRC_GXsfl_569), 8, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "vGRIDLANGUAGESPAGECOUNT", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV141GridLanguagesPageCount), 10, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "vGRIDLANGUAGESAPPLIEDFILTERS", AV139GridLanguagesAppliedFilters);
          GxWebStd.gx_hidden_field( context, "vMODE", StringUtil.RTrim( Gx_mode));
@@ -586,15 +586,20 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, divTablemain_Internalname, 1, 100, "%", 0, "px", "TableMain", "start", "top", " "+"data-gx-smarttable"+" ", "grid-template-columns:100fr;grid-template-rows:auto auto auto;", "div");
+            GxWebStd.gx_div_start( context, divTablemain_Internalname, 1, 0, "px", 0, "px", "TableMain", "start", "top", "", "", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 hidden-xs hidden-sm col-md-3", "start", "top", "", "", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, divLefttable_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 col-md-6", "start", "top", "", "", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, divMaintable_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
             /* Div Control */
@@ -643,8 +648,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 29,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV43Id), 12, 0, ".", "")), StringUtil.LTrim( ((edtavId_Enabled!=0) ? context.localUtil.Format( (decimal)(AV43Id), "ZZZZZZZZZZZ9") : context.localUtil.Format( (decimal)(AV43Id), "ZZZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,29);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavId_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavId_Enabled, 0, "text", "1", 12, "chr", 1, "row", 12, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMKeyNumLong", "end", false, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 31,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV43Id), 12, 0, ".", "")), StringUtil.LTrim( ((edtavId_Enabled!=0) ? context.localUtil.Format( (decimal)(AV43Id), "ZZZZZZZZZZZ9") : context.localUtil.Format( (decimal)(AV43Id), "ZZZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,31);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavId_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavId_Enabled, 0, "text", "1", 12, "chr", 1, "row", 12, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMKeyNumLong", "end", false, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -660,8 +665,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 34,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavGuid_Internalname, StringUtil.RTrim( AV41GUID), StringUtil.RTrim( context.localUtil.Format( AV41GUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,34);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavGuid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavGuid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 36,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavGuid_Internalname, StringUtil.RTrim( AV41GUID), StringUtil.RTrim( context.localUtil.Format( AV41GUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,36);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavGuid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavGuid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -677,8 +682,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 39,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavName_Internalname, StringUtil.RTrim( AV49Name), StringUtil.RTrim( context.localUtil.Format( AV49Name, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,39);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavName_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavName_Enabled, 1, "text", "", 80, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 41,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavName_Internalname, StringUtil.RTrim( AV49Name), StringUtil.RTrim( context.localUtil.Format( AV49Name, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,41);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavName_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavName_Enabled, 1, "text", "", 80, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -694,8 +699,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 44,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavDsc_Internalname, StringUtil.RTrim( AV30Dsc), StringUtil.RTrim( context.localUtil.Format( AV30Dsc, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,44);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavDsc_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavDsc_Enabled, 1, "text", "", 80, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 46,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavDsc_Internalname, StringUtil.RTrim( AV30Dsc), StringUtil.RTrim( context.localUtil.Format( AV30Dsc, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,46);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavDsc_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavDsc_Enabled, 1, "text", "", 80, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -711,8 +716,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 49,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavVersion_Internalname, StringUtil.RTrim( AV64Version), StringUtil.RTrim( context.localUtil.Format( AV64Version, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,49);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavVersion_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavVersion_Enabled, 1, "text", "", 60, "chr", 1, "row", 60, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionShort", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 51,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavVersion_Internalname, StringUtil.RTrim( AV64Version), StringUtil.RTrim( context.localUtil.Format( AV64Version, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,51);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavVersion_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavVersion_Enabled, 1, "text", "", 60, "chr", 1, "row", 60, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionShort", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -728,8 +733,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 54,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavCompany_Internalname, StringUtil.RTrim( AV28Company), StringUtil.RTrim( context.localUtil.Format( AV28Company, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,54);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCompany_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavCompany_Enabled, 1, "text", "", 80, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 56,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavCompany_Internalname, StringUtil.RTrim( AV28Company), StringUtil.RTrim( context.localUtil.Format( AV28Company, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,56);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCompany_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavCompany_Enabled, 1, "text", "", 80, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -745,8 +750,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 59,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavCopyright_Internalname, StringUtil.RTrim( AV29Copyright), StringUtil.RTrim( context.localUtil.Format( AV29Copyright, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,59);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCopyright_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavCopyright_Enabled, 1, "text", "", 80, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 61,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavCopyright_Internalname, StringUtil.RTrim( AV29Copyright), StringUtil.RTrim( context.localUtil.Format( AV29Copyright, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,61);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavCopyright_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavCopyright_Enabled, 1, "text", "", 80, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -762,10 +767,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 64,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 66,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavReturnmenuoptionswithoutpermission_Internalname, StringUtil.BoolToStr( AV156ReturnMenuOptionsWithoutPermission), "", " ", 1, chkavReturnmenuoptionswithoutpermission.Enabled, "true", "Return menu options without permission?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(64, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,64);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavReturnmenuoptionswithoutpermission_Internalname, StringUtil.BoolToStr( AV156ReturnMenuOptionsWithoutPermission), "", " ", 1, chkavReturnmenuoptionswithoutpermission.Enabled, "true", "Return menu options without permission?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(66, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,66);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -780,9 +785,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_label_element( context, cmbavMainmenu_Internalname, "Main Menu", " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 69,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 71,'',false,'" + sGXsfl_569_idx + "',0)\"";
             /* ComboBox */
-            GxWebStd.gx_combobox_ctrl1( context, cmbavMainmenu, cmbavMainmenu_Internalname, StringUtil.Trim( StringUtil.Str( (decimal)(AV46MainMenu), 12, 0)), 1, cmbavMainmenu_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "int", "", 1, cmbavMainmenu.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,69);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_combobox_ctrl1( context, cmbavMainmenu, cmbavMainmenu_Internalname, StringUtil.Trim( StringUtil.Str( (decimal)(AV46MainMenu), 12, 0)), 1, cmbavMainmenu_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "int", "", 1, cmbavMainmenu.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,71);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
             cmbavMainmenu.CurrentValue = StringUtil.Trim( StringUtil.Str( (decimal)(AV46MainMenu), 12, 0));
             AssignProp("", false, cmbavMainmenu_Internalname, "Values", (string)(cmbavMainmenu.ToJavascriptSource()), true);
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -800,10 +805,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 74,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 76,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavUseabsoluteurlbyenvironment_Internalname, StringUtil.BoolToStr( AV61UseAbsoluteUrlByEnvironment), "", " ", 1, chkavUseabsoluteurlbyenvironment.Enabled, "true", "Use absolute URL by Environment", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(74, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,74);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavUseabsoluteurlbyenvironment_Internalname, StringUtil.BoolToStr( AV61UseAbsoluteUrlByEnvironment), "", " ", 1, chkavUseabsoluteurlbyenvironment.Enabled, "true", "Use absolute URL by Environment", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(76, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,76);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -819,8 +824,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 79,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavHomeobject_Internalname, AV42HomeObject, StringUtil.RTrim( context.localUtil.Format( AV42HomeObject, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,79);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavHomeobject_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavHomeobject_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 81,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavHomeobject_Internalname, AV42HomeObject, StringUtil.RTrim( context.localUtil.Format( AV42HomeObject, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,81);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavHomeobject_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavHomeobject_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -836,8 +841,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 84,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavAccountactivationobject_Internalname, AV66AccountActivationObject, StringUtil.RTrim( context.localUtil.Format( AV66AccountActivationObject, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,84);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavAccountactivationobject_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavAccountactivationobject_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 86,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavAccountactivationobject_Internalname, AV66AccountActivationObject, StringUtil.RTrim( context.localUtil.Format( AV66AccountActivationObject, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,86);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavAccountactivationobject_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavAccountactivationobject_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -857,16 +862,16 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
-            wb_table1_92_0Y2( true) ;
+            wb_table1_94_0Y2( true) ;
          }
          else
          {
-            wb_table1_92_0Y2( false) ;
+            wb_table1_94_0Y2( false) ;
          }
          return  ;
       }
 
-      protected void wb_table1_92_0Y2e( bool wbgen )
+      protected void wb_table1_94_0Y2e( bool wbgen )
       {
          if ( wbgen )
          {
@@ -898,9 +903,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_label_element( context, cmbavClientaccessstatus_Internalname, "Status", " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 108,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 110,'',false,'" + sGXsfl_569_idx + "',0)\"";
             /* ComboBox */
-            GxWebStd.gx_combobox_ctrl1( context, cmbavClientaccessstatus, cmbavClientaccessstatus_Internalname, StringUtil.RTrim( AV123ClientAccessStatus), 1, cmbavClientaccessstatus_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", 1, cmbavClientaccessstatus.Enabled, 0, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,108);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_combobox_ctrl1( context, cmbavClientaccessstatus, cmbavClientaccessstatus_Internalname, StringUtil.RTrim( AV123ClientAccessStatus), 1, cmbavClientaccessstatus_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", 1, cmbavClientaccessstatus.Enabled, 0, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,110);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
             cmbavClientaccessstatus.CurrentValue = StringUtil.RTrim( AV123ClientAccessStatus);
             AssignProp("", false, cmbavClientaccessstatus_Internalname, "Values", (string)(cmbavClientaccessstatus.ToJavascriptSource()), true);
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -918,9 +923,9 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 113,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 115,'',false,'" + sGXsfl_569_idx + "',0)\"";
             context.WriteHtmlText( "<div id=\""+edtavClientrevoked_Internalname+"_dp_container\" class=\"dp_container\" style=\"white-space:nowrap;display:inline;\">") ;
-            GxWebStd.gx_single_line_edit( context, edtavClientrevoked_Internalname, context.localUtil.TToC( AV26ClientRevoked, 10, 8, 1, 3, "/", ":", " "), context.localUtil.Format( AV26ClientRevoked, "99/99/9999 99:99"), TempTags+" onchange=\""+"gx.date.valid_date(this, 10,'DMY',5,12,'eng',false,0);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.date.valid_date(this, 10,'DMY',5,12,'eng',false,0);"+";gx.evt.onblur(this,113);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientrevoked_Jsonclick, 0, "AttributeDateTime", "", "", "", "", edtavClientrevoked_Visible, edtavClientrevoked_Enabled, 0, "text", "", 19, "chr", 1, "row", 19, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMDateTime", "end", false, "", "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_single_line_edit( context, edtavClientrevoked_Internalname, context.localUtil.TToC( AV26ClientRevoked, 10, 8, 1, 3, "/", ":", " "), context.localUtil.Format( AV26ClientRevoked, "99/99/9999 99:99"), TempTags+" onchange=\""+"gx.date.valid_date(this, 10,'DMY',5,12,'eng',false,0);"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.date.valid_date(this, 10,'DMY',5,12,'eng',false,0);"+";gx.evt.onblur(this,115);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientrevoked_Jsonclick, 0, "AttributeDateTime", "", "", "", "", edtavClientrevoked_Visible, edtavClientrevoked_Enabled, 0, "text", "", 19, "chr", 1, "row", 19, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMDateTime", "end", false, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_bitmap( context, edtavClientrevoked_Internalname+"_dp_trigger", context.GetImagePath( "61b9b5d3-dff6-4d59-9b00-da61bc2cbe93", "", context.GetTheme( )), "", "", "", "", ((edtavClientrevoked_Visible==0)||(edtavClientrevoked_Enabled==0) ? 0 : 1), 0, "Date selector", "Date selector", 0, 1, 0, "", 0, "", 0, 0, 0, "", "", "cursor: pointer;", "", "", "", "", "", "", "", "", 1, false, false, "", "HLP_GAMApplicationEntry.htm");
             context.WriteHtmlTextNl( "</div>") ;
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -938,8 +943,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 118,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavClientid_Internalname, StringUtil.RTrim( AV22ClientId), StringUtil.RTrim( context.localUtil.Format( AV22ClientId, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,118);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMClientApplicationId", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 120,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavClientid_Internalname, StringUtil.RTrim( AV22ClientId), StringUtil.RTrim( context.localUtil.Format( AV22ClientId, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,120);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMClientApplicationId", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -959,16 +964,16 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
-            wb_table2_126_0Y2( true) ;
+            wb_table2_128_0Y2( true) ;
          }
          else
          {
-            wb_table2_126_0Y2( false) ;
+            wb_table2_128_0Y2( false) ;
          }
          return  ;
       }
 
-      protected void wb_table2_126_0Y2e( bool wbgen )
+      protected void wb_table2_128_0Y2e( bool wbgen )
       {
          if ( wbgen )
          {
@@ -988,10 +993,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 137,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 139,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientauthrequestmustincludeuserscopes_Internalname, StringUtil.BoolToStr( AV128ClientAuthRequestMustIncludeUserScopes), "", " ", 1, chkavClientauthrequestmustincludeuserscopes.Enabled, "true", "Authentication request must include user scopes?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(137, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,137);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientauthrequestmustincludeuserscopes_Internalname, StringUtil.BoolToStr( AV128ClientAuthRequestMustIncludeUserScopes), "", " ", 1, chkavClientauthrequestmustincludeuserscopes.Enabled, "true", "Authentication request must include user scopes?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(139, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,139);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1007,10 +1012,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 142,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 144,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientdonotshareuserids_Internalname, StringUtil.BoolToStr( AV129ClientDoNotShareUserIDs), "", " ", 1, chkavClientdonotshareuserids.Enabled, "true", "Do not share user IDs", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(142, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,142);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientdonotshareuserids_Internalname, StringUtil.BoolToStr( AV129ClientDoNotShareUserIDs), "", " ", 1, chkavClientdonotshareuserids.Enabled, "true", "Do not share user IDs", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(144, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,144);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1045,10 +1050,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 152,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 154,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowremoteauth_Internalname, StringUtil.BoolToStr( AV17ClientAllowRemoteAuth), "", " ", 1, chkavClientallowremoteauth.Enabled, "true", "Allow remote authentication?", StyleString, ClassString, "", "", TempTags+" onblur=\""+""+";gx.evt.onblur(this,152);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowremoteauth_Internalname, StringUtil.BoolToStr( AV17ClientAllowRemoteAuth), "", " ", 1, chkavClientallowremoteauth.Enabled, "true", "Allow remote authentication?", StyleString, ClassString, "", "", TempTags+" onblur=\""+""+";gx.evt.onblur(this,154);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1070,10 +1075,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 160,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 162,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuserdata_Internalname, StringUtil.BoolToStr( AV126ClientAllowGetUserData), "", " ", 1, chkavClientallowgetuserdata.Enabled, "true", "User data", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(160, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,160);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuserdata_Internalname, StringUtil.BoolToStr( AV126ClientAllowGetUserData), "", " ", 1, chkavClientallowgetuserdata.Enabled, "true", "User data", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(162, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,162);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1089,10 +1094,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 165,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 167,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuseradddata_Internalname, StringUtil.BoolToStr( AV13ClientAllowGetUserAddData), "", " ", 1, chkavClientallowgetuseradddata.Enabled, "true", "Can get user additional data?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(165, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,165);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuseradddata_Internalname, StringUtil.BoolToStr( AV13ClientAllowGetUserAddData), "", " ", 1, chkavClientallowgetuseradddata.Enabled, "true", "Can get user additional data?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(167, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,167);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1108,10 +1113,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 170,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 172,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuserroles_Internalname, StringUtil.BoolToStr( AV15ClientAllowGetUserRoles), "", " ", 1, chkavClientallowgetuserroles.Enabled, "true", "Can get user roles?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(170, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,170);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuserroles_Internalname, StringUtil.BoolToStr( AV15ClientAllowGetUserRoles), "", " ", 1, chkavClientallowgetuserroles.Enabled, "true", "Can get user roles?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(172, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,172);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1127,10 +1132,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 175,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 177,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetsessioniniprop_Internalname, StringUtil.BoolToStr( AV11ClientAllowGetSessionIniProp), "", " ", 1, chkavClientallowgetsessioniniprop.Enabled, "true", "Can get session initial properties?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(175, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,175);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetsessioniniprop_Internalname, StringUtil.BoolToStr( AV11ClientAllowGetSessionIniProp), "", " ", 1, chkavClientallowgetsessioniniprop.Enabled, "true", "Can get session initial properties?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(177, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,177);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1146,10 +1151,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 180,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 182,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetsessionappdata_Internalname, StringUtil.BoolToStr( AV9ClientAllowGetSessionAppData), "", " ", 1, chkavClientallowgetsessionappdata.Enabled, "true", "Session application data", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(180, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,180);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetsessionappdata_Internalname, StringUtil.BoolToStr( AV9ClientAllowGetSessionAppData), "", " ", 1, chkavClientallowgetsessionappdata.Enabled, "true", "Session application data", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(182, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,182);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1165,8 +1170,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 185,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavClientallowadditionalscope_Internalname, AV124ClientAllowAdditionalScope, StringUtil.RTrim( context.localUtil.Format( AV124ClientAllowAdditionalScope, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,185);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientallowadditionalscope_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientallowadditionalscope_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMPropertyValue", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 187,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavClientallowadditionalscope_Internalname, AV124ClientAllowAdditionalScope, StringUtil.RTrim( context.localUtil.Format( AV124ClientAllowAdditionalScope, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,187);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientallowadditionalscope_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientallowadditionalscope_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMPropertyValue", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1182,8 +1187,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 190,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavClientimageurl_Internalname, AV23ClientImageURL, StringUtil.RTrim( context.localUtil.Format( AV23ClientImageURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,190);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientimageurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientimageurl_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 192,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavClientimageurl_Internalname, AV23ClientImageURL, StringUtil.RTrim( context.localUtil.Format( AV23ClientImageURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,192);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientimageurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientimageurl_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1199,8 +1204,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 195,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavClientlocalloginurl_Internalname, AV24ClientLocalLoginURL, StringUtil.RTrim( context.localUtil.Format( AV24ClientLocalLoginURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,195);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientlocalloginurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientlocalloginurl_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 197,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavClientlocalloginurl_Internalname, AV24ClientLocalLoginURL, StringUtil.RTrim( context.localUtil.Format( AV24ClientLocalLoginURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,197);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientlocalloginurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientlocalloginurl_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1216,8 +1221,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 200,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavClientcallbackurl_Internalname, AV19ClientCallbackURL, StringUtil.RTrim( context.localUtil.Format( AV19ClientCallbackURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,200);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientcallbackurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientcallbackurl_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 202,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavClientcallbackurl_Internalname, AV19ClientCallbackURL, StringUtil.RTrim( context.localUtil.Format( AV19ClientCallbackURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,202);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientcallbackurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientcallbackurl_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1233,10 +1238,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 205,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 207,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientcallbackurliscustom_Internalname, StringUtil.BoolToStr( AV20ClientCallbackURLisCustom), "", " ", 1, chkavClientcallbackurliscustom.Enabled, "true", "Custom callback URL?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(205, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,205);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientcallbackurliscustom_Internalname, StringUtil.BoolToStr( AV20ClientCallbackURLisCustom), "", " ", 1, chkavClientcallbackurliscustom.Enabled, "true", "Custom callback URL?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(207, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,207);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1252,8 +1257,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 210,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavClientcallbackurlstatename_Internalname, StringUtil.RTrim( AV65ClientCallbackURLStateName), StringUtil.RTrim( context.localUtil.Format( AV65ClientCallbackURLStateName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,210);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientcallbackurlstatename_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientcallbackurlstatename_Enabled, 1, "text", "", 60, "chr", 1, "row", 60, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionShort", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 212,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavClientcallbackurlstatename_Internalname, StringUtil.RTrim( AV65ClientCallbackURLStateName), StringUtil.RTrim( context.localUtil.Format( AV65ClientCallbackURLStateName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,212);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientcallbackurlstatename_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientcallbackurlstatename_Enabled, 1, "text", "", 60, "chr", 1, "row", 60, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionShort", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1295,10 +1300,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 220,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 222,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowremoterestauth_Internalname, StringUtil.BoolToStr( AV18ClientAllowRemoteRestAuth), "", " ", 1, chkavClientallowremoterestauth.Enabled, "true", "Allow authentication v.2.0 ?", StyleString, ClassString, "", "", TempTags+" onblur=\""+""+";gx.evt.onblur(this,220);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowremoterestauth_Internalname, StringUtil.BoolToStr( AV18ClientAllowRemoteRestAuth), "", " ", 1, chkavClientallowremoterestauth.Enabled, "true", "Allow authentication v.2.0 ?", StyleString, ClassString, "", "", TempTags+" onblur=\""+""+";gx.evt.onblur(this,222);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1320,10 +1325,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 228,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 230,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuserdatarest_Internalname, StringUtil.BoolToStr( AV127ClientAllowGetUserDataREST), "", " ", 1, chkavClientallowgetuserdatarest.Enabled, "true", "User data", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(228, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,228);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuserdatarest_Internalname, StringUtil.BoolToStr( AV127ClientAllowGetUserDataREST), "", " ", 1, chkavClientallowgetuserdatarest.Enabled, "true", "User data", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(230, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,230);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1339,10 +1344,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 233,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 235,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuseradddatarest_Internalname, StringUtil.BoolToStr( AV14ClientAllowGetUserAddDataRest), "", " ", 1, chkavClientallowgetuseradddatarest.Enabled, "true", "Can get user additional data?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(233, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,233);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuseradddatarest_Internalname, StringUtil.BoolToStr( AV14ClientAllowGetUserAddDataRest), "", " ", 1, chkavClientallowgetuseradddatarest.Enabled, "true", "Can get user additional data?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(235, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,235);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1358,10 +1363,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 238,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 240,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuserrolesrest_Internalname, StringUtil.BoolToStr( AV16ClientAllowGetUserRolesRest), "", " ", 1, chkavClientallowgetuserrolesrest.Enabled, "true", "Can get user roles?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(238, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,238);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetuserrolesrest_Internalname, StringUtil.BoolToStr( AV16ClientAllowGetUserRolesRest), "", " ", 1, chkavClientallowgetuserrolesrest.Enabled, "true", "Can get user roles?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(240, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,240);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1377,10 +1382,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 243,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 245,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetsessioniniproprest_Internalname, StringUtil.BoolToStr( AV12ClientAllowGetSessionIniPropRest), "", " ", 1, chkavClientallowgetsessioniniproprest.Enabled, "true", "Can get session initial properties?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(243, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,243);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetsessioniniproprest_Internalname, StringUtil.BoolToStr( AV12ClientAllowGetSessionIniPropRest), "", " ", 1, chkavClientallowgetsessioniniproprest.Enabled, "true", "Can get session initial properties?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(245, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,245);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1396,10 +1401,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 248,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 250,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetsessionappdatarest_Internalname, StringUtil.BoolToStr( AV10ClientAllowGetSessionAppDataREST), "", " ", 1, chkavClientallowgetsessionappdatarest.Enabled, "true", "Session application data", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(248, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,248);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientallowgetsessionappdatarest_Internalname, StringUtil.BoolToStr( AV10ClientAllowGetSessionAppDataREST), "", " ", 1, chkavClientallowgetsessionappdatarest.Enabled, "true", "Session application data", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(250, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,250);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1415,8 +1420,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 253,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavClientallowadditionalscoperest_Internalname, AV125ClientAllowAdditionalScopeREST, StringUtil.RTrim( context.localUtil.Format( AV125ClientAllowAdditionalScopeREST, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,253);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientallowadditionalscoperest_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientallowadditionalscoperest_Enabled, 1, "text", "", 100, "%", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMPropertyValue", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 255,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavClientallowadditionalscoperest_Internalname, AV125ClientAllowAdditionalScopeREST, StringUtil.RTrim( context.localUtil.Format( AV125ClientAllowAdditionalScopeREST, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,255);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientallowadditionalscoperest_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientallowadditionalscoperest_Enabled, 1, "text", "", 100, "%", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMPropertyValue", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1464,10 +1469,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 266,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 268,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavClientaccessuniquebyuser_Internalname, StringUtil.BoolToStr( AV8ClientAccessUniqueByUser), "", " ", 1, chkavClientaccessuniquebyuser.Enabled, "true", "Single user access?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(266, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,266);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavClientaccessuniquebyuser_Internalname, StringUtil.BoolToStr( AV8ClientAccessUniqueByUser), "", " ", 1, chkavClientaccessuniquebyuser.Enabled, "true", "Single user access?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(268, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,268);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1487,16 +1492,16 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
-            wb_table3_274_0Y2( true) ;
+            wb_table3_276_0Y2( true) ;
          }
          else
          {
-            wb_table3_274_0Y2( false) ;
+            wb_table3_276_0Y2( false) ;
          }
          return  ;
       }
 
-      protected void wb_table3_274_0Y2e( bool wbgen )
+      protected void wb_table3_276_0Y2e( bool wbgen )
       {
          if ( wbgen )
          {
@@ -1516,8 +1521,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 285,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavClientrepositoryguid_Internalname, StringUtil.RTrim( AV25ClientRepositoryGUID), StringUtil.RTrim( context.localUtil.Format( AV25ClientRepositoryGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,285);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientrepositoryguid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientrepositoryguid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 287,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavClientrepositoryguid_Internalname, StringUtil.RTrim( AV25ClientRepositoryGUID), StringUtil.RTrim( context.localUtil.Format( AV25ClientRepositoryGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,287);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientrepositoryguid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientrepositoryguid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1553,10 +1558,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 295,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 297,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavAccessrequirespermission_Internalname, StringUtil.BoolToStr( AV5AccessRequiresPermission), "", "Enable Authorization?", 1, chkavAccessrequirespermission.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(295, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,295);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavAccessrequirespermission_Internalname, StringUtil.BoolToStr( AV5AccessRequiresPermission), "", "Enable Authorization?", 1, chkavAccessrequirespermission.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(297, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,297);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1578,10 +1583,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 303,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 305,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavIsauthorizationdelegated_Internalname, StringUtil.BoolToStr( AV143IsAuthorizationDelegated), "", "Delegate authorization checking to an external program?", 1, chkavIsauthorizationdelegated.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(303, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,303);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavIsauthorizationdelegated_Internalname, StringUtil.BoolToStr( AV143IsAuthorizationDelegated), "", "Delegate authorization checking to an external program?", 1, chkavIsauthorizationdelegated.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(305, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,305);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1602,9 +1607,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_label_element( context, cmbavDelegateauthorizationversion_Internalname, "Version", " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 311,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 313,'',false,'" + sGXsfl_569_idx + "',0)\"";
             /* ComboBox */
-            GxWebStd.gx_combobox_ctrl1( context, cmbavDelegateauthorizationversion, cmbavDelegateauthorizationversion_Internalname, StringUtil.RTrim( AV134DelegateAuthorizationVersion), 1, cmbavDelegateauthorizationversion_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", 1, cmbavDelegateauthorizationversion.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,311);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_combobox_ctrl1( context, cmbavDelegateauthorizationversion, cmbavDelegateauthorizationversion_Internalname, StringUtil.RTrim( AV134DelegateAuthorizationVersion), 1, cmbavDelegateauthorizationversion_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", 1, cmbavDelegateauthorizationversion.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,313);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
             cmbavDelegateauthorizationversion.CurrentValue = StringUtil.RTrim( AV134DelegateAuthorizationVersion);
             AssignProp("", false, cmbavDelegateauthorizationversion_Internalname, "Values", (string)(cmbavDelegateauthorizationversion.ToJavascriptSource()), true);
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1622,8 +1627,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 316,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavDelegateauthorizationfilename_Internalname, StringUtil.RTrim( AV131DelegateAuthorizationFileName), StringUtil.RTrim( context.localUtil.Format( AV131DelegateAuthorizationFileName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,316);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavDelegateauthorizationfilename_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavDelegateauthorizationfilename_Enabled, 1, "text", "", 60, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 318,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavDelegateauthorizationfilename_Internalname, StringUtil.RTrim( AV131DelegateAuthorizationFileName), StringUtil.RTrim( context.localUtil.Format( AV131DelegateAuthorizationFileName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,318);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavDelegateauthorizationfilename_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavDelegateauthorizationfilename_Enabled, 1, "text", "", 60, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1639,8 +1644,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 321,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavDelegateauthorizationpackage_Internalname, StringUtil.RTrim( AV133DelegateAuthorizationPackage), StringUtil.RTrim( context.localUtil.Format( AV133DelegateAuthorizationPackage, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,321);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavDelegateauthorizationpackage_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavDelegateauthorizationpackage_Enabled, 1, "text", "", 60, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 323,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavDelegateauthorizationpackage_Internalname, StringUtil.RTrim( AV133DelegateAuthorizationPackage), StringUtil.RTrim( context.localUtil.Format( AV133DelegateAuthorizationPackage, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,323);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavDelegateauthorizationpackage_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavDelegateauthorizationpackage_Enabled, 1, "text", "", 60, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1656,8 +1661,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 326,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavDelegateauthorizationclassname_Internalname, StringUtil.RTrim( AV130DelegateAuthorizationClassName), StringUtil.RTrim( context.localUtil.Format( AV130DelegateAuthorizationClassName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,326);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavDelegateauthorizationclassname_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavDelegateauthorizationclassname_Enabled, 1, "text", "", 60, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 328,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavDelegateauthorizationclassname_Internalname, StringUtil.RTrim( AV130DelegateAuthorizationClassName), StringUtil.RTrim( context.localUtil.Format( AV130DelegateAuthorizationClassName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,328);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavDelegateauthorizationclassname_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavDelegateauthorizationclassname_Enabled, 1, "text", "", 60, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1673,8 +1678,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 331,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavDelegateauthorizationmethod_Internalname, StringUtil.RTrim( AV132DelegateAuthorizationMethod), StringUtil.RTrim( context.localUtil.Format( AV132DelegateAuthorizationMethod, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,331);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavDelegateauthorizationmethod_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavDelegateauthorizationmethod_Enabled, 1, "text", "", 60, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 333,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavDelegateauthorizationmethod_Internalname, StringUtil.RTrim( AV132DelegateAuthorizationMethod), StringUtil.RTrim( context.localUtil.Format( AV132DelegateAuthorizationMethod, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,333);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavDelegateauthorizationmethod_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavDelegateauthorizationmethod_Enabled, 1, "text", "", 60, "chr", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1709,10 +1714,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 341,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 343,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavSsorestenable_Internalname, StringUtil.BoolToStr( AV50SSORestEnable), "", " ", 1, chkavSsorestenable.Enabled, "true", "Enable SSO Rest services?", StyleString, ClassString, "", "", TempTags+" onblur=\""+""+";gx.evt.onblur(this,341);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavSsorestenable_Internalname, StringUtil.BoolToStr( AV50SSORestEnable), "", " ", 1, chkavSsorestenable.Enabled, "true", "Enable SSO Rest services?", StyleString, ClassString, "", "", TempTags+" onblur=\""+""+";gx.evt.onblur(this,343);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1733,9 +1738,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_label_element( context, cmbavSsorestmode_Internalname, "Mode SSO Rest", " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 349,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 351,'',false,'" + sGXsfl_569_idx + "',0)\"";
             /* ComboBox */
-            GxWebStd.gx_combobox_ctrl1( context, cmbavSsorestmode, cmbavSsorestmode_Internalname, StringUtil.RTrim( AV51SSORestMode), 1, cmbavSsorestmode_Jsonclick, 5, "'"+""+"'"+",false,"+"'"+"EVSSORESTMODE.CLICK."+"'", "char", "", 1, cmbavSsorestmode.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,349);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_combobox_ctrl1( context, cmbavSsorestmode, cmbavSsorestmode_Internalname, StringUtil.RTrim( AV51SSORestMode), 1, cmbavSsorestmode_Jsonclick, 5, "'"+""+"'"+",false,"+"'"+"EVSSORESTMODE.CLICK."+"'", "char", "", 1, cmbavSsorestmode.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,351);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
             cmbavSsorestmode.CurrentValue = StringUtil.RTrim( AV51SSORestMode);
             AssignProp("", false, cmbavSsorestmode_Internalname, "Values", (string)(cmbavSsorestmode.ToJavascriptSource()), true);
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1759,8 +1764,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 357,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavSsorestuserauthtypename_Internalname, StringUtil.RTrim( AV53SSORestUserAuthTypeName), StringUtil.RTrim( context.localUtil.Format( AV53SSORestUserAuthTypeName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,357);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavSsorestuserauthtypename_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavSsorestuserauthtypename_Enabled, 1, "text", "", 60, "chr", 1, "row", 60, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMAuthenticationTypeName", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 359,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavSsorestuserauthtypename_Internalname, StringUtil.RTrim( AV53SSORestUserAuthTypeName), StringUtil.RTrim( context.localUtil.Format( AV53SSORestUserAuthTypeName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,359);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavSsorestuserauthtypename_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavSsorestuserauthtypename_Enabled, 1, "text", "", 60, "chr", 1, "row", 60, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMAuthenticationTypeName", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1776,8 +1781,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 362,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavSsorestserverurl_Internalname, AV52SSORestServerURL, StringUtil.RTrim( context.localUtil.Format( AV52SSORestServerURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,362);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavSsorestserverurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavSsorestserverurl_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 364,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavSsorestserverurl_Internalname, AV52SSORestServerURL, StringUtil.RTrim( context.localUtil.Format( AV52SSORestServerURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,364);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavSsorestserverurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavSsorestserverurl_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1793,10 +1798,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 367,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 369,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavSsorestserverurl_iscustom_Internalname, StringUtil.BoolToStr( AV159SSORestServerURL_isCustom), "", "Custom server URL SSO", 1, chkavSsorestserverurl_iscustom.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(367, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,367);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavSsorestserverurl_iscustom_Internalname, StringUtil.BoolToStr( AV159SSORestServerURL_isCustom), "", "Custom server URL SSO", 1, chkavSsorestserverurl_iscustom.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(369, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,369);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1812,8 +1817,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 372,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavSsorestserverurl_slo_Internalname, AV160SSORestServerURL_SLO, StringUtil.RTrim( context.localUtil.Format( AV160SSORestServerURL_SLO, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,372);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavSsorestserverurl_slo_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavSsorestserverurl_slo_Enabled, 1, "text", "", 60, "chr", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 374,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavSsorestserverurl_slo_Internalname, AV160SSORestServerURL_SLO, StringUtil.RTrim( context.localUtil.Format( AV160SSORestServerURL_SLO, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,374);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavSsorestserverurl_slo_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavSsorestserverurl_slo_Enabled, 1, "text", "", 60, "chr", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1829,8 +1834,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 377,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavSsorestserverrepositoryguid_Internalname, StringUtil.RTrim( AV158SSORestServerRepositoryGUID), StringUtil.RTrim( context.localUtil.Format( AV158SSORestServerRepositoryGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,377);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavSsorestserverrepositoryguid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavSsorestserverrepositoryguid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 379,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavSsorestserverrepositoryguid_Internalname, StringUtil.RTrim( AV158SSORestServerRepositoryGUID), StringUtil.RTrim( context.localUtil.Format( AV158SSORestServerRepositoryGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,379);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavSsorestserverrepositoryguid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavSsorestserverrepositoryguid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1846,8 +1851,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 382,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavSsorestserverkey_Internalname, StringUtil.RTrim( AV157SSORestServerKey), StringUtil.RTrim( context.localUtil.Format( AV157SSORestServerKey, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,382);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavSsorestserverkey_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavSsorestserverkey_Enabled, 1, "text", "", 32, "chr", 1, "row", 32, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMEncryptionKey", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 384,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavSsorestserverkey_Internalname, StringUtil.RTrim( AV157SSORestServerKey), StringUtil.RTrim( context.localUtil.Format( AV157SSORestServerKey, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,384);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavSsorestserverkey_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavSsorestserverkey_Enabled, 1, "text", "", 32, "chr", 1, "row", 32, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMEncryptionKey", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1882,10 +1887,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 392,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 394,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavStsprotocolenable_Internalname, StringUtil.BoolToStr( AV57STSProtocolEnable), "", " ", 1, chkavStsprotocolenable.Enabled, "true", "Enable STS protocol?", StyleString, ClassString, "", "", TempTags+" onblur=\""+""+";gx.evt.onblur(this,392);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavStsprotocolenable_Internalname, StringUtil.BoolToStr( AV57STSProtocolEnable), "", " ", 1, chkavStsprotocolenable.Enabled, "true", "Enable STS protocol?", StyleString, ClassString, "", "", TempTags+" onblur=\""+""+";gx.evt.onblur(this,394);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1906,9 +1911,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_label_element( context, cmbavStsmode_Internalname, "STS Mode", " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 400,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 402,'',false,'" + sGXsfl_569_idx + "',0)\"";
             /* ComboBox */
-            GxWebStd.gx_combobox_ctrl1( context, cmbavStsmode, cmbavStsmode_Internalname, StringUtil.RTrim( AV56STSMode), 1, cmbavStsmode_Jsonclick, 7, "'"+""+"'"+",false,"+"'"+"e110y1_client"+"'", "char", "", 1, cmbavStsmode.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,400);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_combobox_ctrl1( context, cmbavStsmode, cmbavStsmode_Internalname, StringUtil.RTrim( AV56STSMode), 1, cmbavStsmode_Jsonclick, 7, "'"+""+"'"+",false,"+"'"+"e110y1_client"+"'", "char", "", 1, cmbavStsmode.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,402);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
             cmbavStsmode.CurrentValue = StringUtil.RTrim( AV56STSMode);
             AssignProp("", false, cmbavStsmode_Internalname, "Values", (string)(cmbavStsmode.ToJavascriptSource()), true);
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1932,8 +1937,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 408,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavStsauthorizationusername_Internalname, AV55STSAuthorizationUserName, StringUtil.RTrim( context.localUtil.Format( AV55STSAuthorizationUserName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,408);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavStsauthorizationusername_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavStsauthorizationusername_Enabled, 1, "text", "", 80, "chr", 1, "row", 100, 0, 0, 0, 0, 0, 0, true, "GeneXusSecurityCommon\\GAMUserIdentification", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 410,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavStsauthorizationusername_Internalname, AV55STSAuthorizationUserName, StringUtil.RTrim( context.localUtil.Format( AV55STSAuthorizationUserName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,410);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavStsauthorizationusername_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavStsauthorizationusername_Enabled, 1, "text", "", 80, "chr", 1, "row", 100, 0, 0, 0, 0, 0, 0, true, "GeneXusSecurityCommon\\GAMUserIdentification", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1958,8 +1963,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 416,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavStsserverclientpassword_Internalname, StringUtil.RTrim( AV58STSServerClientPassword), StringUtil.RTrim( context.localUtil.Format( AV58STSServerClientPassword, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,416);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavStsserverclientpassword_Jsonclick, 0, "Attribute", "", "", "", "", edtavStsserverclientpassword_Visible, edtavStsserverclientpassword_Enabled, 1, "text", "", 50, "chr", 1, "row", 50, -1, 0, 0, 0, 0, 0, true, "GeneXusSecurityCommon\\GAMPassword", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 418,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavStsserverclientpassword_Internalname, StringUtil.RTrim( AV58STSServerClientPassword), StringUtil.RTrim( context.localUtil.Format( AV58STSServerClientPassword, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,418);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavStsserverclientpassword_Jsonclick, 0, "Attribute", "", "", "", "", edtavStsserverclientpassword_Visible, edtavStsserverclientpassword_Enabled, 1, "text", "", 50, "chr", 1, "row", 50, -1, 0, 0, 0, 0, 0, true, "GeneXusSecurityCommon\\GAMPassword", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -1984,8 +1989,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 424,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavStsserverurl_Internalname, AV60STSServerURL, StringUtil.RTrim( context.localUtil.Format( AV60STSServerURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,424);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavStsserverurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavStsserverurl_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 426,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavStsserverurl_Internalname, AV60STSServerURL, StringUtil.RTrim( context.localUtil.Format( AV60STSServerURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,426);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavStsserverurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavStsserverurl_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2001,8 +2006,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 429,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavStsserverrepositoryguid_Internalname, StringUtil.RTrim( AV59STSServerRepositoryGUID), StringUtil.RTrim( context.localUtil.Format( AV59STSServerRepositoryGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,429);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavStsserverrepositoryguid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavStsserverrepositoryguid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 431,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavStsserverrepositoryguid_Internalname, StringUtil.RTrim( AV59STSServerRepositoryGUID), StringUtil.RTrim( context.localUtil.Format( AV59STSServerRepositoryGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,431);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavStsserverrepositoryguid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavStsserverrepositoryguid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2037,10 +2042,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 439,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 441,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavMiniappenable_Internalname, StringUtil.BoolToStr( AV148MiniAppEnable), "", "Enable work as MiniApp?", 1, chkavMiniappenable.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(439, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,439);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavMiniappenable_Internalname, StringUtil.BoolToStr( AV148MiniAppEnable), "", "Enable work as MiniApp?", 1, chkavMiniappenable.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(441, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,441);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2061,9 +2066,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_label_element( context, cmbavMiniappmode_Internalname, "Mode", " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 447,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 449,'',false,'" + sGXsfl_569_idx + "',0)\"";
             /* ComboBox */
-            GxWebStd.gx_combobox_ctrl1( context, cmbavMiniappmode, cmbavMiniappmode_Internalname, StringUtil.RTrim( AV149MiniAppMode), 1, cmbavMiniappmode_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", 1, cmbavMiniappmode.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,447);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_combobox_ctrl1( context, cmbavMiniappmode, cmbavMiniappmode_Internalname, StringUtil.RTrim( AV149MiniAppMode), 1, cmbavMiniappmode_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", 1, cmbavMiniappmode.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,449);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
             cmbavMiniappmode.CurrentValue = StringUtil.RTrim( AV149MiniAppMode);
             AssignProp("", false, cmbavMiniappmode_Internalname, "Values", (string)(cmbavMiniappmode.ToJavascriptSource()), true);
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2087,8 +2092,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 455,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavMiniappclienturl_Internalname, AV146MiniAppClientURL, StringUtil.RTrim( context.localUtil.Format( AV146MiniAppClientURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,455);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavMiniappclienturl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavMiniappclienturl_Enabled, 1, "text", "", 100, "%", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 457,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavMiniappclienturl_Internalname, AV146MiniAppClientURL, StringUtil.RTrim( context.localUtil.Format( AV146MiniAppClientURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,457);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavMiniappclienturl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavMiniappclienturl_Enabled, 1, "text", "", 100, "%", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2104,10 +2109,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 460,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 462,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavMiniappclienturl_iscustom_Internalname, StringUtil.BoolToStr( AV147MiniAppClientURL_isCustom), "", "Custom MiniApp client URL", 1, chkavMiniappclienturl_iscustom.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(460, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,460);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavMiniappclienturl_iscustom_Internalname, StringUtil.BoolToStr( AV147MiniAppClientURL_isCustom), "", "Custom MiniApp client URL", 1, chkavMiniappclienturl_iscustom.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(462, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,462);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2123,8 +2128,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 465,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavMiniappclientrepositoryguid_Internalname, StringUtil.RTrim( AV145MiniAppClientRepositoryGUID), StringUtil.RTrim( context.localUtil.Format( AV145MiniAppClientRepositoryGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,465);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavMiniappclientrepositoryguid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavMiniappclientrepositoryguid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 467,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavMiniappclientrepositoryguid_Internalname, StringUtil.RTrim( AV145MiniAppClientRepositoryGUID), StringUtil.RTrim( context.localUtil.Format( AV145MiniAppClientRepositoryGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,467);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavMiniappclientrepositoryguid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavMiniappclientrepositoryguid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2148,9 +2153,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_label_element( context, cmbavMiniappuserauthenticationtypename_Internalname, "User authentication type name in this client", " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 473,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 475,'',false,'" + sGXsfl_569_idx + "',0)\"";
             /* ComboBox */
-            GxWebStd.gx_combobox_ctrl1( context, cmbavMiniappuserauthenticationtypename, cmbavMiniappuserauthenticationtypename_Internalname, StringUtil.RTrim( AV153MiniAppUserAuthenticationTypeName), 1, cmbavMiniappuserauthenticationtypename_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", 1, cmbavMiniappuserauthenticationtypename.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,473);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_combobox_ctrl1( context, cmbavMiniappuserauthenticationtypename, cmbavMiniappuserauthenticationtypename_Internalname, StringUtil.RTrim( AV153MiniAppUserAuthenticationTypeName), 1, cmbavMiniappuserauthenticationtypename_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", 1, cmbavMiniappuserauthenticationtypename.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,475);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
             cmbavMiniappuserauthenticationtypename.CurrentValue = StringUtil.RTrim( AV153MiniAppUserAuthenticationTypeName);
             AssignProp("", false, cmbavMiniappuserauthenticationtypename_Internalname, "Values", (string)(cmbavMiniappuserauthenticationtypename.ToJavascriptSource()), true);
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2168,8 +2173,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 478,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavMiniappserverurl_Internalname, AV151MiniAppServerURL, StringUtil.RTrim( context.localUtil.Format( AV151MiniAppServerURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,478);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavMiniappserverurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavMiniappserverurl_Enabled, 1, "text", "", 100, "%", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 480,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavMiniappserverurl_Internalname, AV151MiniAppServerURL, StringUtil.RTrim( context.localUtil.Format( AV151MiniAppServerURL, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,480);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavMiniappserverurl_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavMiniappserverurl_Enabled, 1, "text", "", 100, "%", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2185,10 +2190,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 483,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 485,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavMiniappserverurl_iscustom_Internalname, StringUtil.BoolToStr( AV152MiniAppServerURL_isCustom), "", "Custom SuperApp server URL", 1, chkavMiniappserverurl_iscustom.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(483, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,483);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavMiniappserverurl_iscustom_Internalname, StringUtil.BoolToStr( AV152MiniAppServerURL_isCustom), "", "Custom SuperApp server URL", 1, chkavMiniappserverurl_iscustom.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(485, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,485);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2204,8 +2209,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 488,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavMiniappserverrepositoryguid_Internalname, StringUtil.RTrim( AV150MiniAppServerRepositoryGUID), StringUtil.RTrim( context.localUtil.Format( AV150MiniAppServerRepositoryGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,488);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavMiniappserverrepositoryguid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavMiniappserverrepositoryguid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 490,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavMiniappserverrepositoryguid_Internalname, StringUtil.RTrim( AV150MiniAppServerRepositoryGUID), StringUtil.RTrim( context.localUtil.Format( AV150MiniAppServerRepositoryGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,490);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavMiniappserverrepositoryguid_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavMiniappserverrepositoryguid_Enabled, 1, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2240,10 +2245,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 498,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 500,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavApikeyenable_Internalname, StringUtil.BoolToStr( AV120APIKeyEnable), "", "Enable work with API keys", 1, chkavApikeyenable.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(498, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,498);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavApikeyenable_Internalname, StringUtil.BoolToStr( AV120APIKeyEnable), "", "Enable work with API keys", 1, chkavApikeyenable.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(500, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,500);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2265,8 +2270,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 506,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavApikeytimeout_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV121APIKeyTimeout), 9, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(AV121APIKeyTimeout), "ZZZZZZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,506);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavApikeytimeout_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavApikeytimeout_Enabled, 1, "text", "1", 9, "chr", 1, "row", 9, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMKeyNumShort", "end", false, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 508,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavApikeytimeout_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV121APIKeyTimeout), 9, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(AV121APIKeyTimeout), "ZZZZZZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,508);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavApikeytimeout_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavApikeytimeout_Enabled, 1, "text", "1", 9, "chr", 1, "row", 9, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMKeyNumShort", "end", false, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2281,9 +2286,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_label_element( context, cmbavApikeyallowonlyauthenticationtypename_Internalname, "Allow only this authentication type name", " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 511,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 513,'',false,'" + sGXsfl_569_idx + "',0)\"";
             /* ComboBox */
-            GxWebStd.gx_combobox_ctrl1( context, cmbavApikeyallowonlyauthenticationtypename, cmbavApikeyallowonlyauthenticationtypename_Internalname, StringUtil.RTrim( AV118APIKeyAllowOnlyAuthenticationTypeName), 1, cmbavApikeyallowonlyauthenticationtypename_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", 1, cmbavApikeyallowonlyauthenticationtypename.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,511);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_combobox_ctrl1( context, cmbavApikeyallowonlyauthenticationtypename, cmbavApikeyallowonlyauthenticationtypename_Internalname, StringUtil.RTrim( AV118APIKeyAllowOnlyAuthenticationTypeName), 1, cmbavApikeyallowonlyauthenticationtypename_Jsonclick, 0, "'"+""+"'"+",false,"+"'"+""+"'", "char", "", 1, cmbavApikeyallowonlyauthenticationtypename.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,513);\"", "", true, 0, "HLP_GAMApplicationEntry.htm");
             cmbavApikeyallowonlyauthenticationtypename.CurrentValue = StringUtil.RTrim( AV118APIKeyAllowOnlyAuthenticationTypeName);
             AssignProp("", false, cmbavApikeyallowonlyauthenticationtypename_Internalname, "Values", (string)(cmbavApikeyallowonlyauthenticationtypename.ToJavascriptSource()), true);
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2301,10 +2306,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 516,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 518,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavApikeyallowscopecustomization_Internalname, StringUtil.BoolToStr( AV119APIKeyAllowScopeCustomization), "", "API Key Allow Scope Customization", 1, chkavApikeyallowscopecustomization.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(516, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,516);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavApikeyallowscopecustomization_Internalname, StringUtil.BoolToStr( AV119APIKeyAllowScopeCustomization), "", "API Key Allow Scope Customization", 1, chkavApikeyallowscopecustomization.Enabled, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(518, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,518);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2336,8 +2341,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 526,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavEnvironmentname_Internalname, StringUtil.RTrim( AV32EnvironmentName), StringUtil.RTrim( context.localUtil.Format( AV32EnvironmentName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,526);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmentname_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmentname_Enabled, 1, "text", "", 80, "chr", 1, "row", 120, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionMedium", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 528,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavEnvironmentname_Internalname, StringUtil.RTrim( AV32EnvironmentName), StringUtil.RTrim( context.localUtil.Format( AV32EnvironmentName, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,528);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmentname_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmentname_Enabled, 1, "text", "", 80, "chr", 1, "row", 120, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionMedium", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2353,10 +2358,10 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 531,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 533,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavEnvironmentsecureprotocol_Internalname, StringUtil.BoolToStr( AV36EnvironmentSecureProtocol), "", " ", 1, chkavEnvironmentsecureprotocol.Enabled, "true", "Is HTTPS?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(531, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,531);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavEnvironmentsecureprotocol_Internalname, StringUtil.BoolToStr( AV36EnvironmentSecureProtocol), "", " ", 1, chkavEnvironmentsecureprotocol.Enabled, "true", "Is HTTPS?", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(533, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,533);\"");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2372,8 +2377,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 536,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavEnvironmenthost_Internalname, StringUtil.RTrim( AV31EnvironmentHost), StringUtil.RTrim( context.localUtil.Format( AV31EnvironmentHost, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,536);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmenthost_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmenthost_Enabled, 1, "text", "", 80, "chr", 1, "row", 120, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionMedium", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 538,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavEnvironmenthost_Internalname, StringUtil.RTrim( AV31EnvironmentHost), StringUtil.RTrim( context.localUtil.Format( AV31EnvironmentHost, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,538);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmenthost_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmenthost_Enabled, 1, "text", "", 80, "chr", 1, "row", 120, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionMedium", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2389,8 +2394,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 541,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavEnvironmentport_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV33EnvironmentPort), 5, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(AV33EnvironmentPort), "ZZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,541);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmentport_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmentport_Enabled, 1, "text", "1", 5, "chr", 1, "row", 5, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 543,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavEnvironmentport_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV33EnvironmentPort), 5, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(AV33EnvironmentPort), "ZZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,543);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmentport_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmentport_Enabled, 1, "text", "1", 5, "chr", 1, "row", 5, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2406,8 +2411,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 546,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavEnvironmentvirtualdirectory_Internalname, StringUtil.RTrim( AV37EnvironmentVirtualDirectory), StringUtil.RTrim( context.localUtil.Format( AV37EnvironmentVirtualDirectory, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,546);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmentvirtualdirectory_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmentvirtualdirectory_Enabled, 1, "text", "", 80, "chr", 1, "row", 120, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionMedium", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 548,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavEnvironmentvirtualdirectory_Internalname, StringUtil.RTrim( AV37EnvironmentVirtualDirectory), StringUtil.RTrim( context.localUtil.Format( AV37EnvironmentVirtualDirectory, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,548);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmentvirtualdirectory_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmentvirtualdirectory_Enabled, 1, "text", "", 80, "chr", 1, "row", 120, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionMedium", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2423,8 +2428,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 551,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavEnvironmentprogrampackage_Internalname, StringUtil.RTrim( AV35EnvironmentProgramPackage), StringUtil.RTrim( context.localUtil.Format( AV35EnvironmentProgramPackage, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,551);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmentprogrampackage_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmentprogrampackage_Enabled, 1, "text", "", 0, "px", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 553,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavEnvironmentprogrampackage_Internalname, StringUtil.RTrim( AV35EnvironmentProgramPackage), StringUtil.RTrim( context.localUtil.Format( AV35EnvironmentProgramPackage, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,553);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmentprogrampackage_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmentprogrampackage_Enabled, 1, "text", "", 0, "px", 1, "row", 254, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionLong", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2440,8 +2445,8 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 556,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavEnvironmentprogramextension_Internalname, StringUtil.RTrim( AV34EnvironmentProgramExtension), StringUtil.RTrim( context.localUtil.Format( AV34EnvironmentProgramExtension, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,556);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmentprogramextension_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmentprogramextension_Enabled, 1, "text", "", 60, "chr", 1, "row", 60, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionShort", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 558,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavEnvironmentprogramextension_Internalname, StringUtil.RTrim( AV34EnvironmentProgramExtension), StringUtil.RTrim( context.localUtil.Format( AV34EnvironmentProgramExtension, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,558);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEnvironmentprogramextension_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavEnvironmentprogramextension_Enabled, 1, "text", "", 60, "chr", 1, "row", 60, 0, 0, 0, 0, -1, -1, true, "GeneXusSecurityCommon\\GAMDescriptionShort", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2471,12 +2476,12 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
             /*  Grid Control  */
             GridlanguagesContainer.SetWrapped(nGXWrapped);
-            StartGridControl567( ) ;
+            StartGridControl569( ) ;
          }
-         if ( wbEnd == 567 )
+         if ( wbEnd == 569 )
          {
             wbEnd = 0;
-            nRC_GXsfl_567 = (int)(nGXsfl_567_idx-1);
+            nRC_GXsfl_569 = (int)(nGXsfl_569_idx-1);
             if ( GridlanguagesContainer.GetWrapped() == 1 )
             {
                context.WriteHtmlText( "</table>") ;
@@ -2547,17 +2552,18 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-action-group CellMarginTop10", "start", "top", " "+"data-gx-actiongroup-type=\"toolbar\""+" ", "", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 577,'',false,'',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 579,'',false,'',0)\"";
             ClassString = "Button";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtnenter_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(567), 3, 0)+","+"null"+");", bttBtnenter_Caption, bttBtnenter_Jsonclick, 5, "Confirm", "", StyleString, ClassString, bttBtnenter_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtnenter_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(569), 3, 0)+","+"null"+");", bttBtnenter_Caption, bttBtnenter_Jsonclick, 5, "Confirm", "", StyleString, ClassString, bttBtnenter_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 579,'',false,'',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 581,'',false,'',0)\"";
             ClassString = "BtnDefault";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtncancel_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(567), 3, 0)+","+"null"+");", "Cancel", bttBtncancel_Jsonclick, 1, "Cancel", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"ECANCEL."+"'", TempTags, "", context.GetButtonType( ), "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtncancel_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(569), 3, 0)+","+"null"+");", "Cancel", bttBtncancel_Jsonclick, 1, "Cancel", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"ECANCEL."+"'", TempTags, "", context.GetButtonType( ), "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2565,9 +2571,12 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 hidden-xs hidden-sm col-md-3", "start", "top", "", "", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, divRighttable_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2580,16 +2589,16 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, divHtml_bottomauxiliarcontrols_Internalname, 1, 0, "px", 0, "px", "Section", "start", "top", "", "", "div");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 585,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavGridlanguagescurrentpage_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV140GridLanguagesCurrentPage), 10, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(AV140GridLanguagesCurrentPage), "ZZZZZZZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,585);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavGridlanguagescurrentpage_Jsonclick, 0, "Attribute", "", "", "", "", edtavGridlanguagescurrentpage_Visible, 1, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 588,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavGridlanguagescurrentpage_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV140GridLanguagesCurrentPage), 10, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(AV140GridLanguagesCurrentPage), "ZZZZZZZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,588);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavGridlanguagescurrentpage_Jsonclick, 0, "Attribute", "", "", "", "", edtavGridlanguagescurrentpage_Visible, 1, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_GAMApplicationEntry.htm");
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 586,'',false,'" + sGXsfl_567_idx + "',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 589,'',false,'" + sGXsfl_569_idx + "',0)\"";
             ClassString = "Attribute";
             StyleString = "";
-            GxWebStd.gx_checkbox_ctrl( context, chkavAutoregisteranomymoususer_Internalname, StringUtil.BoolToStr( AV7AutoRegisterAnomymousUser), "", "", chkavAutoregisteranomymoususer.Visible, 1, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(586, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,586);\"");
+            GxWebStd.gx_checkbox_ctrl( context, chkavAutoregisteranomymoususer_Internalname, StringUtil.BoolToStr( AV7AutoRegisterAnomymousUser), "", "", chkavAutoregisteranomymoususer.Visible, 1, "true", "", StyleString, ClassString, "", "", TempTags+" onclick="+"\"gx.fn.checkboxClick(589, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,589);\"");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 587,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavStsauthorizationuserguid_Internalname, StringUtil.RTrim( AV54STSAuthorizationUserGUID), StringUtil.RTrim( context.localUtil.Format( AV54STSAuthorizationUserGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,587);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavStsauthorizationuserguid_Jsonclick, 0, "Attribute", "", "", "", "", edtavStsauthorizationuserguid_Visible, 1, 0, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 590,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavStsauthorizationuserguid_Internalname, StringUtil.RTrim( AV54STSAuthorizationUserGUID), StringUtil.RTrim( context.localUtil.Format( AV54STSAuthorizationUserGUID, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,590);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavStsauthorizationuserguid_Jsonclick, 0, "Attribute", "", "", "", "", edtavStsauthorizationuserguid_Visible, 1, 0, "text", "", 40, "chr", 1, "row", 40, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMGUID", "start", true, "", "HLP_GAMApplicationEntry.htm");
             /* User Defined Control */
             ucGridlanguages_empowerer.Render(context, "wwp.gridempowerer", Gridlanguages_empowerer_Internalname, "GRIDLANGUAGES_EMPOWERERContainer");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -2598,7 +2607,7 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
          }
-         if ( wbEnd == 567 )
+         if ( wbEnd == 569 )
          {
             wbEnd = 0;
             if ( isFullAjaxMode( ) )
@@ -2785,14 +2794,14 @@ namespace GeneXus.Programs {
                            sEvt = StringUtil.Left( sEvt, (short)(StringUtil.Len( sEvt)-4));
                            if ( ( StringUtil.StrCmp(StringUtil.Left( sEvt, 5), "START") == 0 ) || ( StringUtil.StrCmp(StringUtil.Left( sEvt, 7), "REFRESH") == 0 ) || ( StringUtil.StrCmp(StringUtil.Left( sEvt, 18), "GRIDLANGUAGES.LOAD") == 0 ) || ( StringUtil.StrCmp(StringUtil.Left( sEvt, 22), "'GENERATEKEYGAMREMOTE'") == 0 ) || ( StringUtil.StrCmp(StringUtil.Left( sEvt, 18), "'REVOKE-AUTHORIZE'") == 0 ) || ( StringUtil.StrCmp(StringUtil.Left( sEvt, 14), "'TRANSLATIONS'") == 0 ) )
                            {
-                              nGXsfl_567_idx = (int)(Math.Round(NumberUtil.Val( sEvtType, "."), 18, MidpointRounding.ToEven));
-                              sGXsfl_567_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_567_idx), 4, 0), 4, "0");
-                              SubsflControlProps_5672( ) ;
+                              nGXsfl_569_idx = (int)(Math.Round(NumberUtil.Val( sEvtType, "."), 18, MidpointRounding.ToEven));
+                              sGXsfl_569_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_569_idx), 4, 0), 4, "0");
+                              SubsflControlProps_5692( ) ;
                               AV154Online = StringUtil.StrToBool( cgiGet( chkavOnline_Internalname));
                               AssignAttri("", false, chkavOnline_Internalname, AV154Online);
                               AV144Language = cgiGet( edtavLanguage_Internalname);
                               AssignAttri("", false, edtavLanguage_Internalname, AV144Language);
-                              GxWebStd.gx_hidden_field( context, "gxhash_vLANGUAGE"+"_"+sGXsfl_567_idx, GetSecureSignedToken( sGXsfl_567_idx, StringUtil.RTrim( context.localUtil.Format( AV144Language, "")), context));
+                              GxWebStd.gx_hidden_field( context, "gxhash_vLANGUAGE"+"_"+sGXsfl_569_idx, GetSecureSignedToken( sGXsfl_569_idx, StringUtil.RTrim( context.localUtil.Format( AV144Language, "")), context));
                               sEvtType = StringUtil.Right( sEvt, 1);
                               if ( StringUtil.StrCmp(sEvtType, ".") == 0 )
                               {
@@ -2913,13 +2922,13 @@ namespace GeneXus.Programs {
       protected void gxnrGridlanguages_newrow( )
       {
          GxWebStd.set_html_headers( context, 0, "", "");
-         SubsflControlProps_5672( ) ;
-         while ( nGXsfl_567_idx <= nRC_GXsfl_567 )
+         SubsflControlProps_5692( ) ;
+         while ( nGXsfl_569_idx <= nRC_GXsfl_569 )
          {
-            sendrow_5672( ) ;
-            nGXsfl_567_idx = ((subGridlanguages_Islastpage==1)&&(nGXsfl_567_idx+1>subGridlanguages_fnc_Recordsperpage( )) ? 1 : nGXsfl_567_idx+1);
-            sGXsfl_567_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_567_idx), 4, 0), 4, "0");
-            SubsflControlProps_5672( ) ;
+            sendrow_5692( ) ;
+            nGXsfl_569_idx = ((subGridlanguages_Islastpage==1)&&(nGXsfl_569_idx+1>subGridlanguages_fnc_Recordsperpage( )) ? 1 : nGXsfl_569_idx+1);
+            sGXsfl_569_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_569_idx), 4, 0), 4, "0");
+            SubsflControlProps_5692( ) ;
          }
          AddString( context.httpAjaxContext.getJSONContainerResponse( GridlanguagesContainer)) ;
          /* End function gxnrGridlanguages_newrow */
@@ -3158,13 +3167,13 @@ namespace GeneXus.Programs {
          {
             GridlanguagesContainer.ClearRows();
          }
-         wbStart = 567;
+         wbStart = 569;
          /* Execute user event: Refresh */
          E250Y2 ();
-         nGXsfl_567_idx = 1;
-         sGXsfl_567_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_567_idx), 4, 0), 4, "0");
-         SubsflControlProps_5672( ) ;
-         bGXsfl_567_Refreshing = true;
+         nGXsfl_569_idx = 1;
+         sGXsfl_569_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_569_idx), 4, 0), 4, "0");
+         SubsflControlProps_5692( ) ;
+         bGXsfl_569_Refreshing = true;
          GridlanguagesContainer.AddObjectProperty("GridName", "Gridlanguages");
          GridlanguagesContainer.AddObjectProperty("CmpContext", "");
          GridlanguagesContainer.AddObjectProperty("InMasterPage", "false");
@@ -3184,10 +3193,10 @@ namespace GeneXus.Programs {
          gxdyncontrolsrefreshing = false;
          if ( ! context.WillRedirect( ) && ( context.nUserReturn != 1 ) )
          {
-            SubsflControlProps_5672( ) ;
+            SubsflControlProps_5692( ) ;
             /* Execute user event: Gridlanguages.Load */
             E260Y2 ();
-            if ( ( subGridlanguages_Islastpage == 0 ) && ( GRIDLANGUAGES_nCurrentRecord > 0 ) && ( GRIDLANGUAGES_nGridOutOfScope == 0 ) && ( nGXsfl_567_idx == 1 ) )
+            if ( ( subGridlanguages_Islastpage == 0 ) && ( GRIDLANGUAGES_nCurrentRecord > 0 ) && ( GRIDLANGUAGES_nGridOutOfScope == 0 ) && ( nGXsfl_569_idx == 1 ) )
             {
                GRIDLANGUAGES_nCurrentRecord = 0;
                GRIDLANGUAGES_nGridOutOfScope = 1;
@@ -3195,17 +3204,17 @@ namespace GeneXus.Programs {
                /* Execute user event: Gridlanguages.Load */
                E260Y2 ();
             }
-            wbEnd = 567;
+            wbEnd = 569;
             WB0Y0( ) ;
          }
-         bGXsfl_567_Refreshing = true;
+         bGXsfl_569_Refreshing = true;
       }
 
       protected void send_integrity_lvl_hashes0Y2( )
       {
          GxWebStd.gx_hidden_field( context, "vMODE", StringUtil.RTrim( Gx_mode));
          GxWebStd.gx_hidden_field( context, "gxhash_vMODE", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( Gx_mode, "@!")), context));
-         GxWebStd.gx_hidden_field( context, "gxhash_vLANGUAGE"+"_"+sGXsfl_567_idx, GetSecureSignedToken( sGXsfl_567_idx, StringUtil.RTrim( context.localUtil.Format( AV144Language, "")), context));
+         GxWebStd.gx_hidden_field( context, "gxhash_vLANGUAGE"+"_"+sGXsfl_569_idx, GetSecureSignedToken( sGXsfl_569_idx, StringUtil.RTrim( context.localUtil.Format( AV144Language, "")), context));
       }
 
       protected int subGridlanguages_fnc_Pagecount( )
@@ -3339,7 +3348,7 @@ namespace GeneXus.Programs {
          {
             /* Read saved SDTs. */
             /* Read saved values. */
-            nRC_GXsfl_567 = (int)(Math.Round(context.localUtil.CToN( cgiGet( "nRC_GXsfl_567"), ".", ","), 18, MidpointRounding.ToEven));
+            nRC_GXsfl_569 = (int)(Math.Round(context.localUtil.CToN( cgiGet( "nRC_GXsfl_569"), ".", ","), 18, MidpointRounding.ToEven));
             AV141GridLanguagesPageCount = (long)(Math.Round(context.localUtil.CToN( cgiGet( "vGRIDLANGUAGESPAGECOUNT"), ".", ","), 18, MidpointRounding.ToEven));
             AV139GridLanguagesAppliedFilters = cgiGet( "vGRIDLANGUAGESAPPLIEDFILTERS");
             Gx_mode = cgiGet( "vMODE");
@@ -3661,7 +3670,7 @@ namespace GeneXus.Programs {
          edtavStsauthorizationuserguid_Visible = 0;
          AssignProp("", false, edtavStsauthorizationuserguid_Internalname, "Visible", StringUtil.LTrimStr( (decimal)(edtavStsauthorizationuserguid_Visible), 5, 0), true);
          chkavOnline.Enabled = (((StringUtil.StrCmp(Gx_mode, "DSP")==0) ? false : true) ? 1 : 0);
-         AssignProp("", false, chkavOnline_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(chkavOnline.Enabled), 5, 0), !bGXsfl_567_Refreshing);
+         AssignProp("", false, chkavOnline_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(chkavOnline.Enabled), 5, 0), !bGXsfl_569_Refreshing);
          cmbavMainmenu.addItem("0", "none", 0);
          bttBtnchangeclientsecret_Visible = 0;
          AssignProp("", false, bttBtnchangeclientsecret_Internalname, "Visible", StringUtil.LTrimStr( (decimal)(bttBtnchangeclientsecret_Visible), 5, 0), true);
@@ -4793,25 +4802,25 @@ namespace GeneXus.Programs {
             AssignAttri("", false, chkavOnline_Internalname, AV154Online);
             AV144Language = AV137GAMLanguage.gxTpr_Name;
             AssignAttri("", false, edtavLanguage_Internalname, AV144Language);
-            GxWebStd.gx_hidden_field( context, "gxhash_vLANGUAGE"+"_"+sGXsfl_567_idx, GetSecureSignedToken( sGXsfl_567_idx, StringUtil.RTrim( context.localUtil.Format( AV144Language, "")), context));
+            GxWebStd.gx_hidden_field( context, "gxhash_vLANGUAGE"+"_"+sGXsfl_569_idx, GetSecureSignedToken( sGXsfl_569_idx, StringUtil.RTrim( context.localUtil.Format( AV144Language, "")), context));
             if ( ( StringUtil.StrCmp(Gx_mode, "INS") == 0 ) || ( StringUtil.StrCmp(Gx_mode, "UPD") == 0 ) )
             {
                /* Load Method */
                if ( wbStart != -1 )
                {
-                  wbStart = 567;
+                  wbStart = 569;
                }
                if ( ( subGridlanguages_Islastpage == 1 ) || ( subGridlanguages_Rows == 0 ) || ( ( GRIDLANGUAGES_nCurrentRecord >= GRIDLANGUAGES_nFirstRecordOnPage ) && ( GRIDLANGUAGES_nCurrentRecord < GRIDLANGUAGES_nFirstRecordOnPage + subGridlanguages_fnc_Recordsperpage( ) ) ) )
                {
-                  sendrow_5672( ) ;
+                  sendrow_5692( ) ;
                }
                GRIDLANGUAGES_nEOF = (short)(((GRIDLANGUAGES_nCurrentRecord<GRIDLANGUAGES_nFirstRecordOnPage+subGridlanguages_fnc_Recordsperpage( )) ? 1 : 0));
                GxWebStd.gx_hidden_field( context, "GRIDLANGUAGES_nEOF", StringUtil.LTrim( StringUtil.NToC( (decimal)(GRIDLANGUAGES_nEOF), 1, 0, ".", "")));
                GRIDLANGUAGES_nCurrentRecord = (long)(GRIDLANGUAGES_nCurrentRecord+1);
                subGridlanguages_Recordcount = (int)(GRIDLANGUAGES_nCurrentRecord);
-               if ( isFullAjaxMode( ) && ! bGXsfl_567_Refreshing )
+               if ( isFullAjaxMode( ) && ! bGXsfl_569_Refreshing )
                {
-                  DoAjaxLoad(567, GridlanguagesRow);
+                  DoAjaxLoad(569, GridlanguagesRow);
                }
             }
             else
@@ -4821,19 +4830,19 @@ namespace GeneXus.Programs {
                   /* Load Method */
                   if ( wbStart != -1 )
                   {
-                     wbStart = 567;
+                     wbStart = 569;
                   }
                   if ( ( subGridlanguages_Islastpage == 1 ) || ( subGridlanguages_Rows == 0 ) || ( ( GRIDLANGUAGES_nCurrentRecord >= GRIDLANGUAGES_nFirstRecordOnPage ) && ( GRIDLANGUAGES_nCurrentRecord < GRIDLANGUAGES_nFirstRecordOnPage + subGridlanguages_fnc_Recordsperpage( ) ) ) )
                   {
-                     sendrow_5672( ) ;
+                     sendrow_5692( ) ;
                   }
                   GRIDLANGUAGES_nEOF = (short)(((GRIDLANGUAGES_nCurrentRecord<GRIDLANGUAGES_nFirstRecordOnPage+subGridlanguages_fnc_Recordsperpage( )) ? 1 : 0));
                   GxWebStd.gx_hidden_field( context, "GRIDLANGUAGES_nEOF", StringUtil.LTrim( StringUtil.NToC( (decimal)(GRIDLANGUAGES_nEOF), 1, 0, ".", "")));
                   GRIDLANGUAGES_nCurrentRecord = (long)(GRIDLANGUAGES_nCurrentRecord+1);
                   subGridlanguages_Recordcount = (int)(GRIDLANGUAGES_nCurrentRecord);
-                  if ( isFullAjaxMode( ) && ! bGXsfl_567_Refreshing )
+                  if ( isFullAjaxMode( ) && ! bGXsfl_569_Refreshing )
                   {
-                     DoAjaxLoad(567, GridlanguagesRow);
+                     DoAjaxLoad(569, GridlanguagesRow);
                   }
                }
             }
@@ -4847,13 +4856,13 @@ namespace GeneXus.Programs {
          returnInSub = false;
          AV138GAMLanguages = new GeneXus.Programs.genexussecurity.SdtGAM(context).getlanguages(AV135GAMApplication.gxTpr_Languages);
          /* Start For Each Line */
-         nRC_GXsfl_567 = (int)(Math.Round(context.localUtil.CToN( cgiGet( "nRC_GXsfl_567"), ".", ","), 18, MidpointRounding.ToEven));
-         nGXsfl_567_fel_idx = 0;
-         while ( nGXsfl_567_fel_idx < nRC_GXsfl_567 )
+         nRC_GXsfl_569 = (int)(Math.Round(context.localUtil.CToN( cgiGet( "nRC_GXsfl_569"), ".", ","), 18, MidpointRounding.ToEven));
+         nGXsfl_569_fel_idx = 0;
+         while ( nGXsfl_569_fel_idx < nRC_GXsfl_569 )
          {
-            nGXsfl_567_fel_idx = ((subGridlanguages_Islastpage==1)&&(nGXsfl_567_fel_idx+1>subGridlanguages_fnc_Recordsperpage( )) ? 1 : nGXsfl_567_fel_idx+1);
-            sGXsfl_567_fel_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_567_fel_idx), 4, 0), 4, "0");
-            SubsflControlProps_fel_5672( ) ;
+            nGXsfl_569_fel_idx = ((subGridlanguages_Islastpage==1)&&(nGXsfl_569_fel_idx+1>subGridlanguages_fnc_Recordsperpage( )) ? 1 : nGXsfl_569_fel_idx+1);
+            sGXsfl_569_fel_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_569_fel_idx), 4, 0), 4, "0");
+            SubsflControlProps_fel_5692( ) ;
             AV154Online = StringUtil.StrToBool( cgiGet( chkavOnline_Internalname));
             AV144Language = cgiGet( edtavLanguage_Internalname);
             AV174GXV12 = 1;
@@ -4868,17 +4877,17 @@ namespace GeneXus.Programs {
             }
             /* End For Each Line */
          }
-         if ( nGXsfl_567_fel_idx == 0 )
+         if ( nGXsfl_569_fel_idx == 0 )
          {
-            nGXsfl_567_idx = 1;
-            sGXsfl_567_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_567_idx), 4, 0), 4, "0");
-            SubsflControlProps_5672( ) ;
+            nGXsfl_569_idx = 1;
+            sGXsfl_569_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_569_idx), 4, 0), 4, "0");
+            SubsflControlProps_5692( ) ;
          }
-         nGXsfl_567_fel_idx = 1;
+         nGXsfl_569_fel_idx = 1;
          AV135GAMApplication.gxTpr_Languages = AV138GAMLanguages;
       }
 
-      protected void wb_table3_274_0Y2( bool wbgen )
+      protected void wb_table3_276_0Y2( bool wbgen )
       {
          if ( wbgen )
          {
@@ -4892,28 +4901,28 @@ namespace GeneXus.Programs {
             /* Attribute/Variable Label */
             GxWebStd.gx_label_element( context, edtavClientencryptionkey_Internalname, "Client Encryption Key", "gx-form-item AttributeLabel", 0, true, "width: 25%;");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 278,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavClientencryptionkey_Internalname, StringUtil.RTrim( AV21ClientEncryptionKey), StringUtil.RTrim( context.localUtil.Format( AV21ClientEncryptionKey, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,278);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientencryptionkey_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientencryptionkey_Enabled, 1, "text", "", 32, "chr", 1, "row", 32, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMEncryptionKey", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 280,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavClientencryptionkey_Internalname, StringUtil.RTrim( AV21ClientEncryptionKey), StringUtil.RTrim( context.localUtil.Format( AV21ClientEncryptionKey, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,280);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientencryptionkey_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientencryptionkey_Enabled, 1, "text", "", 32, "chr", 1, "row", 32, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMEncryptionKey", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             context.WriteHtmlText( "</td>") ;
             context.WriteHtmlText( "<td>") ;
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 280,'',false,'',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 282,'',false,'',0)\"";
             ClassString = "Button ButtonMaterialGAM";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtngeneratekeygamremote_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(567), 3, 0)+","+"null"+");", "Generate key GAMRemote", bttBtngeneratekeygamremote_Jsonclick, 5, "Generate key GAMRemote", "", StyleString, ClassString, bttBtngeneratekeygamremote_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'DOGENERATEKEYGAMREMOTE\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtngeneratekeygamremote_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(569), 3, 0)+","+"null"+");", "Generate key GAMRemote", bttBtngeneratekeygamremote_Jsonclick, 5, "Generate key GAMRemote", "", StyleString, ClassString, bttBtngeneratekeygamremote_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'DOGENERATEKEYGAMREMOTE\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_GAMApplicationEntry.htm");
             context.WriteHtmlText( "</td>") ;
             context.WriteHtmlText( "</tr>") ;
             /* End of table */
             context.WriteHtmlText( "</table>") ;
-            wb_table3_274_0Y2e( true) ;
+            wb_table3_276_0Y2e( true) ;
          }
          else
          {
-            wb_table3_274_0Y2e( false) ;
+            wb_table3_276_0Y2e( false) ;
          }
       }
 
-      protected void wb_table2_126_0Y2( bool wbgen )
+      protected void wb_table2_128_0Y2( bool wbgen )
       {
          if ( wbgen )
          {
@@ -4927,28 +4936,28 @@ namespace GeneXus.Programs {
             /* Attribute/Variable Label */
             GxWebStd.gx_label_element( context, edtavClientsecret_Internalname, "Client Secret", "gx-form-item AttributeLabel", 0, true, "width: 25%;");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 130,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavClientsecret_Internalname, StringUtil.RTrim( AV27ClientSecret), StringUtil.RTrim( context.localUtil.Format( AV27ClientSecret, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,130);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientsecret_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientsecret_Enabled, 1, "text", "", 80, "chr", 1, "row", 120, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMClientApplicationSecret", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 132,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavClientsecret_Internalname, StringUtil.RTrim( AV27ClientSecret), StringUtil.RTrim( context.localUtil.Format( AV27ClientSecret, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,132);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavClientsecret_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavClientsecret_Enabled, 1, "text", "", 80, "chr", 1, "row", 120, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMClientApplicationSecret", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             context.WriteHtmlText( "</td>") ;
             context.WriteHtmlText( "<td>") ;
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 132,'',false,'',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 134,'',false,'',0)\"";
             ClassString = "Button ButtonMaterialGAM";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtnchangeclientsecret_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(567), 3, 0)+","+"null"+");", "Change", bttBtnchangeclientsecret_Jsonclick, 7, "Change", "", StyleString, ClassString, bttBtnchangeclientsecret_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"e300y1_client"+"'", TempTags, "", 2, "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtnchangeclientsecret_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(569), 3, 0)+","+"null"+");", "Change", bttBtnchangeclientsecret_Jsonclick, 7, "Change", "", StyleString, ClassString, bttBtnchangeclientsecret_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"e300y1_client"+"'", TempTags, "", 2, "HLP_GAMApplicationEntry.htm");
             context.WriteHtmlText( "</td>") ;
             context.WriteHtmlText( "</tr>") ;
             /* End of table */
             context.WriteHtmlText( "</table>") ;
-            wb_table2_126_0Y2e( true) ;
+            wb_table2_128_0Y2e( true) ;
          }
          else
          {
-            wb_table2_126_0Y2e( false) ;
+            wb_table2_128_0Y2e( false) ;
          }
       }
 
-      protected void wb_table1_92_0Y2( bool wbgen )
+      protected void wb_table1_94_0Y2( bool wbgen )
       {
          if ( wbgen )
          {
@@ -4962,24 +4971,24 @@ namespace GeneXus.Programs {
             /* Attribute/Variable Label */
             GxWebStd.gx_label_element( context, edtavLogoutobject_Internalname, "Logout Object", "gx-form-item AttributeLabel", 0, true, "width: 25%;");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 96,'',false,'" + sGXsfl_567_idx + "',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavLogoutobject_Internalname, AV45LogoutObject, StringUtil.RTrim( context.localUtil.Format( AV45LogoutObject, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,96);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavLogoutobject_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavLogoutobject_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 98,'',false,'" + sGXsfl_569_idx + "',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavLogoutobject_Internalname, AV45LogoutObject, StringUtil.RTrim( context.localUtil.Format( AV45LogoutObject, "")), TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,98);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavLogoutobject_Jsonclick, 0, "Attribute", "", "", "", "", 1, edtavLogoutobject_Enabled, 1, "text", "", 0, "px", 1, "row", 2048, 0, 0, 0, 0, -1, 0, true, "GeneXusSecurityCommon\\GAMURL", "start", true, "", "HLP_GAMApplicationEntry.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             context.WriteHtmlText( "</td>") ;
             context.WriteHtmlText( "<td>") ;
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 98,'',false,'',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 100,'',false,'',0)\"";
             ClassString = "Button ButtonMaterialGAM";
             StyleString = "";
-            GxWebStd.gx_button_ctrl( context, bttBtnrevokeallow_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(567), 3, 0)+","+"null"+");", bttBtnrevokeallow_Caption, bttBtnrevokeallow_Jsonclick, 5, "Revoke", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'DOREVOKEALLOW\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_GAMApplicationEntry.htm");
+            GxWebStd.gx_button_ctrl( context, bttBtnrevokeallow_Internalname, "gx.evt.setGridEvt("+StringUtil.Str( (decimal)(569), 3, 0)+","+"null"+");", bttBtnrevokeallow_Caption, bttBtnrevokeallow_Jsonclick, 5, "Revoke", "", StyleString, ClassString, 1, 1, "standard", "'"+""+"'"+",false,"+"'"+"E\\'DOREVOKEALLOW\\'."+"'", TempTags, "", context.GetButtonType( ), "HLP_GAMApplicationEntry.htm");
             context.WriteHtmlText( "</td>") ;
             context.WriteHtmlText( "</tr>") ;
             /* End of table */
             context.WriteHtmlText( "</table>") ;
-            wb_table1_92_0Y2e( true) ;
+            wb_table1_94_0Y2e( true) ;
          }
          else
          {
-            wb_table1_92_0Y2e( false) ;
+            wb_table1_94_0Y2e( false) ;
          }
       }
 
@@ -5028,7 +5037,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256275311052", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257120144360", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -5044,7 +5053,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("gamapplicationentry.js", "?20256275311061", false, true);
+         context.AddJavascriptSource("gamapplicationentry.js", "?20257120144368", false, true);
          context.AddJavascriptSource("shared/HistoryManager/HistoryManager.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/json2005.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/rsh.js", "", false, true);
@@ -5067,24 +5076,24 @@ namespace GeneXus.Programs {
          /* End function include_jscripts */
       }
 
-      protected void SubsflControlProps_5672( )
+      protected void SubsflControlProps_5692( )
       {
-         chkavOnline_Internalname = "vONLINE_"+sGXsfl_567_idx;
-         edtavLanguage_Internalname = "vLANGUAGE_"+sGXsfl_567_idx;
+         chkavOnline_Internalname = "vONLINE_"+sGXsfl_569_idx;
+         edtavLanguage_Internalname = "vLANGUAGE_"+sGXsfl_569_idx;
       }
 
-      protected void SubsflControlProps_fel_5672( )
+      protected void SubsflControlProps_fel_5692( )
       {
-         chkavOnline_Internalname = "vONLINE_"+sGXsfl_567_fel_idx;
-         edtavLanguage_Internalname = "vLANGUAGE_"+sGXsfl_567_fel_idx;
+         chkavOnline_Internalname = "vONLINE_"+sGXsfl_569_fel_idx;
+         edtavLanguage_Internalname = "vLANGUAGE_"+sGXsfl_569_fel_idx;
       }
 
-      protected void sendrow_5672( )
+      protected void sendrow_5692( )
       {
-         sGXsfl_567_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_567_idx), 4, 0), 4, "0");
-         SubsflControlProps_5672( ) ;
+         sGXsfl_569_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_569_idx), 4, 0), 4, "0");
+         SubsflControlProps_5692( ) ;
          WB0Y0( ) ;
-         if ( ( subGridlanguages_Rows * 1 == 0 ) || ( nGXsfl_567_idx <= subGridlanguages_fnc_Recordsperpage( ) * 1 ) )
+         if ( ( subGridlanguages_Rows * 1 == 0 ) || ( nGXsfl_569_idx <= subGridlanguages_fnc_Recordsperpage( ) * 1 ) )
          {
             GridlanguagesRow = GXWebRow.GetNew(context,GridlanguagesContainer);
             if ( subGridlanguages_Backcolorstyle == 0 )
@@ -5120,7 +5129,7 @@ namespace GeneXus.Programs {
             {
                /* Report style subfile background logic. */
                subGridlanguages_Backstyle = 1;
-               if ( ((int)((nGXsfl_567_idx) % (2))) == 0 )
+               if ( ((int)((nGXsfl_569_idx) % (2))) == 0 )
                {
                   subGridlanguages_Backcolor = (int)(0x0);
                   if ( StringUtil.StrCmp(subGridlanguages_Class, "") != 0 )
@@ -5141,7 +5150,7 @@ namespace GeneXus.Programs {
             {
                context.WriteHtmlText( "<tr ") ;
                context.WriteHtmlText( " class=\""+"GridWithPaginationBar WorkWith"+"\" style=\""+""+"\"") ;
-               context.WriteHtmlText( " gxrow=\""+sGXsfl_567_idx+"\">") ;
+               context.WriteHtmlText( " gxrow=\""+sGXsfl_569_idx+"\">") ;
             }
             /* Subfile cell */
             if ( GridlanguagesContainer.GetWrapped() == 1 )
@@ -5149,34 +5158,34 @@ namespace GeneXus.Programs {
                context.WriteHtmlText( "<td valign=\"middle\" align=\""+""+"\""+" style=\""+""+"\">") ;
             }
             /* Check box */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 568,'',false,'" + sGXsfl_567_idx + "',567)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 570,'',false,'" + sGXsfl_569_idx + "',569)\"";
             ClassString = "AttributeCheckBox";
             StyleString = "";
-            GXCCtl = "vONLINE_" + sGXsfl_567_idx;
+            GXCCtl = "vONLINE_" + sGXsfl_569_idx;
             chkavOnline.Name = GXCCtl;
             chkavOnline.WebTags = "";
             chkavOnline.Caption = "";
-            AssignProp("", false, chkavOnline_Internalname, "TitleCaption", chkavOnline.Caption, !bGXsfl_567_Refreshing);
+            AssignProp("", false, chkavOnline_Internalname, "TitleCaption", chkavOnline.Caption, !bGXsfl_569_Refreshing);
             chkavOnline.CheckedValue = "false";
             AV154Online = StringUtil.StrToBool( StringUtil.BoolToStr( AV154Online));
             AssignAttri("", false, chkavOnline_Internalname, AV154Online);
-            GridlanguagesRow.AddColumnProperties("checkbox", 1, isAjaxCallMode( ), new Object[] {(string)chkavOnline_Internalname,StringUtil.BoolToStr( AV154Online),(string)"",(string)"",(short)-1,chkavOnline.Enabled,(string)"true",(string)"",(string)StyleString,(string)ClassString,(string)"WWColumn",(string)"",TempTags+" onclick="+"\"gx.fn.checkboxClick(568, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,568);\""});
+            GridlanguagesRow.AddColumnProperties("checkbox", 1, isAjaxCallMode( ), new Object[] {(string)chkavOnline_Internalname,StringUtil.BoolToStr( AV154Online),(string)"",(string)"",(short)-1,chkavOnline.Enabled,(string)"true",(string)"",(string)StyleString,(string)ClassString,(string)"WWColumn",(string)"",TempTags+" onclick="+"\"gx.fn.checkboxClick(570, this, 'true', 'false',"+"''"+");"+"gx.evt.onchange(this, event);\""+" onblur=\""+""+";gx.evt.onblur(this,570);\""});
             /* Subfile cell */
             if ( GridlanguagesContainer.GetWrapped() == 1 )
             {
                context.WriteHtmlText( "<td valign=\"middle\" align=\""+"start"+"\""+" style=\""+""+"\">") ;
             }
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 569,'',false,'" + sGXsfl_567_idx + "',567)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 571,'',false,'" + sGXsfl_569_idx + "',569)\"";
             ROClassString = "Attribute";
-            GridlanguagesRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavLanguage_Internalname,(string)AV144Language,(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,569);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtavLanguage_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(short)-1,(int)edtavLanguage_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)40,(short)0,(short)0,(short)567,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
+            GridlanguagesRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavLanguage_Internalname,(string)AV144Language,(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,571);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtavLanguage_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(short)-1,(int)edtavLanguage_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)40,(short)0,(short)0,(short)569,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
             send_integrity_lvl_hashes0Y2( ) ;
             GridlanguagesContainer.AddRow(GridlanguagesRow);
-            nGXsfl_567_idx = ((subGridlanguages_Islastpage==1)&&(nGXsfl_567_idx+1>subGridlanguages_fnc_Recordsperpage( )) ? 1 : nGXsfl_567_idx+1);
-            sGXsfl_567_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_567_idx), 4, 0), 4, "0");
-            SubsflControlProps_5672( ) ;
+            nGXsfl_569_idx = ((subGridlanguages_Islastpage==1)&&(nGXsfl_569_idx+1>subGridlanguages_fnc_Recordsperpage( )) ? 1 : nGXsfl_569_idx+1);
+            sGXsfl_569_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_569_idx), 4, 0), 4, "0");
+            SubsflControlProps_5692( ) ;
          }
-         /* End function sendrow_5672 */
+         /* End function sendrow_5692 */
       }
 
       protected void init_web_controls( )
@@ -5453,11 +5462,11 @@ namespace GeneXus.Programs {
          chkavEnvironmentsecureprotocol.CheckedValue = "false";
          AV36EnvironmentSecureProtocol = StringUtil.StrToBool( StringUtil.BoolToStr( AV36EnvironmentSecureProtocol));
          AssignAttri("", false, "AV36EnvironmentSecureProtocol", AV36EnvironmentSecureProtocol);
-         GXCCtl = "vONLINE_" + sGXsfl_567_idx;
+         GXCCtl = "vONLINE_" + sGXsfl_569_idx;
          chkavOnline.Name = GXCCtl;
          chkavOnline.WebTags = "";
          chkavOnline.Caption = "";
-         AssignProp("", false, chkavOnline_Internalname, "TitleCaption", chkavOnline.Caption, !bGXsfl_567_Refreshing);
+         AssignProp("", false, chkavOnline_Internalname, "TitleCaption", chkavOnline.Caption, !bGXsfl_569_Refreshing);
          chkavOnline.CheckedValue = "false";
          AV154Online = StringUtil.StrToBool( StringUtil.BoolToStr( AV154Online));
          AssignAttri("", false, chkavOnline_Internalname, AV154Online);
@@ -5471,11 +5480,11 @@ namespace GeneXus.Programs {
          /* End function init_web_controls */
       }
 
-      protected void StartGridControl567( )
+      protected void StartGridControl569( )
       {
          if ( GridlanguagesContainer.GetWrapped() == 1 )
          {
-            context.WriteHtmlText( "<div id=\""+"GridlanguagesContainer"+"DivS\" data-gxgridid=\"567\">") ;
+            context.WriteHtmlText( "<div id=\""+"GridlanguagesContainer"+"DivS\" data-gxgridid=\"569\">") ;
             sStyleString = "";
             GxWebStd.gx_table_start( context, subGridlanguages_Internalname, subGridlanguages_Internalname, "", "GridWithPaginationBar WorkWith", 0, "", "", 1, 2, sStyleString, "", "", 0);
             /* Subfile titles */
@@ -5997,7 +6006,7 @@ namespace GeneXus.Programs {
          setEventMetadata("'DOGENERATEKEYGAMREMOTE'",""","oparms":[{"av":"AV21ClientEncryptionKey","fld":"vCLIENTENCRYPTIONKEY"}]}""");
          setEventMetadata("'DOREVOKEALLOW'","""{"handler":"E150Y2","iparms":[{"av":"GRIDLANGUAGES_nFirstRecordOnPage"},{"av":"GRIDLANGUAGES_nEOF"},{"av":"subGridlanguages_Rows","ctrl":"GRIDLANGUAGES","prop":"Rows"},{"av":"chkavOnline.Enabled","ctrl":"vONLINE","prop":"Enabled"},{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV156ReturnMenuOptionsWithoutPermission","fld":"vRETURNMENUOPTIONSWITHOUTPERMISSION"},{"av":"AV61UseAbsoluteUrlByEnvironment","fld":"vUSEABSOLUTEURLBYENVIRONMENT"},{"av":"AV128ClientAuthRequestMustIncludeUserScopes","fld":"vCLIENTAUTHREQUESTMUSTINCLUDEUSERSCOPES"},{"av":"AV129ClientDoNotShareUserIDs","fld":"vCLIENTDONOTSHAREUSERIDS"},{"av":"AV17ClientAllowRemoteAuth","fld":"vCLIENTALLOWREMOTEAUTH"},{"av":"AV126ClientAllowGetUserData","fld":"vCLIENTALLOWGETUSERDATA"},{"av":"AV13ClientAllowGetUserAddData","fld":"vCLIENTALLOWGETUSERADDDATA"},{"av":"AV15ClientAllowGetUserRoles","fld":"vCLIENTALLOWGETUSERROLES"},{"av":"AV11ClientAllowGetSessionIniProp","fld":"vCLIENTALLOWGETSESSIONINIPROP"},{"av":"AV9ClientAllowGetSessionAppData","fld":"vCLIENTALLOWGETSESSIONAPPDATA"},{"av":"AV20ClientCallbackURLisCustom","fld":"vCLIENTCALLBACKURLISCUSTOM"},{"av":"AV18ClientAllowRemoteRestAuth","fld":"vCLIENTALLOWREMOTERESTAUTH"},{"av":"AV127ClientAllowGetUserDataREST","fld":"vCLIENTALLOWGETUSERDATAREST"},{"av":"AV14ClientAllowGetUserAddDataRest","fld":"vCLIENTALLOWGETUSERADDDATAREST"},{"av":"AV16ClientAllowGetUserRolesRest","fld":"vCLIENTALLOWGETUSERROLESREST"},{"av":"AV12ClientAllowGetSessionIniPropRest","fld":"vCLIENTALLOWGETSESSIONINIPROPREST"},{"av":"AV10ClientAllowGetSessionAppDataREST","fld":"vCLIENTALLOWGETSESSIONAPPDATAREST"},{"av":"AV8ClientAccessUniqueByUser","fld":"vCLIENTACCESSUNIQUEBYUSER"},{"av":"AV5AccessRequiresPermission","fld":"vACCESSREQUIRESPERMISSION"},{"av":"AV143IsAuthorizationDelegated","fld":"vISAUTHORIZATIONDELEGATED"},{"av":"AV50SSORestEnable","fld":"vSSORESTENABLE"},{"av":"AV159SSORestServerURL_isCustom","fld":"vSSORESTSERVERURL_ISCUSTOM"},{"av":"AV57STSProtocolEnable","fld":"vSTSPROTOCOLENABLE"},{"av":"AV148MiniAppEnable","fld":"vMINIAPPENABLE"},{"av":"AV147MiniAppClientURL_isCustom","fld":"vMINIAPPCLIENTURL_ISCUSTOM"},{"av":"AV152MiniAppServerURL_isCustom","fld":"vMINIAPPSERVERURL_ISCUSTOM"},{"av":"AV120APIKeyEnable","fld":"vAPIKEYENABLE"},{"av":"AV119APIKeyAllowScopeCustomization","fld":"vAPIKEYALLOWSCOPECUSTOMIZATION"},{"av":"AV36EnvironmentSecureProtocol","fld":"vENVIRONMENTSECUREPROTOCOL"},{"av":"AV7AutoRegisterAnomymousUser","fld":"vAUTOREGISTERANOMYMOUSUSER"},{"av":"AV43Id","fld":"vID","pic":"ZZZZZZZZZZZ9"}]""");
          setEventMetadata("'DOREVOKEALLOW'",""","oparms":[{"ctrl":"BTNREVOKEALLOW","prop":"Caption"}]}""");
-         setEventMetadata("ENTER","""{"handler":"E160Y2","iparms":[{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV43Id","fld":"vID","pic":"ZZZZZZZZZZZ9"},{"av":"AV49Name","fld":"vNAME"},{"av":"AV30Dsc","fld":"vDSC"},{"av":"AV64Version","fld":"vVERSION"},{"av":"AV29Copyright","fld":"vCOPYRIGHT"},{"av":"AV28Company","fld":"vCOMPANY"},{"av":"AV156ReturnMenuOptionsWithoutPermission","fld":"vRETURNMENUOPTIONSWITHOUTPERMISSION"},{"av":"cmbavMainmenu"},{"av":"AV46MainMenu","fld":"vMAINMENU","pic":"ZZZZZZZZZZZ9"},{"av":"AV61UseAbsoluteUrlByEnvironment","fld":"vUSEABSOLUTEURLBYENVIRONMENT"},{"av":"AV42HomeObject","fld":"vHOMEOBJECT"},{"av":"AV66AccountActivationObject","fld":"vACCOUNTACTIVATIONOBJECT"},{"av":"AV45LogoutObject","fld":"vLOGOUTOBJECT"},{"av":"AV22ClientId","fld":"vCLIENTID"},{"av":"AV27ClientSecret","fld":"vCLIENTSECRET"},{"av":"AV128ClientAuthRequestMustIncludeUserScopes","fld":"vCLIENTAUTHREQUESTMUSTINCLUDEUSERSCOPES"},{"av":"AV129ClientDoNotShareUserIDs","fld":"vCLIENTDONOTSHAREUSERIDS"},{"av":"AV8ClientAccessUniqueByUser","fld":"vCLIENTACCESSUNIQUEBYUSER"},{"av":"AV17ClientAllowRemoteAuth","fld":"vCLIENTALLOWREMOTEAUTH"},{"av":"AV126ClientAllowGetUserData","fld":"vCLIENTALLOWGETUSERDATA"},{"av":"AV13ClientAllowGetUserAddData","fld":"vCLIENTALLOWGETUSERADDDATA"},{"av":"AV15ClientAllowGetUserRoles","fld":"vCLIENTALLOWGETUSERROLES"},{"av":"AV11ClientAllowGetSessionIniProp","fld":"vCLIENTALLOWGETSESSIONINIPROP"},{"av":"AV9ClientAllowGetSessionAppData","fld":"vCLIENTALLOWGETSESSIONAPPDATA"},{"av":"AV124ClientAllowAdditionalScope","fld":"vCLIENTALLOWADDITIONALSCOPE"},{"av":"AV24ClientLocalLoginURL","fld":"vCLIENTLOCALLOGINURL"},{"av":"AV19ClientCallbackURL","fld":"vCLIENTCALLBACKURL"},{"av":"AV20ClientCallbackURLisCustom","fld":"vCLIENTCALLBACKURLISCUSTOM"},{"av":"AV65ClientCallbackURLStateName","fld":"vCLIENTCALLBACKURLSTATENAME"},{"av":"AV23ClientImageURL","fld":"vCLIENTIMAGEURL"},{"av":"AV18ClientAllowRemoteRestAuth","fld":"vCLIENTALLOWREMOTERESTAUTH"},{"av":"AV127ClientAllowGetUserDataREST","fld":"vCLIENTALLOWGETUSERDATAREST"},{"av":"AV14ClientAllowGetUserAddDataRest","fld":"vCLIENTALLOWGETUSERADDDATAREST"},{"av":"AV16ClientAllowGetUserRolesRest","fld":"vCLIENTALLOWGETUSERROLESREST"},{"av":"AV12ClientAllowGetSessionIniPropRest","fld":"vCLIENTALLOWGETSESSIONINIPROPREST"},{"av":"AV10ClientAllowGetSessionAppDataREST","fld":"vCLIENTALLOWGETSESSIONAPPDATAREST"},{"av":"AV125ClientAllowAdditionalScopeREST","fld":"vCLIENTALLOWADDITIONALSCOPEREST"},{"av":"AV21ClientEncryptionKey","fld":"vCLIENTENCRYPTIONKEY"},{"av":"AV25ClientRepositoryGUID","fld":"vCLIENTREPOSITORYGUID"},{"av":"AV5AccessRequiresPermission","fld":"vACCESSREQUIRESPERMISSION"},{"av":"AV143IsAuthorizationDelegated","fld":"vISAUTHORIZATIONDELEGATED"},{"av":"cmbavDelegateauthorizationversion"},{"av":"AV134DelegateAuthorizationVersion","fld":"vDELEGATEAUTHORIZATIONVERSION"},{"av":"AV131DelegateAuthorizationFileName","fld":"vDELEGATEAUTHORIZATIONFILENAME"},{"av":"AV133DelegateAuthorizationPackage","fld":"vDELEGATEAUTHORIZATIONPACKAGE"},{"av":"AV130DelegateAuthorizationClassName","fld":"vDELEGATEAUTHORIZATIONCLASSNAME"},{"av":"AV132DelegateAuthorizationMethod","fld":"vDELEGATEAUTHORIZATIONMETHOD"},{"av":"AV50SSORestEnable","fld":"vSSORESTENABLE"},{"av":"cmbavSsorestmode"},{"av":"AV51SSORestMode","fld":"vSSORESTMODE"},{"av":"AV53SSORestUserAuthTypeName","fld":"vSSORESTUSERAUTHTYPENAME"},{"av":"AV52SSORestServerURL","fld":"vSSORESTSERVERURL"},{"av":"AV159SSORestServerURL_isCustom","fld":"vSSORESTSERVERURL_ISCUSTOM"},{"av":"AV160SSORestServerURL_SLO","fld":"vSSORESTSERVERURL_SLO"},{"av":"AV158SSORestServerRepositoryGUID","fld":"vSSORESTSERVERREPOSITORYGUID"},{"av":"AV157SSORestServerKey","fld":"vSSORESTSERVERKEY"},{"av":"AV57STSProtocolEnable","fld":"vSTSPROTOCOLENABLE"},{"av":"AV55STSAuthorizationUserName","fld":"vSTSAUTHORIZATIONUSERNAME"},{"av":"AV54STSAuthorizationUserGUID","fld":"vSTSAUTHORIZATIONUSERGUID"},{"av":"cmbavStsmode"},{"av":"AV56STSMode","fld":"vSTSMODE"},{"av":"AV60STSServerURL","fld":"vSTSSERVERURL"},{"av":"AV58STSServerClientPassword","fld":"vSTSSERVERCLIENTPASSWORD"},{"av":"AV59STSServerRepositoryGUID","fld":"vSTSSERVERREPOSITORYGUID"},{"av":"AV148MiniAppEnable","fld":"vMINIAPPENABLE"},{"av":"cmbavMiniappmode"},{"av":"AV149MiniAppMode","fld":"vMINIAPPMODE"},{"av":"AV146MiniAppClientURL","fld":"vMINIAPPCLIENTURL"},{"av":"AV147MiniAppClientURL_isCustom","fld":"vMINIAPPCLIENTURL_ISCUSTOM"},{"av":"AV145MiniAppClientRepositoryGUID","fld":"vMINIAPPCLIENTREPOSITORYGUID"},{"av":"cmbavMiniappuserauthenticationtypename"},{"av":"AV153MiniAppUserAuthenticationTypeName","fld":"vMINIAPPUSERAUTHENTICATIONTYPENAME"},{"av":"AV151MiniAppServerURL","fld":"vMINIAPPSERVERURL"},{"av":"AV152MiniAppServerURL_isCustom","fld":"vMINIAPPSERVERURL_ISCUSTOM"},{"av":"AV150MiniAppServerRepositoryGUID","fld":"vMINIAPPSERVERREPOSITORYGUID"},{"av":"AV120APIKeyEnable","fld":"vAPIKEYENABLE"},{"av":"AV121APIKeyTimeout","fld":"vAPIKEYTIMEOUT","pic":"ZZZZZZZZ9"},{"av":"cmbavApikeyallowonlyauthenticationtypename"},{"av":"AV118APIKeyAllowOnlyAuthenticationTypeName","fld":"vAPIKEYALLOWONLYAUTHENTICATIONTYPENAME"},{"av":"AV119APIKeyAllowScopeCustomization","fld":"vAPIKEYALLOWSCOPECUSTOMIZATION"},{"av":"AV32EnvironmentName","fld":"vENVIRONMENTNAME"},{"av":"AV36EnvironmentSecureProtocol","fld":"vENVIRONMENTSECUREPROTOCOL"},{"av":"AV31EnvironmentHost","fld":"vENVIRONMENTHOST"},{"av":"AV33EnvironmentPort","fld":"vENVIRONMENTPORT","pic":"ZZZZ9"},{"av":"AV37EnvironmentVirtualDirectory","fld":"vENVIRONMENTVIRTUALDIRECTORY"},{"av":"AV35EnvironmentProgramPackage","fld":"vENVIRONMENTPROGRAMPACKAGE"},{"av":"AV34EnvironmentProgramExtension","fld":"vENVIRONMENTPROGRAMEXTENSION"},{"av":"AV144Language","fld":"vLANGUAGE","grid":567,"hsh":true},{"av":"GRIDLANGUAGES_nFirstRecordOnPage"},{"av":"nRC_GXsfl_567","ctrl":"GRIDLANGUAGES","grid":567,"prop":"GridRC","grid":567},{"av":"AV154Online","fld":"vONLINE","grid":567}]""");
+         setEventMetadata("ENTER","""{"handler":"E160Y2","iparms":[{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV43Id","fld":"vID","pic":"ZZZZZZZZZZZ9"},{"av":"AV49Name","fld":"vNAME"},{"av":"AV30Dsc","fld":"vDSC"},{"av":"AV64Version","fld":"vVERSION"},{"av":"AV29Copyright","fld":"vCOPYRIGHT"},{"av":"AV28Company","fld":"vCOMPANY"},{"av":"AV156ReturnMenuOptionsWithoutPermission","fld":"vRETURNMENUOPTIONSWITHOUTPERMISSION"},{"av":"cmbavMainmenu"},{"av":"AV46MainMenu","fld":"vMAINMENU","pic":"ZZZZZZZZZZZ9"},{"av":"AV61UseAbsoluteUrlByEnvironment","fld":"vUSEABSOLUTEURLBYENVIRONMENT"},{"av":"AV42HomeObject","fld":"vHOMEOBJECT"},{"av":"AV66AccountActivationObject","fld":"vACCOUNTACTIVATIONOBJECT"},{"av":"AV45LogoutObject","fld":"vLOGOUTOBJECT"},{"av":"AV22ClientId","fld":"vCLIENTID"},{"av":"AV27ClientSecret","fld":"vCLIENTSECRET"},{"av":"AV128ClientAuthRequestMustIncludeUserScopes","fld":"vCLIENTAUTHREQUESTMUSTINCLUDEUSERSCOPES"},{"av":"AV129ClientDoNotShareUserIDs","fld":"vCLIENTDONOTSHAREUSERIDS"},{"av":"AV8ClientAccessUniqueByUser","fld":"vCLIENTACCESSUNIQUEBYUSER"},{"av":"AV17ClientAllowRemoteAuth","fld":"vCLIENTALLOWREMOTEAUTH"},{"av":"AV126ClientAllowGetUserData","fld":"vCLIENTALLOWGETUSERDATA"},{"av":"AV13ClientAllowGetUserAddData","fld":"vCLIENTALLOWGETUSERADDDATA"},{"av":"AV15ClientAllowGetUserRoles","fld":"vCLIENTALLOWGETUSERROLES"},{"av":"AV11ClientAllowGetSessionIniProp","fld":"vCLIENTALLOWGETSESSIONINIPROP"},{"av":"AV9ClientAllowGetSessionAppData","fld":"vCLIENTALLOWGETSESSIONAPPDATA"},{"av":"AV124ClientAllowAdditionalScope","fld":"vCLIENTALLOWADDITIONALSCOPE"},{"av":"AV24ClientLocalLoginURL","fld":"vCLIENTLOCALLOGINURL"},{"av":"AV19ClientCallbackURL","fld":"vCLIENTCALLBACKURL"},{"av":"AV20ClientCallbackURLisCustom","fld":"vCLIENTCALLBACKURLISCUSTOM"},{"av":"AV65ClientCallbackURLStateName","fld":"vCLIENTCALLBACKURLSTATENAME"},{"av":"AV23ClientImageURL","fld":"vCLIENTIMAGEURL"},{"av":"AV18ClientAllowRemoteRestAuth","fld":"vCLIENTALLOWREMOTERESTAUTH"},{"av":"AV127ClientAllowGetUserDataREST","fld":"vCLIENTALLOWGETUSERDATAREST"},{"av":"AV14ClientAllowGetUserAddDataRest","fld":"vCLIENTALLOWGETUSERADDDATAREST"},{"av":"AV16ClientAllowGetUserRolesRest","fld":"vCLIENTALLOWGETUSERROLESREST"},{"av":"AV12ClientAllowGetSessionIniPropRest","fld":"vCLIENTALLOWGETSESSIONINIPROPREST"},{"av":"AV10ClientAllowGetSessionAppDataREST","fld":"vCLIENTALLOWGETSESSIONAPPDATAREST"},{"av":"AV125ClientAllowAdditionalScopeREST","fld":"vCLIENTALLOWADDITIONALSCOPEREST"},{"av":"AV21ClientEncryptionKey","fld":"vCLIENTENCRYPTIONKEY"},{"av":"AV25ClientRepositoryGUID","fld":"vCLIENTREPOSITORYGUID"},{"av":"AV5AccessRequiresPermission","fld":"vACCESSREQUIRESPERMISSION"},{"av":"AV143IsAuthorizationDelegated","fld":"vISAUTHORIZATIONDELEGATED"},{"av":"cmbavDelegateauthorizationversion"},{"av":"AV134DelegateAuthorizationVersion","fld":"vDELEGATEAUTHORIZATIONVERSION"},{"av":"AV131DelegateAuthorizationFileName","fld":"vDELEGATEAUTHORIZATIONFILENAME"},{"av":"AV133DelegateAuthorizationPackage","fld":"vDELEGATEAUTHORIZATIONPACKAGE"},{"av":"AV130DelegateAuthorizationClassName","fld":"vDELEGATEAUTHORIZATIONCLASSNAME"},{"av":"AV132DelegateAuthorizationMethod","fld":"vDELEGATEAUTHORIZATIONMETHOD"},{"av":"AV50SSORestEnable","fld":"vSSORESTENABLE"},{"av":"cmbavSsorestmode"},{"av":"AV51SSORestMode","fld":"vSSORESTMODE"},{"av":"AV53SSORestUserAuthTypeName","fld":"vSSORESTUSERAUTHTYPENAME"},{"av":"AV52SSORestServerURL","fld":"vSSORESTSERVERURL"},{"av":"AV159SSORestServerURL_isCustom","fld":"vSSORESTSERVERURL_ISCUSTOM"},{"av":"AV160SSORestServerURL_SLO","fld":"vSSORESTSERVERURL_SLO"},{"av":"AV158SSORestServerRepositoryGUID","fld":"vSSORESTSERVERREPOSITORYGUID"},{"av":"AV157SSORestServerKey","fld":"vSSORESTSERVERKEY"},{"av":"AV57STSProtocolEnable","fld":"vSTSPROTOCOLENABLE"},{"av":"AV55STSAuthorizationUserName","fld":"vSTSAUTHORIZATIONUSERNAME"},{"av":"AV54STSAuthorizationUserGUID","fld":"vSTSAUTHORIZATIONUSERGUID"},{"av":"cmbavStsmode"},{"av":"AV56STSMode","fld":"vSTSMODE"},{"av":"AV60STSServerURL","fld":"vSTSSERVERURL"},{"av":"AV58STSServerClientPassword","fld":"vSTSSERVERCLIENTPASSWORD"},{"av":"AV59STSServerRepositoryGUID","fld":"vSTSSERVERREPOSITORYGUID"},{"av":"AV148MiniAppEnable","fld":"vMINIAPPENABLE"},{"av":"cmbavMiniappmode"},{"av":"AV149MiniAppMode","fld":"vMINIAPPMODE"},{"av":"AV146MiniAppClientURL","fld":"vMINIAPPCLIENTURL"},{"av":"AV147MiniAppClientURL_isCustom","fld":"vMINIAPPCLIENTURL_ISCUSTOM"},{"av":"AV145MiniAppClientRepositoryGUID","fld":"vMINIAPPCLIENTREPOSITORYGUID"},{"av":"cmbavMiniappuserauthenticationtypename"},{"av":"AV153MiniAppUserAuthenticationTypeName","fld":"vMINIAPPUSERAUTHENTICATIONTYPENAME"},{"av":"AV151MiniAppServerURL","fld":"vMINIAPPSERVERURL"},{"av":"AV152MiniAppServerURL_isCustom","fld":"vMINIAPPSERVERURL_ISCUSTOM"},{"av":"AV150MiniAppServerRepositoryGUID","fld":"vMINIAPPSERVERREPOSITORYGUID"},{"av":"AV120APIKeyEnable","fld":"vAPIKEYENABLE"},{"av":"AV121APIKeyTimeout","fld":"vAPIKEYTIMEOUT","pic":"ZZZZZZZZ9"},{"av":"cmbavApikeyallowonlyauthenticationtypename"},{"av":"AV118APIKeyAllowOnlyAuthenticationTypeName","fld":"vAPIKEYALLOWONLYAUTHENTICATIONTYPENAME"},{"av":"AV119APIKeyAllowScopeCustomization","fld":"vAPIKEYALLOWSCOPECUSTOMIZATION"},{"av":"AV32EnvironmentName","fld":"vENVIRONMENTNAME"},{"av":"AV36EnvironmentSecureProtocol","fld":"vENVIRONMENTSECUREPROTOCOL"},{"av":"AV31EnvironmentHost","fld":"vENVIRONMENTHOST"},{"av":"AV33EnvironmentPort","fld":"vENVIRONMENTPORT","pic":"ZZZZ9"},{"av":"AV37EnvironmentVirtualDirectory","fld":"vENVIRONMENTVIRTUALDIRECTORY"},{"av":"AV35EnvironmentProgramPackage","fld":"vENVIRONMENTPROGRAMPACKAGE"},{"av":"AV34EnvironmentProgramExtension","fld":"vENVIRONMENTPROGRAMEXTENSION"},{"av":"AV144Language","fld":"vLANGUAGE","grid":569,"hsh":true},{"av":"GRIDLANGUAGES_nFirstRecordOnPage"},{"av":"nRC_GXsfl_569","ctrl":"GRIDLANGUAGES","grid":569,"prop":"GridRC","grid":569},{"av":"AV154Online","fld":"vONLINE","grid":569}]""");
          setEventMetadata("ENTER",""","oparms":[{"av":"AV54STSAuthorizationUserGUID","fld":"vSTSAUTHORIZATIONUSERGUID"}]}""");
          setEventMetadata("'GENERATEKEYGAMREMOTE'","""{"handler":"E270Y2","iparms":[]""");
          setEventMetadata("'GENERATEKEYGAMREMOTE'",""","oparms":[{"av":"AV21ClientEncryptionKey","fld":"vCLIENTENCRYPTIONKEY"}]}""");
@@ -6193,10 +6202,10 @@ namespace GeneXus.Programs {
       private short subGridlanguages_Allowcollapsing ;
       private short subGridlanguages_Collapsed ;
       private int Gridlanguagespaginationbar_Rowsperpageselectedvalue ;
-      private int nRC_GXsfl_567 ;
+      private int nRC_GXsfl_569 ;
       private int subGridlanguages_Recordcount ;
       private int subGridlanguages_Rows ;
-      private int nGXsfl_567_idx=1 ;
+      private int nGXsfl_569_idx=1 ;
       private int Gridlanguagespaginationbar_Pagestoshow ;
       private int Gxuitabspanel_tabs_Pagecount ;
       private int edtavId_Enabled ;
@@ -6279,7 +6288,7 @@ namespace GeneXus.Programs {
       private int AV169GXV8 ;
       private int AV171GXV10 ;
       private int AV172GXV11 ;
-      private int nGXsfl_567_fel_idx=1 ;
+      private int nGXsfl_569_fel_idx=1 ;
       private int AV174GXV12 ;
       private int idxLst ;
       private int subGridlanguages_Backcolor ;
@@ -6300,7 +6309,7 @@ namespace GeneXus.Programs {
       private string Gridlanguagespaginationbar_Selectedpage ;
       private string gxfirstwebparm ;
       private string gxfirstwebparm_bkp ;
-      private string sGXsfl_567_idx="0001" ;
+      private string sGXsfl_569_idx="0001" ;
       private string chkavOnline_Internalname ;
       private string sDynURL ;
       private string FormProcess ;
@@ -6594,7 +6603,7 @@ namespace GeneXus.Programs {
       private string bttBtngeneratekeygamremote_Internalname ;
       private string bttBtnrevokeallow_Caption ;
       private string bttBtnrevokeallow_Internalname ;
-      private string sGXsfl_567_fel_idx="0001" ;
+      private string sGXsfl_569_fel_idx="0001" ;
       private string tblTablemergedclientencryptionkey_Internalname ;
       private string edtavClientencryptionkey_Jsonclick ;
       private string bttBtngeneratekeygamremote_Jsonclick ;
@@ -6613,7 +6622,7 @@ namespace GeneXus.Programs {
       private DateTime AV26ClientRevoked ;
       private bool entryPointCalled ;
       private bool toggleJsOutput ;
-      private bool bGXsfl_567_Refreshing=false ;
+      private bool bGXsfl_569_Refreshing=false ;
       private bool AV156ReturnMenuOptionsWithoutPermission ;
       private bool AV61UseAbsoluteUrlByEnvironment ;
       private bool AV128ClientAuthRequestMustIncludeUserScopes ;

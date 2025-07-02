@@ -403,15 +403,20 @@ namespace GeneXus.Programs {
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, divTablemain_Internalname, 1, 100, "%", 0, "px", "TableMainTransaction", "start", "top", " "+"data-gx-smarttable"+" ", "grid-template-columns:100fr;grid-template-rows:auto auto auto;", "div");
+            GxWebStd.gx_div_start( context, divTablemain_Internalname, 1, 0, "px", 0, "px", "TableMainTransaction", "start", "top", "", "", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 hidden-xs hidden-sm col-md-3", "start", "top", "", "", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, divLefttable_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 col-md-6", "start", "top", "", "", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, divMaintable_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
             /* Div Control */
@@ -445,9 +450,9 @@ namespace GeneXus.Programs {
             GxWebStd.gx_label_element( context, cmbavTypeid_Internalname, "Type", " AttributeLabel", 1, true, "");
             /* Div Control */
             GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", " gx-attribute", "start", "top", "", "", "div");
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 24,'',false,'',0)\"";
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 26,'',false,'',0)\"";
             /* ComboBox */
-            GxWebStd.gx_combobox_ctrl1( context, cmbavTypeid, cmbavTypeid_Internalname, StringUtil.RTrim( AV6TypeId), 1, cmbavTypeid_Jsonclick, 7, "'"+""+"'"+",false,"+"'"+"e11171_client"+"'", "char", "", 1, cmbavTypeid.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,24);\"", "", true, 0, "HLP_GAMAuthenticationTypeEntry.htm");
+            GxWebStd.gx_combobox_ctrl1( context, cmbavTypeid, cmbavTypeid_Internalname, StringUtil.RTrim( AV6TypeId), 1, cmbavTypeid_Jsonclick, 7, "'"+""+"'"+",false,"+"'"+"e11171_client"+"'", "char", "", 1, cmbavTypeid.Enabled, 1, 0, 0, "em", 0, "", "", "Attribute", "", "", TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,26);\"", "", true, 0, "HLP_GAMAuthenticationTypeEntry.htm");
             cmbavTypeid.CurrentValue = StringUtil.RTrim( AV6TypeId);
             AssignProp("", false, cmbavTypeid_Internalname, "Values", (string)(cmbavTypeid.ToJavascriptSource()), true);
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -461,16 +466,16 @@ namespace GeneXus.Programs {
             if ( ! isFullAjaxMode( ) )
             {
                /* WebComponent */
-               GxWebStd.gx_hidden_field( context, "W0027"+"", StringUtil.RTrim( WebComp_Wcentrypanel_Component));
+               GxWebStd.gx_hidden_field( context, "W0029"+"", StringUtil.RTrim( WebComp_Wcentrypanel_Component));
                context.WriteHtmlText( "<div") ;
                GxWebStd.ClassAttribute( context, "gxwebcomponent");
-               context.WriteHtmlText( " id=\""+"gxHTMLWrpW0027"+""+"\""+"") ;
+               context.WriteHtmlText( " id=\""+"gxHTMLWrpW0029"+""+"\""+"") ;
                context.WriteHtmlText( ">") ;
                if ( StringUtil.Len( WebComp_Wcentrypanel_Component) != 0 )
                {
                   if ( StringUtil.StrCmp(StringUtil.Lower( OldWcentrypanel), StringUtil.Lower( WebComp_Wcentrypanel_Component)) != 0 )
                   {
-                     context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0027"+"");
+                     context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0029"+"");
                   }
                   WebComp_Wcentrypanel.componentdraw();
                   if ( StringUtil.StrCmp(StringUtil.Lower( OldWcentrypanel), StringUtil.Lower( WebComp_Wcentrypanel_Component)) != 0 )
@@ -490,10 +495,14 @@ namespace GeneXus.Programs {
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
             /* Div Control */
-            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "", "start", "top", " "+"data-gx-smarttable-cell"+" ", "display:flex;align-items:center;", "div");
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 hidden-xs hidden-sm col-md-3", "start", "top", "", "", "div");
             /* Div Control */
             GxWebStd.gx_div_start( context, divRighttable_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -604,9 +613,9 @@ namespace GeneXus.Programs {
                         sEvtType = StringUtil.Left( sEvt, 4);
                         sEvt = StringUtil.Right( sEvt, (short)(StringUtil.Len( sEvt)-4));
                         nCmpId = (short)(Math.Round(NumberUtil.Val( sEvtType, "."), 18, MidpointRounding.ToEven));
-                        if ( nCmpId == 27 )
+                        if ( nCmpId == 29 )
                         {
-                           OldWcentrypanel = cgiGet( "W0027");
+                           OldWcentrypanel = cgiGet( "W0029");
                            if ( ( StringUtil.Len( OldWcentrypanel) == 0 ) || ( StringUtil.StrCmp(OldWcentrypanel, WebComp_Wcentrypanel_Component) != 0 ) )
                            {
                               WebComp_Wcentrypanel = getWebComponent(GetType(), "GeneXus.Programs", OldWcentrypanel, new Object[] {context} );
@@ -616,7 +625,7 @@ namespace GeneXus.Programs {
                            }
                            if ( StringUtil.Len( WebComp_Wcentrypanel_Component) != 0 )
                            {
-                              WebComp_Wcentrypanel.componentprocess("W0027", "", sEvt);
+                              WebComp_Wcentrypanel.componentprocess("W0029", "", sEvt);
                            }
                            WebComp_Wcentrypanel_Component = OldWcentrypanel;
                         }
@@ -842,12 +851,12 @@ namespace GeneXus.Programs {
             if ( StringUtil.Len( WebComp_Wcentrypanel_Component) != 0 )
             {
                WebComp_Wcentrypanel.setjustcreated();
-               WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0027",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
+               WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0029",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
                WebComp_Wcentrypanel.componentbind(new Object[] {(string)"",(string)"",(string)""});
             }
             if ( isFullAjaxMode( ) || isAjaxCallMode( ) && bDynCreated_Wcentrypanel )
             {
-               context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0027"+"");
+               context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0029"+"");
                WebComp_Wcentrypanel.componentdraw();
                context.httpAjaxContext.ajax_rspEndCmp();
             }
@@ -869,12 +878,12 @@ namespace GeneXus.Programs {
             if ( StringUtil.Len( WebComp_Wcentrypanel_Component) != 0 )
             {
                WebComp_Wcentrypanel.setjustcreated();
-               WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0027",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
+               WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0029",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
                WebComp_Wcentrypanel.componentbind(new Object[] {(string)"",(string)"",(string)""});
             }
             if ( isFullAjaxMode( ) || isAjaxCallMode( ) && bDynCreated_Wcentrypanel )
             {
-               context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0027"+"");
+               context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0029"+"");
                WebComp_Wcentrypanel.componentdraw();
                context.httpAjaxContext.ajax_rspEndCmp();
             }
@@ -898,12 +907,12 @@ namespace GeneXus.Programs {
                if ( StringUtil.Len( WebComp_Wcentrypanel_Component) != 0 )
                {
                   WebComp_Wcentrypanel.setjustcreated();
-                  WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0027",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
+                  WebComp_Wcentrypanel.componentprepare(new Object[] {(string)"W0029",(string)"",(string)Gx_mode,(string)AV5Name,(string)AV6TypeId});
                   WebComp_Wcentrypanel.componentbind(new Object[] {(string)"",(string)"",(string)""});
                }
                if ( isFullAjaxMode( ) || isAjaxCallMode( ) && bDynCreated_Wcentrypanel )
                {
-                  context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0027"+"");
+                  context.httpAjaxContext.ajax_rspStartCmp("gxHTMLWrpW0029"+"");
                   WebComp_Wcentrypanel.componentdraw();
                   context.httpAjaxContext.ajax_rspEndCmp();
                }
@@ -974,7 +983,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025627525832", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025712093994", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -990,7 +999,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("gamauthenticationtypeentry.js", "?2025627525832", false, true);
+         context.AddJavascriptSource("gamauthenticationtypeentry.js", "?2025712093994", false, true);
          /* End function include_jscripts */
       }
 

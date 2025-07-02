@@ -2,8 +2,8 @@ swagger: '2.0'
 info:
   title: "sdsvc_ViewLeaveRequest_Level_Detail"
   description: "sdsvc_ViewLeaveRequest_Level_Detail"
-  version: "20250630082642"
-host: localhost:8083
+  version: "20250701180338"
+host: localhost:8082
 schemes:
   - http
 basePath: /YTT_version4NETPostgreSQL14/
