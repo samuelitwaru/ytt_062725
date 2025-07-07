@@ -720,7 +720,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
          /* Div Control */
-         GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 hidden-xs hidden-sm hidden-md col-lg-9 hidden-lg CellMarginTop", "start", "top", "", "", "div");
+         GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 hidden-xs hidden-sm hidden-md hidden-lg CellMarginTop", "start", "top", "", "", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, divTableleaflevel_vacationset_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
          /* Div Control */
@@ -736,7 +736,7 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
          /* Div Control */
-         GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 col-lg-9 CellMarginTop", "start", "top", "", "", "div");
+         GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 CellMarginTop", "start", "top", "", "", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, divTableleaflevel_project_Internalname, 1, 0, "px", 0, "px", "Table", "start", "top", "", "", "div");
          /* Div Control */
@@ -4983,7 +4983,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257120594039", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202574177533", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -4999,7 +4999,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("employee.js", "?20257120594040", false, true);
+         context.AddJavascriptSource("employee.js", "?202574177536", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);

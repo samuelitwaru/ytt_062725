@@ -1268,17 +1268,9 @@ namespace GeneXus.Programs {
          {
             AV32URL = new GeneXus.Programs.genexussecurity.SdtGAMRepository(context).getlasterrorsurl();
             AssignAttri("", false, "AV32URL", AV32URL);
-            if ( String.IsNullOrEmpty(StringUtil.RTrim( AV32URL)) )
-            {
-               /* Execute user subroutine: 'REDIRECTUSER' */
-               S132 ();
-               if (returnInSub) return;
-            }
-            else
-            {
-               CallWebObject(formatLink(AV32URL) );
-               context.wjLocDisableFrm = 0;
-            }
+            /* Execute user subroutine: 'REDIRECTUSER' */
+            S132 ();
+            if (returnInSub) return;
          }
          else
          {
@@ -1722,7 +1714,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20256277394712", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025741724286", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1738,7 +1730,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("login.js", "?20256277394717", false, true);
+         context.AddJavascriptSource("login.js", "?20257417242813", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Mask/jquery.mask.js", "", false, true);
          context.AddJavascriptSource("DVelop/WorkWithPlusUtilities/BootstrapSelect.js", "", false, true);
