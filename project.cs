@@ -621,7 +621,6 @@ namespace GeneXus.Programs {
                Combo_projectmanagerid_Selectalltext = cgiGet( "COMBO_PROJECTMANAGERID_Selectalltext");
                Combo_projectmanagerid_Multiplevaluesseparator = cgiGet( "COMBO_PROJECTMANAGERID_Multiplevaluesseparator");
                Combo_projectmanagerid_Addnewoptiontext = cgiGet( "COMBO_PROJECTMANAGERID_Addnewoptiontext");
-               Combo_projectmanagerid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_PROJECTMANAGERID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
                /* Read variables values. */
                A103ProjectName = cgiGet( edtProjectName_Internalname);
                AssignAttri("", false, "A103ProjectName", A103ProjectName);
@@ -2116,7 +2115,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025741783093", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025716168910", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2132,7 +2131,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("project.js", "?2025741783093", false, true);
+         context.AddJavascriptSource("project.js", "?2025716168910", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2577,7 +2576,6 @@ namespace GeneXus.Programs {
       private int edtProjectId_Enabled ;
       private int edtProjectId_Visible ;
       private int Combo_projectmanagerid_Datalistupdateminimumcharacters ;
-      private int Combo_projectmanagerid_Gxcontroltype ;
       private int AV33GXV1 ;
       private int idxLst ;
       private long wcpOAV7ProjectId ;

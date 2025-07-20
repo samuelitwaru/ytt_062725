@@ -1102,62 +1102,6 @@
         "RenderingMode" : "automatic",
         "FlipsForRTL" : false
     }, { 
-        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
-        "Type" : "I",
-        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
-        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel.png",
-        "Density" : 1,
-        "RenderingMode" : "automatic",
-        "FlipsForRTL" : false
-    }, { 
-        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
-        "Type" : "I",
-        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
-        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-0_75x.png",
-        "Density" : 0.75,
-        "RenderingMode" : "automatic",
-        "FlipsForRTL" : false
-    }, { 
-        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
-        "Type" : "I",
-        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
-        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-1x.png",
-        "Density" : 1,
-        "RenderingMode" : "automatic",
-        "FlipsForRTL" : false
-    }, { 
-        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
-        "Type" : "I",
-        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
-        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-1_5x.png",
-        "Density" : 1.5,
-        "RenderingMode" : "automatic",
-        "FlipsForRTL" : false
-    }, { 
-        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
-        "Type" : "I",
-        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
-        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-2x.png",
-        "Density" : 2,
-        "RenderingMode" : "automatic",
-        "FlipsForRTL" : false
-    }, { 
-        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
-        "Type" : "I",
-        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
-        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-3x.png",
-        "Density" : 3,
-        "RenderingMode" : "automatic",
-        "FlipsForRTL" : false
-    }, { 
-        "Name" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel",
-        "Type" : "I",
-        "Guid" : "2e4872e4-b175-4449-8eae-700c612586a5",
-        "Location" : "WorkWithPlus.NativeMobile.wwp_nm_action_cancel-4x.png",
-        "Density" : 4,
-        "RenderingMode" : "automatic",
-        "FlipsForRTL" : false
-    }, { 
         "Name" : "WorkWithPlus.NativeMobile.wwp_nm_user_avatar",
         "Type" : "I",
         "Guid" : "9b60406f-2e43-467c-92b6-b2d04aad0f71",

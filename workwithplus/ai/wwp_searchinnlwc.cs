@@ -1134,7 +1134,7 @@ namespace GeneXus.Programs.workwithplus.ai {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025741755432", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025710528985", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1150,7 +1150,7 @@ namespace GeneXus.Programs.workwithplus.ai {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("workwithplus/ai/wwp_searchinnlwc.js", "?2025741755432", false, true);
+         context.AddJavascriptSource("workwithplus/ai/wwp_searchinnlwc.js", "?2025710528985", false, true);
          /* End function include_jscripts */
       }
 

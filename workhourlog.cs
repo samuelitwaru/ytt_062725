@@ -714,7 +714,6 @@ namespace GeneXus.Programs {
                Combo_employeeid_Selectalltext = cgiGet( "COMBO_EMPLOYEEID_Selectalltext");
                Combo_employeeid_Multiplevaluesseparator = cgiGet( "COMBO_EMPLOYEEID_Multiplevaluesseparator");
                Combo_employeeid_Addnewoptiontext = cgiGet( "COMBO_EMPLOYEEID_Addnewoptiontext");
-               Combo_employeeid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_EMPLOYEEID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
                Combo_projectid_Objectcall = cgiGet( "COMBO_PROJECTID_Objectcall");
                Combo_projectid_Class = cgiGet( "COMBO_PROJECTID_Class");
                Combo_projectid_Icontype = cgiGet( "COMBO_PROJECTID_Icontype");
@@ -755,7 +754,6 @@ namespace GeneXus.Programs {
                Combo_projectid_Selectalltext = cgiGet( "COMBO_PROJECTID_Selectalltext");
                Combo_projectid_Multiplevaluesseparator = cgiGet( "COMBO_PROJECTID_Multiplevaluesseparator");
                Combo_projectid_Addnewoptiontext = cgiGet( "COMBO_PROJECTID_Addnewoptiontext");
-               Combo_projectid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_PROJECTID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
                /* Read variables values. */
                A118WorkHourLogId = (long)(Math.Round(context.localUtil.CToN( cgiGet( edtWorkHourLogId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "A118WorkHourLogId", StringUtil.LTrimStr( (decimal)(A118WorkHourLogId), 10, 0));
@@ -2449,7 +2447,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025741783985", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257161681673", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2465,7 +2463,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("workhourlog.js", "?2025741783988", false, true);
+         context.AddJavascriptSource("workhourlog.js", "?20257161681676", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2943,9 +2941,7 @@ namespace GeneXus.Programs {
       private int edtavComboprojectid_Enabled ;
       private int edtavComboprojectid_Visible ;
       private int Combo_employeeid_Datalistupdateminimumcharacters ;
-      private int Combo_employeeid_Gxcontroltype ;
       private int Combo_projectid_Datalistupdateminimumcharacters ;
-      private int Combo_projectid_Gxcontroltype ;
       private int AV28GXV1 ;
       private int idxLst ;
       private long wcpOAV7WorkHourLogId ;

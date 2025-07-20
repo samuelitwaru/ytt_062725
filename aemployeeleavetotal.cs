@@ -149,9 +149,6 @@ namespace GeneXus.Programs {
       {
          /* GeneXus formulas */
          /* Output device settings */
-         AV8EmployeeId = 302;
-         AV10FromDate = context.localUtil.YMDToD( 2024, 11, 25);
-         AV11ToDate = context.localUtil.YMDToD( 2024, 12, 1);
          /* Using cursor P009Y2 */
          pr_default.execute(0, new Object[] {AV8EmployeeId});
          while ( (pr_default.getStatus(0) != 101) )

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Time Tracker Reminder</title>
+  </head>
+  <body
+    style="font-family: Arial, sans-serif; background-color: #f8f8f8; margin: 0; padding: 0;">
+    <table width="100%" cellpadding="0" cellspacing="0"
+      style="background-color: #f8f8f8; padding: 20px;">
+      <tr>
+        <td align="center">
+          <table width="600" cellpadding="0" cellspacing="0"
+            style="background-color: #fff; border-radius: 5px; overflow: hidden;">
+            <!-- Header -->
+            <tr>
+              <td
+                style="background-color: #333; color: white; font-size: 18px; font-weight: bold; text-align: center; padding: 15px;">
+                Time Tracker Reminder
+              </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+              <td style="padding: 20px; color: #333; font-size: 14px;">
+                <p>Dear {{EmployeeName}}</p>
+
+                <p>Your reported hours for the past week do not match the
+                  expected hours.</p>
+
+                <p>We think you forgot to fill them in.</p>
+
+                <p><strong>Reported Hours:</strong> 16:00</p>
+                <p><strong>Expected Hours:</strong> 32:00</p>
+
+                <table width="100%" cellpadding="8" cellspacing="0"
+                  style="border-collapse: collapse; text-align: center; font-size: 13px;">
+                  <tr style="background-color: #f0f0f0;">
+                    <th>M</th>
+                    <th>T</th>
+                    <th>W</th>
+                    <th>T</th>
+                    <th>F</th>
+                    <th>S</th>
+                    <th>S</th>
+                    <th>Total</th>
+                  </tr>
+                  <tr>
+                    <td>8:00</td>
+                    <td>8:00</td>
+                    <td style="background-color: #fff2cc; color: #e67300;">
+                      <div style="font-weight: bold;">0:00</div>
+                      <div style="font-size: 11px;">Sick Leave</div>
+                    </td>
+                    <td
+                      style="background-color: #f8d7da; color: #721c24;">0:00</td>
+                    <td
+                      style="background-color: #f8d7da; color: #721c24;">0:00</td>
+                    <td
+                      style="background-color: #f8d7da; color: #721c24;">0:00</td>
+                    <td
+                      style="background-color: #f8d7da; color: #721c24;">0:00</td>
+                    <td>24:00</td>
+                  </tr>
+                </table>
+
+                <div style="text-align: center; margin-top: 20px;">
+                  <a href="#"
+                    style="background-color: #ffc107; color: #000; text-decoration: none; font-weight: bold; padding: 12px 25px; border-radius: 5px; display: inline-block;">
+                    Fill now
+                  </a>
+                </div>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

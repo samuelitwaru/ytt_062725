@@ -59,15 +59,14 @@ namespace GeneXus.Programs {
          /* Output device settings */
       }
 
-      public GxJsonArray WorkLogProject_DS( )
+      public GxJsonArray WorkLogProject_DS( long AV20EmployeeId )
       {
          initialize();
          gxdynajaxctrlcodr.Clear();
          gxdynajaxctrldescr.Clear();
          GXBaseCollection<SdtSDTEmployeeProject_SDTEmployeeProjectItem> gxcolvWORKLOGPROJECT;
          SdtSDTEmployeeProject_SDTEmployeeProjectItem gxcolitemvWORKLOGPROJECT;
-         GXt_objcol_SdtSDTEmployeeProject_SDTEmployeeProjectItem1 = new GXBaseCollection<SdtSDTEmployeeProject_SDTEmployeeProjectItem>();
-         new dpemployeeprojects(context ).execute(  (long)(gxcolvWORKLOGPROJECT), out  GXt_objcol_SdtSDTEmployeeProject_SDTEmployeeProjectItem1) ;
+         new dpemployeeprojects(context ).execute(  AV20EmployeeId, out  gxcolvWORKLOGPROJECT) ;
          gxcolvWORKLOGPROJECT.Sort("Projectname");
          int gxindex = 1;
          while ( gxindex <= gxcolvWORKLOGPROJECT.Count )
@@ -91,13 +90,12 @@ namespace GeneXus.Programs {
       {
          gxdynajaxctrlcodr = new GeneXus.Utils.GxStringCollection();
          gxdynajaxctrldescr = new GeneXus.Utils.GxStringCollection();
-         GXt_objcol_SdtSDTEmployeeProject_SDTEmployeeProjectItem1 = new GXBaseCollection<SdtSDTEmployeeProject_SDTEmployeeProjectItem>( context, "SDTEmployeeProjectItem", "YTT_version4");
          /* GeneXus formulas. */
       }
 
+      protected long AV20EmployeeId ;
       protected GeneXus.Utils.GxStringCollection gxdynajaxctrlcodr ;
       protected GeneXus.Utils.GxStringCollection gxdynajaxctrldescr ;
-      protected GXBaseCollection<SdtSDTEmployeeProject_SDTEmployeeProjectItem> GXt_objcol_SdtSDTEmployeeProject_SDTEmployeeProjectItem1 ;
    }
 
 }

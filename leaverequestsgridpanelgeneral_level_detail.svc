@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.leaverequestsgridpanelgeneral_level_detail,leaverequestsgridpanelgeneral" %>

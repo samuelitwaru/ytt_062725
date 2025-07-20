@@ -104,8 +104,8 @@ namespace GeneXus.Programs {
             }
             Gxwebsession.Set(Gxids+"gxvar_Workhourlogdate", context.localUtil.DToC( AV7WorkHourLogDate, 2, "/"));
             Gxwebsession.Set(Gxids+"gxvar_Projectid", StringUtil.Str( (decimal)(AV10ProjectId), 4, 0));
-            Gxwebsession.Set(Gxids+"gxvar_Loghour", StringUtil.Str( (decimal)(AV23LogHour), 2, 0));
             Gxwebsession.Set(Gxids+"gxvar_Employeeid", StringUtil.Str( (decimal)(AV20EmployeeId), 10, 0));
+            Gxwebsession.Set(Gxids+"gxvar_Loghour", StringUtil.Str( (decimal)(AV23LogHour), 2, 0));
             Gxwebsession.Set(Gxids+"gxvar_Msgvar", AV29MsgVar);
             Gxwebsession.Set(Gxids, "true");
          }
@@ -123,10 +123,10 @@ namespace GeneXus.Programs {
          Gxdynprop += ((StringUtil.StrCmp(Gxdynprop, "")==0) ? "" : ", ") + "[\"Weeklyhourstxt\",\"Caption\",\"" + StringUtil.JSONEncode( Gxdynprop2) + "\"]";
          AV43GXM3LogHoursPanel_Level_DetailSdt.gxTpr_Workhourlogdate = AV7WorkHourLogDate;
          AV43GXM3LogHoursPanel_Level_DetailSdt.gxTpr_Projectid = AV10ProjectId;
+         AV43GXM3LogHoursPanel_Level_DetailSdt.gxTpr_Employeeid = AV20EmployeeId;
          AV43GXM3LogHoursPanel_Level_DetailSdt.gxTpr_Loghour = AV23LogHour;
          AV43GXM3LogHoursPanel_Level_DetailSdt.gxTpr_Logminute = AV24LogMinute;
          AV43GXM3LogHoursPanel_Level_DetailSdt.gxTpr_Workhourlogdescription = AV13WorkHourLogDescription;
-         AV43GXM3LogHoursPanel_Level_DetailSdt.gxTpr_Employeeid = AV20EmployeeId;
          AV43GXM3LogHoursPanel_Level_DetailSdt.gxTpr_Today = Gx_date;
          AV43GXM3LogHoursPanel_Level_DetailSdt.gxTpr_Msgvar = AV29MsgVar;
          AV43GXM3LogHoursPanel_Level_DetailSdt.gxTpr_Gxdynprop = "[ "+Gxdynprop+" ]";

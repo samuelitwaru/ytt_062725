@@ -1,0 +1,910 @@
+{ 
+    "Tokens" : [ { 
+        "Values" : { 
+            "colors_danger" : "#FB6E52",
+            "colors_danger50" : "#FB6E5280",
+            "colors_warning" : "#F39C12",
+            "colors_warning50" : "#F39C1280",
+            "colors_success" : "#00A65A",
+            "colors_success50" : "#00A65A80",
+            "colors_info" : "#3C8DBC",
+            "colors_info50" : "#3C8DBC80",
+            "colors_primary" : "#D5303E",
+            "colors_primary50" : "#D5303E80",
+            "colors_secondary" : "#FFC2D0",
+            "colors_primarybackground" : "#F5F5F5",
+            "colors_primarysurface" : "#FFFFFF",
+            "colors_primarysurfaceborder" : "#DDDDDD",
+            "colors_darksurfaceelevated80" : "#383838CC",
+            "colors_controlonprimary" : "#FFFFFF",
+            "colors_controlonsurface" : "#3A3A3A",
+            "colors_controlsecondonsurface" : "#666666",
+            "colors_controlthirdonsurface" : "#999999",
+            "colors_controlonlightsurface" : "#666666",
+            "colors_controlondarksurface" : "#BBBBBB",
+            "colors_controlborderonsurface40" : "#E0E0E066",
+            "colors_fonticondefault" : "#3A3A3A",
+            "colors_fonticonfloating" : "#D5303E",
+            "fonts_primary-font-family" : "Montserrat",
+            "fontsizes_body-xlarge" : "20dip",
+            "fontsizes_body-large" : "16dip",
+            "fontsizes_body-regular" : "14dip",
+            "fontsizes_body-small" : "12dip",
+            "fontsizes_body-xsmall" : "8dip",
+            "fontsizes_attribute-label" : "12dip",
+            "fontsizes_icon-default" : "20dip",
+            "fontsizes_icon-floating" : "24dip",
+            "fontsizes_icon-xsmall" : "14dip",
+            "fontsizes_icon-small" : "20dip",
+            "fontsizes_icon-regular" : "26dip",
+            "fontsizes_icon-large" : "38dip",
+            "fontsizes_icon-xlarge" : "60dip",
+            "fontsizes_icon-notification-dot" : "6dip"
+        }
+    }, { 
+        "Options" : { 
+            "color-scheme" : "dark"
+        },
+        "Values" : { 
+            "colors_fonticondefault" : "#FEFEFE"
+        }
+    } ],
+    "Styles" : [ { 
+        "Name" : "ApplicationBarsAlignCenter",
+        "application_bar_alignment" : "center-screen"
+    }, { 
+        "Name" : "ApplicationBarsAlignPD",
+        "application_bar_alignment" : "pd"
+    }, { 
+        "Name" : "Fade",
+        "enter_effect" : "gx_fade"
+    }, { 
+        "Name" : "Popup",
+        "call_type" : "popup",
+        "enter_effect" : "gx_slide_up",
+        "close_effect" : "gx_slide_down",
+        "target_size" : "large",
+        "content_size_change" : "scroll"
+    }, { 
+        "Name" : "Popup90",
+        "call_type" : "popup",
+        "target_size" : "custom",
+        "target_width" : "90%",
+        "target_height" : "90%"
+    }, { 
+        "Name" : "PopupFade",
+        "call_type" : "popup",
+        "enter_effect" : "gx_slide_up",
+        "close_effect" : "gx_fade"
+    }, { 
+        "Name" : "SlideUpExitDown",
+        "enter_effect" : "gx_slide_up",
+        "close_effect" : "gx_slide_down"
+    }, { 
+        "Name" : "SlideUpFade",
+        "enter_effect" : "gx_slide_up",
+        "close_effect" : "gx_fade"
+    }, { 
+        "Name" : "SildeDown",
+        "enter_effect" : "gx_slide_down"
+    }, { 
+        "Name" : "SildeLeft",
+        "enter_effect" : "gx_slide_left"
+    }, { 
+        "Name" : "SlideDownFade",
+        "enter_effect" : "gx_slide_down",
+        "close_effect" : "gx_fade"
+    }, { 
+        "Name" : "SlideRight",
+        "enter_effect" : "gx_slide_right"
+    }, { 
+        "Name" : "ColorPrimary",
+        "color" : "$colors_primary"
+    }, { 
+        "Name" : "ColorControlOnPrimary",
+        "color" : "$colors_controlonprimary"
+    }, { 
+        "Name" : "ColorControlOnSurface",
+        "color" : "$colors_controlonsurface"
+    }, { 
+        "Name" : "ColorControlSecondOnSurface",
+        "color" : "$colors_controlsecondonsurface"
+    }, { 
+        "Name" : "ColorControlThirdOnSurface",
+        "color" : "$colors_controlthirdonsurface"
+    }, { 
+        "Name" : "ColorControlOnDarkSurface",
+        "color" : "$colors_controlondarksurface"
+    }, { 
+        "Name" : "ColorControlOnLightSurface",
+        "color" : "$colors_controlonlightsurface"
+    }, { 
+        "Name" : "ColorSurface",
+        "color" : "$colors_primarysurface"
+    }, { 
+        "Name" : "ColorBackground",
+        "color" : "$colors_primarybackground"
+    }, { 
+        "Name" : "ColorWhite",
+        "color" : "#FFFFFF"
+    }, { 
+        "Name" : "ColorDanger",
+        "color" : "$colors_danger"
+    }, { 
+        "Name" : "ColorWarning",
+        "color" : "$colors_warning"
+    }, { 
+        "Name" : "ColorInfo",
+        "color" : "$colors_info"
+    }, { 
+        "Name" : "ColorSuccess",
+        "color" : "$colors_success"
+    }, { 
+        "Name" : "NoHighlight",
+        "highlighted_background_color" : "#FFFFFF00"
+    }, { 
+        "Name" : "BackgroundColorPrimary",
+        "background_color" : "$colors_primary",
+        "BackgroundColor" : "$colors_primary",
+        "SDPageControllerBackgroundColor" : "$colors_primary"
+    }, { 
+        "Name" : "BackgroundColorPrimary50",
+        "background_color" : "$colors_primary50",
+        "BackgroundColor" : "$colors_primary50",
+        "SDPageControllerBackgroundColor" : "$colors_primary50"
+    }, { 
+        "Name" : "BackgroundColorSurface",
+        "background_color" : "$colors_primarysurface",
+        "BackgroundColor" : "$colors_primarysurface",
+        "SDPageControllerBackgroundColor" : "$colors_primarysurface"
+    }, { 
+        "Name" : "BackgroundColorBackground",
+        "background_color" : "$colors_primarybackground",
+        "BackgroundColor" : "$colors_primarybackground",
+        "SDPageControllerBackgroundColor" : "$colors_primarybackground"
+    }, { 
+        "Name" : "BackgroundColorWhite",
+        "background_color" : "#FFFFFF",
+        "BackgroundColor" : "#FFFFFF",
+        "SDPageControllerBackgroundColor" : "#FFFFFF"
+    }, { 
+        "Name" : "BackgroundColorDanger",
+        "background_color" : "$colors_danger",
+        "BackgroundColor" : "$colors_danger",
+        "SDPageControllerBackgroundColor" : "$colors_danger"
+    }, { 
+        "Name" : "BackgroundColorDanger50",
+        "background_color" : "$colors_danger50",
+        "BackgroundColor" : "$colors_danger50",
+        "SDPageControllerBackgroundColor" : "$colors_danger50"
+    }, { 
+        "Name" : "BackgroundColorWarning",
+        "background_color" : "$colors_warning",
+        "BackgroundColor" : "$colors_warning",
+        "SDPageControllerBackgroundColor" : "$colors_warning"
+    }, { 
+        "Name" : "BackgroundColorWarning50",
+        "background_color" : "$colors_warning50",
+        "BackgroundColor" : "$colors_warning50",
+        "SDPageControllerBackgroundColor" : "$colors_warning50"
+    }, { 
+        "Name" : "BackgroundColorInfo",
+        "background_color" : "$colors_info",
+        "BackgroundColor" : "$colors_info",
+        "SDPageControllerBackgroundColor" : "$colors_info"
+    }, { 
+        "Name" : "BackgroundColorInfo50",
+        "background_color" : "$colors_info50",
+        "BackgroundColor" : "$colors_info50",
+        "SDPageControllerBackgroundColor" : "$colors_info50"
+    }, { 
+        "Name" : "BackgroundColorSuccess",
+        "background_color" : "$colors_success",
+        "BackgroundColor" : "$colors_success",
+        "SDPageControllerBackgroundColor" : "$colors_success"
+    }, { 
+        "Name" : "BackgroundColorSuccess50",
+        "background_color" : "$colors_success50",
+        "BackgroundColor" : "$colors_success50",
+        "SDPageControllerBackgroundColor" : "$colors_success50"
+    }, { 
+        "Name" : "BackgroundColorTransparent",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00"
+    }, { 
+        "Name" : "OverlayLight10",
+        "background_color" : "#FFFFFF1A",
+        "BackgroundColor" : "#FFFFFF1A",
+        "SDPageControllerBackgroundColor" : "#FFFFFF1A"
+    }, { 
+        "Name" : "OverlayLight30",
+        "background_color" : "#FFFFFF4D",
+        "BackgroundColor" : "#FFFFFF4D",
+        "SDPageControllerBackgroundColor" : "#FFFFFF4D"
+    }, { 
+        "Name" : "OverlayLight50",
+        "background_color" : "#FFFFFF80",
+        "BackgroundColor" : "#FFFFFF80",
+        "SDPageControllerBackgroundColor" : "#FFFFFF80"
+    }, { 
+        "Name" : "OverlayLight80",
+        "background_color" : "#FFFFFFCC",
+        "BackgroundColor" : "#FFFFFFCC",
+        "SDPageControllerBackgroundColor" : "#FFFFFFCC"
+    }, { 
+        "Name" : "OverlayDark10",
+        "background_color" : "#0000001A",
+        "BackgroundColor" : "#0000001A",
+        "SDPageControllerBackgroundColor" : "#0000001A"
+    }, { 
+        "Name" : "OverlayDark30",
+        "background_color" : "#0000004D",
+        "BackgroundColor" : "#0000004D",
+        "SDPageControllerBackgroundColor" : "#0000004D"
+    }, { 
+        "Name" : "OverlayDark50",
+        "background_color" : "#00000080",
+        "BackgroundColor" : "#00000080",
+        "SDPageControllerBackgroundColor" : "#00000080"
+    }, { 
+        "Name" : "OverlayDark80",
+        "background_color" : "#000000CC",
+        "BackgroundColor" : "#000000CC",
+        "SDPageControllerBackgroundColor" : "#000000CC"
+    }, { 
+        "Name" : "AttributeSizeXSmall",
+        "font_size" : "$fontsizes_body-xsmall"
+    }, { 
+        "Name" : "AttributeSizeSmall",
+        "font_size" : "$fontsizes_body-small"
+    }, { 
+        "Name" : "AttributeSizeLarge",
+        "font_size" : "$fontsizes_body-large"
+    }, { 
+        "Name" : "AttributeSizeXLarge",
+        "font_size" : "$fontsizes_body-xlarge"
+    }, { 
+        "Name" : "AttributeWeightBold",
+        "font_weight" : "bold"
+    }, { 
+        "Name" : "AttributeStyleItalic",
+        "font_style" : "italic"
+    }, { 
+        "Name" : "AttributeStyleUnderline",
+        "text_decoration" : "underline"
+    }, { 
+        "Name" : "AttributeStyleLineThrough",
+        "text_decoration" : "line-through"
+    }, { 
+        "Name" : "AttributeColorDanger",
+        "color" : "$colors_danger"
+    }, { 
+        "Name" : "AttributeColorWarning",
+        "color" : "$colors_warning"
+    }, { 
+        "Name" : "AttributeColorInfo",
+        "color" : "$colors_info"
+    }, { 
+        "Name" : "AttributeColorSuccess",
+        "color" : "$colors_success"
+    }, { 
+        "Name" : "AttributeColorBaseColor",
+        "color" : "$colors_primary"
+    }, { 
+        "Name" : "AttributeColorInfoLight",
+        "color" : "$colors_info"
+    }, { 
+        "Name" : "AttributeLabelSizeXSmall",
+        "font_size" : "$fontsizes_body-xsmall"
+    }, { 
+        "Name" : "AttributeLabelSizeSmall",
+        "font_size" : "$fontsizes_body-small"
+    }, { 
+        "Name" : "AttributeLabelSizeLarge",
+        "font_size" : "$fontsizes_body-large"
+    }, { 
+        "Name" : "AttributeLabelSizeXLarge",
+        "font_size" : "$fontsizes_body-xlarge"
+    }, { 
+        "Name" : "AttributeLabelWeightBold",
+        "font_weight" : "bold"
+    }, { 
+        "Name" : "AttributeLabelStyleItalic",
+        "font_style" : "italic"
+    }, { 
+        "Name" : "AttributeLabelStyleUnderline",
+        "text_decoration" : "underline"
+    }, { 
+        "Name" : "AttributeLabelStyleLineThrough",
+        "text_decoration" : "line-through"
+    }, { 
+        "Name" : "AttributeLabelColorDanger",
+        "color" : "$colors_danger"
+    }, { 
+        "Name" : "AttributeLabelColorWarning",
+        "color" : "$colors_warning"
+    }, { 
+        "Name" : "AttributeLabelColorInfo",
+        "color" : "$colors_info"
+    }, { 
+        "Name" : "AttributeLabelColorSuccess",
+        "color" : "$colors_success"
+    }, { 
+        "Name" : "AttributeLabelColorBaseColor",
+        "color" : "$colors_primary"
+    }, { 
+        "Name" : "AttributeLabelColorInfoLight",
+        "color" : "$colors_info"
+    }, { 
+        "Name" : "Panel_Danger",
+        "background_color" : "$colors_danger",
+        "BackgroundColor" : "$colors_danger",
+        "SDPageControllerBackgroundColor" : "$colors_danger"
+    }, { 
+        "Name" : "Panel_Warning",
+        "background_color" : "$colors_warning",
+        "BackgroundColor" : "$colors_warning",
+        "SDPageControllerBackgroundColor" : "$colors_warning"
+    }, { 
+        "Name" : "Panel_Info",
+        "background_color" : "$colors_info",
+        "BackgroundColor" : "$colors_info",
+        "SDPageControllerBackgroundColor" : "$colors_info"
+    }, { 
+        "Name" : "Panel_Success",
+        "background_color" : "$colors_success",
+        "BackgroundColor" : "$colors_success",
+        "SDPageControllerBackgroundColor" : "$colors_success"
+    }, { 
+        "Name" : "Panel_BaseColor",
+        "background_color" : "$colors_primary",
+        "BackgroundColor" : "$colors_primary",
+        "SDPageControllerBackgroundColor" : "$colors_primary"
+    }, { 
+        "Name" : "Panel_InfoLight",
+        "background_color" : "$colors_info",
+        "BackgroundColor" : "$colors_info",
+        "SDPageControllerBackgroundColor" : "$colors_info"
+    }, { 
+        "Name" : "ButtonBase",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false"
+    }, { 
+        "Name" : "ButtonFillPrimary",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "$colors_primary",
+        "BackgroundColor" : "$colors_primary",
+        "SDPageControllerBackgroundColor" : "$colors_primary",
+        "color" : "$colors_controlonprimary"
+    }, { 
+        "Name" : "ButtonFillPrimaryRoundHigh",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "$colors_primary",
+        "BackgroundColor" : "$colors_primary",
+        "SDPageControllerBackgroundColor" : "$colors_primary",
+        "color" : "$colors_controlonprimary",
+        "border_top_left_radius" : "20dip",
+        "border_top_right_radius" : "20dip",
+        "border_bottom_left_radius" : "20dip",
+        "border_bottom_right_radius" : "20dip"
+    }, { 
+        "Name" : "ButtonFillPrimaryRoundLow",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "$colors_primary",
+        "BackgroundColor" : "$colors_primary",
+        "SDPageControllerBackgroundColor" : "$colors_primary",
+        "color" : "$colors_controlonprimary",
+        "border_top_left_radius" : "8dip",
+        "border_top_right_radius" : "8dip",
+        "border_bottom_left_radius" : "8dip",
+        "border_bottom_right_radius" : "8dip"
+    }, { 
+        "Name" : "ButtonFillSecondary",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "$colors_secondary",
+        "BackgroundColor" : "$colors_secondary",
+        "SDPageControllerBackgroundColor" : "$colors_secondary",
+        "color" : "$colors_controlonprimary"
+    }, { 
+        "Name" : "ButtonRoundOverPrimary",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "border_color" : "$colors_secondary",
+        "border_width" : "1dip",
+        "border_top_left_radius" : "15dip",
+        "border_top_right_radius" : "15dip",
+        "border_bottom_left_radius" : "15dip",
+        "border_bottom_right_radius" : "15dip",
+        "background_color" : "$colors_secondary",
+        "BackgroundColor" : "$colors_secondary",
+        "SDPageControllerBackgroundColor" : "$colors_secondary",
+        "color" : "$colors_controlonprimary"
+    }, { 
+        "Name" : "ButtonSectionLink",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "$colors_primarysurface",
+        "BackgroundColor" : "$colors_primarysurface",
+        "SDPageControllerBackgroundColor" : "$colors_primarysurface",
+        "highlighted_background_color" : "$colors_primarybackground",
+        "color" : "$colors_controlonsurface",
+        "control_highlight_color" : "$colors_controlthirdonsurface",
+        "highlighted_color" : "$colors_controlthirdonsurface"
+    }, { 
+        "Name" : "ButtonTransparent",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00",
+        "color" : "$colors_controlonsurface"
+    }, { 
+        "Name" : "ButtonTransparentDisabled",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00",
+        "color" : "$colors_controlonsurface",
+        "border_style" : "solid",
+        "border_color" : "$colors_controlonsurface",
+        "border_width" : "1dip"
+    }, { 
+        "Name" : "ButtonTransparentEnabled",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00",
+        "border_style" : "solid",
+        "border_color" : "$colors_primary",
+        "border_width" : "1dip",
+        "color" : "$colors_primary"
+    }, { 
+        "Name" : "ButtonTransparentEnabledRound",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00",
+        "border_style" : "solid",
+        "border_color" : "$colors_primary",
+        "border_width" : "1dip",
+        "color" : "$colors_primary",
+        "border_top_left_radius" : "8dip",
+        "border_top_right_radius" : "8dip",
+        "border_bottom_left_radius" : "8dip",
+        "border_bottom_right_radius" : "8dip",
+        "font_size" : "10dip"
+    }, { 
+        "Name" : "ButtonTransparentLink",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00",
+        "color" : "$colors_primary"
+    }, { 
+        "Name" : "ButtonColorFilled",
+        "font_family" : "$fonts_primary-font-family",
+        "font_all_caps" : "false",
+        "background_color" : "$colors_primary",
+        "BackgroundColor" : "$colors_primary",
+        "SDPageControllerBackgroundColor" : "$colors_primary",
+        "color" : "$colors_controlonprimary"
+    }, { 
+        "Name" : "Margin0",
+        "margin_bottom" : "0dip",
+        "margin_left" : "0dip",
+        "margin_right" : "0dip",
+        "margin_top" : "0dip"
+    }, { 
+        "Name" : "Margin6",
+        "margin_bottom" : "6dip",
+        "margin_left" : "6dip",
+        "margin_right" : "6dip",
+        "margin_top" : "6dip"
+    }, { 
+        "Name" : "Margin12",
+        "margin_bottom" : "12dip",
+        "margin_left" : "12dip",
+        "margin_right" : "12dip",
+        "margin_top" : "12dip"
+    }, { 
+        "Name" : "Margin16BottomAlign",
+        "margin_bottom" : "8dip",
+        "margin_left" : "16dip",
+        "margin_right" : "16dip",
+        "margin_top" : "12dip"
+    }, { 
+        "Name" : "Margin24BottomAlign",
+        "margin_bottom" : "18dip",
+        "margin_left" : "24dip",
+        "margin_right" : "24dip",
+        "margin_top" : "18dip"
+    }, { 
+        "Name" : "MarginV12",
+        "margin_bottom" : "12dip",
+        "margin_top" : "12dip"
+    }, { 
+        "Name" : "MarginH12",
+        "margin_left" : "12dip",
+        "margin_right" : "12dip"
+    }, { 
+        "Name" : "MarginV24",
+        "margin_bottom" : "24dip",
+        "margin_top" : "24dip"
+    }, { 
+        "Name" : "MarginH24",
+        "margin_left" : "24dip",
+        "margin_right" : "24dip"
+    }, { 
+        "Name" : "PaddingV12",
+        "padding_bottom" : "12dip",
+        "padding_top" : "12dip"
+    }, { 
+        "Name" : "PaddingH12",
+        "padding_left" : "12dip",
+        "padding_right" : "12dip"
+    }, { 
+        "Name" : "PaddingV24",
+        "padding_bottom" : "24dip",
+        "padding_top" : "24dip"
+    }, { 
+        "Name" : "PaddingH24",
+        "padding_left" : "24dip",
+        "padding_right" : "24dip"
+    }, { 
+        "Name" : "Elevation2",
+        "elevation" : "2"
+    }, { 
+        "Name" : "Elevation4",
+        "elevation" : "4"
+    }, { 
+        "Name" : "Elevation8",
+        "elevation" : "8"
+    }, { 
+        "Name" : "BorderNormal",
+        "border_color" : "$colors_controlonsurface",
+        "border_width" : "1dip",
+        "border_style" : "solid"
+    }, { 
+        "Name" : "BorderRound0",
+        "border_top_left_radius" : "0dip",
+        "border_top_right_radius" : "0dip",
+        "border_bottom_left_radius" : "0dip",
+        "border_bottom_right_radius" : "0dip"
+    }, { 
+        "Name" : "BorderRound4",
+        "border_top_left_radius" : "4dip",
+        "border_top_right_radius" : "4dip",
+        "border_bottom_left_radius" : "4dip",
+        "border_bottom_right_radius" : "4dip"
+    }, { 
+        "Name" : "BorderRound8",
+        "border_top_left_radius" : "8dip",
+        "border_top_right_radius" : "8dip",
+        "border_bottom_left_radius" : "8dip",
+        "border_bottom_right_radius" : "8dip"
+    }, { 
+        "Name" : "BorderRound12",
+        "border_top_left_radius" : "12dip",
+        "border_top_right_radius" : "12dip",
+        "border_bottom_left_radius" : "12dip",
+        "border_bottom_right_radius" : "12dip"
+    }, { 
+        "Name" : "BorderRound20",
+        "border_top_left_radius" : "20dip",
+        "border_top_right_radius" : "20dip",
+        "border_bottom_left_radius" : "20dip",
+        "border_bottom_right_radius" : "20dip"
+    }, { 
+        "Name" : "BorderRound28",
+        "border_top_left_radius" : "28dip",
+        "border_top_right_radius" : "28dip",
+        "border_bottom_left_radius" : "28dip",
+        "border_bottom_right_radius" : "28dip"
+    }, { 
+        "Name" : "BorderRound30",
+        "border_top_left_radius" : "30dip",
+        "border_top_right_radius" : "30dip",
+        "border_bottom_left_radius" : "30dip",
+        "border_bottom_right_radius" : "30dip"
+    }, { 
+        "Name" : "BorderRound34",
+        "border_top_left_radius" : "34dip",
+        "border_top_right_radius" : "34dip",
+        "border_bottom_left_radius" : "34dip",
+        "border_bottom_right_radius" : "34dip"
+    }, { 
+        "Name" : "BorderColorControl",
+        "border_color" : "$colors_controlonsurface"
+    }, { 
+        "Name" : "BorderColorPrimary",
+        "border_color" : "$colors_primary"
+    }, { 
+        "Name" : "BorderColorSurface",
+        "border_color" : "$colors_primarysurface"
+    }, { 
+        "Name" : "BorderColorBackground",
+        "border_color" : "$colors_primarybackground"
+    }, { 
+        "Name" : "BorderColorWhite",
+        "border_color" : "#FFFFFF"
+    }, { 
+        "Name" : "BorderColorDanger",
+        "border_color" : "$colors_danger"
+    }, { 
+        "Name" : "BorderColorWarning",
+        "border_color" : "$colors_warning"
+    }, { 
+        "Name" : "BorderColorInfo",
+        "border_color" : "$colors_info"
+    }, { 
+        "Name" : "BorderColorSuccess",
+        "border_color" : "$colors_success"
+    }, { 
+        "Name" : "BorderSolid",
+        "border_style" : "solid"
+    }, { 
+        "Name" : "BorderDashed",
+        "border_style" : "dashed"
+    }, { 
+        "Name" : "BorderWidth0",
+        "border_width" : "0dip"
+    }, { 
+        "Name" : "BorderWidth1",
+        "border_width" : "1dip"
+    }, { 
+        "Name" : "BorderWidth2",
+        "border_width" : "2dip"
+    }, { 
+        "Name" : "BorderWidth4",
+        "border_width" : "4dip"
+    }, { 
+        "Name" : "BorderWidth8",
+        "border_width" : "8dip"
+    }, { 
+        "Name" : "IconSizeXS",
+        "font_size" : "$fontsizes_icon-xsmall"
+    }, { 
+        "Name" : "IconSizeS",
+        "font_size" : "$fontsizes_icon-small"
+    }, { 
+        "Name" : "IconSizeM",
+        "font_size" : "$fontsizes_icon-regular"
+    }, { 
+        "Name" : "IconSizeL",
+        "font_size" : "$fontsizes_icon-large"
+    }, { 
+        "Name" : "IconSizeXL",
+        "font_size" : "$fontsizes_icon-xlarge"
+    }, { 
+        "Name" : "TabTop",
+        "tabs_position" : "top"
+    }, { 
+        "Name" : "TabBottom",
+        "tabs_position" : "bottom"
+    }, { 
+        "Name" : "GridShowLines",
+        "sd_row_horizontal_line_separator" : "True",
+        "ThemeHorizontalLineClassReference" : "GridLineSeparator"
+    }, { 
+        "Name" : "GridHideLines",
+        "sd_row_horizontal_line_separator" : "False"
+    }, { 
+        "Name" : "GridLineSeparator",
+        "background_color" : "$colors_controlborderonsurface40",
+        "BackgroundColor" : "$colors_controlborderonsurface40",
+        "SDPageControllerBackgroundColor" : "$colors_controlborderonsurface40",
+        "sd_height_withPercentage" : "1dip",
+        "height" : "1dip"
+    }, { 
+        "Name" : "TableLineSeparator",
+        "background_color" : "$colors_controlborderonsurface40",
+        "BackgroundColor" : "$colors_controlborderonsurface40",
+        "SDPageControllerBackgroundColor" : "$colors_controlborderonsurface40",
+        "sd_height_withPercentage" : "1dip",
+        "height" : "1dip"
+    }, { 
+        "Name" : "TableShowLines",
+        "sd-row-horizontal-line-separator-table" : "True",
+        "sd_row_horizontal_line_separator" : "True",
+        "sd_row_horizontal_line_separator" : "True",
+        "ThemeHorizontalLineClassReference" : "TableLineSeparator"
+    }, { 
+        "Name" : "TableHideLines",
+        "sd-row-horizontal-line-separator-table" : "False",
+        "sd_row_horizontal_line_separator" : "False",
+        "sd_row_horizontal_line_separator" : "False"
+    }, { 
+        "Name" : "BasicAnimation",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms"
+    }, { 
+        "Name" : "MediumAnimation",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "1000ms"
+    }, { 
+        "Name" : "LongAnimation",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "4000ms"
+    }, { 
+        "Name" : "TableGrow100x100",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "ThemeTransformationReference" : "tablegrow100x100"
+    }, { 
+        "Name" : "TableShrink",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "ThemeTransformationReference" : "tableshrink"
+    }, { 
+        "Name" : "MessageTable",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "border_style" : "solid",
+        "border_color" : "$colors_primarysurfaceborder",
+        "border_width" : "2dip",
+        "background_color" : "$colors_primarysurface",
+        "BackgroundColor" : "$colors_primarysurface",
+        "SDPageControllerBackgroundColor" : "$colors_primarysurface",
+        "elevation" : "2"
+    }, { 
+        "Name" : "OverlayTransparentTable",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "border_style" : "none",
+        "background_color" : "$colors_darksurfaceelevated80",
+        "BackgroundColor" : "$colors_darksurfaceelevated80",
+        "SDPageControllerBackgroundColor" : "$colors_darksurfaceelevated80",
+        "highlighted_background_color" : "$colors_darksurfaceelevated80"
+    }, { 
+        "Name" : "BottomActionSheet",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "border_style" : "solid",
+        "border_color" : "$colors_primarysurfaceborder",
+        "border_width" : "2dip",
+        "background_color" : "$colors_primarysurface",
+        "BackgroundColor" : "$colors_primarysurface",
+        "SDPageControllerBackgroundColor" : "$colors_primarysurface",
+        "elevation" : "2",
+        "ThemeTransformationReference" : "bottomactionsheet",
+        "border_top_left_radius" : "20dip",
+        "border_top_right_radius" : "20dip"
+    }, { 
+        "Name" : "BottomActionSheetHide",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "border_style" : "solid",
+        "border_color" : "$colors_primarysurfaceborder",
+        "border_width" : "2dip",
+        "background_color" : "$colors_primarysurface",
+        "BackgroundColor" : "$colors_primarysurface",
+        "SDPageControllerBackgroundColor" : "$colors_primarysurface",
+        "elevation" : "2",
+        "border_top_left_radius" : "20dip",
+        "border_top_right_radius" : "20dip",
+        "ThemeTransformationReference" : "bottomactionsheethide"
+    }, { 
+        "Name" : "SlidingMessageTable",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "border_style" : "solid",
+        "border_color" : "$colors_primarysurfaceborder",
+        "border_width" : "2dip",
+        "background_color" : "$colors_primarysurface",
+        "BackgroundColor" : "$colors_primarysurface",
+        "SDPageControllerBackgroundColor" : "$colors_primarysurface",
+        "elevation" : "2",
+        "ThemeTransformationReference" : "bottomactionsheet"
+    }, { 
+        "Name" : "SlidingMessageTableBottomHide",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "border_style" : "solid",
+        "border_color" : "$colors_primarysurfaceborder",
+        "border_width" : "2dip",
+        "background_color" : "$colors_primarysurface",
+        "BackgroundColor" : "$colors_primarysurface",
+        "SDPageControllerBackgroundColor" : "$colors_primarysurface",
+        "elevation" : "2",
+        "ThemeTransformationReference" : "bottomactionsheethide"
+    }, { 
+        "Name" : "SlidingMessageTableTopHide",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "border_style" : "solid",
+        "border_color" : "$colors_primarysurfaceborder",
+        "border_width" : "2dip",
+        "background_color" : "$colors_primarysurface",
+        "BackgroundColor" : "$colors_primarysurface",
+        "SDPageControllerBackgroundColor" : "$colors_primarysurface",
+        "elevation" : "2",
+        "ThemeTransformationReference" : "slidingmessagetabletophide"
+    }, { 
+        "Name" : "SlidingTransparentTable",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "ThemeTransformationReference" : "bottomactionsheet",
+        "border_style" : "none",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00",
+        "elevation" : "0"
+    }, { 
+        "Name" : "SlidingTransparentTableRightHalfHide",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "border_style" : "none",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00",
+        "ThemeTransformationReference" : "slidingtransparenttablerighthalfhide",
+        "elevation" : "0"
+    }, { 
+        "Name" : "Rotate0",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "ThemeTransformationReference" : "rotate0"
+    }, { 
+        "Name" : "Rotate90",
+        "ThemeAnimated" : "True",
+        "AnimationDuration" : "500ms",
+        "ThemeTransformationReference" : "rotate90"
+    } ],
+    "Transformations" : [ { 
+        "Name" : "tablegrow100x100",
+        "gxtranslation_value_x" : "0dip",
+        "gxtranslation_value_y" : "0dip",
+        "gxtranslation_relative_to" : "form",
+        "gxscale_value_x" : "100%",
+        "gxscale_value_y" : "100%",
+        "gxscale_relative_to" : "form"
+    }, { 
+        "Name" : "tableshrink",
+        "gxscale_value_x" : "0dip",
+        "gxscale_value_y" : "0dip",
+        "gxscale_relative_to" : "form"
+    }, { 
+        "Name" : "bottomactionsheet",
+        "gxtransform_anchor_point_y" : "top",
+        "gxtranslation_value_x" : "0dip",
+        "gxtranslation_value_y" : "0dip",
+        "gxtranslation_relative_to" : "parent",
+        "gxtransform_translation_type" : "translate_by"
+    }, { 
+        "Name" : "bottomactionsheethide",
+        "gxtransform_anchor_point_y" : "top",
+        "gxtranslation_value_y" : "300dip",
+        "gxtranslation_relative_to" : "parent",
+        "gxtransform_translation_type" : "translate_by"
+    }, { 
+        "Name" : "slidingmessagetabletophide",
+        "gxtransform_anchor_point_y" : "top",
+        "gxtranslation_value_y" : "-1000dip",
+        "gxtranslation_relative_to" : "parent",
+        "gxtransform_translation_type" : "translate_by"
+    }, { 
+        "Name" : "slidingtransparenttablerighthalfhide",
+        "gxtranslation_value_x" : "260dip",
+        "gxtranslation_relative_to" : "parent",
+        "gxtransform_translation_type" : "translate_by"
+    }, { 
+        "Name" : "rotate0",
+        "gxtransform_anchor_point_x" : "center",
+        "gxtransform_anchor_point_y" : "middle",
+        "gxrotate_value" : "0"
+    }, { 
+        "Name" : "rotate90",
+        "gxtransform_anchor_point_x" : "center",
+        "gxtransform_anchor_point_y" : "middle",
+        "gxrotate_value" : "60"
+    } ]
+}

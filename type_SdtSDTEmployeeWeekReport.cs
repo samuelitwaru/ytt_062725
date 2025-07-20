@@ -162,6 +162,10 @@ namespace GeneXus.Programs
 
 			AddObjectProperty("Expected_Formatted", gxTpr_Expected_formatted, false);
 
+			if (gxTv_SdtSDTEmployeeWeekReport_Daylogreports != null)
+			{
+				AddObjectProperty("DayLogReports", gxTv_SdtSDTEmployeeWeekReport_Daylogreports, false);
+			}
 			return;
 		}
 		#endregion
@@ -615,6 +619,59 @@ namespace GeneXus.Programs
 
 
 
+
+		[SoapElement(ElementName="DayLogReports" )]
+		[XmlArray(ElementName="DayLogReports"  )]
+		[XmlArrayItemAttribute(ElementName="Item" , IsNullable=false )]
+		public GXBaseCollection<GeneXus.Programs.SdtSDT_DayLogReport> gxTpr_Daylogreports_GXBaseCollection
+		{
+			get {
+				if ( gxTv_SdtSDTEmployeeWeekReport_Daylogreports == null )
+				{
+					gxTv_SdtSDTEmployeeWeekReport_Daylogreports = new GXBaseCollection<GeneXus.Programs.SdtSDT_DayLogReport>( context, "SDT_DayLogReport", "");
+				}
+				return gxTv_SdtSDTEmployeeWeekReport_Daylogreports;
+			}
+			set {
+				gxTv_SdtSDTEmployeeWeekReport_Daylogreports_N = false;
+				gxTv_SdtSDTEmployeeWeekReport_Daylogreports = value;
+			}
+		}
+
+		[XmlIgnore]
+		public GXBaseCollection<GeneXus.Programs.SdtSDT_DayLogReport> gxTpr_Daylogreports
+		{
+			get {
+				if ( gxTv_SdtSDTEmployeeWeekReport_Daylogreports == null )
+				{
+					gxTv_SdtSDTEmployeeWeekReport_Daylogreports = new GXBaseCollection<GeneXus.Programs.SdtSDT_DayLogReport>( context, "SDT_DayLogReport", "");
+				}
+				gxTv_SdtSDTEmployeeWeekReport_Daylogreports_N = false;
+				return gxTv_SdtSDTEmployeeWeekReport_Daylogreports ;
+			}
+			set {
+				gxTv_SdtSDTEmployeeWeekReport_Daylogreports_N = false;
+				gxTv_SdtSDTEmployeeWeekReport_Daylogreports = value;
+				SetDirty("Daylogreports");
+			}
+		}
+
+		public void gxTv_SdtSDTEmployeeWeekReport_Daylogreports_SetNull()
+		{
+			gxTv_SdtSDTEmployeeWeekReport_Daylogreports_N = true;
+			gxTv_SdtSDTEmployeeWeekReport_Daylogreports = null;
+		}
+
+		public bool gxTv_SdtSDTEmployeeWeekReport_Daylogreports_IsNull()
+		{
+			return gxTv_SdtSDTEmployeeWeekReport_Daylogreports == null;
+		}
+		public bool ShouldSerializegxTpr_Daylogreports_GXBaseCollection_Json()
+		{
+			return gxTv_SdtSDTEmployeeWeekReport_Daylogreports != null && gxTv_SdtSDTEmployeeWeekReport_Daylogreports.Count > 0;
+
+		}
+
 		public override bool ShouldSerializeSdtJson()
 		{
 			return true;
@@ -664,6 +721,9 @@ namespace GeneXus.Programs
 			gxTv_SdtSDTEmployeeWeekReport_Leave_formatted = "";
 			gxTv_SdtSDTEmployeeWeekReport_Total_formatted = "";
 			gxTv_SdtSDTEmployeeWeekReport_Expected_formatted = "";
+
+			gxTv_SdtSDTEmployeeWeekReport_Daylogreports_N = true;
+
 			return  ;
 		}
 
@@ -756,6 +816,8 @@ namespace GeneXus.Programs
 
 		protected string gxTv_SdtSDTEmployeeWeekReport_Expected_formatted;
 		 
+		protected bool gxTv_SdtSDTEmployeeWeekReport_Daylogreports_N;
+		protected GXBaseCollection<GeneXus.Programs.SdtSDT_DayLogReport> gxTv_SdtSDTEmployeeWeekReport_Daylogreports = null;  
 
 
 		#endregion
@@ -1107,6 +1169,21 @@ namespace GeneXus.Programs
 			}
 			set { 
 				 sdt.gxTpr_Expected_formatted = value;
+			}
+		}
+
+		[DataMember(Name="DayLogReports", Order=28, EmitDefaultValue=false)]
+		public  GxGenericCollection<GeneXus.Programs.SdtSDT_DayLogReport_RESTInterface> gxTpr_Daylogreports
+		{
+			get { 
+				if (sdt.ShouldSerializegxTpr_Daylogreports_GXBaseCollection_Json())
+					return new GxGenericCollection<GeneXus.Programs.SdtSDT_DayLogReport_RESTInterface>(sdt.gxTpr_Daylogreports);
+				else
+					return null;
+
+			}
+			set { 
+				value.LoadCollection(sdt.gxTpr_Daylogreports);
 			}
 		}
 

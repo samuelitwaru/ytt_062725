@@ -19,13 +19,7 @@ namespace GeneXus.Programs {
       public SdtWorkLogsGridCollectionPanel_Level_DetailSdt( )
       {
          /* Constructor for serialization */
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate = DateTime.MinValue;
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday = DateTime.MinValue;
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Lateupdatemsgvar = "";
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Latedeletemsgvar = "";
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Msgvar = "";
          gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdynprop = "";
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdyncall = "";
       }
 
       public SdtWorkLogsGridCollectionPanel_Level_DetailSdt( IGxContext context )
@@ -63,31 +57,7 @@ namespace GeneXus.Programs {
          {
             AddObjectProperty("Worklogssdts", gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Worklogssdts, false, false);
          }
-         sDateCnv = "";
-         sNumToPad = StringUtil.Trim( StringUtil.Str( (decimal)(DateTimeUtil.Year( gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate)), 10, 0));
-         sDateCnv += StringUtil.Substring( "0000", 1, 4-StringUtil.Len( sNumToPad)) + sNumToPad;
-         sDateCnv += "-";
-         sNumToPad = StringUtil.Trim( StringUtil.Str( (decimal)(DateTimeUtil.Month( gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate)), 10, 0));
-         sDateCnv += StringUtil.Substring( "00", 1, 2-StringUtil.Len( sNumToPad)) + sNumToPad;
-         sDateCnv += "-";
-         sNumToPad = StringUtil.Trim( StringUtil.Str( (decimal)(DateTimeUtil.Day( gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate)), 10, 0));
-         sDateCnv += StringUtil.Substring( "00", 1, 2-StringUtil.Len( sNumToPad)) + sNumToPad;
-         AddObjectProperty("Logdate", sDateCnv, false, false);
-         sDateCnv = "";
-         sNumToPad = StringUtil.Trim( StringUtil.Str( (decimal)(DateTimeUtil.Year( gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday)), 10, 0));
-         sDateCnv += StringUtil.Substring( "0000", 1, 4-StringUtil.Len( sNumToPad)) + sNumToPad;
-         sDateCnv += "-";
-         sNumToPad = StringUtil.Trim( StringUtil.Str( (decimal)(DateTimeUtil.Month( gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday)), 10, 0));
-         sDateCnv += StringUtil.Substring( "00", 1, 2-StringUtil.Len( sNumToPad)) + sNumToPad;
-         sDateCnv += "-";
-         sNumToPad = StringUtil.Trim( StringUtil.Str( (decimal)(DateTimeUtil.Day( gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday)), 10, 0));
-         sDateCnv += StringUtil.Substring( "00", 1, 2-StringUtil.Len( sNumToPad)) + sNumToPad;
-         AddObjectProperty("Datetoday", sDateCnv, false, false);
-         AddObjectProperty("Lateupdatemsgvar", gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Lateupdatemsgvar, false, false);
-         AddObjectProperty("Latedeletemsgvar", gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Latedeletemsgvar, false, false);
-         AddObjectProperty("Msgvar", gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Msgvar, false, false);
          AddObjectProperty("Gxdynprop", gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdynprop, false, false);
-         AddObjectProperty("Gxdyncall", gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdyncall, false, false);
          return  ;
       }
 
@@ -150,124 +120,6 @@ namespace GeneXus.Programs {
          return false ;
       }
 
-      [  SoapElement( ElementName = "Logdate" )]
-      [  XmlElement( ElementName = "Logdate"  , IsNullable=true )]
-      public string gxTpr_Logdate_Nullable
-      {
-         get {
-            if ( gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate == DateTime.MinValue)
-               return null;
-            return new GxDateString(gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate).value ;
-         }
-
-         set {
-            sdtIsNull = 0;
-            if (String.IsNullOrEmpty(value) || value == GxDateString.NullValue )
-               gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate = DateTime.MinValue;
-            else
-               gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate = DateTime.Parse( value);
-         }
-
-      }
-
-      [XmlIgnore]
-      public DateTime gxTpr_Logdate
-      {
-         get {
-            return gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate ;
-         }
-
-         set {
-            sdtIsNull = 0;
-            gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate = value;
-            SetDirty("Logdate");
-         }
-
-      }
-
-      [  SoapElement( ElementName = "Datetoday" )]
-      [  XmlElement( ElementName = "Datetoday"  , IsNullable=true )]
-      public string gxTpr_Datetoday_Nullable
-      {
-         get {
-            if ( gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday == DateTime.MinValue)
-               return null;
-            return new GxDateString(gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday).value ;
-         }
-
-         set {
-            sdtIsNull = 0;
-            if (String.IsNullOrEmpty(value) || value == GxDateString.NullValue )
-               gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday = DateTime.MinValue;
-            else
-               gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday = DateTime.Parse( value);
-         }
-
-      }
-
-      [XmlIgnore]
-      public DateTime gxTpr_Datetoday
-      {
-         get {
-            return gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday ;
-         }
-
-         set {
-            sdtIsNull = 0;
-            gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday = value;
-            SetDirty("Datetoday");
-         }
-
-      }
-
-      [  SoapElement( ElementName = "Lateupdatemsgvar" )]
-      [  XmlElement( ElementName = "Lateupdatemsgvar"   )]
-      public string gxTpr_Lateupdatemsgvar
-      {
-         get {
-            return gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Lateupdatemsgvar ;
-         }
-
-         set {
-            sdtIsNull = 0;
-            gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Lateupdatemsgvar = value;
-            SetDirty("Lateupdatemsgvar");
-         }
-
-      }
-
-      [  SoapElement( ElementName = "Latedeletemsgvar" )]
-      [  XmlElement( ElementName = "Latedeletemsgvar"   )]
-      public string gxTpr_Latedeletemsgvar
-      {
-         get {
-            return gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Latedeletemsgvar ;
-         }
-
-         set {
-            sdtIsNull = 0;
-            gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Latedeletemsgvar = value;
-            SetDirty("Latedeletemsgvar");
-         }
-
-      }
-
-      [  SoapElement( ElementName = "Msgvar" )]
-      [  XmlElement( ElementName = "Msgvar"   )]
-      public string gxTpr_Msgvar
-      {
-         get {
-            return gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Msgvar ;
-         }
-
-         set {
-            sdtIsNull = 0;
-            gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Msgvar = value;
-            SetDirty("Msgvar");
-         }
-
-      }
-
       [  SoapElement( ElementName = "Gxdynprop" )]
       [  XmlElement( ElementName = "Gxdynprop"   )]
       public string gxTpr_Gxdynprop
@@ -280,22 +132,6 @@ namespace GeneXus.Programs {
             sdtIsNull = 0;
             gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdynprop = value;
             SetDirty("Gxdynprop");
-         }
-
-      }
-
-      [  SoapElement( ElementName = "Gxdyncall" )]
-      [  XmlElement( ElementName = "Gxdyncall"   )]
-      public string gxTpr_Gxdyncall
-      {
-         get {
-            return gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdyncall ;
-         }
-
-         set {
-            sdtIsNull = 0;
-            gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdyncall = value;
-            SetDirty("Gxdyncall");
          }
 
       }
@@ -316,16 +152,8 @@ namespace GeneXus.Programs {
 
       public void initialize( )
       {
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate = DateTime.MinValue;
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday = DateTime.MinValue;
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Lateupdatemsgvar = "";
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Latedeletemsgvar = "";
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Msgvar = "";
          gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdynprop = "";
-         gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdyncall = "";
          sdtIsNull = 1;
-         sDateCnv = "";
-         sNumToPad = "";
          return  ;
       }
 
@@ -335,15 +163,7 @@ namespace GeneXus.Programs {
       }
 
       protected short sdtIsNull ;
-      protected string gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Lateupdatemsgvar ;
-      protected string gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Latedeletemsgvar ;
-      protected string gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Msgvar ;
       protected string gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdynprop ;
-      protected string gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Gxdyncall ;
-      protected string sDateCnv ;
-      protected string sNumToPad ;
-      protected DateTime gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Logdate ;
-      protected DateTime gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Datetoday ;
       protected GXBaseCollection<SdtWorkLogsSDT> gxTv_SdtWorkLogsGridCollectionPanel_Level_DetailSdt_Worklogssdts=null ;
    }
 
@@ -371,72 +191,7 @@ namespace GeneXus.Programs {
 
       }
 
-      [DataMember( Name = "Logdate" , Order = 1 )]
-      public string gxTpr_Logdate
-      {
-         get {
-            return DateTimeUtil.DToC2( sdt.gxTpr_Logdate) ;
-         }
-
-         set {
-            sdt.gxTpr_Logdate = DateTimeUtil.CToD2( value);
-         }
-
-      }
-
-      [DataMember( Name = "Datetoday" , Order = 2 )]
-      public string gxTpr_Datetoday
-      {
-         get {
-            return DateTimeUtil.DToC2( sdt.gxTpr_Datetoday) ;
-         }
-
-         set {
-            sdt.gxTpr_Datetoday = DateTimeUtil.CToD2( value);
-         }
-
-      }
-
-      [DataMember( Name = "Lateupdatemsgvar" , Order = 3 )]
-      public string gxTpr_Lateupdatemsgvar
-      {
-         get {
-            return StringUtil.RTrim( sdt.gxTpr_Lateupdatemsgvar) ;
-         }
-
-         set {
-            sdt.gxTpr_Lateupdatemsgvar = value;
-         }
-
-      }
-
-      [DataMember( Name = "Latedeletemsgvar" , Order = 4 )]
-      public string gxTpr_Latedeletemsgvar
-      {
-         get {
-            return StringUtil.RTrim( sdt.gxTpr_Latedeletemsgvar) ;
-         }
-
-         set {
-            sdt.gxTpr_Latedeletemsgvar = value;
-         }
-
-      }
-
-      [DataMember( Name = "Msgvar" , Order = 5 )]
-      public string gxTpr_Msgvar
-      {
-         get {
-            return StringUtil.RTrim( sdt.gxTpr_Msgvar) ;
-         }
-
-         set {
-            sdt.gxTpr_Msgvar = value;
-         }
-
-      }
-
-      [DataMember( Name = "Gxdynprop" , Order = 6 )]
+      [DataMember( Name = "Gxdynprop" , Order = 1 )]
       public string gxTpr_Gxdynprop
       {
          get {
@@ -445,19 +200,6 @@ namespace GeneXus.Programs {
 
          set {
             sdt.gxTpr_Gxdynprop = value;
-         }
-
-      }
-
-      [DataMember( Name = "Gxdyncall" , Order = 7 )]
-      public string gxTpr_Gxdyncall
-      {
-         get {
-            return StringUtil.RTrim( sdt.gxTpr_Gxdyncall) ;
-         }
-
-         set {
-            sdt.gxTpr_Gxdyncall = value;
          }
 
       }

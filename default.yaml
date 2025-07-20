@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: "YTT_version4"
-  version: "20250704142638"
+  version: "20250718060959"
 servers:
   - url: http://localhost:8082/YTT_version4NETPostgreSQL14/rest
 paths:
@@ -190,6 +190,195 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Device"
+  /LeaveRequest/{LeaveRequestId}:
+    get:
+      tags:
+        - LeaveRequest
+      operationId: "GetLeaveRequest"
+      summary: "Find an existing LeaveRequest"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "LeaveRequestId"
+          in: "path"
+          description: "Leave Request Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequest"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+    post:
+      tags:
+        - LeaveRequest
+      operationId: "InsertLeaveRequest"
+      summary: "Add a new LeaveRequest"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "LeaveRequestId"
+          in: "path"
+          description: "Leave Request Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        description: "LeaveRequest properties"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveRequest"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequest"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        201:
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequest"
+    put:
+      tags:
+        - LeaveRequest
+      operationId: "UpdateLeaveRequest"
+      summary: "Update an existing LeaveRequest"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "LeaveRequestId"
+          in: "path"
+          description: "Leave Request Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      requestBody:
+        description: "LeaveRequest properties"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LeaveRequest"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequest"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        409:
+          description: "LeaveRequest was changed"
+    delete:
+      tags:
+        - LeaveRequest
+      operationId: "DeleteLeaveRequest"
+      summary: "Delete an existing LeaveRequest"
+      security: 
+        - oAuthGXGAM: []
+      parameters:
+        - name: "LeaveRequestId"
+          in: "path"
+          description: "Leave Request Id"
+          required: true
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequest"
+        404:
+          description: "Data with the specified key could not be found"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        400:
+          description: "Bad request"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        500:
+          description: "Internal server error"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GxJsonError"
+        204:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequest"
   /LeaveType/{LeaveTypeId}:
     get:
       tags:
@@ -681,6 +870,27 @@ paths:
                 $ref: "#/components/schemas/ExportICSLeavesOutput"
         404:
           description: "Not found"
+  /FormatDateTime:
+    post:
+      tags:
+        - FormatDateTime
+      operationId: "FormatDateTime"
+      summary: "Format Date Time"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FormatDateTimeInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FormatDateTimeOutput"
+        404:
+          description: "Not found"
   /GAMSDChangePasswordUser:
     post:
       tags:
@@ -1122,6 +1332,23 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/LeaveTypeWWGetFilterDataOutput"
+        404:
+          description: "Not found"
+  /LogToFile:
+    post:
+      tags:
+        - LogToFile
+      operationId: "LogToFile"
+      summary: "Log To File"
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/LogToFileInput"
+      responses:
+        200:
+          description: "Successful operation"
         404:
           description: "Not found"
   /Prc_ICSLeaveAPI:
@@ -1581,6 +1808,29 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WorkWithPlus.NativeMobile.ExampleGetPDFUrlOutput"
+        404:
+          description: "Not found"
+  /WorkWithPlus/NativeMobile/SecGAMIsAuthByFunctionalityKeyService:
+    post:
+      tags:
+        - WorkWithPlus.NativeMobile
+      operationId: "WorkWithPlus.NativeMobile.SecGAMIsAuthByFunctionalityKeyService"
+      summary: "Sec GAMIs Auth By Functionality Key Service"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/WorkWithPlus.NativeMobile.SecGAMIsAuthByFunctionalityKeyServiceInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WorkWithPlus.NativeMobile.SecGAMIsAuthByFunctionalityKeyServiceOutput"
         404:
           description: "Not found"
   /WorkWithPlus/NativeMobile/WWPCreateLocationsList:
@@ -2276,6 +2526,99 @@ paths:
                 $ref: "#/components/schemas/LeaveRequestsGridPanel_Level_DetailSdt"  
         404:
           description: "Not found"
+  /LeaveRequestsGridPanelData_Level_Detail:
+    get:
+      tags:
+        - LeaveRequestsGridPanelData_Level_Detail
+      operationId: "LeaveRequestsGridPanelData_Level_Detail"
+      summary: "LeaveRequestsGridPanelData_Level_Detail"
+      parameters:
+        - name: "Trnmode"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+        - name: "Leaverequestid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "Trncontextjson"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestsGridPanelData_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /LeaveRequestsGridPanelGeneral_Level_Detail:
+    get:
+      tags:
+        - LeaveRequestsGridPanelGeneral_Level_Detail
+      operationId: "LeaveRequestsGridPanelGeneral_Level_Detail"
+      summary: "LeaveRequestsGridPanelGeneral_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestsGridPanelGeneral_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /LeaveRequestsGridPanelView_Level_Detail:
+    get:
+      tags:
+        - LeaveRequestsGridPanelView_Level_Detail
+      operationId: "LeaveRequestsGridPanelView_Level_Detail"
+      summary: "LeaveRequestsGridPanelView_Level_Detail"
+      parameters:
+        - name: "Leaverequestid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "Tabcode"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LeaveRequestsGridPanelView_Level_DetailSdt"  
+        404:
+          description: "Not found"
   /LogHoursPanel_Level_Detail:
     get:
       tags:
@@ -2340,6 +2683,197 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/PasswordChangePanel_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /PO_LeaveRequestsGridPanel_Level_Detail_Grid:
+    get:
+      tags:
+        - PO_LeaveRequestsGridPanel_Level_Detail_Grid
+      operationId: "PO_LeaveRequestsGridPanel_Level_Detail_Grid"
+      summary: "PO_LeaveRequestsGridPanel_Level_Detail_Grid"
+      parameters:
+        - name: "Employeeid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "Start"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "Count"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/PO_LeaveRequestsGridPanel_Level_Detail_GridSdt_Item"  
+        404:
+          description: "Not found"
+  /PO_LeaveRequestsGridPanel_Level_Detail:
+    get:
+      tags:
+        - PO_LeaveRequestsGridPanel_Level_Detail
+      operationId: "PO_LeaveRequestsGridPanel_Level_Detail"
+      summary: "PO_LeaveRequestsGridPanel_Level_Detail"
+      parameters:
+        - name: "Employeeid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PO_LeaveRequestsGridPanel_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /PO_LeaveRequestsGridPanelData_Level_Detail:
+    get:
+      tags:
+        - PO_LeaveRequestsGridPanelData_Level_Detail
+      operationId: "PO_LeaveRequestsGridPanelData_Level_Detail"
+      summary: "PO_LeaveRequestsGridPanelData_Level_Detail"
+      parameters:
+        - name: "Trnmode"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+        - name: "Leaverequestid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "Trncontextjson"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PO_LeaveRequestsGridPanelData_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /PO_LeaveRequestsGridPanelGeneral_Level_Detail:
+    get:
+      tags:
+        - PO_LeaveRequestsGridPanelGeneral_Level_Detail
+      operationId: "PO_LeaveRequestsGridPanelGeneral_Level_Detail"
+      summary: "PO_LeaveRequestsGridPanelGeneral_Level_Detail"
+      parameters:
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PO_LeaveRequestsGridPanelGeneral_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /PO_LeaveRequestsGridPanelView_Level_Detail:
+    get:
+      tags:
+        - PO_LeaveRequestsGridPanelView_Level_Detail
+      operationId: "PO_LeaveRequestsGridPanelView_Level_Detail"
+      summary: "PO_LeaveRequestsGridPanelView_Level_Detail"
+      parameters:
+        - name: "Leaverequestid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+        - name: "Tabcode"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PO_LeaveRequestsGridPanelView_Level_DetailSdt"  
+        404:
+          description: "Not found"
+  /PO_WorkLogs_Level_Detail:
+    get:
+      tags:
+        - PO_WorkLogs_Level_Detail
+      operationId: "PO_WorkLogs_Level_Detail"
+      summary: "PO_WorkLogs_Level_Detail"
+      parameters:
+        - name: "Logdate"
+          in: "query"
+          required: false
+          schema:
+            type: "string"
+            format: "date"
+        - name: "Gxid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PO_WorkLogs_Level_DetailSdt"  
         404:
           description: "Not found"
   /ProfilePanel_Level_Detail:
@@ -2437,12 +2971,6 @@ paths:
       operationId: "WorkLogsGridCollectionPanel_Level_Detail"
       summary: "WorkLogsGridCollectionPanel_Level_Detail"
       parameters:
-        - name: "Logdate"
-          in: "query"
-          required: false
-          schema:
-            type: "string"
-            format: "date"
         - name: "Gxid"
           in: "query"
           required: false
@@ -2673,6 +3201,13 @@ paths:
         - sdsvc_LogHoursPanel_Level_Detail  
       operationId: "sdsvc_LogHoursPanel_Level_Detail.Projectid"
       summary: "Projectid"
+      parameters:
+        - name: "Employeeid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
       responses:
         200:
           description: "Successful operation"
@@ -2703,6 +3238,13 @@ paths:
         - sdsvc_UpdateWorkHourLog_Level_Detail  
       operationId: "sdsvc_UpdateWorkHourLog_Level_Detail.Worklogproject"
       summary: "Worklogproject"
+      parameters:
+        - name: "Employeeid"
+          in: "query"
+          required: false
+          schema:
+            type: "integer"
+            format: "int64"
       responses:
         200:
           description: "Successful operation"
@@ -2755,6 +3297,66 @@ components:
           type: "string"
         DeviceUser:
           description: "Device User"
+          type: "string"
+        gx_md5_hash:
+          description: "gx_md5_hash is an identifier for a specific version of a resource, it is used for optimistic concurrency check. It is required for update and delete operations and  ignored on insert."
+          type: "string"
+      required:
+        - gx_md5_hash
+    LeaveRequest:
+      properties:
+        LeaveRequestId:
+          description: "Leave Request Id"
+          type: "integer"
+          format: "int64"
+        LeaveTypeId:
+          description: "Leave Type Id"
+          type: "integer"
+          format: "int64"
+        LeaveTypeName:
+          description: "Leave Type Name"
+          type: "string"
+        LeaveRequestDate:
+          description: "Leave Request Date"
+          type: "string"
+          format: "date"
+        LeaveRequestStartDate:
+          description: "Leave Request Start Date"
+          type: "string"
+          format: "date"
+        LeaveRequestEndDate:
+          description: "Leave Request End Date"
+          type: "string"
+          format: "date"
+        LeaveRequestHalfDay:
+          description: "Leave Request Half Day"
+          type: "string"
+        LeaveRequestDuration:
+          description: "Leave Request Duration"
+          type: "number"
+          format: "double"
+        LeaveRequestStatus:
+          description: "Leave Request Status"
+          type: "string"
+        LeaveRequestDescription:
+          description: "Leave Request Description"
+          type: "string"
+        LeaveRequestRejectionReason:
+          description: "Leave Request Rejection Reason"
+          type: "string"
+        EmployeeId:
+          description: "Employee Id"
+          type: "integer"
+          format: "int64"
+        EmployeeName:
+          description: "Employee Name"
+          type: "string"
+        EmployeeBalance:
+          description: "Employee Balance"
+          type: "number"
+          format: "double"
+        LeaveTypeVacationLeave:
+          description: "Leave Type Vacation Leave"
           type: "string"
         gx_md5_hash:
           description: "gx_md5_hash is an identifier for a specific version of a resource, it is used for optimistic concurrency check. It is required for update and delete operations and  ignored on insert."
@@ -2871,6 +3473,10 @@ components:
         Filename:
           type: "string"
         ErrorMessage:
+          type: "string"
+    FormatDateTimeOutput:
+      properties:
+        FinalDateString:
           type: "string"
     GAMSDChangePasswordUserOutput:
       properties:
@@ -3130,6 +3736,10 @@ components:
       properties:
         PDFUrl:
           type: "string"
+    WorkWithPlus.NativeMobile.SecGAMIsAuthByFunctionalityKeyServiceOutput:
+      properties:
+        IsAuthorized:
+          type: "boolean"
     WorkWithPlus.NativeMobile.WWPCreateLocationsListOutput:
       properties:
         MapItems:
@@ -3291,6 +3901,13 @@ components:
           items:
             type: "integer"
             format: "int64"
+    FormatDateTimeInput:  
+      properties:
+        Date:
+          type: "string"
+          format: "date"
+        DateTimeFormat:
+          type: "string"
     GAMSDChangePasswordUserInput:  
       properties:
         isPasswordExpires:
@@ -3476,6 +4093,10 @@ components:
           type: "string"
         SearchTxtTo:
           type: "string"
+    LogToFileInput:  
+      properties:
+        Message:
+          type: "string"
     ProjectWWGetFilterDataInput:  
       properties:
         DDOName:
@@ -3618,6 +4239,10 @@ components:
         TransactionWithBlobId:
           type: "integer"
           format: "int32"
+    WorkWithPlus.NativeMobile.SecGAMIsAuthByFunctionalityKeyServiceInput:  
+      properties:
+        SecGAMFunctionalityKey:
+          type: "string"
     WorkWithPlus.NativeMobile.WWPCreateLocationsListInput:  
       properties:
         SelectedItem:
@@ -4282,6 +4907,99 @@ components:
         Gxdynprop:
           description: "Gxdynprop"
           type: "string"
+    LeaveRequestsGridPanelData_Level_DetailSdt:
+      properties:
+        Leaverequest:
+          description: "Leaverequest"
+          type: "integer"
+          format: "int32"
+        Trnmode:
+          description: "Trnmode"
+          type: "string"
+        Leaverequestid:
+          description: "Leaverequestid"
+          type: "integer"
+          format: "int64"
+        Messages:
+          description: "Messages"
+          type: array
+          items:
+            $ref: "#/components/schemas/Messages_Message"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+    Messages_Message:
+      properties:
+        Id:
+          description: "Id"
+          type: "string"
+        Type:
+          description: "Type"
+          type: "integer"
+          format: "int32"
+        Description:
+          description: "Description"
+          type: "string"
+    LeaveRequestsGridPanelGeneral_Level_DetailSdt:
+      properties:
+        LeaveRequestId:
+          description: "Leave Request Id"
+          type: "integer"
+          format: "int64"
+        LeaveTypeId:
+          description: "Leave Type Id"
+          type: "integer"
+          format: "int64"
+        LeaveTypeName:
+          description: "Leave Type Name"
+          type: "string"
+        LeaveRequestDate:
+          description: "Leave Request Date"
+          type: "string"
+          format: "date"
+        LeaveRequestStartDate:
+          description: "Leave Request Start Date"
+          type: "string"
+          format: "date"
+        LeaveRequestEndDate:
+          description: "Leave Request End Date"
+          type: "string"
+          format: "date"
+        LeaveRequestDuration:
+          description: "Leave Request Duration"
+          type: "number"
+          format: "double"
+        LeaveRequestStatus:
+          description: "Leave Request Status"
+          type: "string"
+        LeaveRequestDescription:
+          description: "Leave Request Description"
+          type: "string"
+        LeaveRequestRejectionReason:
+          description: "Leave Request Rejection Reason"
+          type: "string"
+        EmployeeId:
+          description: "Employee Id"
+          type: "integer"
+          format: "int64"
+        Isauthorized_update:
+          description: "Isauthorized_update"
+          type: "boolean"
+        Isauthorized_delete:
+          description: "Isauthorized_delete"
+          type: "boolean"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+    LeaveRequestsGridPanelView_Level_DetailSdt:
+      properties:
+        Leaverequestid:
+          description: "Leaverequestid"
+          type: "integer"
+          format: "int64"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
     LogHoursPanel_Level_DetailSdt:
       properties:
         Workhourlogdate:
@@ -4292,6 +5010,10 @@ components:
           description: "Projectid"
           type: "integer"
           format: "int32"
+        Employeeid:
+          description: "Employeeid"
+          type: "integer"
+          format: "int64"
         Loghour:
           description: "Loghour"
           type: "integer"
@@ -4303,10 +5025,6 @@ components:
         Workhourlogdescription:
           description: "Workhourlogdescription"
           type: "string"
-        Employeeid:
-          description: "Employeeid"
-          type: "integer"
-          format: "int64"
         Today:
           description: "Today"
           type: "string"
@@ -4344,6 +5062,154 @@ components:
           type: "string"
         Gxdynprop:
           description: "Gxdynprop"
+          type: "string"
+    PO_LeaveRequestsGridPanel_Level_Detail_GridSdt_Item:
+      properties:
+        LeaveRequestId:
+          description: "Leave Request Id"
+          type: "integer"
+          format: "int64"
+        LeaveRequestDescription:
+          description: "Leave Request Description"
+          type: "string"
+        LeaveRequestStatus:
+          description: "Leave Request Status"
+          type: "string"
+        Leaveinfo:
+          description: "Leaveinfo"
+          type: "string"
+        Leaveperiod:
+          description: "Leaveperiod"
+          type: "string"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+    PO_LeaveRequestsGridPanel_Level_DetailSdt:
+      properties:
+        Msgvar:
+          description: "Msgvar"
+          type: "string"
+    PO_LeaveRequestsGridPanelData_Level_DetailSdt:
+      properties:
+        Leaverequest:
+          description: "Leaverequest"
+          type: "integer"
+          format: "int32"
+        Trnmode:
+          description: "Trnmode"
+          type: "string"
+        Leaverequestid:
+          description: "Leaverequestid"
+          type: "integer"
+          format: "int64"
+        Messages:
+          description: "Messages"
+          type: array
+          items:
+            $ref: "#/components/schemas/Messages_Message"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+    PO_LeaveRequestsGridPanelGeneral_Level_DetailSdt:
+      properties:
+        LeaveRequestId:
+          description: "Leave Request Id"
+          type: "integer"
+          format: "int64"
+        LeaveTypeId:
+          description: "Leave Type Id"
+          type: "integer"
+          format: "int64"
+        LeaveTypeName:
+          description: "Leave Type Name"
+          type: "string"
+        LeaveRequestDate:
+          description: "Leave Request Date"
+          type: "string"
+          format: "date"
+        LeaveRequestStartDate:
+          description: "Leave Request Start Date"
+          type: "string"
+          format: "date"
+        LeaveRequestEndDate:
+          description: "Leave Request End Date"
+          type: "string"
+          format: "date"
+        LeaveRequestHalfDay:
+          description: "Leave Request Half Day"
+          type: "string"
+        LeaveRequestDuration:
+          description: "Leave Request Duration"
+          type: "number"
+          format: "double"
+        LeaveRequestStatus:
+          description: "Leave Request Status"
+          type: "string"
+        LeaveRequestDescription:
+          description: "Leave Request Description"
+          type: "string"
+        LeaveRequestRejectionReason:
+          description: "Leave Request Rejection Reason"
+          type: "string"
+        EmployeeId:
+          description: "Employee Id"
+          type: "integer"
+          format: "int64"
+        EmployeeName:
+          description: "Employee Name"
+          type: "string"
+        EmployeeBalance:
+          description: "Employee Balance"
+          type: "number"
+          format: "double"
+        LeaveTypeVacationLeave:
+          description: "Leave Type Vacation Leave"
+          type: "string"
+        Isauthorized_update:
+          description: "Isauthorized_update"
+          type: "boolean"
+        Isauthorized_delete:
+          description: "Isauthorized_delete"
+          type: "boolean"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+    PO_LeaveRequestsGridPanelView_Level_DetailSdt:
+      properties:
+        Leaverequestid:
+          description: "Leaverequestid"
+          type: "integer"
+          format: "int64"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+    PO_WorkLogs_Level_DetailSdt:
+      properties:
+        Worklogssdts:
+          description: "Work Logs SDT"
+          $ref: "#/components/schemas/WorkLogsSDT"
+        Datetoday:
+          description: "Datetoday"
+          type: "string"
+          format: "date"
+        Lateupdatemsgvar:
+          description: "Lateupdatemsgvar"
+          type: "string"
+        Latedeletemsgvar:
+          description: "Latedeletemsgvar"
+          type: "string"
+        Msgvar:
+          description: "Msgvar"
+          type: "string"
+        Logdate:
+          description: "Logdate"
+          type: "string"
+          format: "date"
+        Gxdynprop:
+          description: "Gxdynprop"
+          type: "string"
+        Gxdyncall:
+          description: "Gxdyncall"
           type: "string"
     ProfilePanel_Level_DetailSdt:
       properties:
@@ -4461,6 +5327,10 @@ components:
           description: "Worklogproject"
           type: "integer"
           format: "int32"
+        Employeeid:
+          description: "Employeeid"
+          type: "integer"
+          format: "int64"
         Workloghour:
           description: "Workloghour"
           type: "integer"
@@ -4519,28 +5389,8 @@ components:
         Worklogssdts:
           description: "Work Logs SDT"
           $ref: "#/components/schemas/WorkLogsSDT"
-        Logdate:
-          description: "Logdate"
-          type: "string"
-          format: "date"
-        Datetoday:
-          description: "Datetoday"
-          type: "string"
-          format: "date"
-        Lateupdatemsgvar:
-          description: "Lateupdatemsgvar"
-          type: "string"
-        Latedeletemsgvar:
-          description: "Latedeletemsgvar"
-          type: "string"
-        Msgvar:
-          description: "Msgvar"
-          type: "string"
         Gxdynprop:
           description: "Gxdynprop"
-          type: "string"
-        Gxdyncall:
-          description: "Gxdyncall"
           type: "string"
     YTTV3SD_Level_DetailSdt:
       properties:

@@ -65,22 +65,6 @@ namespace GeneXus.Programs {
          return GX.GXRuntime.ExitCode ;
       }
 
-      protected override bool IntegratedSecurityEnabled
-      {
-         get {
-            return true ;
-         }
-
-      }
-
-      protected override GAMSecurityLevel IntegratedSecurityLevel
-      {
-         get {
-            return GAMSecurityLevel.SecurityHigh ;
-         }
-
-      }
-
       public aformatdatetime( )
       {
          context = new GxContext(  );
@@ -95,7 +79,7 @@ namespace GeneXus.Programs {
          IsMain = false;
       }
 
-      public void execute( DateTime aP0_Date ,
+      public void execute( [GxJsonFormat("yyyy-MM-dd")] DateTime aP0_Date ,
                            string aP1_DateTimeFormat ,
                            out string aP2_FinalDateString )
       {

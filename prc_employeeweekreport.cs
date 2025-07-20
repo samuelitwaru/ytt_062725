@@ -101,7 +101,6 @@ namespace GeneXus.Programs {
       {
          /* GeneXus formulas */
          /* Output device settings */
-         new logtofile(context ).execute(  "projects: "+AV8ProjectIdCollection.ToJSonString(false)) ;
          pr_default.dynParam(0, new Object[]{ new Object[]{
                                               A157CompanyLocationId ,
                                               AV32CompanyLocationIdCollection ,
@@ -131,6 +130,7 @@ namespace GeneXus.Programs {
             {
                A102ProjectId = P00BN3_A102ProjectId[0];
                AV23SDTEmployeeWeekReport = new SdtSDTEmployeeWeekReport(context);
+               AV34SDT_DayLogReportCollection = new GXBaseCollection<SdtSDT_DayLogReport>( context, "SDT_DayLogReport", "YTT_version4");
                GXt_int1 = AV13Mon;
                new prc_getemployeetotalhours(context ).execute( ref  A106EmployeeId, ref  AV11FromDate, ref  AV11FromDate, ref  AV8ProjectIdCollection, out  GXt_int1) ;
                AV13Mon = GXt_int1;
@@ -173,6 +173,7 @@ namespace GeneXus.Programs {
                AV22Expected = (long)((A188EmployeeFTEHours*60)-AV33Leave);
                AV23SDTEmployeeWeekReport.gxTpr_Employeename = StringUtil.Trim( A148EmployeeName);
                AV23SDTEmployeeWeekReport.gxTpr_Mon = AV13Mon;
+               AV35SDT_DayLogReport.gxTpr_Hours = AV13Mon;
                AV23SDTEmployeeWeekReport.gxTpr_Tue = AV14Tue;
                AV23SDTEmployeeWeekReport.gxTpr_Wed = AV15Wed;
                AV23SDTEmployeeWeekReport.gxTpr_Thu = AV16Thu;
@@ -253,6 +254,35 @@ namespace GeneXus.Programs {
                GXt_char9 = "";
                new formattime(context ).execute(  AV22Expected, out  GXt_char9) ;
                AV23SDTEmployeeWeekReport.gxTpr_Expected_formatted = GXt_char9;
+               AV35SDT_DayLogReport.gxTpr_Hours = AV23SDTEmployeeWeekReport.gxTpr_Mon;
+               AV35SDT_DayLogReport.gxTpr_Formattedhours = AV23SDTEmployeeWeekReport.gxTpr_Mon_formatted;
+               AV35SDT_DayLogReport.gxTpr_Isholiday = AV23SDTEmployeeWeekReport.gxTpr_Mon_isholiday;
+               AV34SDT_DayLogReportCollection.Add(AV35SDT_DayLogReport, 0);
+               AV35SDT_DayLogReport.gxTpr_Hours = AV23SDTEmployeeWeekReport.gxTpr_Tue;
+               AV35SDT_DayLogReport.gxTpr_Formattedhours = AV23SDTEmployeeWeekReport.gxTpr_Tue_formatted;
+               AV35SDT_DayLogReport.gxTpr_Isholiday = AV23SDTEmployeeWeekReport.gxTpr_Tue_isholiday;
+               AV34SDT_DayLogReportCollection.Add(AV35SDT_DayLogReport, 0);
+               AV35SDT_DayLogReport.gxTpr_Hours = AV23SDTEmployeeWeekReport.gxTpr_Wed;
+               AV35SDT_DayLogReport.gxTpr_Formattedhours = AV23SDTEmployeeWeekReport.gxTpr_Wed_formatted;
+               AV35SDT_DayLogReport.gxTpr_Isholiday = AV23SDTEmployeeWeekReport.gxTpr_Wed_isholiday;
+               AV34SDT_DayLogReportCollection.Add(AV35SDT_DayLogReport, 0);
+               AV35SDT_DayLogReport.gxTpr_Hours = AV23SDTEmployeeWeekReport.gxTpr_Thu;
+               AV35SDT_DayLogReport.gxTpr_Formattedhours = AV23SDTEmployeeWeekReport.gxTpr_Thu_formatted;
+               AV35SDT_DayLogReport.gxTpr_Isholiday = AV23SDTEmployeeWeekReport.gxTpr_Thu_isholiday;
+               AV34SDT_DayLogReportCollection.Add(AV35SDT_DayLogReport, 0);
+               AV35SDT_DayLogReport.gxTpr_Hours = AV23SDTEmployeeWeekReport.gxTpr_Fri;
+               AV35SDT_DayLogReport.gxTpr_Formattedhours = AV23SDTEmployeeWeekReport.gxTpr_Fri_formatted;
+               AV35SDT_DayLogReport.gxTpr_Isholiday = AV23SDTEmployeeWeekReport.gxTpr_Fri_isholiday;
+               AV34SDT_DayLogReportCollection.Add(AV35SDT_DayLogReport, 0);
+               AV35SDT_DayLogReport.gxTpr_Hours = AV23SDTEmployeeWeekReport.gxTpr_Sat;
+               AV35SDT_DayLogReport.gxTpr_Formattedhours = AV23SDTEmployeeWeekReport.gxTpr_Sat_formatted;
+               AV35SDT_DayLogReport.gxTpr_Isholiday = AV23SDTEmployeeWeekReport.gxTpr_Sat_isholiday;
+               AV34SDT_DayLogReportCollection.Add(AV35SDT_DayLogReport, 0);
+               AV35SDT_DayLogReport.gxTpr_Hours = AV23SDTEmployeeWeekReport.gxTpr_Sun;
+               AV35SDT_DayLogReport.gxTpr_Formattedhours = AV23SDTEmployeeWeekReport.gxTpr_Sun_formatted;
+               AV35SDT_DayLogReport.gxTpr_Isholiday = AV23SDTEmployeeWeekReport.gxTpr_Sun_isholiday;
+               AV34SDT_DayLogReportCollection.Add(AV35SDT_DayLogReport, 0);
+               AV23SDTEmployeeWeekReport.gxTpr_Daylogreports = AV34SDT_DayLogReportCollection;
                if ( AV8ProjectIdCollection.Count == 0 )
                {
                   AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
@@ -298,8 +328,10 @@ namespace GeneXus.Programs {
          P00BN3_A106EmployeeId = new long[1] ;
          P00BN3_A102ProjectId = new long[1] ;
          AV23SDTEmployeeWeekReport = new SdtSDTEmployeeWeekReport(context);
+         AV34SDT_DayLogReportCollection = new GXBaseCollection<SdtSDT_DayLogReport>( context, "SDT_DayLogReport", "YTT_version4");
          GXt_date3 = DateTime.MinValue;
          GXt_date2 = DateTime.MinValue;
+         AV35SDT_DayLogReport = new SdtSDT_DayLogReport(context);
          AV25MonHolidayName = "";
          AV26TueHolidayName = "";
          AV27WedHolidayName = "";
@@ -382,6 +414,8 @@ namespace GeneXus.Programs {
       private long[] P00BN3_A106EmployeeId ;
       private long[] P00BN3_A102ProjectId ;
       private SdtSDTEmployeeWeekReport AV23SDTEmployeeWeekReport ;
+      private GXBaseCollection<SdtSDT_DayLogReport> AV34SDT_DayLogReportCollection ;
+      private SdtSDT_DayLogReport AV35SDT_DayLogReport ;
       private GXBaseCollection<SdtSDTEmployeeWeekReport> aP5_SDTEmployeeWeekReportCollection ;
    }
 

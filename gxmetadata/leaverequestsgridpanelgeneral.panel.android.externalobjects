@@ -1,0 +1,1 @@
+[{"Guid":"013daac7-88e8-4910-a576-4e003c5d6534","Object":"GeneXus.Client.ClientStorage","Type":0,"Name":"Get","Platform":"All"},{"Guid":"93b1ef92-ecac-4e98-b279-4689f3769fd3","Object":"GeneXus.SD.Actions","Type":0,"Name":"Return","Platform":"All"},{"Guid":"2421cb8d-3b8a-43dd-b425-4705666ea395","Object":"GeneXus.SD.Interop","Type":0,"Name":"Msg","Platform":"All"}]

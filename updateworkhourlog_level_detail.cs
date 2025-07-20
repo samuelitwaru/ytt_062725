@@ -56,18 +56,18 @@ namespace GeneXus.Programs {
                            out SdtUpdateWorkHourLog_Level_DetailSdt aP2_GXM1UpdateWorkHourLog_Level_DetailSdt )
       {
          this.A118WorkHourLogId = aP0_WorkHourLogId;
-         this.AV20gxid = aP1_gxid;
-         this.AV24GXM1UpdateWorkHourLog_Level_DetailSdt = new SdtUpdateWorkHourLog_Level_DetailSdt(context) ;
+         this.AV21gxid = aP1_gxid;
+         this.AV25GXM1UpdateWorkHourLog_Level_DetailSdt = new SdtUpdateWorkHourLog_Level_DetailSdt(context) ;
          initialize();
          ExecuteImpl();
-         aP2_GXM1UpdateWorkHourLog_Level_DetailSdt=this.AV24GXM1UpdateWorkHourLog_Level_DetailSdt;
+         aP2_GXM1UpdateWorkHourLog_Level_DetailSdt=this.AV25GXM1UpdateWorkHourLog_Level_DetailSdt;
       }
 
       public SdtUpdateWorkHourLog_Level_DetailSdt executeUdp( long aP0_WorkHourLogId ,
                                                               int aP1_gxid )
       {
          execute(aP0_WorkHourLogId, aP1_gxid, out aP2_GXM1UpdateWorkHourLog_Level_DetailSdt);
-         return AV24GXM1UpdateWorkHourLog_Level_DetailSdt ;
+         return AV25GXM1UpdateWorkHourLog_Level_DetailSdt ;
       }
 
       public void executeSubmit( long aP0_WorkHourLogId ,
@@ -75,19 +75,22 @@ namespace GeneXus.Programs {
                                  out SdtUpdateWorkHourLog_Level_DetailSdt aP2_GXM1UpdateWorkHourLog_Level_DetailSdt )
       {
          this.A118WorkHourLogId = aP0_WorkHourLogId;
-         this.AV20gxid = aP1_gxid;
-         this.AV24GXM1UpdateWorkHourLog_Level_DetailSdt = new SdtUpdateWorkHourLog_Level_DetailSdt(context) ;
+         this.AV21gxid = aP1_gxid;
+         this.AV25GXM1UpdateWorkHourLog_Level_DetailSdt = new SdtUpdateWorkHourLog_Level_DetailSdt(context) ;
          SubmitImpl();
-         aP2_GXM1UpdateWorkHourLog_Level_DetailSdt=this.AV24GXM1UpdateWorkHourLog_Level_DetailSdt;
+         aP2_GXM1UpdateWorkHourLog_Level_DetailSdt=this.AV25GXM1UpdateWorkHourLog_Level_DetailSdt;
       }
 
       protected override void ExecutePrivate( )
       {
          /* GeneXus formulas */
          /* Output device settings */
-         Gxids = "gxid_" + StringUtil.Str( (decimal)(AV20gxid), 8, 0);
+         Gxids = "gxid_" + StringUtil.Str( (decimal)(AV21gxid), 8, 0);
          if ( StringUtil.StrCmp(Gxwebsession.Get(Gxids), "") == 0 )
          {
+            GXt_int1 = AV20EmployeeId;
+            new getloggedinemployeeid(context ).execute( out  GXt_int1) ;
+            AV20EmployeeId = GXt_int1;
             AV8WorkHourLog = new SdtWorkHourLog(context);
             AV8WorkHourLog.Load(A118WorkHourLogId);
             AV15WorkLogProject = (short)(AV8WorkHourLog.gxTpr_Projectid);
@@ -98,6 +101,7 @@ namespace GeneXus.Programs {
             AV19MsgVar = "Record Updated.";
             Gxwebsession.Set(Gxids+"gxvar_Worklogdate", context.localUtil.DToC( AV14WorkLogDate, 2, "/"));
             Gxwebsession.Set(Gxids+"gxvar_Worklogproject", StringUtil.Str( (decimal)(AV15WorkLogProject), 4, 0));
+            Gxwebsession.Set(Gxids+"gxvar_Employeeid", StringUtil.Str( (decimal)(AV20EmployeeId), 10, 0));
             Gxwebsession.Set(Gxids+"gxvar_Workloghour", StringUtil.Str( (decimal)(AV16WorkLogHour), 2, 0));
             Gxwebsession.Set(Gxids+"gxvar_Worklogminute", StringUtil.Str( (decimal)(AV17WorkLogMinute), 2, 0));
             Gxwebsession.Set(Gxids+"gxvar_Worklogdescription", AV18WorkLogDescription);
@@ -107,6 +111,7 @@ namespace GeneXus.Programs {
          }
          else
          {
+            AV20EmployeeId = (long)(Math.Round(NumberUtil.Val( Gxwebsession.Get(Gxids+"gxvar_Employeeid"), "."), 18, MidpointRounding.ToEven));
             AV8WorkHourLog.FromJSonString(Gxwebsession.Get(Gxids+"gxvar_Workhourlog"), null);
             AV15WorkLogProject = (short)(Math.Round(NumberUtil.Val( Gxwebsession.Get(Gxids+"gxvar_Worklogproject"), "."), 18, MidpointRounding.ToEven));
             AV14WorkLogDate = context.localUtil.CToD( Gxwebsession.Get(Gxids+"gxvar_Worklogdate"), 2);
@@ -115,14 +120,15 @@ namespace GeneXus.Programs {
             AV18WorkLogDescription = Gxwebsession.Get(Gxids+"gxvar_Worklogdescription");
             AV19MsgVar = Gxwebsession.Get(Gxids+"gxvar_Msgvar");
          }
-         AV24GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Worklogdate = AV14WorkLogDate;
-         AV24GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Worklogproject = AV15WorkLogProject;
-         AV24GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Workloghour = AV16WorkLogHour;
-         AV24GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Worklogminute = AV17WorkLogMinute;
-         AV24GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Worklogdescription = AV18WorkLogDescription;
-         AV24GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Workhourlog = AV8WorkHourLog;
-         AV24GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Today = Gx_date;
-         AV24GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Msgvar = AV19MsgVar;
+         AV25GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Worklogdate = AV14WorkLogDate;
+         AV25GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Worklogproject = AV15WorkLogProject;
+         AV25GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Employeeid = AV20EmployeeId;
+         AV25GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Workloghour = AV16WorkLogHour;
+         AV25GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Worklogminute = AV17WorkLogMinute;
+         AV25GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Worklogdescription = AV18WorkLogDescription;
+         AV25GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Workhourlog = AV8WorkHourLog;
+         AV25GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Today = Gx_date;
+         AV25GXM1UpdateWorkHourLog_Level_DetailSdt.gxTpr_Msgvar = AV19MsgVar;
          cleanup();
       }
 
@@ -138,7 +144,7 @@ namespace GeneXus.Programs {
 
       public override void initialize( )
       {
-         AV24GXM1UpdateWorkHourLog_Level_DetailSdt = new SdtUpdateWorkHourLog_Level_DetailSdt(context);
+         AV25GXM1UpdateWorkHourLog_Level_DetailSdt = new SdtUpdateWorkHourLog_Level_DetailSdt(context);
          Gxids = "";
          Gxwebsession = context.GetSession();
          AV8WorkHourLog = new SdtWorkHourLog(context);
@@ -154,15 +160,17 @@ namespace GeneXus.Programs {
       private short AV15WorkLogProject ;
       private short AV16WorkLogHour ;
       private short AV17WorkLogMinute ;
-      private int AV20gxid ;
+      private int AV21gxid ;
       private long A118WorkHourLogId ;
+      private long AV20EmployeeId ;
+      private long GXt_int1 ;
       private string Gxids ;
       private string AV19MsgVar ;
       private DateTime AV14WorkLogDate ;
       private DateTime Gx_date ;
       private string AV18WorkLogDescription ;
       private IGxSession Gxwebsession ;
-      private SdtUpdateWorkHourLog_Level_DetailSdt AV24GXM1UpdateWorkHourLog_Level_DetailSdt ;
+      private SdtUpdateWorkHourLog_Level_DetailSdt AV25GXM1UpdateWorkHourLog_Level_DetailSdt ;
       private SdtWorkHourLog AV8WorkHourLog ;
       private SdtUpdateWorkHourLog_Level_DetailSdt aP2_GXM1UpdateWorkHourLog_Level_DetailSdt ;
    }

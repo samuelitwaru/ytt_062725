@@ -2669,7 +2669,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025741793938", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025717436440", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2685,7 +2685,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("leaverequest.js", "?2025741793945", false, true);
+         context.AddJavascriptSource("leaverequest.js", "?2025717436446", false, true);
          /* End function include_jscripts */
       }
 
@@ -2842,6 +2842,18 @@ namespace GeneXus.Programs {
          pr_default.close(17);
       }
 
+      protected string rest_vLEAVETYPEID( GeneXus.Utils.GxStringCollection colParms )
+      {
+         string jsonString;
+         gxdynajaxindex = 1;
+         AV44LeaveTypeCompanyId = (long)(Math.Round(NumberUtil.Val( ((string)colParms.Item(gxdynajaxindex)), "."), 18, MidpointRounding.ToEven));
+         gxdynajaxindex = (int)(gxdynajaxindex+1);
+         GXDLVvLEAVETYPEID_data0J21( AV44LeaveTypeCompanyId) ;
+         jsonString = GXUtil.StringCollectionsToJson( gxdynajaxctrlcodr, gxdynajaxctrldescr);
+         /* End function rest_vLEAVETYPEID */
+         return jsonString ;
+      }
+
       protected void GXDSVvEMPLOYEEID0J21( )
       {
          if ( ! context.isAjaxRequest( ) )
@@ -2898,6 +2910,15 @@ namespace GeneXus.Programs {
             gxdynajaxctrldescr.Add(gxcolitemvEMPLOYEEID.gxTpr_Sdtemployeename);
             gxindex = (int)(gxindex+1);
          }
+      }
+
+      protected string rest_vEMPLOYEEID( GeneXus.Utils.GxStringCollection colParms )
+      {
+         string jsonString;
+         GXDSVvEMPLOYEEID_data0J21( ) ;
+         jsonString = GXUtil.StringCollectionsToJson( gxdynajaxctrlcodr, gxdynajaxctrldescr);
+         /* End function rest_vEMPLOYEEID */
+         return jsonString ;
       }
 
       protected void GX11ASALEAVEREQUESTDURATION0J21( DateTime A129LeaveRequestStartDate ,

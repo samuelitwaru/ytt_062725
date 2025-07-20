@@ -67,6 +67,7 @@ namespace GeneXus.Programs {
          sDateCnv += StringUtil.Substring( "00", 1, 2-StringUtil.Len( sNumToPad)) + sNumToPad;
          AddObjectProperty("Worklogdate", sDateCnv, false, false);
          AddObjectProperty("Worklogproject", gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Worklogproject, false, false);
+         AddObjectProperty("Employeeid", gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Employeeid, false, false);
          AddObjectProperty("Workloghour", gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Workloghour, false, false);
          AddObjectProperty("Worklogminute", gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Worklogminute, false, false);
          AddObjectProperty("Worklogdescription", gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Worklogdescription, false, false);
@@ -135,6 +136,22 @@ namespace GeneXus.Programs {
             sdtIsNull = 0;
             gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Worklogproject = value;
             SetDirty("Worklogproject");
+         }
+
+      }
+
+      [  SoapElement( ElementName = "Employeeid" )]
+      [  XmlElement( ElementName = "Employeeid"   )]
+      public long gxTpr_Employeeid
+      {
+         get {
+            return gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Employeeid ;
+         }
+
+         set {
+            sdtIsNull = 0;
+            gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Employeeid = value;
+            SetDirty("Employeeid");
          }
 
       }
@@ -309,6 +326,7 @@ namespace GeneXus.Programs {
       protected short gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Worklogproject ;
       protected short gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Workloghour ;
       protected short gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Worklogminute ;
+      protected long gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Employeeid ;
       protected string gxTv_SdtUpdateWorkHourLog_Level_DetailSdt_Msgvar ;
       protected string sDateCnv ;
       protected string sNumToPad ;
@@ -355,7 +373,20 @@ namespace GeneXus.Programs {
 
       }
 
-      [DataMember( Name = "Workloghour" , Order = 2 )]
+      [DataMember( Name = "Employeeid" , Order = 2 )]
+      public string gxTpr_Employeeid
+      {
+         get {
+            return StringUtil.LTrim( StringUtil.Str( (decimal)(sdt.gxTpr_Employeeid), 10, 0)) ;
+         }
+
+         set {
+            sdt.gxTpr_Employeeid = (long)(Math.Round(NumberUtil.Val( value, "."), 18, MidpointRounding.ToEven));
+         }
+
+      }
+
+      [DataMember( Name = "Workloghour" , Order = 3 )]
       public Nullable<short> gxTpr_Workloghour
       {
          get {
@@ -368,7 +399,7 @@ namespace GeneXus.Programs {
 
       }
 
-      [DataMember( Name = "Worklogminute" , Order = 3 )]
+      [DataMember( Name = "Worklogminute" , Order = 4 )]
       public Nullable<short> gxTpr_Worklogminute
       {
          get {
@@ -381,7 +412,7 @@ namespace GeneXus.Programs {
 
       }
 
-      [DataMember( Name = "Worklogdescription" , Order = 4 )]
+      [DataMember( Name = "Worklogdescription" , Order = 5 )]
       public string gxTpr_Worklogdescription
       {
          get {
@@ -394,7 +425,7 @@ namespace GeneXus.Programs {
 
       }
 
-      [DataMember( Name = "Workhourlog" , Order = 5 )]
+      [DataMember( Name = "Workhourlog" , Order = 6 )]
       public SdtWorkHourLog_RESTInterface gxTpr_Workhourlog
       {
          get {
@@ -407,7 +438,7 @@ namespace GeneXus.Programs {
 
       }
 
-      [DataMember( Name = "Today" , Order = 6 )]
+      [DataMember( Name = "Today" , Order = 7 )]
       public string gxTpr_Today
       {
          get {
@@ -420,7 +451,7 @@ namespace GeneXus.Programs {
 
       }
 
-      [DataMember( Name = "Msgvar" , Order = 7 )]
+      [DataMember( Name = "Msgvar" , Order = 8 )]
       public string gxTpr_Msgvar
       {
          get {

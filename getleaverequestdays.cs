@@ -35,15 +35,7 @@ namespace GeneXus.Programs {
       protected override GAMSecurityLevel IntegratedSecurityLevel
       {
          get {
-            return GAMSecurityLevel.SecurityHigh ;
-         }
-
-      }
-
-      protected override string ExecutePermissionPrefix
-      {
-         get {
-            return "getleaverequestdays_Services_Execute" ;
+            return GAMSecurityLevel.SecurityLow ;
          }
 
       }
