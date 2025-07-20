@@ -37,7 +37,11 @@ namespace GeneXus.Programs {
          if ( nGotPars == 0 )
          {
             entryPointCalled = false;
-            gxfirstwebparm = GetNextPar( );
+            gxfirstwebparm = GetFirstPar( "CompanyLocationId");
+            if ( ! entryPointCalled )
+            {
+               AV28CompanyLocationId = (long)(Math.Round(NumberUtil.Val( gxfirstwebparm, "."), 18, MidpointRounding.ToEven));
+            }
          }
          if ( GxWebError == 0 )
          {
@@ -64,14 +68,16 @@ namespace GeneXus.Programs {
          dsDefault = context.GetDataStore("Default");
       }
 
-      public void execute( )
+      public void execute( long aP0_CompanyLocationId )
       {
+         this.AV28CompanyLocationId = aP0_CompanyLocationId;
          initialize();
          ExecuteImpl();
       }
 
-      public void executeSubmit( )
+      public void executeSubmit( long aP0_CompanyLocationId )
       {
+         this.AV28CompanyLocationId = aP0_CompanyLocationId;
          SubmitImpl();
       }
 
@@ -97,15 +103,22 @@ namespace GeneXus.Programs {
             pr_default.readNext(0);
          }
          pr_default.close(0);
+         pr_default.dynParam(1, new Object[]{ new Object[]{
+                                              AV28CompanyLocationId ,
+                                              A157CompanyLocationId } ,
+                                              new int[]{
+                                              TypeConstants.LONG, TypeConstants.LONG
+                                              }
+         });
          /* Using cursor P00BQ3 */
-         pr_default.execute(1);
+         pr_default.execute(1, new Object[] {AV28CompanyLocationId});
          while ( (pr_default.getStatus(1) != 101) )
          {
             A100CompanyId = P00BQ3_A100CompanyId[0];
-            A109EmployeeEmail = P00BQ3_A109EmployeeEmail[0];
             A157CompanyLocationId = P00BQ3_A157CompanyLocationId[0];
             A106EmployeeId = P00BQ3_A106EmployeeId[0];
             A107EmployeeFirstName = P00BQ3_A107EmployeeFirstName[0];
+            A109EmployeeEmail = P00BQ3_A109EmployeeEmail[0];
             A157CompanyLocationId = P00BQ3_A157CompanyLocationId[0];
             AV13EmployeeIdCollection.Add(A106EmployeeId, 0);
             AV12CompanyLocationIdCollection.Add(A157CompanyLocationId, 0);
@@ -124,10 +137,10 @@ namespace GeneXus.Programs {
                   if (true) break;
                }
                AV24row = "<tr>";
-               AV31GXV1 = 1;
-               while ( AV31GXV1 <= AV19SDTEmployeeWeekReport.gxTpr_Daylogreports.Count )
+               AV32GXV1 = 1;
+               while ( AV32GXV1 <= AV19SDTEmployeeWeekReport.gxTpr_Daylogreports.Count )
                {
-                  AV22SDT_DayLogReport = ((SdtSDT_DayLogReport)AV19SDTEmployeeWeekReport.gxTpr_Daylogreports.Item(AV31GXV1));
+                  AV22SDT_DayLogReport = ((SdtSDT_DayLogReport)AV19SDTEmployeeWeekReport.gxTpr_Daylogreports.Item(AV32GXV1));
                   if ( AV22SDT_DayLogReport.gxTpr_Isholiday )
                   {
                      AV24row += "<td class=\"leave\">" + "<div>" + AV22SDT_DayLogReport.gxTpr_Formattedhours + "</div>" + "</td>";
@@ -144,7 +157,7 @@ namespace GeneXus.Programs {
                   {
                      AV24row += "<td>" + AV22SDT_DayLogReport.gxTpr_Formattedhours + "</td>";
                   }
-                  AV31GXV1 = (int)(AV31GXV1+1);
+                  AV32GXV1 = (int)(AV32GXV1+1);
                }
                if ( AV19SDTEmployeeWeekReport.gxTpr_Expected < AV19SDTEmployeeWeekReport.gxTpr_Total )
                {
@@ -168,6 +181,7 @@ namespace GeneXus.Programs {
             AV8email = A109EmployeeEmail;
             AV27Subject = "Time Tracker Reminder";
             new logtofile(context ).execute(  "sending email for: "+A109EmployeeEmail) ;
+            new sendemail(context ).execute(  AV8email, ref  AV27Subject, ref  AV17Body) ;
             pr_default.readNext(1);
          }
          pr_default.close(1);
@@ -209,12 +223,12 @@ namespace GeneXus.Programs {
          A192EmailTemplateContent = "";
          AV18EmailTemplateContent = "";
          P00BQ3_A100CompanyId = new long[1] ;
-         P00BQ3_A109EmployeeEmail = new string[] {""} ;
          P00BQ3_A157CompanyLocationId = new long[1] ;
          P00BQ3_A106EmployeeId = new long[1] ;
          P00BQ3_A107EmployeeFirstName = new string[] {""} ;
-         A109EmployeeEmail = "";
+         P00BQ3_A109EmployeeEmail = new string[] {""} ;
          A107EmployeeFirstName = "";
+         A109EmployeeEmail = "";
          AV13EmployeeIdCollection = new GxSimpleCollection<long>();
          AV12CompanyLocationIdCollection = new GxSimpleCollection<long>();
          AV11ToDate = DateTime.MinValue;
@@ -237,7 +251,7 @@ namespace GeneXus.Programs {
                P00BQ2_A191EmailTemplateName, P00BQ2_A192EmailTemplateContent, P00BQ2_A190EmailTemplateId
                }
                , new Object[] {
-               P00BQ3_A100CompanyId, P00BQ3_A109EmployeeEmail, P00BQ3_A157CompanyLocationId, P00BQ3_A106EmployeeId, P00BQ3_A107EmployeeFirstName
+               P00BQ3_A100CompanyId, P00BQ3_A157CompanyLocationId, P00BQ3_A106EmployeeId, P00BQ3_A107EmployeeFirstName, P00BQ3_A109EmployeeEmail
                }
             }
          );
@@ -249,10 +263,11 @@ namespace GeneXus.Programs {
       private short gxcookieaux ;
       private short nGotPars ;
       private short GxWebError ;
-      private int AV31GXV1 ;
+      private int AV32GXV1 ;
+      private long AV28CompanyLocationId ;
       private long A190EmailTemplateId ;
-      private long A100CompanyId ;
       private long A157CompanyLocationId ;
+      private long A100CompanyId ;
       private long A106EmployeeId ;
       private string GXKey ;
       private string gxfirstwebparm ;
@@ -279,10 +294,10 @@ namespace GeneXus.Programs {
       private string[] P00BQ2_A192EmailTemplateContent ;
       private long[] P00BQ2_A190EmailTemplateId ;
       private long[] P00BQ3_A100CompanyId ;
-      private string[] P00BQ3_A109EmployeeEmail ;
       private long[] P00BQ3_A157CompanyLocationId ;
       private long[] P00BQ3_A106EmployeeId ;
       private string[] P00BQ3_A107EmployeeFirstName ;
+      private string[] P00BQ3_A109EmployeeEmail ;
       private GxSimpleCollection<long> AV13EmployeeIdCollection ;
       private GxSimpleCollection<long> AV12CompanyLocationIdCollection ;
       private GXBaseCollection<SdtSDTEmployeeWeekReport> AV16SDTEmployeeWeekReports ;
@@ -294,6 +309,42 @@ namespace GeneXus.Programs {
 
    public class aprc_sendsundayreminder__default : DataStoreHelperBase, IDataStoreHelper
    {
+      protected Object[] conditional_P00BQ3( IGxContext context ,
+                                             long AV28CompanyLocationId ,
+                                             long A157CompanyLocationId )
+      {
+         System.Text.StringBuilder sWhereString = new System.Text.StringBuilder();
+         string scmdbuf;
+         short[] GXv_int2 = new short[1];
+         Object[] GXv_Object3 = new Object[2];
+         scmdbuf = "SELECT T1.CompanyId, T2.CompanyLocationId, T1.EmployeeId, T1.EmployeeFirstName, T1.EmployeeEmail FROM (Employee T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId)";
+         if ( ! (0==AV28CompanyLocationId) )
+         {
+            AddWhere(sWhereString, "(T2.CompanyLocationId = :AV28CompanyLocationId)");
+         }
+         else
+         {
+            GXv_int2[0] = 1;
+         }
+         scmdbuf += sWhereString;
+         scmdbuf += " ORDER BY T1.EmployeeId";
+         GXv_Object3[0] = scmdbuf;
+         GXv_Object3[1] = GXv_int2;
+         return GXv_Object3 ;
+      }
+
+      public override Object [] getDynamicStatement( int cursor ,
+                                                     IGxContext context ,
+                                                     Object [] dynConstraints )
+      {
+         switch ( cursor )
+         {
+               case 1 :
+                     return conditional_P00BQ3(context, (long)dynConstraints[0] , (long)dynConstraints[1] );
+         }
+         return base.getDynamicStatement(cursor, context, dynConstraints);
+      }
+
       public ICursor[] getCursors( )
       {
          cursorDefinitions();
@@ -313,10 +364,11 @@ namespace GeneXus.Programs {
           };
           Object[] prmP00BQ3;
           prmP00BQ3 = new Object[] {
+          new ParDef("AV28CompanyLocationId",GXType.Int64,10,0)
           };
           def= new CursorDef[] {
               new CursorDef("P00BQ2", "SELECT EmailTemplateName, EmailTemplateContent, EmailTemplateId FROM Trn_EmailTemplate WHERE EmailTemplateName = ( 'SundayEmail') ORDER BY EmailTemplateId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00BQ2,100, GxCacheFrequency.OFF ,false,false )
-             ,new CursorDef("P00BQ3", "SELECT T1.CompanyId, T1.EmployeeEmail, T2.CompanyLocationId, T1.EmployeeId, T1.EmployeeFirstName FROM (Employee T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId) WHERE (RTRIM(LTRIM(T1.EmployeeEmail)) = ( 'samuel.itwaru@example.ug')) AND (T2.CompanyLocationId = 2) ORDER BY T1.EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00BQ3,100, GxCacheFrequency.OFF ,true,false )
+             ,new CursorDef("P00BQ3", "scmdbuf",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00BQ3,100, GxCacheFrequency.OFF ,true,false )
           };
        }
     }
@@ -334,10 +386,10 @@ namespace GeneXus.Programs {
                 return;
              case 1 :
                 ((long[]) buf[0])[0] = rslt.getLong(1);
-                ((string[]) buf[1])[0] = rslt.getVarchar(2);
+                ((long[]) buf[1])[0] = rslt.getLong(2);
                 ((long[]) buf[2])[0] = rslt.getLong(3);
-                ((long[]) buf[3])[0] = rslt.getLong(4);
-                ((string[]) buf[4])[0] = rslt.getString(5, 100);
+                ((string[]) buf[3])[0] = rslt.getString(4, 100);
+                ((string[]) buf[4])[0] = rslt.getVarchar(5);
                 return;
        }
     }
