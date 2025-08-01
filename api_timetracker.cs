@@ -5,6 +5,8 @@ using GeneXus.Resources;
 using GeneXus.Application;
 using GeneXus.Metadata;
 using GeneXus.Cryptography;
+using System.Data;
+using GeneXus.Data;
 using GeneXus.Data.ADO;
 using GeneXus.Data.NTier;
 using GeneXus.Data.NTier.ADO;
@@ -44,6 +46,8 @@ namespace GeneXus.Programs {
       public api_timetracker( )
       {
          context = new GxContext(  );
+         dsGAM = context.GetDataStore("GAM");
+         dsDefault = context.GetDataStore("Default");
          IsMain = true;
          IsApiObject = true;
       }
@@ -53,6 +57,8 @@ namespace GeneXus.Programs {
          this.context = context;
          IsMain = false;
          IsApiObject = true;
+         dsGAM = context.GetDataStore("GAM");
+         dsDefault = context.GetDataStore("Default");
          if ( context.HttpContext != null )
          {
             Gx_restmethod = (string)(context.HttpContext.Request.Method);
@@ -79,7 +85,7 @@ namespace GeneXus.Programs {
          this.AV11Password = aP1_Password;
          initialize();
          /* API_ICSLeaveAPI Constructor */
-         context.wjLoc = "aprc_icsleaveapi.aspx"+ "?" + GXUtil.UrlEncode(StringUtil.RTrim(AV12Username)) + "," + GXUtil.UrlEncode(StringUtil.RTrim(AV11Password)) + "," + GXUtil.UrlEncode(StringUtil.RTrim(AV10ICSLeaveExport));
+         new prc_icsleaveapi(context ).execute( out  AV12Username) ;
          aP2_ICSLeaveExport=this.AV10ICSLeaveExport;
       }
 
@@ -98,6 +104,8 @@ namespace GeneXus.Programs {
       protected string AV10ICSLeaveExport ;
       protected string AV12Username ;
       protected string AV11Password ;
+      protected IGxDataStore dsGAM ;
+      protected IGxDataStore dsDefault ;
       protected string aP2_ICSLeaveExport ;
    }
 

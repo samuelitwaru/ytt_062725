@@ -554,6 +554,7 @@ namespace GeneXus.Programs {
                Combo_companyid_Selectalltext = cgiGet( "COMBO_COMPANYID_Selectalltext");
                Combo_companyid_Multiplevaluesseparator = cgiGet( "COMBO_COMPANYID_Multiplevaluesseparator");
                Combo_companyid_Addnewoptiontext = cgiGet( "COMBO_COMPANYID_Addnewoptiontext");
+               Combo_companyid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_COMPANYID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
                /* Read variables values. */
                A160SiteSettingId = (long)(Math.Round(context.localUtil.CToN( cgiGet( edtSiteSettingId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "A160SiteSettingId", StringUtil.LTrimStr( (decimal)(A160SiteSettingId), 10, 0));
@@ -1868,7 +1869,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257161692688", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513524256", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1884,7 +1885,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("sitesetting.js", "?20257161692690", false, true);
+         context.AddJavascriptSource("sitesetting.js", "?202572513524258", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2210,6 +2211,7 @@ namespace GeneXus.Programs {
       private int edtavCombocompanyid_Enabled ;
       private int edtavCombocompanyid_Visible ;
       private int Combo_companyid_Datalistupdateminimumcharacters ;
+      private int Combo_companyid_Gxcontroltype ;
       private int AV24GXV1 ;
       private int idxLst ;
       private long wcpOAV7SiteSettingId ;

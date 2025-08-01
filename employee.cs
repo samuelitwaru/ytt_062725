@@ -1239,6 +1239,7 @@ namespace GeneXus.Programs {
                Combo_projectid_Selectalltext = cgiGet( "COMBO_PROJECTID_Selectalltext");
                Combo_projectid_Multiplevaluesseparator = cgiGet( "COMBO_PROJECTID_Multiplevaluesseparator");
                Combo_projectid_Addnewoptiontext = cgiGet( "COMBO_PROJECTID_Addnewoptiontext");
+               Combo_projectid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_PROJECTID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
                Setvacationdaysbtn_modal_Objectcall = cgiGet( "SETVACATIONDAYSBTN_MODAL_Objectcall");
                Setvacationdaysbtn_modal_Enabled = StringUtil.StrToBool( cgiGet( "SETVACATIONDAYSBTN_MODAL_Enabled"));
                Setvacationdaysbtn_modal_Width = cgiGet( "SETVACATIONDAYSBTN_MODAL_Width");
@@ -4982,7 +4983,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257161674075", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513505457", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -4998,7 +4999,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("employee.js", "?20257161674078", false, true);
+         context.AddJavascriptSource("employee.js", "?202572513505459", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -6189,6 +6190,7 @@ namespace GeneXus.Programs {
       private int fRowAdded ;
       private int edtProjectId_Enabled ;
       private int Combo_projectid_Datalistupdateminimumcharacters ;
+      private int Combo_projectid_Gxcontroltype ;
       private int AV34GXV1 ;
       private int subGridlevel_vacationset_Backcolor ;
       private int subGridlevel_vacationset_Allbackcolor ;

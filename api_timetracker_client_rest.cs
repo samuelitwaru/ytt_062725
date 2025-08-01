@@ -5,6 +5,8 @@ using GeneXus.Resources;
 using GeneXus.Application;
 using GeneXus.Metadata;
 using GeneXus.Cryptography;
+using System.Data;
+using GeneXus.Data;
 using GeneXus.Data.ADO;
 using GeneXus.Data.NTier;
 using GeneXus.Data.NTier.ADO;
@@ -22,6 +24,8 @@ namespace GeneXus.Programs {
       public api_timetracker( )
       {
          context = new GxContext(  );
+         dsGAM = context.GetDataStore("GAM");
+         dsDefault = context.GetDataStore("Default");
          IsMain = true;
          IsApiObject = true;
          initialize();
@@ -32,6 +36,8 @@ namespace GeneXus.Programs {
          this.context = context;
          IsMain = false;
          IsApiObject = true;
+         dsGAM = context.GetDataStore("GAM");
+         dsDefault = context.GetDataStore("Default");
          initialize();
          if ( context.HttpContext != null )
          {
@@ -124,6 +130,8 @@ namespace GeneXus.Programs {
       protected GXRestAPIClient restCliAPI_ICSLeaveAPI ;
       protected GxLocation restLocation ;
       protected GxObjectProperties gxProperties ;
+      protected IGxDataStore dsGAM ;
+      protected IGxDataStore dsDefault ;
       protected string aP2_ICSLeaveExport ;
    }
 

@@ -135,13 +135,13 @@
   <Object name="DPEmployeeToLogHoursProjects" id="48" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DPEmployeeToLogHoursProjects" xmlns="qv">
     <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
   </Object>
+  <Object name="Trn_EmailTemplate_DataProvider" id="49" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="Trn_EmailTemplate_DataProvider" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
   <Object name="PeriodicWorkHourLog" id="1" type="Query" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="PeriodicWorkHourLog" xmlns="qv">
     <DefaultOutput type="OutputTypeTable" xmlns="qv" />
   </Object>
   <Object name="DBEmployeeHours_Filter1" id="0" type="Query" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DBEmployeeHours" xmlns="qv">
     <DefaultOutput type="OutputTypeTable" xmlns="qv" />
-  </Object>
-  <Object name="Trn_EmailTemplate_DataProvider" id="49" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="Trn_EmailTemplate_DataProvider" xmlns="qv">
-    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
   </Object>
 </Objects>

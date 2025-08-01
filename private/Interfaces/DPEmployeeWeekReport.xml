@@ -408,6 +408,46 @@
               </Property>
             </Properties>
           </Field>
+          <Field name="DayLogReports" description="Day Log Reports" collection="true">
+            <Fields>
+              <Field name="Hours" description="Hours">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Numeric</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>10</Value>
+                  </Property>
+                  <Property>
+                    <Name>Picture</Name>
+                    <Value>ZZZZZZZZZ9</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="IsHoliday" description="Is Holiday">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>Boolean</Value>
+                  </Property>
+                </Properties>
+              </Field>
+              <Field name="FormattedHours" description="Formatted Hours">
+                <Properties>
+                  <Property>
+                    <Name>Type</Name>
+                    <Value>VarChar</Value>
+                  </Property>
+                  <Property>
+                    <Name>Length</Name>
+                    <Value>40</Value>
+                  </Property>
+                </Properties>
+              </Field>
+            </Fields>
+          </Field>
         </Fields>
       </Field>
     </Parameter>

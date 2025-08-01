@@ -164,11 +164,11 @@ namespace GeneXus.Programs {
                GXt_date2 = DateTimeUtil.DAdd( AV11FromDate, (6));
                new prc_getemployeetotalhours(context ).execute( ref  A106EmployeeId, ref  GXt_date3, ref  GXt_date2, ref  AV8ProjectIdCollection, out  GXt_int1) ;
                AV19Sun = GXt_int1;
-               GXt_int4 = (short)(AV20Blank);
-               GXt_int5 = (short)(AV33Leave);
-               new employeeleavetotal(context ).execute(  A106EmployeeId,  AV11FromDate,  DateTimeUtil.DAdd( AV11FromDate, (6)), out  GXt_int5) ;
-               AV33Leave = GXt_int5;
-               AV20Blank = GXt_int4;
+               GXt_decimal4 = (decimal)(AV20Blank);
+               GXt_decimal5 = (decimal)(AV33Leave);
+               new employeeleavetotal(context ).execute(  A106EmployeeId,  AV11FromDate,  DateTimeUtil.DAdd( AV11FromDate, (6)), out  GXt_decimal5) ;
+               AV33Leave = Convert.ToInt64(Math.Round(GXt_decimal5, 18, MidpointRounding.ToEven));
+               AV20Blank = (long)(Math.Round(GXt_decimal4, 18, MidpointRounding.ToEven));
                AV21Total = (short)(AV13Mon+AV14Tue+AV15Wed+AV16Thu+AV17Fri+AV18Sat+AV19Sun);
                AV22Expected = (long)((A188EmployeeFTEHours*60)-AV33Leave);
                AV23SDTEmployeeWeekReport.gxTpr_Employeename = StringUtil.Trim( A148EmployeeName);
@@ -357,8 +357,6 @@ namespace GeneXus.Programs {
 
       private short A188EmployeeFTEHours ;
       private short AV18Sat ;
-      private short GXt_int4 ;
-      private short GXt_int5 ;
       private short AV21Total ;
       private int AV32CompanyLocationIdCollection_Count ;
       private int AV12EmployeeIdCollection_Count ;
@@ -376,6 +374,8 @@ namespace GeneXus.Programs {
       private long AV20Blank ;
       private long AV33Leave ;
       private long AV22Expected ;
+      private decimal GXt_decimal4 ;
+      private decimal GXt_decimal5 ;
       private string A148EmployeeName ;
       private string AV25MonHolidayName ;
       private string AV26TueHolidayName ;

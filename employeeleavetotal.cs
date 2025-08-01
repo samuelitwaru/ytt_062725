@@ -44,7 +44,7 @@ namespace GeneXus.Programs {
       public void execute( long aP0_EmployeeId ,
                            DateTime aP1_FromDate ,
                            DateTime aP2_ToDate ,
-                           out short aP3_Duration )
+                           out decimal aP3_Duration )
       {
          this.AV2EmployeeId = aP0_EmployeeId;
          this.AV3FromDate = aP1_FromDate;
@@ -55,9 +55,9 @@ namespace GeneXus.Programs {
          aP3_Duration=this.AV5Duration;
       }
 
-      public short executeUdp( long aP0_EmployeeId ,
-                               DateTime aP1_FromDate ,
-                               DateTime aP2_ToDate )
+      public decimal executeUdp( long aP0_EmployeeId ,
+                                 DateTime aP1_FromDate ,
+                                 DateTime aP2_ToDate )
       {
          execute(aP0_EmployeeId, aP1_FromDate, aP2_ToDate, out aP3_Duration);
          return AV5Duration ;
@@ -66,7 +66,7 @@ namespace GeneXus.Programs {
       public void executeSubmit( long aP0_EmployeeId ,
                                  DateTime aP1_FromDate ,
                                  DateTime aP2_ToDate ,
-                                 out short aP3_Duration )
+                                 out decimal aP3_Duration )
       {
          this.AV2EmployeeId = aP0_EmployeeId;
          this.AV3FromDate = aP1_FromDate;
@@ -80,11 +80,11 @@ namespace GeneXus.Programs {
       {
          /* GeneXus formulas */
          /* Output device settings */
-         args = new Object[] {(long)AV2EmployeeId,(DateTime)AV3FromDate,(DateTime)AV4ToDate,(short)AV5Duration} ;
+         args = new Object[] {(long)AV2EmployeeId,(DateTime)AV3FromDate,(DateTime)AV4ToDate,(decimal)AV5Duration} ;
          ClassLoader.Execute("aemployeeleavetotal","GeneXus.Programs","aemployeeleavetotal", new Object[] {context }, "execute", args);
          if ( ( args != null ) && ( args.Length == 4 ) )
          {
-            AV5Duration = (short)(args[3]) ;
+            AV5Duration = (decimal)(args[3]) ;
          }
          cleanup();
       }
@@ -103,14 +103,14 @@ namespace GeneXus.Programs {
          /* GeneXus formulas. */
       }
 
-      private short AV5Duration ;
       private long AV2EmployeeId ;
+      private decimal AV5Duration ;
       private DateTime AV3FromDate ;
       private DateTime AV4ToDate ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
       private Object[] args ;
-      private short aP3_Duration ;
+      private decimal aP3_Duration ;
    }
 
 }
