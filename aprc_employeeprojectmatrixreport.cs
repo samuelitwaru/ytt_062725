@@ -316,9 +316,9 @@ namespace GeneXus.Programs {
             AV8SDT_EmployeeProjectMatrix.gxTpr_Formattedworkhours = GXt_char2;
             if ( AV24ShowLeave )
             {
-               GXt_int3 = 0;
-               new procgetemployeeleavetotal(context ).execute(  A106EmployeeId,  AV14FromDate,  AV25ToDate, out  GXt_int3) ;
-               AV8SDT_EmployeeProjectMatrix.gxTpr_Leavehours = (long)(GXt_int3*8*60);
+               GXt_decimal3 = 0;
+               new employeeleavetotal(context ).execute(  A106EmployeeId,  AV14FromDate,  AV25ToDate, out  GXt_decimal3) ;
+               AV8SDT_EmployeeProjectMatrix.gxTpr_Leavehours = (long)(Math.Round(GXt_decimal3, 18, MidpointRounding.ToEven));
                GXt_char2 = "";
                new procformattime(context ).execute(  AV8SDT_EmployeeProjectMatrix.gxTpr_Leavehours, out  GXt_char2) ;
                AV8SDT_EmployeeProjectMatrix.gxTpr_Formattedleavehours = GXt_char2;
@@ -434,7 +434,7 @@ namespace GeneXus.Programs {
       private long AV27TotalHours ;
       private long AV28TotalMinutes ;
       private long AV26Total ;
-      private long GXt_int3 ;
+      private decimal GXt_decimal3 ;
       private string A105ProjectStatus ;
       private string A103ProjectName ;
       private string A148EmployeeName ;

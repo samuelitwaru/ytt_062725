@@ -167,7 +167,7 @@ namespace GeneXus.Programs {
          }
          pr_default.close(1);
          AV14Duration = 0;
-         AV26GXLvl32 = 0;
+         AV27GXLvl31 = 0;
          /* Using cursor P009Y4 */
          pr_default.execute(2, new Object[] {AV8EmployeeId, AV11ToDate, AV10FromDate});
          while ( (pr_default.getStatus(2) != 101) )
@@ -183,7 +183,7 @@ namespace GeneXus.Programs {
             A127LeaveRequestId = P009Y4_A127LeaveRequestId[0];
             A100CompanyId = P009Y4_A100CompanyId[0];
             A145LeaveTypeLoggingWorkHours = P009Y4_A145LeaveTypeLoggingWorkHours[0];
-            AV26GXLvl32 = 1;
+            AV27GXLvl31 = 1;
             if ( DateTimeUtil.ResetTime ( A129LeaveRequestStartDate ) < DateTimeUtil.ResetTime ( AV10FromDate ) )
             {
                AV12LeaveStartDate = AV10FromDate;
@@ -205,7 +205,14 @@ namespace GeneXus.Programs {
                AV21CurrentDate = AV12LeaveStartDate;
                while ( DateTimeUtil.ResetTime ( AV21CurrentDate ) <= DateTimeUtil.ResetTime ( AV13LeaveEndDate ) )
                {
-                  AV14Duration = (decimal)(AV14Duration+1);
+                  AV24IsWeekend = (bool)((DateTimeUtil.Dow( AV21CurrentDate)==1)||(DateTimeUtil.Dow( AV21CurrentDate)==7));
+                  if ( ! AV24IsWeekend )
+                  {
+                     AV14Duration = (decimal)(AV14Duration+1);
+                  }
+                  else
+                  {
+                  }
                   AV21CurrentDate = DateTimeUtil.DAdd( AV21CurrentDate, (1));
                }
             }
@@ -237,7 +244,7 @@ namespace GeneXus.Programs {
             n40000GXC1 = false;
          }
          pr_default.close(4);
-         if ( AV26GXLvl32 == 0 )
+         if ( AV27GXLvl31 == 0 )
          {
             AV15HolidayCount = (short)(A40000GXC1);
             AV14Duration = (decimal)(AV14Duration+AV15HolidayCount);
@@ -316,7 +323,7 @@ namespace GeneXus.Programs {
       }
 
       private short AV9Count ;
-      private short AV26GXLvl32 ;
+      private short AV27GXLvl31 ;
       private short AV15HolidayCount ;
       private int A40000GXC1 ;
       private long AV8EmployeeId ;
@@ -342,6 +349,7 @@ namespace GeneXus.Programs {
       private DateTime AV12LeaveStartDate ;
       private DateTime AV13LeaveEndDate ;
       private DateTime AV21CurrentDate ;
+      private bool AV24IsWeekend ;
       private bool n40000GXC1 ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
@@ -424,7 +432,7 @@ namespace GeneXus.Programs {
               new CursorDef("P009Y2", "SELECT T1.CompanyId, T1.EmployeeId, T1.EmployeeName, T2.CompanyLocationId FROM (Employee T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId) WHERE T1.EmployeeId = :AV8EmployeeId ORDER BY T1.EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP009Y2,1, GxCacheFrequency.OFF ,false,true )
              ,new CursorDef("P009Y3", "SELECT T1.CompanyId, T2.CompanyLocationId, T1.HolidayStartDate, T1.HolidayId FROM (Holiday T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId) WHERE (T1.HolidayStartDate >= :AV10FromDate) AND (T1.HolidayStartDate <= :AV11ToDate) AND (T2.CompanyLocationId = :AV17CompanyLocationId) ORDER BY T1.HolidayId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP009Y3,100, GxCacheFrequency.OFF ,false,false )
              ,new CursorDef("P009Y4", "SELECT T1.LeaveTypeId, T2.CompanyId, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T1.LeaveRequestStatus, T2.LeaveTypeLoggingWorkHours, T1.EmployeeId, T1.LeaveRequestDuration, T1.LeaveRequestId FROM (LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId) WHERE (T1.EmployeeId = :AV8EmployeeId) AND (T1.LeaveRequestStartDate <= :AV11ToDate) AND (T1.LeaveRequestEndDate >= :AV10FromDate) AND (T2.LeaveTypeLoggingWorkHours = ( 'No')) AND (T1.LeaveRequestStatus = ( 'Approved')) ORDER BY T1.EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP009Y4,100, GxCacheFrequency.OFF ,true,false )
-             ,new CursorDef("P009Y5", "SELECT COUNT(*) FROM (Holiday T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId) WHERE (T1.CompanyId = :CompanyId) AND (( T1.HolidayStartDate >= :AV10FromDate and T1.HolidayStartDate <= :AV12LeaveStartDate) or ( T1.HolidayStartDate > :AV13LeaveEndDate and T1.HolidayStartDate < :AV11ToDate)) AND (T2.CompanyLocationId = :AV17CompanyLocationId) ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP009Y5,1, GxCacheFrequency.OFF ,true,false )
+             ,new CursorDef("P009Y5", "SELECT COUNT(*) FROM (Holiday T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId) WHERE (T1.CompanyId = :CompanyId) AND (( T1.HolidayStartDate >= :AV10FromDate and T1.HolidayStartDate <= :AV12LeaveStartDate) or ( T1.HolidayStartDate > :AV13LeaveEndDate and T1.HolidayStartDate < :AV11ToDate)) AND (T1.HolidayIsActive = TRUE) AND (T2.CompanyLocationId = :AV17CompanyLocationId) ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP009Y5,1, GxCacheFrequency.OFF ,true,false )
              ,new CursorDef("P009Y7", "SELECT COALESCE( T1.GXC1, 0) AS GXC1 FROM (SELECT COUNT(*) AS GXC1 FROM (Holiday T2 INNER JOIN Company T3 ON T3.CompanyId = T2.CompanyId) WHERE (T2.HolidayStartDate >= :AV10FromDate) AND (T2.HolidayStartDate <= :AV11ToDate) AND ((date_part('dow', CAST(T2.HolidayStartDate AS date)) + 1) > 1) AND ((date_part('dow', CAST(T2.HolidayStartDate AS date)) + 1) < 7) AND (T3.CompanyLocationId = :AV17CompanyLocationId) ) T1 ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP009Y7,1, GxCacheFrequency.OFF ,true,false )
           };
        }
