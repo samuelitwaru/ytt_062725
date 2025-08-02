@@ -803,7 +803,7 @@ namespace GeneXus.Programs {
                               sGXsfl_57_idx = StringUtil.PadL( StringUtil.LTrimStr( (decimal)(nGXsfl_57_idx), 4, 0), 4, "0");
                               SubsflControlProps_572( ) ;
                               AV15ImageAuthType = cgiGet( edtavImageauthtype_Internalname);
-                              AssignProp("", false, edtavImageauthtype_Internalname, "Bitmap", (String.IsNullOrEmpty(StringUtil.RTrim( AV15ImageAuthType)) ? AV41Imageauthtype_GXI : context.convertURL( context.PathToRelativeUrl( AV15ImageAuthType))), !bGXsfl_57_Refreshing);
+                              AssignProp("", false, edtavImageauthtype_Internalname, "Bitmap", (String.IsNullOrEmpty(StringUtil.RTrim( AV15ImageAuthType)) ? AV43Imageauthtype_GXI : context.convertURL( context.PathToRelativeUrl( AV15ImageAuthType))), !bGXsfl_57_Refreshing);
                               AssignProp("", false, edtavImageauthtype_Internalname, "SrcSet", context.GetImageSrcSet( AV15ImageAuthType), true);
                               cmbavTypeauthtype.Name = cmbavTypeauthtype_Internalname;
                               cmbavTypeauthtype.CurrentValue = cgiGet( cmbavTypeauthtype_Internalname);
@@ -1142,6 +1142,9 @@ namespace GeneXus.Programs {
       {
          /* Start Routine */
          returnInSub = false;
+         /* Execute user subroutine: 'REDIRECTUSER' */
+         S112 ();
+         if (returnInSub) return;
          divLayoutmaintable_Class = "MainContainer";
          AssignProp("", false, divLayoutmaintable_Internalname, "Class", divLayoutmaintable_Class, true);
          lblCurrentrepository_Visible = 0;
@@ -1153,7 +1156,7 @@ namespace GeneXus.Programs {
          if ( new GeneXus.Programs.genexussecurity.SdtGAM(context).ismultitenant() )
          {
             /* Execute user subroutine: 'ISMULTITENANTINSTALLATION' */
-            S112 ();
+            S122 ();
             if (returnInSub) return;
          }
          else
@@ -1177,7 +1180,7 @@ namespace GeneXus.Programs {
             }
          }
          /* Execute user subroutine: 'ATTRIBUTESSECURITYCODE' */
-         S122 ();
+         S132 ();
          if (returnInSub) return;
          edtavUrl_Visible = 0;
          AssignProp("", false, edtavUrl_Internalname, "Visible", StringUtil.LTrimStr( (decimal)(edtavUrl_Visible), 5, 0), true);
@@ -1191,24 +1194,24 @@ namespace GeneXus.Programs {
       {
          /* Gridauthtypes_Load Routine */
          returnInSub = false;
-         AV40GXV1 = 1;
-         while ( AV40GXV1 <= AV7AuthenticationTypes.Count )
+         AV42GXV1 = 1;
+         while ( AV42GXV1 <= AV7AuthenticationTypes.Count )
          {
-            AV6AuthenticationType = ((GeneXus.Programs.genexussecurity.SdtGAMAuthenticationTypeSimple)AV7AuthenticationTypes.Item(AV40GXV1));
+            AV6AuthenticationType = ((GeneXus.Programs.genexussecurity.SdtGAMAuthenticationTypeSimple)AV7AuthenticationTypes.Item(AV42GXV1));
             if ( ! AV6AuthenticationType.gxTpr_Needusername )
             {
                if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV6AuthenticationType.gxTpr_Smallimagename)) )
                {
                   AV15ImageAuthType = context.GetImagePath( AV6AuthenticationType.gxTpr_Smallimagename, "", context.GetTheme( ));
                   AssignAttri("", false, edtavImageauthtype_Internalname, AV15ImageAuthType);
-                  AV41Imageauthtype_GXI = GXDbFile.PathToUrl( AV6AuthenticationType.gxTpr_Smallimagename, context);
+                  AV43Imageauthtype_GXI = GXDbFile.PathToUrl( AV6AuthenticationType.gxTpr_Smallimagename, context);
                }
                else
                {
                   edtavImageauthtype_gximage = "GAM_GAMButtonGAMRemoteSmall";
                   AV15ImageAuthType = context.GetImagePath( "6cdd3e18-cc5b-44e0-bd22-3efaf48a6c40", "", context.GetTheme( ));
                   AssignAttri("", false, edtavImageauthtype_Internalname, AV15ImageAuthType);
-                  AV41Imageauthtype_GXI = GXDbFile.PathToUrl( context.GetImagePath( "6cdd3e18-cc5b-44e0-bd22-3efaf48a6c40", "", context.GetTheme( )), context);
+                  AV43Imageauthtype_GXI = GXDbFile.PathToUrl( context.GetImagePath( "6cdd3e18-cc5b-44e0-bd22-3efaf48a6c40", "", context.GetTheme( )), context);
                }
                AV31TypeAuthType = AV6AuthenticationType.gxTpr_Type;
                AssignAttri("", false, cmbavTypeauthtype_Internalname, AV31TypeAuthType);
@@ -1231,7 +1234,7 @@ namespace GeneXus.Programs {
                   DoAjaxLoad(57, GridauthtypesRow);
                }
             }
-            AV40GXV1 = (int)(AV40GXV1+1);
+            AV42GXV1 = (int)(AV42GXV1+1);
          }
          /*  Sending Event outputs  */
          context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV6AuthenticationType", AV6AuthenticationType);
@@ -1269,7 +1272,7 @@ namespace GeneXus.Programs {
             AV32URL = new GeneXus.Programs.genexussecurity.SdtGAMRepository(context).getlasterrorsurl();
             AssignAttri("", false, "AV32URL", AV32URL);
             /* Execute user subroutine: 'REDIRECTUSER' */
-            S132 ();
+            S112 ();
             if (returnInSub) return;
          }
          else
@@ -1305,7 +1308,7 @@ namespace GeneXus.Programs {
          context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV5AdditionalParameter", AV5AdditionalParameter);
       }
 
-      protected void S122( )
+      protected void S132( )
       {
          /* 'ATTRIBUTESSECURITYCODE' Routine */
          returnInSub = false;
@@ -1377,15 +1380,15 @@ namespace GeneXus.Programs {
                if ( String.IsNullOrEmpty(StringUtil.RTrim( AV32URL)) )
                {
                   AV37GAMApplicationCollection = new GeneXus.Programs.genexussecurity.SdtGAMRepository(context).getapplications(AV38GAMApplicationFilter, out  AV11Errors);
-                  AV42GXV2 = 1;
-                  while ( AV42GXV2 <= AV37GAMApplicationCollection.Count )
+                  AV44GXV2 = 1;
+                  while ( AV44GXV2 <= AV37GAMApplicationCollection.Count )
                   {
-                     AV39GAMApplication = ((GeneXus.Programs.genexussecurity.SdtGAMApplication)AV37GAMApplicationCollection.Item(AV42GXV2));
+                     AV39GAMApplication = ((GeneXus.Programs.genexussecurity.SdtGAMApplication)AV37GAMApplicationCollection.Item(AV44GXV2));
                      if ( StringUtil.StrCmp(AV39GAMApplication.gxTpr_Guid, "8d9934db-05db-4d64-adba-5e0466c3appU") != 0 )
                      {
                         if (true) break;
                      }
-                     AV42GXV2 = (int)(AV42GXV2+1);
+                     AV44GXV2 = (int)(AV44GXV2+1);
                   }
                   AV39GAMApplication = AV39GAMApplication.get();
                   if ( StringUtil.StrCmp(AV39GAMApplication.gxTpr_Homeobject, "") != 0 )
@@ -1408,10 +1411,10 @@ namespace GeneXus.Programs {
             {
                cmbavLogonto.removeAllItems();
                AV7AuthenticationTypes = new GeneXus.Programs.genexussecurity.SdtGAMRepository(context).getenabledauthenticationtypes(AV21Language, out  AV11Errors);
-               AV43GXV3 = 1;
-               while ( AV43GXV3 <= AV7AuthenticationTypes.Count )
+               AV45GXV3 = 1;
+               while ( AV45GXV3 <= AV7AuthenticationTypes.Count )
                {
-                  AV6AuthenticationType = ((GeneXus.Programs.genexussecurity.SdtGAMAuthenticationTypeSimple)AV7AuthenticationTypes.Item(AV43GXV3));
+                  AV6AuthenticationType = ((GeneXus.Programs.genexussecurity.SdtGAMAuthenticationTypeSimple)AV7AuthenticationTypes.Item(AV45GXV3));
                   if ( AV6AuthenticationType.gxTpr_Needusername )
                   {
                      cmbavLogonto.addItem(AV6AuthenticationType.gxTpr_Name, AV6AuthenticationType.gxTpr_Description, 0);
@@ -1421,7 +1424,7 @@ namespace GeneXus.Programs {
                      subGridauthtypes_Visible = 1;
                      AssignProp("", false, "GridauthtypesContainerDiv", "Visible", StringUtil.LTrimStr( (decimal)(subGridauthtypes_Visible), 5, 0), true);
                   }
-                  AV43GXV3 = (int)(AV43GXV3+1);
+                  AV45GXV3 = (int)(AV45GXV3+1);
                }
                if ( cmbavLogonto.ItemCount <= 1 )
                {
@@ -1453,10 +1456,10 @@ namespace GeneXus.Programs {
                /* Execute user subroutine: 'DISPLAYCHECKBOX' */
                S152 ();
                if (returnInSub) return;
-               AV44GXV4 = 1;
-               while ( AV44GXV4 <= AV7AuthenticationTypes.Count )
+               AV46GXV4 = 1;
+               while ( AV46GXV4 <= AV7AuthenticationTypes.Count )
                {
-                  AV6AuthenticationType = ((GeneXus.Programs.genexussecurity.SdtGAMAuthenticationTypeSimple)AV7AuthenticationTypes.Item(AV44GXV4));
+                  AV6AuthenticationType = ((GeneXus.Programs.genexussecurity.SdtGAMAuthenticationTypeSimple)AV7AuthenticationTypes.Item(AV46GXV4));
                   if ( StringUtil.StrCmp(AV6AuthenticationType.gxTpr_Name, AV24LogOnTo) == 0 )
                   {
                      /* Execute user subroutine: 'VALIDLOGONTOOTP' */
@@ -1464,7 +1467,7 @@ namespace GeneXus.Programs {
                      if (returnInSub) return;
                      if (true) break;
                   }
-                  AV44GXV4 = (int)(AV44GXV4+1);
+                  AV46GXV4 = (int)(AV46GXV4+1);
                }
             }
          }
@@ -1491,10 +1494,10 @@ namespace GeneXus.Programs {
          returnInSub = false;
          AV7AuthenticationTypes = new GeneXus.Programs.genexussecurity.SdtGAMRepository(context).getenabledauthenticationtypes(AV21Language, out  AV11Errors);
          AV17isModeOTP = false;
-         AV45GXV5 = 1;
-         while ( AV45GXV5 <= AV7AuthenticationTypes.Count )
+         AV47GXV5 = 1;
+         while ( AV47GXV5 <= AV7AuthenticationTypes.Count )
          {
-            AV6AuthenticationType = ((GeneXus.Programs.genexussecurity.SdtGAMAuthenticationTypeSimple)AV7AuthenticationTypes.Item(AV45GXV5));
+            AV6AuthenticationType = ((GeneXus.Programs.genexussecurity.SdtGAMAuthenticationTypeSimple)AV7AuthenticationTypes.Item(AV47GXV5));
             if ( StringUtil.StrCmp(AV6AuthenticationType.gxTpr_Name, AV24LogOnTo) == 0 )
             {
                /* Execute user subroutine: 'VALIDLOGONTOOTP' */
@@ -1502,7 +1505,7 @@ namespace GeneXus.Programs {
                if (returnInSub) return;
                if (true) break;
             }
-            AV45GXV5 = (int)(AV45GXV5+1);
+            AV47GXV5 = (int)(AV47GXV5+1);
          }
          if ( ! AV17isModeOTP )
          {
@@ -1534,7 +1537,7 @@ namespace GeneXus.Programs {
          context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV5AdditionalParameter", AV5AdditionalParameter);
       }
 
-      protected void S112( )
+      protected void S122( )
       {
          /* 'ISMULTITENANTINSTALLATION' Routine */
          returnInSub = false;
@@ -1635,19 +1638,19 @@ namespace GeneXus.Programs {
       {
          /* 'DISPLAYMESSAGES' Routine */
          returnInSub = false;
-         AV46GXV6 = 1;
-         while ( AV46GXV6 <= AV11Errors.Count )
+         AV48GXV6 = 1;
+         while ( AV48GXV6 <= AV11Errors.Count )
          {
-            AV10Error = ((GeneXus.Programs.genexussecurity.SdtGAMError)AV11Errors.Item(AV46GXV6));
+            AV10Error = ((GeneXus.Programs.genexussecurity.SdtGAMError)AV11Errors.Item(AV48GXV6));
             if ( AV10Error.gxTpr_Code != 13 )
             {
                GX_msglist.addItem(new WorkWithPlus.workwithplus_web.dvmessagegetbasicnotificationmsg(context).executeUdp(  "Error!",  AV10Error.gxTpr_Message,  "error",  "#"+edtavUserpassword_Internalname,  "true",  ""));
             }
-            AV46GXV6 = (int)(AV46GXV6+1);
+            AV48GXV6 = (int)(AV48GXV6+1);
          }
       }
 
-      protected void S132( )
+      protected void S112( )
       {
          /* 'REDIRECTUSER' Routine */
          returnInSub = false;
@@ -1668,8 +1671,6 @@ namespace GeneXus.Programs {
          }
          else
          {
-            CallWebObject(formatLink("wp_projectoverview.aspx") );
-            context.wjLocDisableFrm = 1;
          }
       }
 
@@ -1714,7 +1715,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257251422952", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202582531426", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1730,7 +1731,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("login.js", "?20257251422955", false, true);
+         context.AddJavascriptSource("login.js", "?202582531429", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Mask/jquery.mask.js", "", false, true);
          context.AddJavascriptSource("DVelop/WorkWithPlusUtilities/BootstrapSelect.js", "", false, true);
@@ -1820,8 +1821,8 @@ namespace GeneXus.Programs {
          TempTags = "  onfocus=\"gx.evt.onfocus(this, 62,'',false,'',57)\"";
          ClassString = "AttributeImage30" + " " + ((StringUtil.StrCmp(edtavImageauthtype_gximage, "")==0) ? "" : "GX_Image_"+edtavImageauthtype_gximage+"_Class");
          StyleString = "";
-         AV15ImageAuthType_IsBlob = (bool)((String.IsNullOrEmpty(StringUtil.RTrim( AV15ImageAuthType))&&String.IsNullOrEmpty(StringUtil.RTrim( AV41Imageauthtype_GXI)))||!String.IsNullOrEmpty(StringUtil.RTrim( AV15ImageAuthType)));
-         sImgUrl = (String.IsNullOrEmpty(StringUtil.RTrim( AV15ImageAuthType)) ? AV41Imageauthtype_GXI : context.PathToRelativeUrl( AV15ImageAuthType));
+         AV15ImageAuthType_IsBlob = (bool)((String.IsNullOrEmpty(StringUtil.RTrim( AV15ImageAuthType))&&String.IsNullOrEmpty(StringUtil.RTrim( AV43Imageauthtype_GXI)))||!String.IsNullOrEmpty(StringUtil.RTrim( AV15ImageAuthType)));
+         sImgUrl = (String.IsNullOrEmpty(StringUtil.RTrim( AV15ImageAuthType)) ? AV43Imageauthtype_GXI : context.PathToRelativeUrl( AV15ImageAuthType));
          GridauthtypesRow.AddColumnProperties("bitmap", 1, isAjaxCallMode( ), new Object[] {(string)edtavImageauthtype_Internalname,(string)sImgUrl,(string)"",(string)"",(string)"",context.GetTheme( ),(short)1,(short)1,(string)"",(string)edtavImageauthtype_Tooltiptext,(short)0,(short)-1,(short)0,(string)"",(short)0,(string)"",(short)0,(short)0,(short)5,(string)edtavImageauthtype_Jsonclick,"'"+""+"'"+",false,"+"'"+"EVIMAGEAUTHTYPE.CLICK."+sGXsfl_57_idx+"'",(string)StyleString,(string)ClassString,(string)"",(string)"",(string)"",(string)"",(string)""+TempTags,(string)"",(string)"",(short)1,(bool)AV15ImageAuthType_IsBlob,(bool)false,context.GetImageSrcSet( sImgUrl)});
          GridauthtypesColumn = GXWebColumn.GetNew(isAjaxCallMode( ));
          GridauthtypesRow.AddRenderProperties(GridauthtypesColumn);
@@ -2251,7 +2252,7 @@ namespace GeneXus.Programs {
          EvtRowId = "";
          sEvtType = "";
          AV15ImageAuthType = "";
-         AV41Imageauthtype_GXI = "";
+         AV43Imageauthtype_GXI = "";
          AV31TypeAuthType = "";
          AV25NameAuthType = "";
          AV28RepositoryGUID = "";
@@ -2308,12 +2309,12 @@ namespace GeneXus.Programs {
       private int lblForgotpassword_Visible ;
       private int edtavUrl_Visible ;
       private int subGridauthtypes_Islastpage ;
-      private int AV40GXV1 ;
-      private int AV42GXV2 ;
-      private int AV43GXV3 ;
-      private int AV44GXV4 ;
-      private int AV45GXV5 ;
-      private int AV46GXV6 ;
+      private int AV42GXV1 ;
+      private int AV44GXV2 ;
+      private int AV45GXV3 ;
+      private int AV46GXV4 ;
+      private int AV47GXV5 ;
+      private int AV48GXV6 ;
       private int idxLst ;
       private int subGridauthtypes_Backcolor ;
       private int subGridauthtypes_Allbackcolor ;
@@ -2431,7 +2432,7 @@ namespace GeneXus.Programs {
       private string AV24LogOnTo ;
       private string AV33UserName ;
       private string AV32URL ;
-      private string AV41Imageauthtype_GXI ;
+      private string AV43Imageauthtype_GXI ;
       private string AV15ImageAuthType ;
       private GXWebGrid GridauthtypesContainer ;
       private GXWebRow GridauthtypesRow ;

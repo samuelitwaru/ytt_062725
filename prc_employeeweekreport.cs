@@ -166,7 +166,7 @@ namespace GeneXus.Programs {
                AV19Sun = GXt_int1;
                GXt_decimal4 = (decimal)(AV20Blank);
                GXt_decimal5 = (decimal)(AV33Leave);
-               new employeeleavetotal(context ).execute(  A106EmployeeId,  AV11FromDate,  DateTimeUtil.DAdd( AV11FromDate, (6)), out  GXt_decimal5) ;
+               new employeeleavetotal(context ).execute(  A106EmployeeId,  AV11FromDate,  DateTimeUtil.DAdd( AV11FromDate, (4)), out  GXt_decimal5) ;
                AV33Leave = Convert.ToInt64(Math.Round(GXt_decimal5, 18, MidpointRounding.ToEven));
                AV20Blank = (long)(Math.Round(GXt_decimal4, 18, MidpointRounding.ToEven));
                AV21Total = (short)(AV13Mon+AV14Tue+AV15Wed+AV16Thu+AV17Fri+AV18Sat+AV19Sun);
