@@ -1181,13 +1181,11 @@ namespace GeneXus.Programs {
       {
          /* Start Routine */
          returnInSub = false;
-         AV13DateRange = context.localUtil.YMDToD( DateTimeUtil.Year( Gx_date), DateTimeUtil.Month( Gx_date), 1);
+         AV13DateRange = context.localUtil.YMDToD( DateTimeUtil.Year( Gx_date), 1, 1);
          AssignAttri("", false, "AV13DateRange", context.localUtil.Format(AV13DateRange, "99/99/99"));
          AV15DateRange_To = DateTimeUtil.DateEndOfMonth( AV13DateRange);
          AssignAttri("", false, "AV15DateRange_To", context.localUtil.Format(AV15DateRange_To, "99/99/99"));
-         AV13DateRange = context.localUtil.YMDToD( 2024, 1, 1);
-         AssignAttri("", false, "AV13DateRange", context.localUtil.Format(AV13DateRange, "99/99/99"));
-         AV15DateRange_To = context.localUtil.YMDToD( 2024, 12, 31);
+         AV15DateRange_To = context.localUtil.YMDToD( DateTimeUtil.Year( AV15DateRange_To), 12, 31);
          AssignAttri("", false, "AV15DateRange_To", context.localUtil.Format(AV15DateRange_To, "99/99/99"));
          /* Execute user subroutine: 'SETUPACCORDINGTOROLE' */
          S112 ();
@@ -1531,7 +1529,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025725141068", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259216593035", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1547,7 +1545,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("wpemployeeleavedetails.js", "?2025725141068", false, true);
+         context.AddJavascriptSource("wpemployeeleavedetails.js", "?20259216593036", false, true);
          context.AddJavascriptSource("UserControls/UCLeavePivotTableRender.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/daterangepicker/locales.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/daterangepicker/wwp-daterangepicker.js", "", false, true);

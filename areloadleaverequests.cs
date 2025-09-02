@@ -116,7 +116,7 @@ namespace GeneXus.Programs {
             A100CompanyId = P00AC2_A100CompanyId[0];
             AV8LeaveRequest.Load(A127LeaveRequestId);
             GXt_decimal1 = 0;
-            new getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  A106EmployeeId, out  GXt_decimal1) ;
+            new prc_getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  A106EmployeeId, out  GXt_decimal1) ;
             AV8LeaveRequest.gxTpr_Leaverequestduration = GXt_decimal1;
             if ( AV8LeaveRequest.Update() )
             {

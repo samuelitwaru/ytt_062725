@@ -9,5 +9,4 @@
   <Table name="WorkHourLog" />
   <Table name="SupportRequest" />
   <Table name="EmployeeVacationSet" />
-  <Table name="Holiday" />
 </Dependencies>

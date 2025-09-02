@@ -1,0 +1,1 @@
+<%@ServiceHost Service= "GeneXus.Programs.prc_getleaverequestdays,prc_getleaverequestdays" %>

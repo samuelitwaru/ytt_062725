@@ -130,12 +130,6 @@ namespace GeneXus.Programs {
             cleanup();
             if (true) return;
          }
-         AV30GXV1 = 1;
-         while ( AV30GXV1 <= AV6WorkLogsSDTs.Count )
-         {
-            AV6WorkLogsSDTs.CurrentItem = ((SdtWorkLogsSDT)AV6WorkLogsSDTs.Item(AV30GXV1));
-            AV30GXV1 = (int)(AV30GXV1+1);
-         }
          AV28GXM1PO_WorkLogs_Level_DetailSdt.gxTpr_Worklogssdts = AV6WorkLogsSDTs;
          AV28GXM1PO_WorkLogs_Level_DetailSdt.gxTpr_Datetoday = AV16DateToday;
          AV28GXM1PO_WorkLogs_Level_DetailSdt.gxTpr_Lateupdatemsgvar = AV18lateUpdateMsgVar;
@@ -204,7 +198,6 @@ namespace GeneXus.Programs {
       }
 
       private int AV22gxid ;
-      private int AV30GXV1 ;
       private string Gxids ;
       private DateTime AV7LogDate ;
       private DateTime AV16DateToday ;

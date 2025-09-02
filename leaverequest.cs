@@ -1212,7 +1212,7 @@ namespace GeneXus.Programs {
          /* LeaveRequestEndDate_Controlvaluechanged Routine */
          returnInSub = false;
          GXt_decimal1 = AV35LeaveRequestDuration;
-         new getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
+         new prc_getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
          AV35LeaveRequestDuration = GXt_decimal1;
          AssignAttri("", false, "AV35LeaveRequestDuration", StringUtil.LTrimStr( AV35LeaveRequestDuration, 4, 1));
          /*  Sending Event outputs  */
@@ -1223,7 +1223,7 @@ namespace GeneXus.Programs {
          /* LeaveRequestStartDate_Controlvaluechanged Routine */
          returnInSub = false;
          GXt_decimal1 = AV35LeaveRequestDuration;
-         new getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
+         new prc_getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
          AV35LeaveRequestDuration = GXt_decimal1;
          AssignAttri("", false, "AV35LeaveRequestDuration", StringUtil.LTrimStr( AV35LeaveRequestDuration, 4, 1));
          /*  Sending Event outputs  */
@@ -1279,7 +1279,7 @@ namespace GeneXus.Programs {
          /* LeaveRequestHalfDay_Click Routine */
          returnInSub = false;
          GXt_decimal1 = AV35LeaveRequestDuration;
-         new getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
+         new prc_getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
          AV35LeaveRequestDuration = GXt_decimal1;
          AssignAttri("", false, "AV35LeaveRequestDuration", StringUtil.LTrimStr( AV35LeaveRequestDuration, 4, 1));
          /*  Sending Event outputs  */
@@ -1496,7 +1496,7 @@ namespace GeneXus.Programs {
             AssignAttri("", false, "A130LeaveRequestEndDate", context.localUtil.Format(A130LeaveRequestEndDate, "99/99/99"));
          }
          GXt_decimal1 = A131LeaveRequestDuration;
-         new getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
+         new prc_getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
          A131LeaveRequestDuration = GXt_decimal1;
          AssignAttri("", false, "A131LeaveRequestDuration", StringUtil.LTrimStr( A131LeaveRequestDuration, 4, 1));
          if ( StringUtil.StrCmp(A171LeaveRequestHalfDay, "") != 0 )
@@ -1539,7 +1539,7 @@ namespace GeneXus.Programs {
             AssignAttri("", false, "A130LeaveRequestEndDate", context.localUtil.Format(A130LeaveRequestEndDate, "99/99/99"));
          }
          GXt_decimal1 = A131LeaveRequestDuration;
-         new getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
+         new prc_getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
          A131LeaveRequestDuration = GXt_decimal1;
          AssignAttri("", false, "A131LeaveRequestDuration", StringUtil.LTrimStr( A131LeaveRequestDuration, 4, 1));
          if ( (DateTime.MinValue==A129LeaveRequestStartDate) )
@@ -2669,7 +2669,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513521110", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259214131424", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2685,7 +2685,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("leaverequest.js", "?202572513521114", false, true);
+         context.AddJavascriptSource("leaverequest.js", "?20259214131427", false, true);
          /* End function include_jscripts */
       }
 
@@ -2927,7 +2927,7 @@ namespace GeneXus.Programs {
                                                       long AV18EmployeeId )
       {
          GXt_decimal1 = A131LeaveRequestDuration;
-         new getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
+         new prc_getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
          A131LeaveRequestDuration = GXt_decimal1;
          AssignAttri("", false, "A131LeaveRequestDuration", StringUtil.LTrimStr( A131LeaveRequestDuration, 4, 1));
          GxWebStd.set_html_headers( context, 0, "", "");
@@ -3066,7 +3066,7 @@ namespace GeneXus.Programs {
             GX_FocusControl = radLeaveRequestHalfDay_Internalname;
          }
          GXt_decimal1 = A131LeaveRequestDuration;
-         new getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
+         new prc_getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV18EmployeeId, out  GXt_decimal1) ;
          A131LeaveRequestDuration = GXt_decimal1;
          if ( ( A131LeaveRequestDuration <= Convert.ToDecimal( 0 )) )
          {

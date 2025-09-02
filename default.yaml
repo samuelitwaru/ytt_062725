@@ -1,9 +1,9 @@
 openapi: 3.0.0
 info:
   title: "YTT_version4"
-  version: "20250725110605"
+  version: "20250902111500"
 servers:
-  - url: http://localhost:8083/YTT_version4NETPostgreSQL14/rest
+  - url: http://localhost:8082/YTT_version4NETPostgreSQL14/rest
 paths:
   /Device/{DeviceId}:
     get:
@@ -1349,6 +1349,29 @@ paths:
       responses:
         200:
           description: "Successful operation"
+        404:
+          description: "Not found"
+  /Prc_GetLeaveRequestDays:
+    post:
+      tags:
+        - Prc_GetLeaveRequestDays
+      operationId: "Prc_GetLeaveRequestDays"
+      summary: "Prc_Get Leave Request Days"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Prc_GetLeaveRequestDaysInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Prc_GetLeaveRequestDaysOutput"
         404:
           description: "Not found"
   /Prc_ICSLeaveAPI:
@@ -3276,7 +3299,7 @@ components:
       description: GAM OAuth 2
       flows:
         password:          
-          tokenUrl: http://localhost:8083/YTT_version4NETPostgreSQL14/oauth/gam/v2.0/access_token
+          tokenUrl: http://localhost:8082/YTT_version4NETPostgreSQL14/oauth/gam/v2.0/access_token
           scopes: 
             fullcontrol: Full access
   schemas:
@@ -3618,6 +3641,11 @@ components:
           type: "string"
         OptionIndexesJson:
           type: "string"
+    Prc_GetLeaveRequestDaysOutput:
+      properties:
+        FinalDuration:
+          type: "number"
+          format: "double"
     Prc_ICSLeaveAPIOutput:
       properties:
         ICSLeaveExport:
@@ -4097,6 +4125,19 @@ components:
       properties:
         Message:
           type: "string"
+    Prc_GetLeaveRequestDaysInput:  
+      properties:
+        StartDate:
+          type: "string"
+          format: "date"
+        EndDate:
+          type: "string"
+          format: "date"
+        LeaveRequestHalfDay:
+          type: "string"
+        EmployeeId:
+          type: "integer"
+          format: "int64"
     ProjectWWGetFilterDataInput:  
       properties:
         DDOName:

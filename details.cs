@@ -17,6 +17,7 @@ using GeneXus.XML;
 using GeneXus.Search;
 using GeneXus.Encryption;
 using GeneXus.Http.Client;
+using GeneXus.Http.Server;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 namespace GeneXus.Programs {
@@ -988,40 +989,19 @@ namespace GeneXus.Programs {
                               /* Execute user event: 'DoCancelUpdateButton' */
                               E214H2 ();
                            }
-                           else if ( StringUtil.StrCmp(sEvt, "LEAVEREQUEST_LEAVEREQUESTSTARTDATE.CONTROLVALUECHANGED") == 0 )
-                           {
-                              context.wbHandled = 1;
-                              dynload_actions( ) ;
-                              /* Execute user event: Leaverequest_leaverequeststartdate.Controlvaluechanged */
-                              E224H2 ();
-                           }
-                           else if ( StringUtil.StrCmp(sEvt, "LEAVEREQUEST_LEAVEREQUESTENDDATE.CONTROLVALUECHANGED") == 0 )
-                           {
-                              context.wbHandled = 1;
-                              dynload_actions( ) ;
-                              /* Execute user event: Leaverequest_leaverequestenddate.Controlvaluechanged */
-                              E234H2 ();
-                           }
-                           else if ( StringUtil.StrCmp(sEvt, "LEAVEREQUEST_LEAVEREQUESTHALFDAY.CONTROLVALUECHANGED") == 0 )
-                           {
-                              context.wbHandled = 1;
-                              dynload_actions( ) ;
-                              /* Execute user event: Leaverequest_leaverequesthalfday.Controlvaluechanged */
-                              E244H2 ();
-                           }
                            else if ( StringUtil.StrCmp(sEvt, "LEAVEREQUEST_LEAVETYPEID.CONTROLVALUECHANGED") == 0 )
                            {
                               context.wbHandled = 1;
                               dynload_actions( ) ;
                               /* Execute user event: Leaverequest_leavetypeid.Controlvaluechanged */
-                              E254H2 ();
+                              E224H2 ();
                            }
                            else if ( StringUtil.StrCmp(sEvt, "LOAD") == 0 )
                            {
                               context.wbHandled = 1;
                               dynload_actions( ) ;
                               /* Execute user event: Load */
-                              E264H2 ();
+                              E234H2 ();
                            }
                            else if ( StringUtil.StrCmp(sEvt, "ENTER") == 0 )
                            {
@@ -1263,7 +1243,7 @@ namespace GeneXus.Programs {
          if ( ! context.WillRedirect( ) && ( context.nUserReturn != 1 ) )
          {
             /* Execute user event: Load */
-            E264H2 ();
+            E234H2 ();
             WB4H0( ) ;
          }
       }
@@ -1626,13 +1606,13 @@ namespace GeneXus.Programs {
          }
          else
          {
-            AV58GXV16 = 1;
-            AV57GXV15 = AV8LeaveRequest.GetMessages();
-            while ( AV58GXV16 <= AV57GXV15.Count )
+            AV63GXV16 = 1;
+            AV62GXV15 = AV8LeaveRequest.GetMessages();
+            while ( AV63GXV16 <= AV62GXV15.Count )
             {
-               AV9Message = ((GeneXus.Utils.SdtMessages_Message)AV57GXV15.Item(AV58GXV16));
+               AV9Message = ((GeneXus.Utils.SdtMessages_Message)AV62GXV15.Item(AV63GXV16));
                GX_msglist.addItem(AV9Message.gxTpr_Description);
-               AV58GXV16 = (int)(AV58GXV16+1);
+               AV63GXV16 = (int)(AV63GXV16+1);
             }
          }
          /*  Sending Event outputs  */
@@ -1717,13 +1697,13 @@ namespace GeneXus.Programs {
          else
          {
             context.RollbackDataStores("details",pr_default);
-            AV60GXV18 = 1;
-            AV59GXV17 = AV8LeaveRequest.GetMessages();
-            while ( AV60GXV18 <= AV59GXV17.Count )
+            AV65GXV18 = 1;
+            AV64GXV17 = AV8LeaveRequest.GetMessages();
+            while ( AV65GXV18 <= AV64GXV17.Count )
             {
-               AV9Message = ((GeneXus.Utils.SdtMessages_Message)AV59GXV17.Item(AV60GXV18));
+               AV9Message = ((GeneXus.Utils.SdtMessages_Message)AV64GXV17.Item(AV65GXV18));
                GX_msglist.addItem(AV9Message.gxTpr_Description);
-               AV60GXV18 = (int)(AV60GXV18+1);
+               AV65GXV18 = (int)(AV65GXV18+1);
             }
          }
       }
@@ -1758,13 +1738,13 @@ namespace GeneXus.Programs {
          else
          {
             context.RollbackDataStores("details",pr_default);
-            AV62GXV20 = 1;
-            AV61GXV19 = AV8LeaveRequest.GetMessages();
-            while ( AV62GXV20 <= AV61GXV19.Count )
+            AV67GXV20 = 1;
+            AV66GXV19 = AV8LeaveRequest.GetMessages();
+            while ( AV67GXV20 <= AV66GXV19.Count )
             {
-               AV9Message = ((GeneXus.Utils.SdtMessages_Message)AV61GXV19.Item(AV62GXV20));
+               AV9Message = ((GeneXus.Utils.SdtMessages_Message)AV66GXV19.Item(AV67GXV20));
                GX_msglist.addItem(AV9Message.gxTpr_Description);
-               AV62GXV20 = (int)(AV62GXV20+1);
+               AV67GXV20 = (int)(AV67GXV20+1);
             }
          }
       }
@@ -1791,13 +1771,13 @@ namespace GeneXus.Programs {
          }
          else
          {
-            AV64GXV22 = 1;
-            AV63GXV21 = AV8LeaveRequest.GetMessages();
-            while ( AV64GXV22 <= AV63GXV21.Count )
+            AV69GXV22 = 1;
+            AV68GXV21 = AV8LeaveRequest.GetMessages();
+            while ( AV69GXV22 <= AV68GXV21.Count )
             {
-               AV9Message = ((GeneXus.Utils.SdtMessages_Message)AV63GXV21.Item(AV64GXV22));
+               AV9Message = ((GeneXus.Utils.SdtMessages_Message)AV68GXV21.Item(AV69GXV22));
                GX_msglist.addItem(AV9Message.gxTpr_Description);
-               AV64GXV22 = (int)(AV64GXV22+1);
+               AV69GXV22 = (int)(AV69GXV22+1);
             }
          }
       }
@@ -1830,61 +1810,16 @@ namespace GeneXus.Programs {
       {
          /* 'SHOW MESSAGES' Routine */
          returnInSub = false;
-         AV65GXV23 = 1;
-         while ( AV65GXV23 <= AV10Messages.Count )
+         AV70GXV23 = 1;
+         while ( AV70GXV23 <= AV10Messages.Count )
          {
-            AV9Message = ((GeneXus.Utils.SdtMessages_Message)AV10Messages.Item(AV65GXV23));
+            AV9Message = ((GeneXus.Utils.SdtMessages_Message)AV10Messages.Item(AV70GXV23));
             GX_msglist.addItem(AV9Message.gxTpr_Description);
-            AV65GXV23 = (int)(AV65GXV23+1);
+            AV70GXV23 = (int)(AV70GXV23+1);
          }
       }
 
       protected void E224H2( )
-      {
-         /* Leaverequest_leaverequeststartdate_Controlvaluechanged Routine */
-         returnInSub = false;
-         if ( DateTimeUtil.ResetTime ( AV8LeaveRequest.gxTpr_Leaverequestenddate ) != DateTimeUtil.ResetTime ( AV8LeaveRequest.gxTpr_Leaverequeststartdate ) )
-         {
-            AV8LeaveRequest.gxTpr_Leaverequesthalfday = "";
-         }
-         /* Execute user subroutine: 'LEAVEDURATIONSUB' */
-         S192 ();
-         if (returnInSub) return;
-         /*  Sending Event outputs  */
-         context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV8LeaveRequest", AV8LeaveRequest);
-      }
-
-      protected void E234H2( )
-      {
-         /* Leaverequest_leaverequestenddate_Controlvaluechanged Routine */
-         returnInSub = false;
-         if ( DateTimeUtil.ResetTime ( AV8LeaveRequest.gxTpr_Leaverequestenddate ) != DateTimeUtil.ResetTime ( AV8LeaveRequest.gxTpr_Leaverequeststartdate ) )
-         {
-            AV8LeaveRequest.gxTpr_Leaverequesthalfday = "";
-         }
-         /* Execute user subroutine: 'LEAVEDURATIONSUB' */
-         S192 ();
-         if (returnInSub) return;
-         /*  Sending Event outputs  */
-         context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV8LeaveRequest", AV8LeaveRequest);
-      }
-
-      protected void E244H2( )
-      {
-         /* Leaverequest_leaverequesthalfday_Controlvaluechanged Routine */
-         returnInSub = false;
-         if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV8LeaveRequest.gxTpr_Leaverequesthalfday)) )
-         {
-            AV8LeaveRequest.gxTpr_Leaverequestenddate = AV8LeaveRequest.gxTpr_Leaverequeststartdate;
-         }
-         /* Execute user subroutine: 'LEAVEDURATIONSUB' */
-         S192 ();
-         if (returnInSub) return;
-         /*  Sending Event outputs  */
-         context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV8LeaveRequest", AV8LeaveRequest);
-      }
-
-      protected void E254H2( )
       {
          /* Leaverequest_leavetypeid_Controlvaluechanged Routine */
          returnInSub = false;
@@ -1898,9 +1833,6 @@ namespace GeneXus.Programs {
       {
          /* 'LEAVEDURATIONSUB' Routine */
          returnInSub = false;
-         GXt_decimal4 = 0;
-         new getleaverequestdays(context ).execute(  AV8LeaveRequest.gxTpr_Leaverequeststartdate,  AV8LeaveRequest.gxTpr_Leaverequestenddate,  AV8LeaveRequest.gxTpr_Leaverequesthalfday,  AV8LeaveRequest.gxTpr_Employeeid, out  GXt_decimal4) ;
-         AV8LeaveRequest.gxTpr_Leaverequestduration = GXt_decimal4;
       }
 
       protected void S172( )
@@ -1945,7 +1877,7 @@ namespace GeneXus.Programs {
       {
       }
 
-      protected void E264H2( )
+      protected void E234H2( )
       {
          /* Load Routine */
          returnInSub = false;
@@ -2103,7 +2035,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257251402256", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259215351397", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2119,7 +2051,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("details.js", "?20257251402257", false, true);
+         context.AddJavascriptSource("details.js", "?20259215351397", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/ConfirmPanel/BootstrapConfirmPanelRender.js", "", false, true);
@@ -2330,13 +2262,7 @@ namespace GeneXus.Programs {
          setEventMetadata("'DOCANCELUPDATEBUTTON'",""","oparms":[{"av":"divTableapproveaction_Visible","ctrl":"TABLEAPPROVEACTION","prop":"Visible"},{"av":"divTableeditaction_Visible","ctrl":"TABLEEDITACTION","prop":"Visible"},{"av":"divTableupdateaction_Visible","ctrl":"TABLEUPDATEACTION","prop":"Visible"},{"av":"AV8LeaveRequest","fld":"vLEAVEREQUEST"},{"ctrl":"LEAVEREQUEST_EMPLOYEENAME","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVETYPEID","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVEREQUESTSTARTDATE","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVEREQUESTENDDATE","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVEREQUESTHALFDAY","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVEREQUESTDESCRIPTION","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVEREQUESTREJECTIONREASON","prop":"Enabled"}]}""");
          setEventMetadata("'DOEDITBUTTON'","""{"handler":"E114H1","iparms":[]""");
          setEventMetadata("'DOEDITBUTTON'",""","oparms":[{"av":"divTableupdateaction_Visible","ctrl":"TABLEUPDATEACTION","prop":"Visible"},{"av":"divTableapproveaction_Visible","ctrl":"TABLEAPPROVEACTION","prop":"Visible"},{"av":"divTableeditaction_Visible","ctrl":"TABLEEDITACTION","prop":"Visible"},{"ctrl":"LEAVEREQUEST_LEAVETYPEID","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVEREQUESTSTARTDATE","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVEREQUESTENDDATE","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVEREQUESTHALFDAY","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVEREQUESTDESCRIPTION","prop":"Enabled"},{"ctrl":"LEAVEREQUEST_LEAVEREQUESTREJECTIONREASON","prop":"Enabled"}]}""");
-         setEventMetadata("LEAVEREQUEST_LEAVEREQUESTSTARTDATE.CONTROLVALUECHANGED","""{"handler":"E224H2","iparms":[{"av":"AV8LeaveRequest","fld":"vLEAVEREQUEST"}]""");
-         setEventMetadata("LEAVEREQUEST_LEAVEREQUESTSTARTDATE.CONTROLVALUECHANGED",""","oparms":[{"av":"AV8LeaveRequest","fld":"vLEAVEREQUEST"}]}""");
-         setEventMetadata("LEAVEREQUEST_LEAVEREQUESTENDDATE.CONTROLVALUECHANGED","""{"handler":"E234H2","iparms":[{"av":"AV8LeaveRequest","fld":"vLEAVEREQUEST"}]""");
-         setEventMetadata("LEAVEREQUEST_LEAVEREQUESTENDDATE.CONTROLVALUECHANGED",""","oparms":[{"av":"AV8LeaveRequest","fld":"vLEAVEREQUEST"}]}""");
-         setEventMetadata("LEAVEREQUEST_LEAVEREQUESTHALFDAY.CONTROLVALUECHANGED","""{"handler":"E244H2","iparms":[{"av":"AV8LeaveRequest","fld":"vLEAVEREQUEST"}]""");
-         setEventMetadata("LEAVEREQUEST_LEAVEREQUESTHALFDAY.CONTROLVALUECHANGED",""","oparms":[{"av":"AV8LeaveRequest","fld":"vLEAVEREQUEST"}]}""");
-         setEventMetadata("LEAVEREQUEST_LEAVETYPEID.CONTROLVALUECHANGED","""{"handler":"E254H2","iparms":[{"av":"AV8LeaveRequest","fld":"vLEAVEREQUEST"}]""");
+         setEventMetadata("LEAVEREQUEST_LEAVETYPEID.CONTROLVALUECHANGED","""{"handler":"E224H2","iparms":[{"av":"AV8LeaveRequest","fld":"vLEAVEREQUEST"}]""");
          setEventMetadata("LEAVEREQUEST_LEAVETYPEID.CONTROLVALUECHANGED",""","oparms":[{"av":"AV20DeductFromVacationDaysVariable","fld":"vDEDUCTFROMVACATIONDAYSVARIABLE"}]}""");
          setEventMetadata("VALIDV_GXV14","""{"handler":"Validv_Gxv14","iparms":[]}""");
          return  ;
@@ -2393,15 +2319,15 @@ namespace GeneXus.Programs {
          H004H3_A125LeaveTypeName = new string[] {""} ;
          AV10Messages = new GXBaseCollection<GeneXus.Utils.SdtMessages_Message>( context, "Message", "GeneXus");
          ucDvelop_confirmpanel_rejectbutton = new GXUserControl();
-         AV57GXV15 = new GXBaseCollection<GeneXus.Utils.SdtMessages_Message>( context, "Message", "GeneXus");
+         AV62GXV15 = new GXBaseCollection<GeneXus.Utils.SdtMessages_Message>( context, "Message", "GeneXus");
          AV9Message = new GeneXus.Utils.SdtMessages_Message(context);
          AV16Employee = new SdtEmployee(context);
          AV17LeaveType = new SdtLeaveType(context);
-         AV59GXV17 = new GXBaseCollection<GeneXus.Utils.SdtMessages_Message>( context, "Message", "GeneXus");
+         AV64GXV17 = new GXBaseCollection<GeneXus.Utils.SdtMessages_Message>( context, "Message", "GeneXus");
          GXt_char3 = "";
          GXt_char2 = "";
-         AV61GXV19 = new GXBaseCollection<GeneXus.Utils.SdtMessages_Message>( context, "Message", "GeneXus");
-         AV63GXV21 = new GXBaseCollection<GeneXus.Utils.SdtMessages_Message>( context, "Message", "GeneXus");
+         AV66GXV19 = new GXBaseCollection<GeneXus.Utils.SdtMessages_Message>( context, "Message", "GeneXus");
+         AV68GXV21 = new GXBaseCollection<GeneXus.Utils.SdtMessages_Message>( context, "Message", "GeneXus");
          sStyleString = "";
          ucDvelop_confirmpanel_deletebutton = new GXUserControl();
          ucDvelop_confirmpanel_approvebutton = new GXUserControl();
@@ -2469,17 +2395,16 @@ namespace GeneXus.Programs {
       private int edtavLeaverequest_leavetypename_Visible ;
       private int edtavLeaverequest_leaverequestdate_Visible ;
       private int gxdynajaxindex ;
-      private int AV58GXV16 ;
-      private int AV60GXV18 ;
-      private int AV62GXV20 ;
-      private int AV64GXV22 ;
-      private int AV65GXV23 ;
+      private int AV63GXV16 ;
+      private int AV65GXV18 ;
+      private int AV67GXV20 ;
+      private int AV69GXV22 ;
+      private int AV70GXV23 ;
       private int idxLst ;
       private long AV15LeaveRequestId ;
       private long wcpOAV15LeaveRequestId ;
       private long AV36LoggedInEmployeeId ;
       private long GXt_int1 ;
-      private decimal GXt_decimal4 ;
       private string AV11TrnMode ;
       private string wcpOAV11TrnMode ;
       private string Dvelop_confirmpanel_approvebutton_Result ;
@@ -2623,13 +2548,13 @@ namespace GeneXus.Programs {
       private long[] H004H3_A124LeaveTypeId ;
       private string[] H004H3_A125LeaveTypeName ;
       private GXBaseCollection<GeneXus.Utils.SdtMessages_Message> AV10Messages ;
-      private GXBaseCollection<GeneXus.Utils.SdtMessages_Message> AV57GXV15 ;
+      private GXBaseCollection<GeneXus.Utils.SdtMessages_Message> AV62GXV15 ;
       private GeneXus.Utils.SdtMessages_Message AV9Message ;
       private SdtEmployee AV16Employee ;
       private SdtLeaveType AV17LeaveType ;
-      private GXBaseCollection<GeneXus.Utils.SdtMessages_Message> AV59GXV17 ;
-      private GXBaseCollection<GeneXus.Utils.SdtMessages_Message> AV61GXV19 ;
-      private GXBaseCollection<GeneXus.Utils.SdtMessages_Message> AV63GXV21 ;
+      private GXBaseCollection<GeneXus.Utils.SdtMessages_Message> AV64GXV17 ;
+      private GXBaseCollection<GeneXus.Utils.SdtMessages_Message> AV66GXV19 ;
+      private GXBaseCollection<GeneXus.Utils.SdtMessages_Message> AV68GXV21 ;
       private msglist BackMsgLst ;
       private msglist LclMsgLst ;
       private long[] H004H4_A124LeaveTypeId ;

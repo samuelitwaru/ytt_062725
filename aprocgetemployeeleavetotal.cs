@@ -166,7 +166,7 @@ namespace GeneXus.Programs {
             A127LeaveRequestId = P00642_A127LeaveRequestId[0];
             A145LeaveTypeLoggingWorkHours = P00642_A145LeaveTypeLoggingWorkHours[0];
             GXt_decimal1 = AV24Var;
-            new getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV11EmployeeId, out  GXt_decimal1) ;
+            new prc_getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV11EmployeeId, out  GXt_decimal1) ;
             AV24Var = GXt_decimal1;
             AV8TotalLeaveHours = (long)(AV8TotalLeaveHours+AV24Var);
             pr_default.readNext(0);

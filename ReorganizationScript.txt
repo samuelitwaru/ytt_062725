@@ -1,3 +1,2 @@
-CREATE SEQUENCE EmailTemplateId MINVALUE 1 INCREMENT 1;
-CREATE TABLE Trn_EmailTemplate (EmailTemplateId bigint NOT NULL DEFAULT nextval('EmailTemplateId'), EmailTemplateName CHAR(100) NOT NULL , EmailTemplateContent TEXT NOT NULL , PRIMARY KEY(EmailTemplateId));
+DROP TABLE LeaveRequestLeaveAction CASCADE;
 

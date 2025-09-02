@@ -58,37 +58,12 @@ namespace GeneXus.Programs {
          /* Load data into tables. */
       }
 
-      public void CreateTrn_EmailTemplate( )
+      public void DeleteLeaveRequestLeaveAction( )
       {
-         string cmdBuffer = "";
-         /* Indices for table Trn_EmailTemplate */
+         string cmdBuffer;
          try
          {
-            cmdBuffer=" CREATE SEQUENCE EmailTemplateId MINVALUE 1 INCREMENT 1 "
-            ;
-            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
-            RGZ.ExecuteStmt() ;
-            RGZ.Drop();
-         }
-         catch
-         {
-            cmdBuffer=" DROP SEQUENCE EmailTemplateId CASCADE "
-            ;
-            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-            RGZ.ErrorMask = GxErrorMask.GX_MASKNOTFOUND | GxErrorMask.GX_MASKLOOPLOCK;
-            RGZ.ExecuteStmt() ;
-            RGZ.Drop();
-            cmdBuffer=" CREATE SEQUENCE EmailTemplateId MINVALUE 1 INCREMENT 1 "
-            ;
-            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
-            RGZ.ExecuteStmt() ;
-            RGZ.Drop();
-         }
-         try
-         {
-            cmdBuffer=" CREATE TABLE Trn_EmailTemplate (EmailTemplateId bigint NOT NULL DEFAULT nextval('EmailTemplateId'), EmailTemplateName CHAR(100) NOT NULL , EmailTemplateContent TEXT NOT NULL , PRIMARY KEY(EmailTemplateId))  "
+            cmdBuffer=" DROP TABLE LeaveRequestLeaveAction CASCADE "
             ;
             RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
             RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
@@ -99,7 +74,7 @@ namespace GeneXus.Programs {
          {
             try
             {
-               cmdBuffer=" DROP TABLE Trn_EmailTemplate CASCADE "
+               cmdBuffer=" DROP VIEW LeaveRequestLeaveAction CASCADE "
                ;
                RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
                RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
@@ -110,35 +85,17 @@ namespace GeneXus.Programs {
             {
                try
                {
-                  cmdBuffer=" DROP VIEW Trn_EmailTemplate CASCADE "
+                  cmdBuffer=" DROP FUNCTION LeaveRequestLeaveAction CASCADE "
                   ;
                   RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-                  RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
+                  RGZ.ErrorMask = GxErrorMask.GX_MASKNOTFOUND | GxErrorMask.GX_MASKLOOPLOCK;
                   RGZ.ExecuteStmt() ;
                   RGZ.Drop();
                }
                catch
                {
-                  try
-                  {
-                     cmdBuffer=" DROP FUNCTION Trn_EmailTemplate CASCADE "
-                     ;
-                     RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-                     RGZ.ErrorMask = GxErrorMask.GX_MASKNOTFOUND | GxErrorMask.GX_MASKLOOPLOCK;
-                     RGZ.ExecuteStmt() ;
-                     RGZ.Drop();
-                  }
-                  catch
-                  {
-                  }
                }
             }
-            cmdBuffer=" CREATE TABLE Trn_EmailTemplate (EmailTemplateId bigint NOT NULL DEFAULT nextval('EmailTemplateId'), EmailTemplateName CHAR(100) NOT NULL , EmailTemplateContent TEXT NOT NULL , PRIMARY KEY(EmailTemplateId))  "
-            ;
-            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
-            RGZ.ExecuteStmt() ;
-            RGZ.Drop();
          }
       }
 
@@ -153,9 +110,9 @@ namespace GeneXus.Programs {
             return true ;
          }
          sSchemaVar = GXUtil.UserId( "Server", context, pr_default);
-         if ( tableexist("Trn_EmailTemplate",sSchemaVar) )
+         if ( ! tableexist("LeaveRequestLeaveAction",sSchemaVar) )
          {
-            SetCheckError ( GXResourceManager.GetMessage("GXM_table_exist", new   object[]  {"Trn_EmailTemplate"}) ) ;
+            SetCheckError ( GXResourceManager.GetMessage("GXM_table_not_exist", new   object[]  {"LeaveRequestLeaveAction"}) ) ;
             return false ;
          }
          return true ;
@@ -195,7 +152,7 @@ namespace GeneXus.Programs {
 
       private void ExecuteOnlyTablesReorganization( )
       {
-         ReorgExecute.RegisterBlockForSubmit( 1 ,  "CreateTrn_EmailTemplate" , new Object[]{ });
+         ReorgExecute.RegisterBlockForSubmit( 1 ,  "DeleteLeaveRequestLeaveAction" , new Object[]{ });
       }
 
       private void ExecuteOnlyRisReorganization( )
@@ -217,7 +174,7 @@ namespace GeneXus.Programs {
 
       private void SetPrecedencetables( )
       {
-         GXReorganization.SetMsg( 1 ,  GXResourceManager.GetMessage("GXM_filecrea", new   object[]  {"Trn_EmailTemplate", ""}) );
+         GXReorganization.SetMsg( 1 ,  GXResourceManager.GetMessage("GXM_fileremove", new   object[]  {"LeaveRequestLeaveAction", ""}) );
       }
 
       private void SetPrecedenceris( )
