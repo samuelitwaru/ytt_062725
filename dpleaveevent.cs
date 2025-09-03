@@ -136,7 +136,7 @@ namespace GeneXus.Programs {
             A112EmployeeIsActive = P00172_A112EmployeeIsActive[0];
             Gxm1sdtleaveevent = new SdtSDTLeaveEvent(context);
             Gxm2rootcol.Add(Gxm1sdtleaveevent, 0);
-            Gxm1sdtleaveevent.gxTpr_Id = StringUtil.Str( (decimal)(A127LeaveRequestId), 10, 0);
+            Gxm1sdtleaveevent.gxTpr_Id = StringUtil.Trim( StringUtil.Str( (decimal)(A127LeaveRequestId), 10, 0));
             Gxm1sdtleaveevent.gxTpr_Content = "";
             GXt_char1 = "";
             new formatdatetime(context ).execute(  A129LeaveRequestStartDate,  "YYYY-MM-DD", out  GXt_char1) ;
@@ -145,7 +145,7 @@ namespace GeneXus.Programs {
             new formatdatetime(context ).execute(  DateTimeUtil.DAdd( A130LeaveRequestEndDate, (1)),  "YYYY-MM-DD", out  GXt_char1) ;
             Gxm1sdtleaveevent.gxTpr_End = GXt_char1;
             Gxm1sdtleaveevent.gxTpr_Group = (short)(A106EmployeeId);
-            Gxm1sdtleaveevent.gxTpr_Classname = ((StringUtil.StrCmp(A132LeaveRequestStatus, "Approved")==0) ? "ApprovedLeave "+StringUtil.Str( (decimal)(A127LeaveRequestId), 10, 0) : "PendingLeave");
+            Gxm1sdtleaveevent.gxTpr_Classname = ((StringUtil.StrCmp(A132LeaveRequestStatus, "Approved")==0) ? "ApprovedLeave "+"leave-"+StringUtil.Trim( StringUtil.Str( (decimal)(A127LeaveRequestId), 10, 0)) : "PendingLeave");
             Gxm1sdtleaveevent.gxTpr_Color = ((StringUtil.StrCmp(A132LeaveRequestStatus, "Approved")==0) ? StringUtil.Trim( A173LeaveTypeColorApproved) : "#DDDDDD");
             pr_default.readNext(0);
          }

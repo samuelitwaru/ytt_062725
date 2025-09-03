@@ -1539,7 +1539,7 @@ namespace GeneXus.Programs {
             AV33HolidayNameCollection.Add(StringUtil.Trim( A114HolidayName), 0);
             AV34HolidayValueCollection.Add(".vis-day"+StringUtil.Trim( StringUtil.Str( (decimal)(DateTimeUtil.Day( A115HolidayStartDate)), 10, 0))+".vis-"+StringUtil.Trim( StringUtil.Lower( DateTimeUtil.CMonth( A115HolidayStartDate, "eng"))), 0);
             AV36SDT_HolidayEvent = new SdtSDT_HolidayEvent(context);
-            AV36SDT_HolidayEvent.gxTpr_Id = "holiday"+StringUtil.Str( (decimal)(A113HolidayId), 10, 0);
+            AV36SDT_HolidayEvent.gxTpr_Id = "holiday-"+StringUtil.Trim( StringUtil.Str( (decimal)(A113HolidayId), 10, 0));
             AV36SDT_HolidayEvent.gxTpr_Content = A114HolidayName;
             GXt_char4 = "";
             new formatdatetime(context ).execute(  A115HolidayStartDate,  "YYYY-MM-DD", out  GXt_char4) ;
@@ -1671,7 +1671,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025725140570", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025931644561", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1687,7 +1687,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("leavecalendar.js", "?2025725140571", false, true);
+         context.AddJavascriptSource("leavecalendar.js", "?2025931644561", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);

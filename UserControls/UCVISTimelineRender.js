@@ -68,8 +68,6 @@ function UCVISTimeline($) {
 								background-color: #faf2cc80;
 							}
 						`
-						style.innerHTML = styleString
-						document.head.appendChild(style);
 						
 						function formatDate(date) {
 							const year = `${date.getFullYear()}`.slice(-2);
@@ -81,6 +79,7 @@ function UCVISTimeline($) {
 						const UC = this;
 						
 						var events = JSON.parse(this.events)
+						
 						var holidayEvents = JSON.parse(this.holidayEvents)
 						
 						var eventGroups = JSON.parse(this.groups)
@@ -103,9 +102,17 @@ function UCVISTimeline($) {
 						var items = new vis.DataSet();
 						for (var i = 0; i < events.length; i++) {
 							var event = events[i]
-							items.add(event)	
+							items.add(event)
+							styleString += `
+							.vis-item.ApprovedLeave.leave-${event.id} {
+								background-color: ${event.color};
+							}
+							`
 						}
-						
+					
+						style.innerHTML = styleString
+						document.head.appendChild(style);
+					
 						// create visualization
 						var container = document.getElementById('visualization');
 						var options = {
@@ -134,49 +141,23 @@ function UCVISTimeline($) {
 						var winHeight = $(window).height();
 						var timelineHeight = $('#visualization').height()
 						
-						console.log(winHeight + ' - ' + timelineHeight)
-						
 						var timeline = new vis.Timeline(container);
 						timeline.setOptions(options);
 						timeline.setGroups(groups);
 						timeline.setItems(items);
 						
-						timeline.on('rangechange', function (properties) {
-							styleEvents()
-						});
-						
 						timeline.on('click', function (properties) {
-							console.log(properties.item);
-							console.log(timeline.itemSet.items)
 							UC.item = properties.item
 							UC.Click()
 							let scrollTop = window.scrollY;
-							console.log(scrollTop)
 						});
 						
-						timeline.on('rangechanged', function (properties) {
-							console.log('range changed')
-							UC.newStartDate = formatDate(properties.start)
-							UC.newStopDate = formatDate(properties.end)
-							var newItems = new vis.DataSet();
-							//timeline.setItems(newItems)
-							UC.RangeChangedFromUC = true
-						});
-						
-						function styleEventBG(className, color){
-							var elements = document.getElementsByClassName(className)
-							for (let i=0; i < elements.length; i++) {
-								var element = elements[i]
-								element.style.background = color
-							}
-						}
-						function styleEvents(){
-							for (var i = 0; i < events.length; i++) {
-								var event = events[i]
-								styleEventBG(`${event.id}`, event.color)
-								styleEventBG(event.className, event.color)
-							}
-						}
+			//			timeline.on('rangechanged', function (properties) {
+			//				UC.newStartDate = formatDate(properties.start)
+			//				UC.newStopDate = formatDate(properties.end)
+			//				var newItems = new vis.DataSet();
+			//				UC.RangeChangedFromUC = true
+			//			});
 						
 						var keyDiv = document.getElementById('key')
 						
@@ -190,9 +171,6 @@ function UCVISTimeline($) {
 							`
 							keyDiv.appendChild(element);
 						}
-						
-						
-						styleEvents();
 						
 						var winHeight = $(window).height();			
 						const visDiv = document.getElementById('visualization');
@@ -230,12 +208,10 @@ function UCVISTimeline($) {
 		this.SetItems = function(events ) {
 
 					this.events = events
-					console.log(this.events)
 					var events = JSON.parse(this.events)
 					var items = new vis.DataSet();
 					for (var i = 0; i < events.length; i++) {
 						var event = events[i]
-						console.log(event)
 						items.add(event)
 					}
 				
