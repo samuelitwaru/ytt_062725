@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\Web\\GxDeps.csproj": {}
+    "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\web\\GxDeps.csproj": {}
   },
   "projects": {
-    "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\Web\\GxDeps.csproj": {
+    "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\web\\GxDeps.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\Web\\GxDeps.csproj",
+        "projectUniqueName": "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\web\\GxDeps.csproj",
         "projectName": "GxDeps",
-        "projectPath": "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\Web\\GxDeps.csproj",
+        "projectPath": "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\web\\GxDeps.csproj",
         "packagesPath": "C:\\Users\\samuelitwaru\\.nuget\\packages\\",
-        "outputPath": "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\Web\\obj\\",
+        "outputPath": "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\KBs\\YTT_version4\\NETPostgreSQL14\\NuGet.Config",
