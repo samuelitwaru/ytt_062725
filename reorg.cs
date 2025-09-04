@@ -58,12 +58,37 @@ namespace GeneXus.Programs {
          /* Load data into tables. */
       }
 
-      public void DeleteLeaveRequestLeaveAction( )
+      public void CreateLeaveRequestAction( )
       {
-         string cmdBuffer;
+         string cmdBuffer = "";
+         /* Indices for table LeaveRequestAction */
          try
          {
-            cmdBuffer=" DROP TABLE LeaveRequestLeaveAction CASCADE "
+            cmdBuffer=" CREATE SEQUENCE LeaveRequestActionId MINVALUE 1 INCREMENT 1 "
+            ;
+            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
+            RGZ.ExecuteStmt() ;
+            RGZ.Drop();
+         }
+         catch
+         {
+            cmdBuffer=" DROP SEQUENCE LeaveRequestActionId CASCADE "
+            ;
+            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+            RGZ.ErrorMask = GxErrorMask.GX_MASKNOTFOUND | GxErrorMask.GX_MASKLOOPLOCK;
+            RGZ.ExecuteStmt() ;
+            RGZ.Drop();
+            cmdBuffer=" CREATE SEQUENCE LeaveRequestActionId MINVALUE 1 INCREMENT 1 "
+            ;
+            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
+            RGZ.ExecuteStmt() ;
+            RGZ.Drop();
+         }
+         try
+         {
+            cmdBuffer=" CREATE TABLE LeaveRequestAction (LeaveRequestActionId bigint NOT NULL DEFAULT nextval('LeaveRequestActionId'), LeaveRequestActionDateTime timestamp without time zone NOT NULL , LeaveRequestActionType VARCHAR(40) NOT NULL , LeaveRequestId bigint NOT NULL , LeaveActionGAMUserGUID CHAR(36) NOT NULL , PRIMARY KEY(LeaveRequestActionId))  "
             ;
             RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
             RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
@@ -74,7 +99,7 @@ namespace GeneXus.Programs {
          {
             try
             {
-               cmdBuffer=" DROP VIEW LeaveRequestLeaveAction CASCADE "
+               cmdBuffer=" DROP TABLE LeaveRequestAction CASCADE "
                ;
                RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
                RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
@@ -85,17 +110,94 @@ namespace GeneXus.Programs {
             {
                try
                {
-                  cmdBuffer=" DROP FUNCTION LeaveRequestLeaveAction CASCADE "
+                  cmdBuffer=" DROP VIEW LeaveRequestAction CASCADE "
                   ;
                   RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-                  RGZ.ErrorMask = GxErrorMask.GX_MASKNOTFOUND | GxErrorMask.GX_MASKLOOPLOCK;
+                  RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
                   RGZ.ExecuteStmt() ;
                   RGZ.Drop();
                }
                catch
                {
+                  try
+                  {
+                     cmdBuffer=" DROP FUNCTION LeaveRequestAction CASCADE "
+                     ;
+                     RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+                     RGZ.ErrorMask = GxErrorMask.GX_MASKNOTFOUND | GxErrorMask.GX_MASKLOOPLOCK;
+                     RGZ.ExecuteStmt() ;
+                     RGZ.Drop();
+                  }
+                  catch
+                  {
+                  }
                }
             }
+            cmdBuffer=" CREATE TABLE LeaveRequestAction (LeaveRequestActionId bigint NOT NULL DEFAULT nextval('LeaveRequestActionId'), LeaveRequestActionDateTime timestamp without time zone NOT NULL , LeaveRequestActionType VARCHAR(40) NOT NULL , LeaveRequestId bigint NOT NULL , LeaveActionGAMUserGUID CHAR(36) NOT NULL , PRIMARY KEY(LeaveRequestActionId))  "
+            ;
+            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
+            RGZ.ExecuteStmt() ;
+            RGZ.Drop();
+         }
+         try
+         {
+            cmdBuffer=" CREATE INDEX ILEAVEREQUESTACTION1 ON LeaveRequestAction (LeaveRequestId ) "
+            ;
+            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
+            RGZ.ExecuteStmt() ;
+            RGZ.Drop();
+         }
+         catch
+         {
+            cmdBuffer=" DROP INDEX ILEAVEREQUESTACTION1 "
+            ;
+            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+            RGZ.ErrorMask = GxErrorMask.GX_MASKNOTFOUND | GxErrorMask.GX_MASKLOOPLOCK;
+            RGZ.ExecuteStmt() ;
+            RGZ.Drop();
+            cmdBuffer=" CREATE INDEX ILEAVEREQUESTACTION1 ON LeaveRequestAction (LeaveRequestId ) "
+            ;
+            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
+            RGZ.ExecuteStmt() ;
+            RGZ.Drop();
+         }
+      }
+
+      public void RILeaveRequestActionLeaveRequest( )
+      {
+         string cmdBuffer;
+         try
+         {
+            cmdBuffer=" ALTER TABLE LeaveRequestAction ADD CONSTRAINT ILEAVEREQUESTACTION1 FOREIGN KEY (LeaveRequestId) REFERENCES LeaveRequest (LeaveRequestId) "
+            ;
+            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
+            RGZ.ExecuteStmt() ;
+            RGZ.Drop();
+         }
+         catch
+         {
+            try
+            {
+               cmdBuffer=" ALTER TABLE LeaveRequestAction DROP CONSTRAINT ILEAVEREQUESTACTION1 "
+               ;
+               RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+               RGZ.ErrorMask = GxErrorMask.GX_MASKNOTFOUND | GxErrorMask.GX_MASKLOOPLOCK;
+               RGZ.ExecuteStmt() ;
+               RGZ.Drop();
+            }
+            catch
+            {
+            }
+            cmdBuffer=" ALTER TABLE LeaveRequestAction ADD CONSTRAINT ILEAVEREQUESTACTION1 FOREIGN KEY (LeaveRequestId) REFERENCES LeaveRequest (LeaveRequestId) "
+            ;
+            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
+            RGZ.ExecuteStmt() ;
+            RGZ.Drop();
          }
       }
 
@@ -110,9 +212,9 @@ namespace GeneXus.Programs {
             return true ;
          }
          sSchemaVar = GXUtil.UserId( "Server", context, pr_default);
-         if ( ! tableexist("LeaveRequestLeaveAction",sSchemaVar) )
+         if ( tableexist("LeaveRequestAction",sSchemaVar) )
          {
-            SetCheckError ( GXResourceManager.GetMessage("GXM_table_not_exist", new   object[]  {"LeaveRequestLeaveAction"}) ) ;
+            SetCheckError ( GXResourceManager.GetMessage("GXM_table_exist", new   object[]  {"LeaveRequestAction"}) ) ;
             return false ;
          }
          return true ;
@@ -152,11 +254,12 @@ namespace GeneXus.Programs {
 
       private void ExecuteOnlyTablesReorganization( )
       {
-         ReorgExecute.RegisterBlockForSubmit( 1 ,  "DeleteLeaveRequestLeaveAction" , new Object[]{ });
+         ReorgExecute.RegisterBlockForSubmit( 1 ,  "CreateLeaveRequestAction" , new Object[]{ });
       }
 
       private void ExecuteOnlyRisReorganization( )
       {
+         ReorgExecute.RegisterBlockForSubmit( 2 ,  "RILeaveRequestActionLeaveRequest" , new Object[]{ });
       }
 
       private void ExecuteTablesReorganization( )
@@ -174,11 +277,13 @@ namespace GeneXus.Programs {
 
       private void SetPrecedencetables( )
       {
-         GXReorganization.SetMsg( 1 ,  GXResourceManager.GetMessage("GXM_fileremove", new   object[]  {"LeaveRequestLeaveAction", ""}) );
+         GXReorganization.SetMsg( 1 ,  GXResourceManager.GetMessage("GXM_filecrea", new   object[]  {"LeaveRequestAction", ""}) );
       }
 
       private void SetPrecedenceris( )
       {
+         GXReorganization.SetMsg( 2 ,  GXResourceManager.GetMessage("GXM_refintcrea", new   object[]  {"ILEAVEREQUESTACTION1"}) );
+         ReorgExecute.RegisterPrecedence( "RILeaveRequestActionLeaveRequest" ,  "CreateLeaveRequestAction" );
       }
 
       private void ExecuteReorganization( )

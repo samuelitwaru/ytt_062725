@@ -26,16 +26,18 @@
 		right: 160px; 
 	}
 	
-	tr:hover {
+	tr:hover, td.hovered-col {
       background-color: #f5f5f5; /* Light gray */
     }
+	
+	
 </style>
 
 
 
 <div id="print" style="overflow:scroll; scrollbar-width:none; border: 1px solid #dddddd; margin-right:-3px;">
  	
-	<table class="my-sticky-column-table">
+	<table id="pivot-table" class="my-sticky-column-table">
 		
 		<thead  style="position:sticky; top:0; z-index:5">
 			<tr>

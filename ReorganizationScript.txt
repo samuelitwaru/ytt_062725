@@ -1,2 +1,6 @@
-DROP TABLE LeaveRequestLeaveAction CASCADE;
+CREATE SEQUENCE LeaveRequestActionId MINVALUE 1 INCREMENT 1;
+CREATE TABLE LeaveRequestAction (LeaveRequestActionId bigint NOT NULL DEFAULT nextval('LeaveRequestActionId'), LeaveRequestActionDateTime timestamp without time zone NOT NULL , LeaveRequestActionType VARCHAR(40) NOT NULL , LeaveRequestId bigint NOT NULL , LeaveActionGAMUserGUID CHAR(36) NOT NULL , PRIMARY KEY(LeaveRequestActionId));
+CREATE INDEX ILEAVEREQUESTACTION1 ON LeaveRequestAction (LeaveRequestId );
+
+ALTER TABLE LeaveRequestAction ADD CONSTRAINT ILEAVEREQUESTACTION1 FOREIGN KEY (LeaveRequestId) REFERENCES LeaveRequest (LeaveRequestId);
 
