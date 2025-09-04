@@ -44,12 +44,12 @@ type_SdtWorkHourLog.cs
 type_SdtDevice.cs
 type_SdtCompanyLocation.cs
 type_SdtTrn_EmailTemplate.cs
-type_SdtLeaveType.cs
 type_SdtEmployee.cs
 type_SdtEmployee_Project.cs
 type_SdtEmployee_VacationSet.cs
 type_SdtLeaveRequest.cs
 type_SdtLeaveRequest_LeaveAction.cs
+type_SdtLeaveType.cs
 gxdomainexporttype.cs
 gxdomainpage.cs
 gxdomainactiontexts.cs

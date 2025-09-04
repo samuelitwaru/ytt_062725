@@ -250,6 +250,7 @@ namespace GeneXus.Programs {
             S151 ();
             if (returnInSub) return;
          }
+         ((WorkWithPlus.workwithplus_web.SdtWWPColumnsSelector_Column)AV24ColumnsSelector.gxTpr_Columns.Item(4)).gxTpr_Isvisible = false;
          AV24ColumnsSelector.gxTpr_Columns.Sort("Order");
          AV54GXV3 = 1;
          while ( AV54GXV3 <= AV24ColumnsSelector.gxTpr_Columns.Count )
@@ -409,6 +410,7 @@ namespace GeneXus.Programs {
          new WorkWithPlus.workwithplus_web.wwp_columnsselector_add(context ).execute( ref  AV24ColumnsSelector,  "LeaveTypeName",  "",  "Leave Type Name",  true,  "") ;
          new WorkWithPlus.workwithplus_web.wwp_columnsselector_add(context ).execute( ref  AV24ColumnsSelector,  "LeaveTypeVacationLeave",  "",  "Deduct from vacation days ",  true,  "") ;
          new WorkWithPlus.workwithplus_web.wwp_columnsselector_add(context ).execute( ref  AV24ColumnsSelector,  "LeaveTypeLoggingWorkHours",  "",  "Log Work Hours",  true,  "") ;
+         new WorkWithPlus.workwithplus_web.wwp_columnsselector_add(context ).execute( ref  AV24ColumnsSelector,  "&ApprovedColor",  "",  "Approved Color",  true,  "") ;
          GXt_char1 = AV28UserCustomValue;
          new WorkWithPlus.workwithplus_web.loadcolumnsselectorstate(context ).execute(  "LeaveTypeWWColumnsSelector", out  GXt_char1) ;
          AV28UserCustomValue = GXt_char1;

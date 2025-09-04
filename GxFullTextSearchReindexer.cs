@@ -75,13 +75,13 @@ namespace GeneXus.Programs {
          obj = new SdtTrn_EmailTemplate(context);
          trn = obj.getTransaction();
          result = trn.Reindex();
-         obj = new SdtLeaveType(context);
-         trn = obj.getTransaction();
-         result = trn.Reindex();
          obj = new SdtEmployee(context);
          trn = obj.getTransaction();
          result = trn.Reindex();
          obj = new SdtLeaveRequest(context);
+         trn = obj.getTransaction();
+         result = trn.Reindex();
+         obj = new SdtLeaveType(context);
          trn = obj.getTransaction();
          result = trn.Reindex();
          return 1 ;

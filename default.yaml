@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: "YTT_version4"
-  version: "20250903081817"
+  version: "20250904061857"
 servers:
   - url: http://localhost:8083/YTT_version4NETPostgreSQL14/rest
 paths:
