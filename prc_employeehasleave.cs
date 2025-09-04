@@ -95,6 +95,7 @@ namespace GeneXus.Programs {
                                               AV9ToDate ,
                                               A130LeaveRequestEndDate ,
                                               AV8FromDate ,
+                                              A145LeaveTypeLoggingWorkHours ,
                                               AV10EmployeeId ,
                                               A106EmployeeId } ,
                                               new int[]{
@@ -105,10 +106,13 @@ namespace GeneXus.Programs {
          pr_default.execute(0, new Object[] {AV10EmployeeId, AV9ToDate, AV8FromDate, AV13LeaveRequestId});
          while ( (pr_default.getStatus(0) != 101) )
          {
+            A124LeaveTypeId = P00BR2_A124LeaveTypeId[0];
+            A145LeaveTypeLoggingWorkHours = P00BR2_A145LeaveTypeLoggingWorkHours[0];
             A130LeaveRequestEndDate = P00BR2_A130LeaveRequestEndDate[0];
             A129LeaveRequestStartDate = P00BR2_A129LeaveRequestStartDate[0];
             A127LeaveRequestId = P00BR2_A127LeaveRequestId[0];
             A106EmployeeId = P00BR2_A106EmployeeId[0];
+            A145LeaveTypeLoggingWorkHours = P00BR2_A145LeaveTypeLoggingWorkHours[0];
             AV14GXLvl2 = 1;
             AV11HasLeave = true;
             /* Exit For each command. Update data (if necessary), close cursors & exit. */
@@ -137,6 +141,9 @@ namespace GeneXus.Programs {
       {
          A129LeaveRequestStartDate = DateTime.MinValue;
          A130LeaveRequestEndDate = DateTime.MinValue;
+         A145LeaveTypeLoggingWorkHours = "";
+         P00BR2_A124LeaveTypeId = new long[1] ;
+         P00BR2_A145LeaveTypeLoggingWorkHours = new string[] {""} ;
          P00BR2_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
          P00BR2_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
          P00BR2_A127LeaveRequestId = new long[1] ;
@@ -144,7 +151,7 @@ namespace GeneXus.Programs {
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.prc_employeehasleave__default(),
             new Object[][] {
                 new Object[] {
-               P00BR2_A130LeaveRequestEndDate, P00BR2_A129LeaveRequestStartDate, P00BR2_A127LeaveRequestId, P00BR2_A106EmployeeId
+               P00BR2_A124LeaveTypeId, P00BR2_A145LeaveTypeLoggingWorkHours, P00BR2_A130LeaveRequestEndDate, P00BR2_A129LeaveRequestStartDate, P00BR2_A127LeaveRequestId, P00BR2_A106EmployeeId
                }
             }
          );
@@ -156,6 +163,8 @@ namespace GeneXus.Programs {
       private long AV13LeaveRequestId ;
       private long A127LeaveRequestId ;
       private long A106EmployeeId ;
+      private long A124LeaveTypeId ;
+      private string A145LeaveTypeLoggingWorkHours ;
       private DateTime AV8FromDate ;
       private DateTime AV9ToDate ;
       private DateTime A129LeaveRequestStartDate ;
@@ -164,6 +173,8 @@ namespace GeneXus.Programs {
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
       private IDataStoreProvider pr_default ;
+      private long[] P00BR2_A124LeaveTypeId ;
+      private string[] P00BR2_A145LeaveTypeLoggingWorkHours ;
       private DateTime[] P00BR2_A130LeaveRequestEndDate ;
       private DateTime[] P00BR2_A129LeaveRequestStartDate ;
       private long[] P00BR2_A127LeaveRequestId ;
@@ -180,6 +191,7 @@ namespace GeneXus.Programs {
                                              DateTime AV9ToDate ,
                                              DateTime A130LeaveRequestEndDate ,
                                              DateTime AV8FromDate ,
+                                             string A145LeaveTypeLoggingWorkHours ,
                                              long AV10EmployeeId ,
                                              long A106EmployeeId )
       {
@@ -187,20 +199,21 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int1 = new short[4];
          Object[] GXv_Object2 = new Object[2];
-         scmdbuf = "SELECT LeaveRequestEndDate, LeaveRequestStartDate, LeaveRequestId, EmployeeId FROM LeaveRequest";
-         AddWhere(sWhereString, "(EmployeeId = :AV10EmployeeId)");
-         AddWhere(sWhereString, "(LeaveRequestStartDate <= :AV9ToDate)");
-         AddWhere(sWhereString, "(LeaveRequestEndDate >= :AV8FromDate)");
+         scmdbuf = "SELECT T1.LeaveTypeId, T2.LeaveTypeLoggingWorkHours, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T1.LeaveRequestId, T1.EmployeeId FROM (LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId)";
+         AddWhere(sWhereString, "(T1.EmployeeId = :AV10EmployeeId)");
+         AddWhere(sWhereString, "(T1.LeaveRequestStartDate <= :AV9ToDate)");
+         AddWhere(sWhereString, "(T1.LeaveRequestEndDate >= :AV8FromDate)");
+         AddWhere(sWhereString, "(T2.LeaveTypeLoggingWorkHours = ( 'No'))");
          if ( ! (0==AV13LeaveRequestId) )
          {
-            AddWhere(sWhereString, "(Not LeaveRequestId = :AV13LeaveRequestId)");
+            AddWhere(sWhereString, "(Not T1.LeaveRequestId = :AV13LeaveRequestId)");
          }
          else
          {
             GXv_int1[3] = 1;
          }
          scmdbuf += sWhereString;
-         scmdbuf += " ORDER BY EmployeeId";
+         scmdbuf += " ORDER BY T1.EmployeeId";
          GXv_Object2[0] = scmdbuf;
          GXv_Object2[1] = GXv_int1;
          return GXv_Object2 ;
@@ -213,7 +226,7 @@ namespace GeneXus.Programs {
          switch ( cursor )
          {
                case 0 :
-                     return conditional_P00BR2(context, (long)dynConstraints[0] , (long)dynConstraints[1] , (DateTime)dynConstraints[2] , (DateTime)dynConstraints[3] , (DateTime)dynConstraints[4] , (DateTime)dynConstraints[5] , (long)dynConstraints[6] , (long)dynConstraints[7] );
+                     return conditional_P00BR2(context, (long)dynConstraints[0] , (long)dynConstraints[1] , (DateTime)dynConstraints[2] , (DateTime)dynConstraints[3] , (DateTime)dynConstraints[4] , (DateTime)dynConstraints[5] , (string)dynConstraints[6] , (long)dynConstraints[7] , (long)dynConstraints[8] );
          }
          return base.getDynamicStatement(cursor, context, dynConstraints);
       }
@@ -251,10 +264,12 @@ namespace GeneXus.Programs {
        switch ( cursor )
        {
              case 0 :
-                ((DateTime[]) buf[0])[0] = rslt.getGXDate(1);
-                ((DateTime[]) buf[1])[0] = rslt.getGXDate(2);
-                ((long[]) buf[2])[0] = rslt.getLong(3);
-                ((long[]) buf[3])[0] = rslt.getLong(4);
+                ((long[]) buf[0])[0] = rslt.getLong(1);
+                ((string[]) buf[1])[0] = rslt.getString(2, 20);
+                ((DateTime[]) buf[2])[0] = rslt.getGXDate(3);
+                ((DateTime[]) buf[3])[0] = rslt.getGXDate(4);
+                ((long[]) buf[4])[0] = rslt.getLong(5);
+                ((long[]) buf[5])[0] = rslt.getLong(6);
                 return;
        }
     }
