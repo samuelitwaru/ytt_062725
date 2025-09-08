@@ -44,42 +44,47 @@ namespace GeneXus.Programs {
 
       public void execute( long aP0_EmployeeId ,
                            long aP1_LeaveRequestId ,
-                           DateTime aP2_FromDate ,
-                           DateTime aP3_ToDate ,
-                           out bool aP4_HasLeave )
+                           string aP2_LeaveTypeLoggingWorkHours ,
+                           DateTime aP3_FromDate ,
+                           DateTime aP4_ToDate ,
+                           out bool aP5_HasLeave )
       {
          this.AV10EmployeeId = aP0_EmployeeId;
          this.AV13LeaveRequestId = aP1_LeaveRequestId;
-         this.AV8FromDate = aP2_FromDate;
-         this.AV9ToDate = aP3_ToDate;
+         this.AV14LeaveTypeLoggingWorkHours = aP2_LeaveTypeLoggingWorkHours;
+         this.AV8FromDate = aP3_FromDate;
+         this.AV9ToDate = aP4_ToDate;
          this.AV11HasLeave = false ;
          initialize();
          ExecuteImpl();
-         aP4_HasLeave=this.AV11HasLeave;
+         aP5_HasLeave=this.AV11HasLeave;
       }
 
       public bool executeUdp( long aP0_EmployeeId ,
                               long aP1_LeaveRequestId ,
-                              DateTime aP2_FromDate ,
-                              DateTime aP3_ToDate )
+                              string aP2_LeaveTypeLoggingWorkHours ,
+                              DateTime aP3_FromDate ,
+                              DateTime aP4_ToDate )
       {
-         execute(aP0_EmployeeId, aP1_LeaveRequestId, aP2_FromDate, aP3_ToDate, out aP4_HasLeave);
+         execute(aP0_EmployeeId, aP1_LeaveRequestId, aP2_LeaveTypeLoggingWorkHours, aP3_FromDate, aP4_ToDate, out aP5_HasLeave);
          return AV11HasLeave ;
       }
 
       public void executeSubmit( long aP0_EmployeeId ,
                                  long aP1_LeaveRequestId ,
-                                 DateTime aP2_FromDate ,
-                                 DateTime aP3_ToDate ,
-                                 out bool aP4_HasLeave )
+                                 string aP2_LeaveTypeLoggingWorkHours ,
+                                 DateTime aP3_FromDate ,
+                                 DateTime aP4_ToDate ,
+                                 out bool aP5_HasLeave )
       {
          this.AV10EmployeeId = aP0_EmployeeId;
          this.AV13LeaveRequestId = aP1_LeaveRequestId;
-         this.AV8FromDate = aP2_FromDate;
-         this.AV9ToDate = aP3_ToDate;
+         this.AV14LeaveTypeLoggingWorkHours = aP2_LeaveTypeLoggingWorkHours;
+         this.AV8FromDate = aP3_FromDate;
+         this.AV9ToDate = aP4_ToDate;
          this.AV11HasLeave = false ;
          SubmitImpl();
-         aP4_HasLeave=this.AV11HasLeave;
+         aP5_HasLeave=this.AV11HasLeave;
       }
 
       protected override void ExecutePrivate( )
@@ -87,7 +92,7 @@ namespace GeneXus.Programs {
          /* GeneXus formulas */
          /* Output device settings */
          AV11HasLeave = false;
-         AV14GXLvl2 = 0;
+         AV15GXLvl3 = 0;
          pr_default.dynParam(0, new Object[]{ new Object[]{
                                               AV13LeaveRequestId ,
                                               A127LeaveRequestId ,
@@ -96,6 +101,7 @@ namespace GeneXus.Programs {
                                               A130LeaveRequestEndDate ,
                                               AV8FromDate ,
                                               A145LeaveTypeLoggingWorkHours ,
+                                              AV14LeaveTypeLoggingWorkHours ,
                                               AV10EmployeeId ,
                                               A106EmployeeId } ,
                                               new int[]{
@@ -103,7 +109,7 @@ namespace GeneXus.Programs {
                                               }
          });
          /* Using cursor P00BR2 */
-         pr_default.execute(0, new Object[] {AV10EmployeeId, AV9ToDate, AV8FromDate, AV13LeaveRequestId});
+         pr_default.execute(0, new Object[] {AV10EmployeeId, AV9ToDate, AV8FromDate, AV14LeaveTypeLoggingWorkHours, AV13LeaveRequestId});
          while ( (pr_default.getStatus(0) != 101) )
          {
             A124LeaveTypeId = P00BR2_A124LeaveTypeId[0];
@@ -113,14 +119,14 @@ namespace GeneXus.Programs {
             A127LeaveRequestId = P00BR2_A127LeaveRequestId[0];
             A106EmployeeId = P00BR2_A106EmployeeId[0];
             A145LeaveTypeLoggingWorkHours = P00BR2_A145LeaveTypeLoggingWorkHours[0];
-            AV14GXLvl2 = 1;
+            AV15GXLvl3 = 1;
             AV11HasLeave = true;
             /* Exit For each command. Update data (if necessary), close cursors & exit. */
             if (true) break;
             pr_default.readNext(0);
          }
          pr_default.close(0);
-         if ( AV14GXLvl2 == 0 )
+         if ( AV15GXLvl3 == 0 )
          {
             AV11HasLeave = false;
          }
@@ -158,12 +164,13 @@ namespace GeneXus.Programs {
          /* GeneXus formulas. */
       }
 
-      private short AV14GXLvl2 ;
+      private short AV15GXLvl3 ;
       private long AV10EmployeeId ;
       private long AV13LeaveRequestId ;
       private long A127LeaveRequestId ;
       private long A106EmployeeId ;
       private long A124LeaveTypeId ;
+      private string AV14LeaveTypeLoggingWorkHours ;
       private string A145LeaveTypeLoggingWorkHours ;
       private DateTime AV8FromDate ;
       private DateTime AV9ToDate ;
@@ -179,7 +186,7 @@ namespace GeneXus.Programs {
       private DateTime[] P00BR2_A129LeaveRequestStartDate ;
       private long[] P00BR2_A127LeaveRequestId ;
       private long[] P00BR2_A106EmployeeId ;
-      private bool aP4_HasLeave ;
+      private bool aP5_HasLeave ;
    }
 
    public class prc_employeehasleave__default : DataStoreHelperBase, IDataStoreHelper
@@ -192,25 +199,26 @@ namespace GeneXus.Programs {
                                              DateTime A130LeaveRequestEndDate ,
                                              DateTime AV8FromDate ,
                                              string A145LeaveTypeLoggingWorkHours ,
+                                             string AV14LeaveTypeLoggingWorkHours ,
                                              long AV10EmployeeId ,
                                              long A106EmployeeId )
       {
          System.Text.StringBuilder sWhereString = new System.Text.StringBuilder();
          string scmdbuf;
-         short[] GXv_int1 = new short[4];
+         short[] GXv_int1 = new short[5];
          Object[] GXv_Object2 = new Object[2];
          scmdbuf = "SELECT T1.LeaveTypeId, T2.LeaveTypeLoggingWorkHours, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T1.LeaveRequestId, T1.EmployeeId FROM (LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId)";
          AddWhere(sWhereString, "(T1.EmployeeId = :AV10EmployeeId)");
          AddWhere(sWhereString, "(T1.LeaveRequestStartDate <= :AV9ToDate)");
          AddWhere(sWhereString, "(T1.LeaveRequestEndDate >= :AV8FromDate)");
-         AddWhere(sWhereString, "(T2.LeaveTypeLoggingWorkHours = ( 'No'))");
+         AddWhere(sWhereString, "(T2.LeaveTypeLoggingWorkHours = ( :AV14LeaveTypeLoggingWorkHours))");
          if ( ! (0==AV13LeaveRequestId) )
          {
             AddWhere(sWhereString, "(Not T1.LeaveRequestId = :AV13LeaveRequestId)");
          }
          else
          {
-            GXv_int1[3] = 1;
+            GXv_int1[4] = 1;
          }
          scmdbuf += sWhereString;
          scmdbuf += " ORDER BY T1.EmployeeId";
@@ -226,7 +234,7 @@ namespace GeneXus.Programs {
          switch ( cursor )
          {
                case 0 :
-                     return conditional_P00BR2(context, (long)dynConstraints[0] , (long)dynConstraints[1] , (DateTime)dynConstraints[2] , (DateTime)dynConstraints[3] , (DateTime)dynConstraints[4] , (DateTime)dynConstraints[5] , (string)dynConstraints[6] , (long)dynConstraints[7] , (long)dynConstraints[8] );
+                     return conditional_P00BR2(context, (long)dynConstraints[0] , (long)dynConstraints[1] , (DateTime)dynConstraints[2] , (DateTime)dynConstraints[3] , (DateTime)dynConstraints[4] , (DateTime)dynConstraints[5] , (string)dynConstraints[6] , (string)dynConstraints[7] , (long)dynConstraints[8] , (long)dynConstraints[9] );
          }
          return base.getDynamicStatement(cursor, context, dynConstraints);
       }
@@ -249,6 +257,7 @@ namespace GeneXus.Programs {
           new ParDef("AV10EmployeeId",GXType.Int64,10,0) ,
           new ParDef("AV9ToDate",GXType.Date,8,0) ,
           new ParDef("AV8FromDate",GXType.Date,8,0) ,
+          new ParDef("AV14LeaveTypeLoggingWorkHours",GXType.Char,20,0) ,
           new ParDef("AV13LeaveRequestId",GXType.Int64,10,0)
           };
           def= new CursorDef[] {

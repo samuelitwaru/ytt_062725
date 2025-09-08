@@ -1,0 +1,474 @@
+{ 
+    "Tokens" : [ { 
+        "Values" : { 
+            "colors_controleditbackgroundonsurface" : "#FFFFFF",
+            "colors_controlonprimary" : "#000000",
+            "colors_buttonbackground" : "#CCCCCC",
+            "colors_primary" : "#007EFD",
+            "colors_fonticonfloating" : "#007EFD",
+            "colors_primary10" : "#007EFD1A",
+            "colors_primary30" : "#007EFD4D",
+            "colors_primary50" : "#007EFD80",
+            "colors_primary80" : "#007EFDCC",
+            "colors_primarytone" : "#0689FD",
+            "colors_secondary" : "#4AA3FE",
+            "colors_headerbg" : "#FFFFFF",
+            "colors_pagetitle" : "#000000",
+            "colors_disabledbtntext" : "#4F4F4F",
+            "colors_controlsecondonsurface" : "#666666",
+            "fonts_primary-font-family" : "Montserrat",
+            "fontsizes_body-xlarge" : "20dip",
+            "fontsizes_body-large" : "16dip",
+            "fontsizes_body-regular" : "14dip",
+            "fontsizes_body-small" : "12dip",
+            "fontsizes_body-xsmall" : "8dip",
+            "fontsizes_attribute-label" : "12dip",
+            "fontsizes_icon-default" : "20dip",
+            "fontsizes_icon-floating" : "24dip",
+            "fontsizes_icon-xsmall" : "14dip",
+            "fontsizes_icon-small" : "20dip",
+            "fontsizes_icon-regular" : "26dip",
+            "fontsizes_icon-large" : "38dip",
+            "fontsizes_icon-xlarge" : "60dip",
+            "fontsizes_icon-notification-dot" : "6dip",
+            "fontsizes_new_fontsizes" : "15dip"
+        }
+    }, { 
+        "Options" : { 
+            "color-scheme" : "dark"
+        },
+        "Values" : { 
+            "colors_headerbg" : "#1E1E1EE0",
+            "colors_pagetitle" : "#F1E8E8",
+            "colors_buttonbackground" : "#312D2DF7",
+            "colors_controlonprimary" : "#D1CECE",
+            "colors_controleditbackgroundonsurface" : "#FFFFFF00",
+            "colors_controlborderonsurface" : "#DDDDDDD4",
+            "colors_controlsecondonsurface" : "#999999",
+            "colors_disabledbtntext" : "#CCCCCC"
+        }
+    } ],
+    "Imports" : [ { 
+        "Name" : "WorkWithPlus.NativeMobile.WorkWithPlusDSNative",
+        "Type" : "DSO",
+        "Part" : "all"
+    } ],
+    "Styles" : [ { 
+        "Name" : "MenuBannerTall",
+        "background_image" : "9fb193d9-64a4-4d30-b129-ff7c76830f7e-wwp_nm_menubanner_tall"
+    }, { 
+        "Name" : "CardUserBackgroundImageTable",
+        "background_image" : "9fb193d9-64a4-4d30-b129-ff7c76830f7e-wwp_nm_menubanner"
+    }, { 
+        "Name" : "TableBackgroundImageLogin",
+        "background_image" : "9fb193d9-64a4-4d30-b129-ff7c76830f7e-yukon_login_screen"
+    }, { 
+        "Name" : "NewTableBackgroundImageLogin",
+        "background_image" : "9fb193d9-64a4-4d30-b129-ff7c76830f7e-new_login_bg"
+    }, { 
+        "Name" : "TableBackgroundImageMenu",
+        "background_image" : "9fb193d9-64a4-4d30-b129-ff7c76830f7e-wwp_nm_menu_background"
+    }, { 
+        "Name" : "TableGrow100x100",
+        "ThemeTransformationReference" : "tablegrow100x100"
+    }, { 
+        "Name" : "TableShrink",
+        "ThemeTransformationReference" : "tableshrink"
+    }, { 
+        "Name" : "BottomActionSheet",
+        "ThemeTransformationReference" : "bottomactionsheet"
+    }, { 
+        "Name" : "BottomActionSheetHide",
+        "ThemeTransformationReference" : "bottomactionsheethide"
+    }, { 
+        "Name" : "SlidingMessageTable",
+        "ThemeTransformationReference" : "bottomactionsheet"
+    }, { 
+        "Name" : "SlidingMessageTableBottomHide",
+        "ThemeTransformationReference" : "bottomactionsheethide"
+    }, { 
+        "Name" : "SlidingMessageTableTopHide",
+        "ThemeTransformationReference" : "slidingmessagetabletophide"
+    }, { 
+        "Name" : "SlidingTransparentTable",
+        "ThemeTransformationReference" : "bottomactionsheet",
+        "elevation" : "0"
+    }, { 
+        "Name" : "SlidingTransparentTableRightHalfHide",
+        "ThemeTransformationReference" : "slidingtransparenttablerighthalfhide",
+        "elevation" : "0"
+    }, { 
+        "Name" : "LogHoursMainTable",
+        "padding_bottom" : "18dip",
+        "padding_left" : "24dip",
+        "padding_right" : "24dip",
+        "padding_top" : "18dip"
+    }, { 
+        "Name" : "WorkHoursMainTable",
+        "padding_bottom" : "18dip",
+        "padding_left" : "10dip",
+        "padding_right" : "10dip",
+        "padding_top" : "8dip"
+    }, { 
+        "Name" : "PageMainTable",
+        "padding_left" : "10dip",
+        "padding_right" : "10dip",
+        "background_color" : "$colors_headerbg",
+        "BackgroundColor" : "$colors_headerbg",
+        "SDPageControllerBackgroundColor" : "$colors_headerbg",
+        "z-index" : "2"
+    }, { 
+        "Name" : "PageTitle",
+        "font_size" : "20dip",
+        "font_weight" : "700",
+        "color" : "$colors_pagetitle"
+    }, { 
+        "Name" : "LogHoursSubmitBtn",
+        "background_color" : "$colors_primary",
+        "BackgroundColor" : "$colors_primary",
+        "SDPageControllerBackgroundColor" : "$colors_primary",
+        "color" : "#FFFFFF",
+        "border_top_left_radius" : "12dip",
+        "border_top_right_radius" : "12dip",
+        "border_bottom_right_radius" : "12dip",
+        "border_bottom_left_radius" : "12dip",
+        "border" : "1dip solid $colors_primary",
+        "padding_top" : "10dip",
+        "padding_right" : "10dip",
+        "padding_bottom" : "10dip",
+        "padding_left" : "10dip",
+        "sd_width_withPercentage" : "100%"
+    }, { 
+        "Name" : "LogHoursSubmitBtnDisabled",
+        "background_color" : "$colors_buttonbackground",
+        "BackgroundColor" : "$colors_buttonbackground",
+        "SDPageControllerBackgroundColor" : "$colors_buttonbackground",
+        "color" : "$colors_disabledbtntext",
+        "border_top_left_radius" : "12dip",
+        "border_top_right_radius" : "12dip",
+        "border_bottom_right_radius" : "12dip",
+        "border_bottom_left_radius" : "12dip",
+        "border" : "1dip solid $colors_primary",
+        "padding_top" : "10dip",
+        "padding_right" : "10dip",
+        "padding_bottom" : "10dip",
+        "padding_left" : "10dip",
+        "sd_width_withPercentage" : "100%"
+    }, { 
+        "Name" : "LoginSubmitBtnDisabled",
+        "background_color" : "#312D2DF7",
+        "BackgroundColor" : "#312D2DF7",
+        "SDPageControllerBackgroundColor" : "#312D2DF7",
+        "color" : "#FFFFFF",
+        "border_top_left_radius" : "12dip",
+        "border_top_right_radius" : "12dip",
+        "border_bottom_right_radius" : "12dip",
+        "border_bottom_left_radius" : "12dip",
+        "border" : "1dip solid $colors_primary",
+        "padding_top" : "10dip",
+        "padding_right" : "10dip",
+        "padding_bottom" : "10dip",
+        "padding_left" : "10dip",
+        "sd_width_withPercentage" : "100%"
+    }, { 
+        "Name" : "WorkLogUpdateBtn",
+        "background_color" : "$colors_primary",
+        "BackgroundColor" : "$colors_primary",
+        "SDPageControllerBackgroundColor" : "$colors_primary",
+        "color" : "#FFFFFF",
+        "border_top_left_radius" : "12dip",
+        "border_top_right_radius" : "12dip",
+        "border_bottom_right_radius" : "12dip",
+        "border_bottom_left_radius" : "12dip",
+        "border" : "1dip solid $colors_primary",
+        "padding_top" : "4dip",
+        "padding_right" : "4dip",
+        "padding_bottom" : "4dip",
+        "padding_left" : "4dip",
+        "sd_width_withPercentage" : "100%"
+    }, { 
+        "Name" : "WorkLogDeleteBtn",
+        "background_color" : "#FF2E2E",
+        "BackgroundColor" : "#FF2E2E",
+        "SDPageControllerBackgroundColor" : "#FF2E2E",
+        "color" : "#FFFFFF",
+        "border_top_left_radius" : "12dip",
+        "border_top_right_radius" : "12dip",
+        "border_bottom_right_radius" : "12dip",
+        "border_bottom_left_radius" : "12dip",
+        "border" : "1dip solid $colors_primary",
+        "padding_top" : "4dip",
+        "padding_right" : "4dip",
+        "padding_bottom" : "4dip",
+        "padding_left" : "4dip",
+        "sd_width_withPercentage" : "100%"
+    }, { 
+        "Name" : "WorkLogCancelBtn",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00",
+        "color" : "$colors_controlonprimary",
+        "border_top_left_radius" : "12dip",
+        "border_top_right_radius" : "12dip",
+        "border_bottom_right_radius" : "12dip",
+        "border_bottom_left_radius" : "12dip",
+        "border_color" : "$colors_controlonprimary",
+        "border_style" : "solid",
+        "border_width" : "1dip",
+        "padding_top" : "4dip",
+        "padding_right" : "4dip",
+        "padding_bottom" : "4dip",
+        "padding_left" : "4dip",
+        "sd_width_withPercentage" : "100%"
+    }, { 
+        "Name" : "ViewAllLeavesBtn",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00",
+        "color" : "$colors_controlonprimary"
+    }, { 
+        "Name" : "AttributeEditNone",
+        "background_color" : "$colors_controleditbackgroundonsurface",
+        "BackgroundColor" : "$colors_controleditbackgroundonsurface",
+        "SDPageControllerBackgroundColor" : "$colors_controleditbackgroundonsurface",
+        "sd_width_withPercentage" : "100%",
+        "word-wrap" : "break-word",
+        "border_color" : "$colors_controlborderonsurface"
+    }, { 
+        "Name" : "AttributeEditTwoLine",
+        "background_color" : "$colors_controleditbackgroundonsurface",
+        "BackgroundColor" : "$colors_controleditbackgroundonsurface",
+        "SDPageControllerBackgroundColor" : "$colors_controleditbackgroundonsurface",
+        "border_color" : "$colors_controlborderonsurface"
+    }, { 
+        "Name" : "AccountIcon",
+        "color" : "$colors_primary",
+        "sd_width_withPercentage" : "10dip",
+        "width" : "10dip",
+        "sd_height_withPercentage" : "10dip",
+        "height" : "10dip"
+    }, { 
+        "Name" : "CardsContent",
+        "padding_bottom" : "8dip",
+        "padding_left" : "8dip",
+        "padding_right" : "8dip",
+        "padding_top" : "8dip",
+        "border-left-color" : "#000",
+        "border_style" : "solid",
+        "border-left-width" : "8dip"
+    }, { 
+        "Name" : "CardsRowTable",
+        "margin_bottom" : "4dip",
+        "margin_top" : "4dip",
+        "margin_left" : "0dip",
+        "margin_right" : "0dip",
+        "elevation" : "0",
+        "border_top_left_radius" : "8dip",
+        "border_top_right_radius" : "8dip",
+        "border_bottom_left_radius" : "8dip",
+        "border_bottom_right_radius" : "8dip",
+        "border_style" : "solid",
+        "border_width" : "1dip",
+        "border_color" : "#DDDDDD"
+    }, { 
+        "Name" : "SpaceRightIcon",
+        "margin_right" : "5dip"
+    }, { 
+        "Name" : "LoginAttributeOverWhite",
+        "border_style" : "solid",
+        "border_width" : "1dip",
+        "padding_bottom" : "4dip",
+        "padding_left" : "16dip",
+        "padding_right" : "16dip",
+        "padding_top" : "6dip",
+        "border_top_left_radius" : "12dip",
+        "border_top_right_radius" : "12dip",
+        "border_bottom_left_radius" : "12dip",
+        "border_bottom_right_radius" : "12dip",
+        "background_color" : "$colors_lightsurface90",
+        "BackgroundColor" : "$colors_lightsurface90",
+        "SDPageControllerBackgroundColor" : "$colors_lightsurface90",
+        "color" : "$colors_controlonlightsurface"
+    }, { 
+        "Name" : "ApprovedTag",
+        "background_color" : "#B4EDA0",
+        "BackgroundColor" : "#B4EDA0",
+        "SDPageControllerBackgroundColor" : "#B4EDA0",
+        "border_top_left_radius" : "6dip",
+        "border_top_right_radius" : "6dip",
+        "border_bottom_right_radius" : "6dip",
+        "border_bottom_left_radius" : "6dip",
+        "padding_left" : "6dip",
+        "padding_right" : "6dip",
+        "text-align" : "center",
+        "color" : "#000000"
+    }, { 
+        "Name" : "RejectedTag",
+        "border_top_left_radius" : "6dip",
+        "border_top_right_radius" : "6dip",
+        "border_bottom_right_radius" : "6dip",
+        "border_bottom_left_radius" : "6dip",
+        "padding_left" : "6dip",
+        "padding_right" : "6dip",
+        "text-align" : "center",
+        "background_color" : "#FFD5D1",
+        "BackgroundColor" : "#FFD5D1",
+        "SDPageControllerBackgroundColor" : "#FFD5D1",
+        "color" : "#000000"
+    }, { 
+        "Name" : "PendingTag",
+        "background_color" : "#DDDDDD",
+        "BackgroundColor" : "#DDDDDD",
+        "SDPageControllerBackgroundColor" : "#DDDDDD",
+        "border_top_left_radius" : "6dip",
+        "border_top_right_radius" : "6dip",
+        "border_bottom_right_radius" : "6dip",
+        "border_bottom_left_radius" : "6dip",
+        "padding_left" : "6dip",
+        "padding_right" : "6dip",
+        "text-align" : "center",
+        "color" : "#000000"
+    }, { 
+        "Name" : "loginYukonImage",
+        "sd_width_withPercentage" : "40dip",
+        "width" : "40dip",
+        "sd_height_withPercentage" : "35dip",
+        "height" : "35dip",
+        "margin_left" : "30dip"
+    }, { 
+        "Name" : "loginYukonImageNoMargin",
+        "sd_width_withPercentage" : "40dip",
+        "width" : "40dip",
+        "sd_height_withPercentage" : "35dip",
+        "height" : "35dip",
+        "margin_left" : "-10dip"
+    }, { 
+        "Name" : "loginTitleText",
+        "color" : "#FFFFFF",
+        "font_size" : "18dip",
+        "font_weight" : "500",
+        "padding_left" : "20dip"
+    }, { 
+        "Name" : "LoginLabel",
+        "white-space" : "normal",
+        "color" : "#FFFFFF",
+        "font_weight" : "bold"
+    }, { 
+        "Name" : "LoginAttribute",
+        "background_color" : "#FFFFFF00",
+        "BackgroundColor" : "#FFFFFF00",
+        "SDPageControllerBackgroundColor" : "#FFFFFF00",
+        "border_width" : "1dip",
+        "border_style" : "solid",
+        "border_color" : "#F3F6F4",
+        "font_style" : "normal",
+        "font-variant" : "normal",
+        "text_decoration" : "none",
+        "color" : "#FFFFFF",
+        "border_top_left_radius" : "4dip",
+        "border_top_right_radius" : "4dip",
+        "border_bottom_right_radius" : "4dip",
+        "border_bottom_left_radius" : "4dip"
+    }, { 
+        "Name" : "NewLoginBtn",
+        "background_color" : "#F2BC01",
+        "BackgroundColor" : "#F2BC01",
+        "SDPageControllerBackgroundColor" : "#F2BC01",
+        "color" : "#000000",
+        "border_top_left_radius" : "4dip",
+        "border_top_right_radius" : "4dip",
+        "border_bottom_right_radius" : "4dip",
+        "border_bottom_left_radius" : "4dip",
+        "border" : "1dip solid $colors_primary",
+        "sd_width_withPercentage" : "100%"
+    }, { 
+        "Name" : "NewLoginBtnDisabled",
+        "background_color" : "#404040",
+        "BackgroundColor" : "#404040",
+        "SDPageControllerBackgroundColor" : "#404040",
+        "color" : "#FFFFFF",
+        "border_top_left_radius" : "4dip",
+        "border_top_right_radius" : "4dip",
+        "border_bottom_right_radius" : "4dip",
+        "border_bottom_left_radius" : "4dip",
+        "border" : "1dip solid #f3f6f4",
+        "sd_width_withPercentage" : "100%"
+    }, { 
+        "Name" : "Form",
+        "enter_effect" : "gx_default",
+        "close_effect" : "gx_default",
+        "call_type" : "gx_default",
+        "target_size" : "gx_default",
+        "target_width" : "100%",
+        "target_height" : "100%",
+        "content_size_change" : "gx_default",
+        "input_view_appearance" : "gx_default"
+    }, { 
+        "Name" : "GetStartedTableBackground",
+        "padding_top" : "40dip",
+        "padding_right" : "40dip",
+        "padding_bottom" : "40dip",
+        "padding_left" : "40dip",
+        "background_image" : "9fb193d9-64a4-4d30-b129-ff7c76830f7e-yukon_get_started_bg"
+    }, { 
+        "Name" : "timeTrackerTitle",
+        "color" : "#F2BC01",
+        "font_size" : "36dip",
+        "font_weight" : "900"
+    }, { 
+        "Name" : "HighlightText",
+        "color" : "#F3F6F4",
+        "font_weight" : "200"
+    }, { 
+        "Name" : "DescriptionAttribute",
+        "background_color" : "$colors_controleditbackgroundonsurface",
+        "BackgroundColor" : "$colors_controleditbackgroundonsurface",
+        "SDPageControllerBackgroundColor" : "$colors_controleditbackgroundonsurface",
+        "border_color" : "$colors_controlborderonsurface",
+        "padding_top" : "5dip"
+    } ],
+    "Transformations" : [ { 
+        "Name" : "tablegrow100x100",
+        "gxtranslation_value_x" : "0dip",
+        "gxtranslation_value_y" : "0dip",
+        "gxtranslation_relative_to" : "form",
+        "gxscale_value_x" : "100%",
+        "gxscale_value_y" : "100%",
+        "gxscale_relative_to" : "form"
+    }, { 
+        "Name" : "tableshrink",
+        "gxscale_value_x" : "0dip",
+        "gxscale_value_y" : "0dip",
+        "gxscale_relative_to" : "form"
+    }, { 
+        "Name" : "bottomactionsheet",
+        "gxtransform_anchor_point_y" : "top",
+        "gxtranslation_value_x" : "0dip",
+        "gxtranslation_value_y" : "0dip",
+        "gxtranslation_relative_to" : "parent",
+        "gxtransform_translation_type" : "translate_by"
+    }, { 
+        "Name" : "bottomactionsheethide",
+        "gxtransform_anchor_point_y" : "top",
+        "gxtranslation_value_y" : "300dip",
+        "gxtranslation_relative_to" : "parent",
+        "gxtransform_translation_type" : "translate_by"
+    }, { 
+        "Name" : "slidingmessagetabletophide",
+        "gxtransform_anchor_point_y" : "top",
+        "gxtranslation_value_y" : "-1000dip",
+        "gxtranslation_relative_to" : "parent",
+        "gxtransform_translation_type" : "translate_by"
+    }, { 
+        "Name" : "slidingtransparenttablerighthalfhide",
+        "gxtranslation_value_x" : "260dip",
+        "gxtranslation_relative_to" : "parent",
+        "gxtransform_translation_type" : "translate_by"
+    } ],
+    "Fonts" : [ { 
+        "Name" : "Montserrat",
+        "InternalName" : "Montserrat-Regular",
+        "FileName" : "Montserrat.ttf",
+        "File" : "Montserrat"
+    } ]
+}

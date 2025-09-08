@@ -10,6 +10,7 @@
   <Table name="WorkHourLog" />
   <Table name="SupportRequest" />
   <Table name="EmployeeVacationSet" />
+  <Table name="Audit" />
   <Table name="Holiday" />
   <Table name="Device" />
 </Dependencies>

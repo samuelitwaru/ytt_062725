@@ -84,6 +84,7 @@ namespace GeneXus.Programs {
          state.Add("gxTpr_Employeename_Z");
          state.Add("gxTpr_Employeebalance_Z");
          state.Add("gxTpr_Leavetypevacationleave_Z");
+         state.Add("gxTpr_Leavetypeloggingworkhours_Z");
          state.Add("gxTpr_Leaverequesthalfday_N");
          return state ;
       }
@@ -107,6 +108,7 @@ namespace GeneXus.Programs {
          gxTv_SdtLeaveRequest_Employeename = sdt.gxTv_SdtLeaveRequest_Employeename ;
          gxTv_SdtLeaveRequest_Employeebalance = sdt.gxTv_SdtLeaveRequest_Employeebalance ;
          gxTv_SdtLeaveRequest_Leavetypevacationleave = sdt.gxTv_SdtLeaveRequest_Leavetypevacationleave ;
+         gxTv_SdtLeaveRequest_Leavetypeloggingworkhours = sdt.gxTv_SdtLeaveRequest_Leavetypeloggingworkhours ;
          gxTv_SdtLeaveRequest_Mode = sdt.gxTv_SdtLeaveRequest_Mode ;
          gxTv_SdtLeaveRequest_Initialized = sdt.gxTv_SdtLeaveRequest_Initialized ;
          gxTv_SdtLeaveRequest_Leaverequestid_Z = sdt.gxTv_SdtLeaveRequest_Leaverequestid_Z ;
@@ -124,6 +126,7 @@ namespace GeneXus.Programs {
          gxTv_SdtLeaveRequest_Employeename_Z = sdt.gxTv_SdtLeaveRequest_Employeename_Z ;
          gxTv_SdtLeaveRequest_Employeebalance_Z = sdt.gxTv_SdtLeaveRequest_Employeebalance_Z ;
          gxTv_SdtLeaveRequest_Leavetypevacationleave_Z = sdt.gxTv_SdtLeaveRequest_Leavetypevacationleave_Z ;
+         gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z = sdt.gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z ;
          gxTv_SdtLeaveRequest_Leaverequesthalfday_N = sdt.gxTv_SdtLeaveRequest_Leaverequesthalfday_N ;
          return  ;
       }
@@ -186,6 +189,7 @@ namespace GeneXus.Programs {
          AddObjectProperty("EmployeeName", gxTv_SdtLeaveRequest_Employeename, false, includeNonInitialized);
          AddObjectProperty("EmployeeBalance", gxTv_SdtLeaveRequest_Employeebalance, false, includeNonInitialized);
          AddObjectProperty("LeaveTypeVacationLeave", gxTv_SdtLeaveRequest_Leavetypevacationleave, false, includeNonInitialized);
+         AddObjectProperty("LeaveTypeLoggingWorkHours", gxTv_SdtLeaveRequest_Leavetypeloggingworkhours, false, includeNonInitialized);
          if ( includeState )
          {
             AddObjectProperty("Mode", gxTv_SdtLeaveRequest_Mode, false, includeNonInitialized);
@@ -232,6 +236,7 @@ namespace GeneXus.Programs {
             AddObjectProperty("EmployeeName_Z", gxTv_SdtLeaveRequest_Employeename_Z, false, includeNonInitialized);
             AddObjectProperty("EmployeeBalance_Z", gxTv_SdtLeaveRequest_Employeebalance_Z, false, includeNonInitialized);
             AddObjectProperty("LeaveTypeVacationLeave_Z", gxTv_SdtLeaveRequest_Leavetypevacationleave_Z, false, includeNonInitialized);
+            AddObjectProperty("LeaveTypeLoggingWorkHours_Z", gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z, false, includeNonInitialized);
             AddObjectProperty("LeaveRequestHalfDay_N", gxTv_SdtLeaveRequest_Leaverequesthalfday_N, false, includeNonInitialized);
          }
          return  ;
@@ -315,6 +320,11 @@ namespace GeneXus.Programs {
             sdtIsNull = 0;
             gxTv_SdtLeaveRequest_Leavetypevacationleave = sdt.gxTv_SdtLeaveRequest_Leavetypevacationleave ;
          }
+         if ( sdt.IsDirty("LeaveTypeLoggingWorkHours") )
+         {
+            sdtIsNull = 0;
+            gxTv_SdtLeaveRequest_Leavetypeloggingworkhours = sdt.gxTv_SdtLeaveRequest_Leavetypeloggingworkhours ;
+         }
          return  ;
       }
 
@@ -346,6 +356,7 @@ namespace GeneXus.Programs {
                this.gxTv_SdtLeaveRequest_Employeename_Z_SetNull( );
                this.gxTv_SdtLeaveRequest_Employeebalance_Z_SetNull( );
                this.gxTv_SdtLeaveRequest_Leavetypevacationleave_Z_SetNull( );
+               this.gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z_SetNull( );
             }
             gxTv_SdtLeaveRequest_Leaverequestid = value;
             SetDirty("Leaverequestid");
@@ -644,6 +655,22 @@ namespace GeneXus.Programs {
             sdtIsNull = 0;
             gxTv_SdtLeaveRequest_Leavetypevacationleave = value;
             SetDirty("Leavetypevacationleave");
+         }
+
+      }
+
+      [  SoapElement( ElementName = "LeaveTypeLoggingWorkHours" )]
+      [  XmlElement( ElementName = "LeaveTypeLoggingWorkHours"   )]
+      public string gxTpr_Leavetypeloggingworkhours
+      {
+         get {
+            return gxTv_SdtLeaveRequest_Leavetypeloggingworkhours ;
+         }
+
+         set {
+            sdtIsNull = 0;
+            gxTv_SdtLeaveRequest_Leavetypeloggingworkhours = value;
+            SetDirty("Leavetypeloggingworkhours");
          }
 
       }
@@ -1181,6 +1208,34 @@ namespace GeneXus.Programs {
          return false ;
       }
 
+      [  SoapElement( ElementName = "LeaveTypeLoggingWorkHours_Z" )]
+      [  XmlElement( ElementName = "LeaveTypeLoggingWorkHours_Z"   )]
+      public string gxTpr_Leavetypeloggingworkhours_Z
+      {
+         get {
+            return gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z ;
+         }
+
+         set {
+            sdtIsNull = 0;
+            gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z = value;
+            SetDirty("Leavetypeloggingworkhours_Z");
+         }
+
+      }
+
+      public void gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z_SetNull( )
+      {
+         gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z = "";
+         SetDirty("Leavetypeloggingworkhours_Z");
+         return  ;
+      }
+
+      public bool gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z_IsNull( )
+      {
+         return false ;
+      }
+
       [  SoapElement( ElementName = "LeaveRequestHalfDay_N" )]
       [  XmlElement( ElementName = "LeaveRequestHalfDay_N"   )]
       public short gxTpr_Leaverequesthalfday_N
@@ -1236,6 +1291,7 @@ namespace GeneXus.Programs {
          gxTv_SdtLeaveRequest_Leaverequestrejectionreason = "";
          gxTv_SdtLeaveRequest_Employeename = "";
          gxTv_SdtLeaveRequest_Leavetypevacationleave = "";
+         gxTv_SdtLeaveRequest_Leavetypeloggingworkhours = "";
          gxTv_SdtLeaveRequest_Mode = "";
          gxTv_SdtLeaveRequest_Leavetypename_Z = "";
          gxTv_SdtLeaveRequest_Leaverequestdate_Z = DateTime.MinValue;
@@ -1247,6 +1303,7 @@ namespace GeneXus.Programs {
          gxTv_SdtLeaveRequest_Leaverequestrejectionreason_Z = "";
          gxTv_SdtLeaveRequest_Employeename_Z = "";
          gxTv_SdtLeaveRequest_Leavetypevacationleave_Z = "";
+         gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z = "";
          sDateCnv = "";
          sNumToPad = "";
          IGxSilentTrn obj;
@@ -1281,12 +1338,14 @@ namespace GeneXus.Programs {
       private string gxTv_SdtLeaveRequest_Leaverequeststatus ;
       private string gxTv_SdtLeaveRequest_Employeename ;
       private string gxTv_SdtLeaveRequest_Leavetypevacationleave ;
+      private string gxTv_SdtLeaveRequest_Leavetypeloggingworkhours ;
       private string gxTv_SdtLeaveRequest_Mode ;
       private string gxTv_SdtLeaveRequest_Leavetypename_Z ;
       private string gxTv_SdtLeaveRequest_Leaverequesthalfday_Z ;
       private string gxTv_SdtLeaveRequest_Leaverequeststatus_Z ;
       private string gxTv_SdtLeaveRequest_Employeename_Z ;
       private string gxTv_SdtLeaveRequest_Leavetypevacationleave_Z ;
+      private string gxTv_SdtLeaveRequest_Leavetypeloggingworkhours_Z ;
       private string sDateCnv ;
       private string sNumToPad ;
       private DateTime gxTv_SdtLeaveRequest_Leaverequestdate ;
@@ -1523,6 +1582,20 @@ namespace GeneXus.Programs {
 
       }
 
+      [DataMember( Name = "LeaveTypeLoggingWorkHours" , Order = 15 )]
+      [GxSeudo()]
+      public string gxTpr_Leavetypeloggingworkhours
+      {
+         get {
+            return StringUtil.RTrim( sdt.gxTpr_Leavetypeloggingworkhours) ;
+         }
+
+         set {
+            sdt.gxTpr_Leavetypeloggingworkhours = value;
+         }
+
+      }
+
       public SdtLeaveRequest sdt
       {
          get {
@@ -1544,7 +1617,7 @@ namespace GeneXus.Programs {
          }
       }
 
-      [DataMember( Name = "gx_md5_hash", Order = 15 )]
+      [DataMember( Name = "gx_md5_hash", Order = 16 )]
       public string Hash
       {
          get {

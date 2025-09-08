@@ -1,6 +1,3 @@
-CREATE SEQUENCE LeaveRequestActionId MINVALUE 1 INCREMENT 1;
-CREATE TABLE LeaveRequestAction (LeaveRequestActionId bigint NOT NULL DEFAULT nextval('LeaveRequestActionId'), LeaveRequestActionDateTime timestamp without time zone NOT NULL , LeaveRequestActionType VARCHAR(40) NOT NULL , LeaveRequestId bigint NOT NULL , LeaveActionGAMUserGUID CHAR(36) NOT NULL , PRIMARY KEY(LeaveRequestActionId));
-CREATE INDEX ILEAVEREQUESTACTION1 ON LeaveRequestAction (LeaveRequestId );
-
-ALTER TABLE LeaveRequestAction ADD CONSTRAINT ILEAVEREQUESTACTION1 FOREIGN KEY (LeaveRequestId) REFERENCES LeaveRequest (LeaveRequestId);
+CREATE SEQUENCE AuditId MINVALUE 1 INCREMENT 1;
+CREATE TABLE Audit (AuditId bigint NOT NULL DEFAULT nextval('AuditId'), AuditDate date NOT NULL , AuditTableName CHAR(100) NOT NULL , AuditDescription VARCHAR(200) NOT NULL , AuditShortDescription VARCHAR(200) NOT NULL , AuditAction VARCHAR(10) NOT NULL , SecUserId bigint NOT NULL , PRIMARY KEY(AuditId));
 

@@ -192,6 +192,18 @@
               </Property>
             </Properties>
           </Field>
+          <Field name="LeaveTypeLoggingWorkHours" description="Leave Type Logging Work Hours">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>Character</Value>
+              </Property>
+              <Property>
+                <Name>Length</Name>
+                <Value>20</Value>
+              </Property>
+            </Properties>
+          </Field>
         </Fields>
       </Field>
     </Parameter>

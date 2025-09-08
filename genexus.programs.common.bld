@@ -1,5 +1,5 @@
-WorkWithPlus_CommonObjects.dll
 GeneXus.dll
+WorkWithPlus_CommonObjects.dll
 WorkWithPlus_Web.dll
 GeneXusSecurity.dll
 type_SdtGAMSDChangePassword_Level_DetailSdt.cs
@@ -48,6 +48,7 @@ type_SdtEmployee.cs
 type_SdtEmployee_Project.cs
 type_SdtEmployee_VacationSet.cs
 type_SdtLeaveType.cs
+type_SdtAudit.cs
 type_SdtLeaveRequest.cs
 type_SdtLeaveRequest_LeaveAction.cs
 gxdomainexporttype.cs
