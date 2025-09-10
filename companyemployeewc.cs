@@ -2268,7 +2268,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513503618", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259107551953", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2284,7 +2284,7 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("companyemployeewc.js", "?202572513503618", false, true);
+         context.AddJavascriptSource("companyemployeewc.js", "?20259107551954", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -3174,7 +3174,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(CompanyId = :AV8CompanyId)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV16FilterFullText)) )
          {
-            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(EmployeeId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( EmployeeFirstName like '%' || :lV16FilterFullText) or ( EmployeeLastName like '%' || :lV16FilterFullText) or ( EmployeeEmail like '%' || :lV16FilterFullText) or ( GAMUserGUID like '%' || :lV16FilterFullText) or ( SUBSTR(TO_CHAR(EmployeeVactionDays,'90.9'), 2) like '%' || :lV16FilterFullText) or ( SUBSTR(TO_CHAR(EmployeeBalance,'90.9'), 2) like '%' || :lV16FilterFullText))");
+            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(EmployeeId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( LOWER(EmployeeFirstName) like '%' || LOWER(:lV16FilterFullText)) or ( LOWER(EmployeeLastName) like '%' || LOWER(:lV16FilterFullText)) or ( LOWER(EmployeeEmail) like '%' || LOWER(:lV16FilterFullText)) or ( LOWER(GAMUserGUID) like '%' || LOWER(:lV16FilterFullText)) or ( SUBSTR(TO_CHAR(EmployeeVactionDays,'90.9'), 2) like '%' || :lV16FilterFullText) or ( SUBSTR(TO_CHAR(EmployeeBalance,'90.9'), 2) like '%' || :lV16FilterFullText))");
          }
          else
          {
@@ -3290,7 +3290,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(CompanyId = :AV8CompanyId)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV16FilterFullText)) )
          {
-            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(EmployeeId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( EmployeeFirstName like '%' || :lV16FilterFullText) or ( EmployeeLastName like '%' || :lV16FilterFullText) or ( EmployeeEmail like '%' || :lV16FilterFullText) or ( GAMUserGUID like '%' || :lV16FilterFullText) or ( SUBSTR(TO_CHAR(EmployeeVactionDays,'90.9'), 2) like '%' || :lV16FilterFullText) or ( SUBSTR(TO_CHAR(EmployeeBalance,'90.9'), 2) like '%' || :lV16FilterFullText))");
+            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(EmployeeId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( LOWER(EmployeeFirstName) like '%' || LOWER(:lV16FilterFullText)) or ( LOWER(EmployeeLastName) like '%' || LOWER(:lV16FilterFullText)) or ( LOWER(EmployeeEmail) like '%' || LOWER(:lV16FilterFullText)) or ( LOWER(GAMUserGUID) like '%' || LOWER(:lV16FilterFullText)) or ( SUBSTR(TO_CHAR(EmployeeVactionDays,'90.9'), 2) like '%' || :lV16FilterFullText) or ( SUBSTR(TO_CHAR(EmployeeBalance,'90.9'), 2) like '%' || :lV16FilterFullText))");
          }
          else
          {

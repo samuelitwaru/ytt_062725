@@ -268,8 +268,8 @@ namespace GeneXus.Programs {
          while ( (pr_default.getStatus(0) != 101) )
          {
             A182TrnNewDate = P00AQ2_A182TrnNewDate[0];
-            A180TrnNewId = P00AQ2_A180TrnNewId[0];
             A181TrnNewName = P00AQ2_A181TrnNewName[0];
+            A180TrnNewId = P00AQ2_A180TrnNewId[0];
             AV14CellRow = (int)(AV14CellRow+1);
             /* Execute user subroutine: 'BEFOREWRITELINE' */
             S172 ();
@@ -461,8 +461,8 @@ namespace GeneXus.Programs {
          A181TrnNewName = "";
          A182TrnNewDate = DateTime.MinValue;
          P00AQ2_A182TrnNewDate = new DateTime[] {DateTime.MinValue} ;
-         P00AQ2_A180TrnNewId = new long[1] ;
          P00AQ2_A181TrnNewName = new string[] {""} ;
+         P00AQ2_A180TrnNewId = new long[1] ;
          GXt_dtime3 = (DateTime)(DateTime.MinValue);
          AV28UserCustomValue = "";
          GXt_char1 = "";
@@ -472,7 +472,7 @@ namespace GeneXus.Programs {
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.trnnewwwexport__default(),
             new Object[][] {
                 new Object[] {
-               P00AQ2_A182TrnNewDate, P00AQ2_A180TrnNewId, P00AQ2_A181TrnNewName
+               P00AQ2_A182TrnNewDate, P00AQ2_A181TrnNewName, P00AQ2_A180TrnNewId
                }
             }
          );
@@ -524,8 +524,8 @@ namespace GeneXus.Programs {
       private WorkWithPlus.workwithplus_web.SdtWWPColumnsSelector_Column AV26ColumnsSelector_Column ;
       private IDataStoreProvider pr_default ;
       private DateTime[] P00AQ2_A182TrnNewDate ;
-      private long[] P00AQ2_A180TrnNewId ;
       private string[] P00AQ2_A181TrnNewName ;
+      private long[] P00AQ2_A180TrnNewId ;
       private WorkWithPlus.workwithplus_web.SdtWWPColumnsSelector AV25ColumnsSelectorAux ;
       private WorkWithPlus.workwithplus_web.SdtWWPGridState AV22GridState ;
       private WorkWithPlus.workwithplus_web.SdtWWPGridState_FilterValue AV23GridStateFilterValue ;
@@ -553,10 +553,10 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int4 = new short[8];
          Object[] GXv_Object5 = new Object[2];
-         scmdbuf = "SELECT TrnNewDate, TrnNewId, TrnNewName FROM TrnNew";
+         scmdbuf = "SELECT TrnNewDate, TrnNewName, TrnNewId FROM TrnNew";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV44Trnnewwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(TrnNewId,'9999999999'), 2) like '%' || :lV44Trnnewwwds_1_filterfulltext) or ( TrnNewName like '%' || :lV44Trnnewwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(TrnNewId,'9999999999'), 2) like '%' || :lV44Trnnewwwds_1_filterfulltext) or ( LOWER(TrnNewName) like '%' || LOWER(:lV44Trnnewwwds_1_filterfulltext)))");
          }
          else
          {
@@ -695,8 +695,8 @@ namespace GeneXus.Programs {
        {
              case 0 :
                 ((DateTime[]) buf[0])[0] = rslt.getGXDate(1);
-                ((long[]) buf[1])[0] = rslt.getLong(2);
-                ((string[]) buf[2])[0] = rslt.getString(3, 100);
+                ((string[]) buf[1])[0] = rslt.getString(2, 100);
+                ((long[]) buf[2])[0] = rslt.getLong(3);
                 return;
        }
     }

@@ -261,8 +261,9 @@ namespace GeneXus.Programs {
             CallWebObject(formatLink("leaverequestww.aspx", new object[] {UrlEncode(StringUtil.RTrim(AV37Mesage))}, new string[] {"Mesage"}) );
             context.wjLocDisableFrm = 1;
          }
-         if ( ( ( StringUtil.StrCmp(Gx_mode, "UPD") == 0 ) ) && ( StringUtil.StrCmp(A132LeaveRequestStatus, "Pending") == 0 ) )
+         if ( StringUtil.StrCmp(Gx_mode, "UPD") == 0 )
          {
+            new sendleaveupdatetmail(context).executeSubmit(  A127LeaveRequestId) ;
          }
          new GeneXus.Programs.wwpbaseobjects.audittransaction(context ).execute(  AV50AuditingObject,  AV53Pgmname) ;
       }

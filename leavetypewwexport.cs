@@ -307,9 +307,9 @@ namespace GeneXus.Programs {
          while ( (pr_default.getStatus(0) != 101) )
          {
             A100CompanyId = P005E2_A100CompanyId[0];
+            A125LeaveTypeName = P005E2_A125LeaveTypeName[0];
             A145LeaveTypeLoggingWorkHours = P005E2_A145LeaveTypeLoggingWorkHours[0];
             A144LeaveTypeVacationLeave = P005E2_A144LeaveTypeVacationLeave[0];
-            A125LeaveTypeName = P005E2_A125LeaveTypeName[0];
             A124LeaveTypeId = P005E2_A124LeaveTypeId[0];
             AV14CellRow = (int)(AV14CellRow+1);
             /* Execute user subroutine: 'BEFOREWRITELINE' */
@@ -515,9 +515,9 @@ namespace GeneXus.Programs {
          A145LeaveTypeLoggingWorkHours = "";
          A125LeaveTypeName = "";
          P005E2_A100CompanyId = new long[1] ;
+         P005E2_A125LeaveTypeName = new string[] {""} ;
          P005E2_A145LeaveTypeLoggingWorkHours = new string[] {""} ;
          P005E2_A144LeaveTypeVacationLeave = new string[] {""} ;
-         P005E2_A125LeaveTypeName = new string[] {""} ;
          P005E2_A124LeaveTypeId = new long[1] ;
          AV28UserCustomValue = "";
          GXt_char1 = "";
@@ -529,7 +529,7 @@ namespace GeneXus.Programs {
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.leavetypewwexport__default(),
             new Object[][] {
                 new Object[] {
-               P005E2_A100CompanyId, P005E2_A145LeaveTypeLoggingWorkHours, P005E2_A144LeaveTypeVacationLeave, P005E2_A125LeaveTypeName, P005E2_A124LeaveTypeId
+               P005E2_A100CompanyId, P005E2_A125LeaveTypeName, P005E2_A145LeaveTypeLoggingWorkHours, P005E2_A144LeaveTypeVacationLeave, P005E2_A124LeaveTypeId
                }
             }
          );
@@ -588,9 +588,9 @@ namespace GeneXus.Programs {
       private GxSimpleCollection<string> AV60Leavetypewwds_5_tfleavetypeloggingworkhours_sels ;
       private IDataStoreProvider pr_default ;
       private long[] P005E2_A100CompanyId ;
+      private string[] P005E2_A125LeaveTypeName ;
       private string[] P005E2_A145LeaveTypeLoggingWorkHours ;
       private string[] P005E2_A144LeaveTypeVacationLeave ;
-      private string[] P005E2_A125LeaveTypeName ;
       private long[] P005E2_A124LeaveTypeId ;
       private WorkWithPlus.workwithplus_web.SdtWWPColumnsSelector AV25ColumnsSelectorAux ;
       private WorkWithPlus.workwithplus_web.SdtWWPGridState AV22GridState ;
@@ -621,11 +621,11 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int3 = new short[8];
          Object[] GXv_Object4 = new Object[2];
-         scmdbuf = "SELECT CompanyId, LeaveTypeLoggingWorkHours, LeaveTypeVacationLeave, LeaveTypeName, LeaveTypeId FROM LeaveType";
+         scmdbuf = "SELECT CompanyId, LeaveTypeName, LeaveTypeLoggingWorkHours, LeaveTypeVacationLeave, LeaveTypeId FROM LeaveType";
          AddWhere(sWhereString, "(CompanyId = :AV61Udparg6)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV56Leavetypewwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( LeaveTypeName like '%' || :lV56Leavetypewwds_1_filterfulltext) or ( 'no' like '%' || LOWER(:lV56Leavetypewwds_1_filterfulltext) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV56Leavetypewwds_1_filterfulltext) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV56Leavetypewwds_1_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV56Leavetypewwds_1_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
+            AddWhere(sWhereString, "(( LOWER(LeaveTypeName) like '%' || LOWER(:lV56Leavetypewwds_1_filterfulltext)) or ( 'no' like '%' || LOWER(:lV56Leavetypewwds_1_filterfulltext) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV56Leavetypewwds_1_filterfulltext) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV56Leavetypewwds_1_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV56Leavetypewwds_1_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
          }
          else
          {
@@ -743,9 +743,9 @@ namespace GeneXus.Programs {
        {
              case 0 :
                 ((long[]) buf[0])[0] = rslt.getLong(1);
-                ((string[]) buf[1])[0] = rslt.getString(2, 20);
+                ((string[]) buf[1])[0] = rslt.getString(2, 100);
                 ((string[]) buf[2])[0] = rslt.getString(3, 20);
-                ((string[]) buf[3])[0] = rslt.getString(4, 100);
+                ((string[]) buf[3])[0] = rslt.getString(4, 20);
                 ((long[]) buf[4])[0] = rslt.getLong(5);
                 return;
        }

@@ -1191,8 +1191,9 @@ namespace GeneXus.Programs {
             CallWebObject(formatLink("leaverequestww.aspx", new object[] {UrlEncode(StringUtil.RTrim(AV37Mesage))}, new string[] {"Mesage"}) );
             context.wjLocDisableFrm = 1;
          }
-         if ( ( ( StringUtil.StrCmp(Gx_mode, "UPD") == 0 ) ) && ( StringUtil.StrCmp(A132LeaveRequestStatus, "Pending") == 0 ) )
+         if ( StringUtil.StrCmp(Gx_mode, "UPD") == 0 )
          {
+            new sendleaveupdatetmail(context).executeSubmit(  A127LeaveRequestId) ;
          }
          new GeneXus.Programs.wwpbaseobjects.audittransaction(context ).execute(  AV50AuditingObject,  AV53Pgmname) ;
          if ( ( StringUtil.StrCmp(Gx_mode, "DLT") == 0 ) && ! AV29TrnContext.gxTpr_Callerondelete )
@@ -2712,7 +2713,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259821374385", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259107555866", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2728,7 +2729,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("leaverequest.js", "?20259821374389", false, true);
+         context.AddJavascriptSource("leaverequest.js", "?20259107555873", false, true);
          /* End function include_jscripts */
       }
 
@@ -3265,8 +3266,8 @@ namespace GeneXus.Programs {
          setEventMetadata("ENTER",""","oparms":[{"av":"dynavEmployeeid"},{"av":"AV18EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"radLeaveRequestHalfDay"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"}]}""");
          setEventMetadata("REFRESH","""{"handler":"Refresh","iparms":[{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV29TrnContext","fld":"vTRNCONTEXT","hsh":true},{"av":"AV26LeaveRequestId","fld":"vLEAVEREQUESTID","pic":"ZZZZZZZZZ9","hsh":true},{"av":"A127LeaveRequestId","fld":"LEAVEREQUESTID","pic":"ZZZZZZZZZ9"},{"av":"AV53Pgmname","fld":"vPGMNAME"},{"av":"dynavEmployeeid"},{"av":"AV18EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"radLeaveRequestHalfDay"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"}]""");
          setEventMetadata("REFRESH",""","oparms":[{"av":"dynavEmployeeid"},{"av":"AV18EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"radLeaveRequestHalfDay"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"}]}""");
-         setEventMetadata("AFTER TRN","""{"handler":"E120J2","iparms":[{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"cmbLeaveRequestStatus"},{"av":"A132LeaveRequestStatus","fld":"LEAVEREQUESTSTATUS"},{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"A133LeaveRequestDescription","fld":"LEAVEREQUESTDESCRIPTION"},{"av":"A125LeaveTypeName","fld":"LEAVETYPENAME"},{"av":"A148EmployeeName","fld":"EMPLOYEENAME"},{"av":"A106EmployeeId","fld":"EMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"AV50AuditingObject","fld":"vAUDITINGOBJECT"},{"av":"AV53Pgmname","fld":"vPGMNAME"},{"av":"AV29TrnContext","fld":"vTRNCONTEXT","hsh":true},{"av":"dynavEmployeeid"},{"av":"AV18EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"radLeaveRequestHalfDay"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"}]""");
-         setEventMetadata("AFTER TRN",""","oparms":[{"av":"A106EmployeeId","fld":"EMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"A148EmployeeName","fld":"EMPLOYEENAME"},{"av":"A125LeaveTypeName","fld":"LEAVETYPENAME"},{"av":"A133LeaveRequestDescription","fld":"LEAVEREQUESTDESCRIPTION"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"dynavEmployeeid"},{"av":"AV18EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"radLeaveRequestHalfDay"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"}]}""");
+         setEventMetadata("AFTER TRN","""{"handler":"E120J2","iparms":[{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"cmbLeaveRequestStatus"},{"av":"A132LeaveRequestStatus","fld":"LEAVEREQUESTSTATUS"},{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"A133LeaveRequestDescription","fld":"LEAVEREQUESTDESCRIPTION"},{"av":"A125LeaveTypeName","fld":"LEAVETYPENAME"},{"av":"A148EmployeeName","fld":"EMPLOYEENAME"},{"av":"A106EmployeeId","fld":"EMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"A127LeaveRequestId","fld":"LEAVEREQUESTID","pic":"ZZZZZZZZZ9"},{"av":"AV50AuditingObject","fld":"vAUDITINGOBJECT"},{"av":"AV53Pgmname","fld":"vPGMNAME"},{"av":"AV29TrnContext","fld":"vTRNCONTEXT","hsh":true},{"av":"dynavEmployeeid"},{"av":"AV18EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"radLeaveRequestHalfDay"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"}]""");
+         setEventMetadata("AFTER TRN",""","oparms":[{"av":"A106EmployeeId","fld":"EMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"A148EmployeeName","fld":"EMPLOYEENAME"},{"av":"A125LeaveTypeName","fld":"LEAVETYPENAME"},{"av":"A133LeaveRequestDescription","fld":"LEAVEREQUESTDESCRIPTION"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A127LeaveRequestId","fld":"LEAVEREQUESTID","pic":"ZZZZZZZZZ9"},{"av":"dynavEmployeeid"},{"av":"AV18EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"radLeaveRequestHalfDay"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"}]}""");
          setEventMetadata("LEAVEREQUESTENDDATE.CONTROLVALUECHANGED","""{"handler":"E130J2","iparms":[{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"dynavEmployeeid"},{"av":"AV18EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"radLeaveRequestHalfDay"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"}]""");
          setEventMetadata("LEAVEREQUESTENDDATE.CONTROLVALUECHANGED",""","oparms":[{"av":"AV35LeaveRequestDuration","fld":"vLEAVEREQUESTDURATION","pic":"Z9.9"},{"av":"dynavEmployeeid"},{"av":"AV18EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"radLeaveRequestHalfDay"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"}]}""");
          setEventMetadata("LEAVEREQUESTSTARTDATE.CONTROLVALUECHANGED","""{"handler":"E140J2","iparms":[{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"dynavEmployeeid"},{"av":"AV18EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"radLeaveRequestHalfDay"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"}]""");

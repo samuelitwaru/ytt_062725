@@ -3000,7 +3000,7 @@ namespace GeneXus.Programs {
             pr_default.execute(20, new Object[] {A106EmployeeId});
             if ( (pr_default.getStatus(20) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Support Request"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Audit"}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(20);
@@ -3008,7 +3008,7 @@ namespace GeneXus.Programs {
             pr_default.execute(21, new Object[] {A106EmployeeId});
             if ( (pr_default.getStatus(21) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"LeaveRequest"}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Support Request"}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(21);
@@ -3016,10 +3016,18 @@ namespace GeneXus.Programs {
             pr_default.execute(22, new Object[] {A106EmployeeId});
             if ( (pr_default.getStatus(22) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {""}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"LeaveRequest"}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(22);
+            /* Using cursor T000F25 */
+            pr_default.execute(23, new Object[] {A106EmployeeId});
+            if ( (pr_default.getStatus(23) != 101) )
+            {
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {""}), "CannotDeleteReferencedRecord", 1, "");
+               AnyError = 1;
+            }
+            pr_default.close(23);
          }
       }
 
@@ -3222,13 +3230,13 @@ namespace GeneXus.Programs {
       public void ScanStart0F16( )
       {
          /* Scan By routine */
-         /* Using cursor T000F25 */
-         pr_default.execute(23);
+         /* Using cursor T000F26 */
+         pr_default.execute(24);
          RcdFound16 = 0;
-         if ( (pr_default.getStatus(23) != 101) )
+         if ( (pr_default.getStatus(24) != 101) )
          {
             RcdFound16 = 1;
-            A106EmployeeId = T000F25_A106EmployeeId[0];
+            A106EmployeeId = T000F26_A106EmployeeId[0];
             AssignAttri("", false, "A106EmployeeId", StringUtil.LTrimStr( (decimal)(A106EmployeeId), 10, 0));
          }
          /* Load Subordinate Levels */
@@ -3237,19 +3245,19 @@ namespace GeneXus.Programs {
       protected void ScanNext0F16( )
       {
          /* Scan next routine */
-         pr_default.readNext(23);
+         pr_default.readNext(24);
          RcdFound16 = 0;
-         if ( (pr_default.getStatus(23) != 101) )
+         if ( (pr_default.getStatus(24) != 101) )
          {
             RcdFound16 = 1;
-            A106EmployeeId = T000F25_A106EmployeeId[0];
+            A106EmployeeId = T000F26_A106EmployeeId[0];
             AssignAttri("", false, "A106EmployeeId", StringUtil.LTrimStr( (decimal)(A106EmployeeId), 10, 0));
          }
       }
 
       protected void ScanEnd0F16( )
       {
-         pr_default.close(23);
+         pr_default.close(24);
       }
 
       protected void AfterConfirm0F16( )
@@ -3361,17 +3369,17 @@ namespace GeneXus.Programs {
 
       protected void Load0F27( )
       {
-         /* Using cursor T000F26 */
-         pr_default.execute(24, new Object[] {A106EmployeeId, A186VacationSetDate});
-         if ( (pr_default.getStatus(24) != 101) )
+         /* Using cursor T000F27 */
+         pr_default.execute(25, new Object[] {A106EmployeeId, A186VacationSetDate});
+         if ( (pr_default.getStatus(25) != 101) )
          {
             RcdFound27 = 1;
-            A179VacationSetDays = T000F26_A179VacationSetDays[0];
-            A189VacationSetDescription = T000F26_A189VacationSetDescription[0];
-            n189VacationSetDescription = T000F26_n189VacationSetDescription[0];
+            A179VacationSetDays = T000F27_A179VacationSetDays[0];
+            A189VacationSetDescription = T000F27_A189VacationSetDescription[0];
+            n189VacationSetDescription = T000F27_n189VacationSetDescription[0];
             ZM0F27( -36) ;
          }
-         pr_default.close(24);
+         pr_default.close(25);
          OnLoadActions0F27( ) ;
       }
 
@@ -3397,9 +3405,9 @@ namespace GeneXus.Programs {
 
       protected void GetKey0F27( )
       {
-         /* Using cursor T000F27 */
-         pr_default.execute(25, new Object[] {A106EmployeeId, A186VacationSetDate});
-         if ( (pr_default.getStatus(25) != 101) )
+         /* Using cursor T000F28 */
+         pr_default.execute(26, new Object[] {A106EmployeeId, A186VacationSetDate});
+         if ( (pr_default.getStatus(26) != 101) )
          {
             RcdFound27 = 1;
          }
@@ -3407,7 +3415,7 @@ namespace GeneXus.Programs {
          {
             RcdFound27 = 0;
          }
-         pr_default.close(25);
+         pr_default.close(26);
       }
 
       protected void getByPrimaryKey0F27( )
@@ -3508,11 +3516,11 @@ namespace GeneXus.Programs {
                   BeforeInsert0F27( ) ;
                   if ( AnyError == 0 )
                   {
-                     /* Using cursor T000F28 */
-                     pr_default.execute(26, new Object[] {A106EmployeeId, A186VacationSetDate, A179VacationSetDays, n189VacationSetDescription, A189VacationSetDescription});
-                     pr_default.close(26);
+                     /* Using cursor T000F29 */
+                     pr_default.execute(27, new Object[] {A106EmployeeId, A186VacationSetDate, A179VacationSetDays, n189VacationSetDescription, A189VacationSetDescription});
+                     pr_default.close(27);
                      pr_default.SmartCacheProvider.SetUpdated("EmployeeVacationSet");
-                     if ( (pr_default.getStatus(26) == 1) )
+                     if ( (pr_default.getStatus(27) == 1) )
                      {
                         GX_msglist.addItem(context.GetMessage( "GXM_noupdate", ""), "DuplicatePrimaryKey", 1, "");
                         AnyError = 1;
@@ -3569,11 +3577,11 @@ namespace GeneXus.Programs {
                      BeforeUpdate0F27( ) ;
                      if ( AnyError == 0 )
                      {
-                        /* Using cursor T000F29 */
-                        pr_default.execute(27, new Object[] {A179VacationSetDays, n189VacationSetDescription, A189VacationSetDescription, A106EmployeeId, A186VacationSetDate});
-                        pr_default.close(27);
+                        /* Using cursor T000F30 */
+                        pr_default.execute(28, new Object[] {A179VacationSetDays, n189VacationSetDescription, A189VacationSetDescription, A106EmployeeId, A186VacationSetDate});
+                        pr_default.close(28);
                         pr_default.SmartCacheProvider.SetUpdated("EmployeeVacationSet");
-                        if ( (pr_default.getStatus(27) == 103) )
+                        if ( (pr_default.getStatus(28) == 103) )
                         {
                            GX_msglist.addItem(context.GetMessage( "GXM_lock", new   object[]  {"EmployeeVacationSet"}), "RecordIsLocked", 1, "");
                            AnyError = 1;
@@ -3631,9 +3639,9 @@ namespace GeneXus.Programs {
                if ( AnyError == 0 )
                {
                   /* No cascading delete specified. */
-                  /* Using cursor T000F30 */
-                  pr_default.execute(28, new Object[] {A106EmployeeId, A186VacationSetDate});
-                  pr_default.close(28);
+                  /* Using cursor T000F31 */
+                  pr_default.execute(29, new Object[] {A106EmployeeId, A186VacationSetDate});
+                  pr_default.close(29);
                   pr_default.SmartCacheProvider.SetUpdated("EmployeeVacationSet");
                   if ( AnyError == 0 )
                   {
@@ -3678,13 +3686,13 @@ namespace GeneXus.Programs {
       public void ScanStart0F27( )
       {
          /* Scan By routine */
-         /* Using cursor T000F31 */
-         pr_default.execute(29, new Object[] {A106EmployeeId});
+         /* Using cursor T000F32 */
+         pr_default.execute(30, new Object[] {A106EmployeeId});
          RcdFound27 = 0;
-         if ( (pr_default.getStatus(29) != 101) )
+         if ( (pr_default.getStatus(30) != 101) )
          {
             RcdFound27 = 1;
-            A186VacationSetDate = T000F31_A186VacationSetDate[0];
+            A186VacationSetDate = T000F32_A186VacationSetDate[0];
          }
          /* Load Subordinate Levels */
       }
@@ -3692,18 +3700,18 @@ namespace GeneXus.Programs {
       protected void ScanNext0F27( )
       {
          /* Scan next routine */
-         pr_default.readNext(29);
+         pr_default.readNext(30);
          RcdFound27 = 0;
-         if ( (pr_default.getStatus(29) != 101) )
+         if ( (pr_default.getStatus(30) != 101) )
          {
             RcdFound27 = 1;
-            A186VacationSetDate = T000F31_A186VacationSetDate[0];
+            A186VacationSetDate = T000F32_A186VacationSetDate[0];
          }
       }
 
       protected void ScanEnd0F27( )
       {
-         pr_default.close(29);
+         pr_default.close(30);
       }
 
       protected void AfterConfirm0F27( )
@@ -3794,16 +3802,16 @@ namespace GeneXus.Programs {
 
       protected void Load0F17( )
       {
-         /* Using cursor T000F32 */
-         pr_default.execute(30, new Object[] {A106EmployeeId, A102ProjectId});
-         if ( (pr_default.getStatus(30) != 101) )
+         /* Using cursor T000F33 */
+         pr_default.execute(31, new Object[] {A106EmployeeId, A102ProjectId});
+         if ( (pr_default.getStatus(31) != 101) )
          {
             RcdFound17 = 1;
-            A184EmployeeIsActiveInProject = T000F32_A184EmployeeIsActiveInProject[0];
-            A103ProjectName = T000F32_A103ProjectName[0];
+            A184EmployeeIsActiveInProject = T000F33_A184EmployeeIsActiveInProject[0];
+            A103ProjectName = T000F33_A103ProjectName[0];
             ZM0F17( -37) ;
          }
-         pr_default.close(30);
+         pr_default.close(31);
          OnLoadActions0F17( ) ;
       }
 
@@ -3842,9 +3850,9 @@ namespace GeneXus.Programs {
 
       protected void gxLoad_38( long A102ProjectId )
       {
-         /* Using cursor T000F33 */
-         pr_default.execute(31, new Object[] {A102ProjectId});
-         if ( (pr_default.getStatus(31) == 101) )
+         /* Using cursor T000F34 */
+         pr_default.execute(32, new Object[] {A102ProjectId});
+         if ( (pr_default.getStatus(32) == 101) )
          {
             GXCCtl = "PROJECTID_" + sGXsfl_85_idx;
             GX_msglist.addItem("No matching 'Project'.", "ForeignKeyNotFound", 1, GXCCtl);
@@ -3852,25 +3860,25 @@ namespace GeneXus.Programs {
             GX_FocusControl = edtProjectId_Internalname;
             AssignAttri("", false, "GX_FocusControl", GX_FocusControl);
          }
-         A103ProjectName = T000F33_A103ProjectName[0];
+         A103ProjectName = T000F34_A103ProjectName[0];
          GxWebStd.set_html_headers( context, 0, "", "");
          AddString( "[[") ;
          AddString( "\""+GXUtil.EncodeJSConstant( StringUtil.RTrim( A103ProjectName))+"\"") ;
          AddString( "]") ;
-         if ( (pr_default.getStatus(31) == 101) )
+         if ( (pr_default.getStatus(32) == 101) )
          {
             AddString( ",") ;
             AddString( "101") ;
          }
          AddString( "]") ;
-         pr_default.close(31);
+         pr_default.close(32);
       }
 
       protected void GetKey0F17( )
       {
-         /* Using cursor T000F34 */
-         pr_default.execute(32, new Object[] {A106EmployeeId, A102ProjectId});
-         if ( (pr_default.getStatus(32) != 101) )
+         /* Using cursor T000F35 */
+         pr_default.execute(33, new Object[] {A106EmployeeId, A102ProjectId});
+         if ( (pr_default.getStatus(33) != 101) )
          {
             RcdFound17 = 1;
          }
@@ -3878,7 +3886,7 @@ namespace GeneXus.Programs {
          {
             RcdFound17 = 0;
          }
-         pr_default.close(32);
+         pr_default.close(33);
       }
 
       protected void getByPrimaryKey0F17( )
@@ -3971,11 +3979,11 @@ namespace GeneXus.Programs {
                   BeforeInsert0F17( ) ;
                   if ( AnyError == 0 )
                   {
-                     /* Using cursor T000F35 */
-                     pr_default.execute(33, new Object[] {A106EmployeeId, A184EmployeeIsActiveInProject, A102ProjectId});
-                     pr_default.close(33);
+                     /* Using cursor T000F36 */
+                     pr_default.execute(34, new Object[] {A106EmployeeId, A184EmployeeIsActiveInProject, A102ProjectId});
+                     pr_default.close(34);
                      pr_default.SmartCacheProvider.SetUpdated("EmployeeProject");
-                     if ( (pr_default.getStatus(33) == 1) )
+                     if ( (pr_default.getStatus(34) == 1) )
                      {
                         GX_msglist.addItem(context.GetMessage( "GXM_noupdate", ""), "DuplicatePrimaryKey", 1, "");
                         AnyError = 1;
@@ -4032,11 +4040,11 @@ namespace GeneXus.Programs {
                      BeforeUpdate0F17( ) ;
                      if ( AnyError == 0 )
                      {
-                        /* Using cursor T000F36 */
-                        pr_default.execute(34, new Object[] {A184EmployeeIsActiveInProject, A106EmployeeId, A102ProjectId});
-                        pr_default.close(34);
+                        /* Using cursor T000F37 */
+                        pr_default.execute(35, new Object[] {A184EmployeeIsActiveInProject, A106EmployeeId, A102ProjectId});
+                        pr_default.close(35);
                         pr_default.SmartCacheProvider.SetUpdated("EmployeeProject");
-                        if ( (pr_default.getStatus(34) == 103) )
+                        if ( (pr_default.getStatus(35) == 103) )
                         {
                            GX_msglist.addItem(context.GetMessage( "GXM_lock", new   object[]  {"EmployeeProject"}), "RecordIsLocked", 1, "");
                            AnyError = 1;
@@ -4094,9 +4102,9 @@ namespace GeneXus.Programs {
                if ( AnyError == 0 )
                {
                   /* No cascading delete specified. */
-                  /* Using cursor T000F37 */
-                  pr_default.execute(35, new Object[] {A106EmployeeId, A102ProjectId});
-                  pr_default.close(35);
+                  /* Using cursor T000F38 */
+                  pr_default.execute(36, new Object[] {A106EmployeeId, A102ProjectId});
+                  pr_default.close(36);
                   pr_default.SmartCacheProvider.SetUpdated("EmployeeProject");
                   if ( AnyError == 0 )
                   {
@@ -4125,29 +4133,29 @@ namespace GeneXus.Programs {
          if ( AnyError == 0 )
          {
             /* Delete mode formulas */
-            /* Using cursor T000F38 */
-            pr_default.execute(36, new Object[] {A102ProjectId});
-            A103ProjectName = T000F38_A103ProjectName[0];
-            pr_default.close(36);
+            /* Using cursor T000F39 */
+            pr_default.execute(37, new Object[] {A102ProjectId});
+            A103ProjectName = T000F39_A103ProjectName[0];
+            pr_default.close(37);
          }
          if ( AnyError == 0 )
          {
-            /* Using cursor T000F39 */
-            pr_default.execute(37, new Object[] {A106EmployeeId, A102ProjectId});
-            if ( (pr_default.getStatus(37) != 101) )
-            {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Project"}), "CannotDeleteReferencedRecord", 1, "");
-               AnyError = 1;
-            }
-            pr_default.close(37);
             /* Using cursor T000F40 */
             pr_default.execute(38, new Object[] {A106EmployeeId, A102ProjectId});
             if ( (pr_default.getStatus(38) != 101) )
             {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {""}), "CannotDeleteReferencedRecord", 1, "");
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Project"}), "CannotDeleteReferencedRecord", 1, "");
                AnyError = 1;
             }
             pr_default.close(38);
+            /* Using cursor T000F41 */
+            pr_default.execute(39, new Object[] {A106EmployeeId, A102ProjectId});
+            if ( (pr_default.getStatus(39) != 101) )
+            {
+               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {""}), "CannotDeleteReferencedRecord", 1, "");
+               AnyError = 1;
+            }
+            pr_default.close(39);
          }
       }
 
@@ -4167,13 +4175,13 @@ namespace GeneXus.Programs {
       public void ScanStart0F17( )
       {
          /* Scan By routine */
-         /* Using cursor T000F41 */
-         pr_default.execute(39, new Object[] {A106EmployeeId});
+         /* Using cursor T000F42 */
+         pr_default.execute(40, new Object[] {A106EmployeeId});
          RcdFound17 = 0;
-         if ( (pr_default.getStatus(39) != 101) )
+         if ( (pr_default.getStatus(40) != 101) )
          {
             RcdFound17 = 1;
-            A102ProjectId = T000F41_A102ProjectId[0];
+            A102ProjectId = T000F42_A102ProjectId[0];
          }
          /* Load Subordinate Levels */
       }
@@ -4181,18 +4189,18 @@ namespace GeneXus.Programs {
       protected void ScanNext0F17( )
       {
          /* Scan next routine */
-         pr_default.readNext(39);
+         pr_default.readNext(40);
          RcdFound17 = 0;
-         if ( (pr_default.getStatus(39) != 101) )
+         if ( (pr_default.getStatus(40) != 101) )
          {
             RcdFound17 = 1;
-            A102ProjectId = T000F41_A102ProjectId[0];
+            A102ProjectId = T000F42_A102ProjectId[0];
          }
       }
 
       protected void ScanEnd0F17( )
       {
-         pr_default.close(39);
+         pr_default.close(40);
       }
 
       protected void AfterConfirm0F17( )
@@ -4983,7 +4991,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513505457", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259107555163", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -4999,7 +5007,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("employee.js", "?202572513505459", false, true);
+         context.AddJavascriptSource("employee.js", "?20259107555168", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -5264,15 +5272,15 @@ namespace GeneXus.Programs {
       {
          gxdynajaxctrlcodr.Clear();
          gxdynajaxctrldescr.Clear();
-         /* Using cursor T000F42 */
-         pr_default.execute(40);
-         while ( (pr_default.getStatus(40) != 101) )
+         /* Using cursor T000F43 */
+         pr_default.execute(41);
+         while ( (pr_default.getStatus(41) != 101) )
          {
-            gxdynajaxctrlcodr.Add(StringUtil.LTrim( StringUtil.NToC( (decimal)(T000F42_A100CompanyId[0]), 10, 0, ".", "")));
-            gxdynajaxctrldescr.Add(StringUtil.RTrim( T000F42_A101CompanyName[0]));
-            pr_default.readNext(40);
+            gxdynajaxctrlcodr.Add(StringUtil.LTrim( StringUtil.NToC( (decimal)(T000F43_A100CompanyId[0]), 10, 0, ".", "")));
+            gxdynajaxctrldescr.Add(StringUtil.RTrim( T000F43_A101CompanyName[0]));
+            pr_default.readNext(41);
          }
-         pr_default.close(40);
+         pr_default.close(41);
       }
 
       protected void GX4ASAEMPLOYEEBALANCE0F16( long A106EmployeeId )
@@ -5523,14 +5531,14 @@ namespace GeneXus.Programs {
          dynCompanyId.Name = "COMPANYID";
          dynCompanyId.WebTags = "";
          dynCompanyId.removeAllItems();
-         /* Using cursor T000F43 */
-         pr_default.execute(41);
-         while ( (pr_default.getStatus(41) != 101) )
+         /* Using cursor T000F44 */
+         pr_default.execute(42);
+         while ( (pr_default.getStatus(42) != 101) )
          {
-            dynCompanyId.addItem(StringUtil.Trim( StringUtil.Str( (decimal)(T000F43_A100CompanyId[0]), 10, 0)), T000F43_A101CompanyName[0], 0);
-            pr_default.readNext(41);
+            dynCompanyId.addItem(StringUtil.Trim( StringUtil.Str( (decimal)(T000F44_A100CompanyId[0]), 10, 0)), T000F44_A101CompanyName[0], 0);
+            pr_default.readNext(42);
          }
-         pr_default.close(41);
+         pr_default.close(42);
          if ( dynCompanyId.ItemCount > 0 )
          {
             A100CompanyId = (long)(Math.Round(NumberUtil.Val( dynCompanyId.getValidValue(StringUtil.Trim( StringUtil.Str( (decimal)(A100CompanyId), 10, 0))), "."), 18, MidpointRounding.ToEven));
@@ -5607,15 +5615,15 @@ namespace GeneXus.Programs {
       public void Valid_Employeeemail( )
       {
          A100CompanyId = (long)(Math.Round(NumberUtil.Val( dynCompanyId.CurrentValue, "."), 18, MidpointRounding.ToEven));
-         /* Using cursor T000F44 */
-         pr_default.execute(42, new Object[] {A109EmployeeEmail, A106EmployeeId});
-         if ( (pr_default.getStatus(42) != 101) )
+         /* Using cursor T000F45 */
+         pr_default.execute(43, new Object[] {A109EmployeeEmail, A106EmployeeId});
+         if ( (pr_default.getStatus(43) != 101) )
          {
             GX_msglist.addItem(context.GetMessage( "GXM_1004", new   object[]  {"Employee Email"}), 1, "EMPLOYEEEMAIL");
             AnyError = 1;
             GX_FocusControl = edtEmployeeEmail_Internalname;
          }
-         pr_default.close(42);
+         pr_default.close(43);
          if ( ! ( GxRegex.IsMatch(A109EmployeeEmail,"^((\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*)|(\\s*))$") ) )
          {
             GX_msglist.addItem("Field Employee Email does not match the specified pattern", "OutOfRange", 1, "EMPLOYEEEMAIL");
@@ -5663,16 +5671,16 @@ namespace GeneXus.Programs {
       public void Valid_Projectid( )
       {
          A100CompanyId = (long)(Math.Round(NumberUtil.Val( dynCompanyId.CurrentValue, "."), 18, MidpointRounding.ToEven));
-         /* Using cursor T000F38 */
-         pr_default.execute(36, new Object[] {A102ProjectId});
-         if ( (pr_default.getStatus(36) == 101) )
+         /* Using cursor T000F39 */
+         pr_default.execute(37, new Object[] {A102ProjectId});
+         if ( (pr_default.getStatus(37) == 101) )
          {
             GX_msglist.addItem("No matching 'Project'.", "ForeignKeyNotFound", 1, "PROJECTID");
             AnyError = 1;
             GX_FocusControl = edtProjectId_Internalname;
          }
-         A103ProjectName = T000F38_A103ProjectName[0];
-         pr_default.close(36);
+         A103ProjectName = T000F39_A103ProjectName[0];
+         pr_default.close(37);
          dynload_actions( ) ;
          /*  Sending validation outputs */
          AssignAttri("", false, "A103ProjectName", StringUtil.RTrim( A103ProjectName));
@@ -5734,7 +5742,7 @@ namespace GeneXus.Programs {
       protected override void CloseCursors( )
       {
          pr_default.close(1);
-         pr_default.close(36);
+         pr_default.close(37);
          pr_default.close(4);
          pr_default.close(6);
          pr_default.close(18);
@@ -5904,17 +5912,18 @@ namespace GeneXus.Programs {
          T000F17_A106EmployeeId = new long[1] ;
          T000F20_A101CompanyName = new string[] {""} ;
          T000F21_A102ProjectId = new long[1] ;
-         T000F22_A174SupportRequestId = new long[1] ;
-         T000F23_A127LeaveRequestId = new long[1] ;
-         T000F24_A118WorkHourLogId = new long[1] ;
-         T000F25_A106EmployeeId = new long[1] ;
+         T000F22_A204AuditId = new long[1] ;
+         T000F23_A174SupportRequestId = new long[1] ;
+         T000F24_A127LeaveRequestId = new long[1] ;
+         T000F25_A118WorkHourLogId = new long[1] ;
          T000F26_A106EmployeeId = new long[1] ;
-         T000F26_A186VacationSetDate = new DateTime[] {DateTime.MinValue} ;
-         T000F26_A179VacationSetDays = new decimal[1] ;
-         T000F26_A189VacationSetDescription = new string[] {""} ;
-         T000F26_n189VacationSetDescription = new bool[] {false} ;
          T000F27_A106EmployeeId = new long[1] ;
          T000F27_A186VacationSetDate = new DateTime[] {DateTime.MinValue} ;
+         T000F27_A179VacationSetDays = new decimal[1] ;
+         T000F27_A189VacationSetDescription = new string[] {""} ;
+         T000F27_n189VacationSetDescription = new bool[] {false} ;
+         T000F28_A106EmployeeId = new long[1] ;
+         T000F28_A186VacationSetDate = new DateTime[] {DateTime.MinValue} ;
          T000F6_A106EmployeeId = new long[1] ;
          T000F6_A186VacationSetDate = new DateTime[] {DateTime.MinValue} ;
          T000F6_A179VacationSetDays = new decimal[1] ;
@@ -5925,28 +5934,28 @@ namespace GeneXus.Programs {
          T000F5_A179VacationSetDays = new decimal[1] ;
          T000F5_A189VacationSetDescription = new string[] {""} ;
          T000F5_n189VacationSetDescription = new bool[] {false} ;
-         T000F31_A106EmployeeId = new long[1] ;
-         T000F31_A186VacationSetDate = new DateTime[] {DateTime.MinValue} ;
-         Z103ProjectName = "";
          T000F32_A106EmployeeId = new long[1] ;
-         T000F32_A184EmployeeIsActiveInProject = new bool[] {false} ;
-         T000F32_A103ProjectName = new string[] {""} ;
-         T000F32_A102ProjectId = new long[1] ;
-         T000F4_A103ProjectName = new string[] {""} ;
+         T000F32_A186VacationSetDate = new DateTime[] {DateTime.MinValue} ;
+         Z103ProjectName = "";
+         T000F33_A106EmployeeId = new long[1] ;
+         T000F33_A184EmployeeIsActiveInProject = new bool[] {false} ;
          T000F33_A103ProjectName = new string[] {""} ;
-         T000F34_A106EmployeeId = new long[1] ;
-         T000F34_A102ProjectId = new long[1] ;
+         T000F33_A102ProjectId = new long[1] ;
+         T000F4_A103ProjectName = new string[] {""} ;
+         T000F34_A103ProjectName = new string[] {""} ;
+         T000F35_A106EmployeeId = new long[1] ;
+         T000F35_A102ProjectId = new long[1] ;
          T000F3_A106EmployeeId = new long[1] ;
          T000F3_A184EmployeeIsActiveInProject = new bool[] {false} ;
          T000F3_A102ProjectId = new long[1] ;
          T000F2_A106EmployeeId = new long[1] ;
          T000F2_A184EmployeeIsActiveInProject = new bool[] {false} ;
          T000F2_A102ProjectId = new long[1] ;
-         T000F38_A103ProjectName = new string[] {""} ;
-         T000F39_A102ProjectId = new long[1] ;
-         T000F40_A118WorkHourLogId = new long[1] ;
-         T000F41_A106EmployeeId = new long[1] ;
-         T000F41_A102ProjectId = new long[1] ;
+         T000F39_A103ProjectName = new string[] {""} ;
+         T000F40_A102ProjectId = new long[1] ;
+         T000F41_A118WorkHourLogId = new long[1] ;
+         T000F42_A106EmployeeId = new long[1] ;
+         T000F42_A102ProjectId = new long[1] ;
          Gridlevel_vacationsetRow = new GXWebRow();
          subGridlevel_vacationset_Linesclass = "";
          ROClassString = "";
@@ -5960,11 +5969,11 @@ namespace GeneXus.Programs {
          gxdynajaxctrlcodr = new GeneXus.Utils.GxStringCollection();
          gxdynajaxctrldescr = new GeneXus.Utils.GxStringCollection();
          gxwrpcisep = "";
-         T000F42_A100CompanyId = new long[1] ;
-         T000F42_A101CompanyName = new string[] {""} ;
          T000F43_A100CompanyId = new long[1] ;
          T000F43_A101CompanyName = new string[] {""} ;
-         T000F44_A109EmployeeEmail = new string[] {""} ;
+         T000F44_A100CompanyId = new long[1] ;
+         T000F44_A101CompanyName = new string[] {""} ;
+         T000F45_A109EmployeeEmail = new string[] {""} ;
          pr_gam = new DataStoreProvider(context, new GeneXus.Programs.employee__gam(),
             new Object[][] {
             }
@@ -6032,40 +6041,25 @@ namespace GeneXus.Programs {
                T000F21_A102ProjectId
                }
                , new Object[] {
-               T000F22_A174SupportRequestId
+               T000F22_A204AuditId
                }
                , new Object[] {
-               T000F23_A127LeaveRequestId
+               T000F23_A174SupportRequestId
                }
                , new Object[] {
-               T000F24_A118WorkHourLogId
+               T000F24_A127LeaveRequestId
                }
                , new Object[] {
-               T000F25_A106EmployeeId
+               T000F25_A118WorkHourLogId
                }
                , new Object[] {
-               T000F26_A106EmployeeId, T000F26_A186VacationSetDate, T000F26_A179VacationSetDays, T000F26_A189VacationSetDescription, T000F26_n189VacationSetDescription
+               T000F26_A106EmployeeId
                }
                , new Object[] {
-               T000F27_A106EmployeeId, T000F27_A186VacationSetDate
+               T000F27_A106EmployeeId, T000F27_A186VacationSetDate, T000F27_A179VacationSetDays, T000F27_A189VacationSetDescription, T000F27_n189VacationSetDescription
                }
                , new Object[] {
-               }
-               , new Object[] {
-               }
-               , new Object[] {
-               }
-               , new Object[] {
-               T000F31_A106EmployeeId, T000F31_A186VacationSetDate
-               }
-               , new Object[] {
-               T000F32_A106EmployeeId, T000F32_A184EmployeeIsActiveInProject, T000F32_A103ProjectName, T000F32_A102ProjectId
-               }
-               , new Object[] {
-               T000F33_A103ProjectName
-               }
-               , new Object[] {
-               T000F34_A106EmployeeId, T000F34_A102ProjectId
+               T000F28_A106EmployeeId, T000F28_A186VacationSetDate
                }
                , new Object[] {
                }
@@ -6074,25 +6068,43 @@ namespace GeneXus.Programs {
                , new Object[] {
                }
                , new Object[] {
-               T000F38_A103ProjectName
+               T000F32_A106EmployeeId, T000F32_A186VacationSetDate
                }
                , new Object[] {
-               T000F39_A102ProjectId
+               T000F33_A106EmployeeId, T000F33_A184EmployeeIsActiveInProject, T000F33_A103ProjectName, T000F33_A102ProjectId
                }
                , new Object[] {
-               T000F40_A118WorkHourLogId
+               T000F34_A103ProjectName
                }
                , new Object[] {
-               T000F41_A106EmployeeId, T000F41_A102ProjectId
+               T000F35_A106EmployeeId, T000F35_A102ProjectId
                }
                , new Object[] {
-               T000F42_A100CompanyId, T000F42_A101CompanyName
+               }
+               , new Object[] {
+               }
+               , new Object[] {
+               }
+               , new Object[] {
+               T000F39_A103ProjectName
+               }
+               , new Object[] {
+               T000F40_A102ProjectId
+               }
+               , new Object[] {
+               T000F41_A118WorkHourLogId
+               }
+               , new Object[] {
+               T000F42_A106EmployeeId, T000F42_A102ProjectId
                }
                , new Object[] {
                T000F43_A100CompanyId, T000F43_A101CompanyName
                }
                , new Object[] {
-               T000F44_A109EmployeeEmail
+               T000F44_A100CompanyId, T000F44_A101CompanyName
+               }
+               , new Object[] {
+               T000F45_A109EmployeeEmail
                }
             }
          );
@@ -6520,17 +6532,18 @@ namespace GeneXus.Programs {
       private long[] T000F17_A106EmployeeId ;
       private string[] T000F20_A101CompanyName ;
       private long[] T000F21_A102ProjectId ;
-      private long[] T000F22_A174SupportRequestId ;
-      private long[] T000F23_A127LeaveRequestId ;
-      private long[] T000F24_A118WorkHourLogId ;
-      private long[] T000F25_A106EmployeeId ;
+      private long[] T000F22_A204AuditId ;
+      private long[] T000F23_A174SupportRequestId ;
+      private long[] T000F24_A127LeaveRequestId ;
+      private long[] T000F25_A118WorkHourLogId ;
       private long[] T000F26_A106EmployeeId ;
-      private DateTime[] T000F26_A186VacationSetDate ;
-      private decimal[] T000F26_A179VacationSetDays ;
-      private string[] T000F26_A189VacationSetDescription ;
-      private bool[] T000F26_n189VacationSetDescription ;
       private long[] T000F27_A106EmployeeId ;
       private DateTime[] T000F27_A186VacationSetDate ;
+      private decimal[] T000F27_A179VacationSetDays ;
+      private string[] T000F27_A189VacationSetDescription ;
+      private bool[] T000F27_n189VacationSetDescription ;
+      private long[] T000F28_A106EmployeeId ;
+      private DateTime[] T000F28_A186VacationSetDate ;
       private long[] T000F6_A106EmployeeId ;
       private DateTime[] T000F6_A186VacationSetDate ;
       private decimal[] T000F6_A179VacationSetDays ;
@@ -6541,32 +6554,32 @@ namespace GeneXus.Programs {
       private decimal[] T000F5_A179VacationSetDays ;
       private string[] T000F5_A189VacationSetDescription ;
       private bool[] T000F5_n189VacationSetDescription ;
-      private long[] T000F31_A106EmployeeId ;
-      private DateTime[] T000F31_A186VacationSetDate ;
       private long[] T000F32_A106EmployeeId ;
-      private bool[] T000F32_A184EmployeeIsActiveInProject ;
-      private string[] T000F32_A103ProjectName ;
-      private long[] T000F32_A102ProjectId ;
-      private string[] T000F4_A103ProjectName ;
+      private DateTime[] T000F32_A186VacationSetDate ;
+      private long[] T000F33_A106EmployeeId ;
+      private bool[] T000F33_A184EmployeeIsActiveInProject ;
       private string[] T000F33_A103ProjectName ;
-      private long[] T000F34_A106EmployeeId ;
-      private long[] T000F34_A102ProjectId ;
+      private long[] T000F33_A102ProjectId ;
+      private string[] T000F4_A103ProjectName ;
+      private string[] T000F34_A103ProjectName ;
+      private long[] T000F35_A106EmployeeId ;
+      private long[] T000F35_A102ProjectId ;
       private long[] T000F3_A106EmployeeId ;
       private bool[] T000F3_A184EmployeeIsActiveInProject ;
       private long[] T000F3_A102ProjectId ;
       private long[] T000F2_A106EmployeeId ;
       private bool[] T000F2_A184EmployeeIsActiveInProject ;
       private long[] T000F2_A102ProjectId ;
-      private string[] T000F38_A103ProjectName ;
-      private long[] T000F39_A102ProjectId ;
-      private long[] T000F40_A118WorkHourLogId ;
-      private long[] T000F41_A106EmployeeId ;
-      private long[] T000F41_A102ProjectId ;
-      private long[] T000F42_A100CompanyId ;
-      private string[] T000F42_A101CompanyName ;
+      private string[] T000F39_A103ProjectName ;
+      private long[] T000F40_A102ProjectId ;
+      private long[] T000F41_A118WorkHourLogId ;
+      private long[] T000F42_A106EmployeeId ;
+      private long[] T000F42_A102ProjectId ;
       private long[] T000F43_A100CompanyId ;
       private string[] T000F43_A101CompanyName ;
-      private string[] T000F44_A109EmployeeEmail ;
+      private long[] T000F44_A100CompanyId ;
+      private string[] T000F44_A101CompanyName ;
+      private string[] T000F45_A109EmployeeEmail ;
       private IDataStoreProvider pr_gam ;
    }
 
@@ -6634,23 +6647,24 @@ namespace GeneXus.Programs {
        ,new ForEachCursor(def[23])
        ,new ForEachCursor(def[24])
        ,new ForEachCursor(def[25])
-       ,new UpdateCursor(def[26])
+       ,new ForEachCursor(def[26])
        ,new UpdateCursor(def[27])
        ,new UpdateCursor(def[28])
-       ,new ForEachCursor(def[29])
+       ,new UpdateCursor(def[29])
        ,new ForEachCursor(def[30])
        ,new ForEachCursor(def[31])
        ,new ForEachCursor(def[32])
-       ,new UpdateCursor(def[33])
+       ,new ForEachCursor(def[33])
        ,new UpdateCursor(def[34])
        ,new UpdateCursor(def[35])
-       ,new ForEachCursor(def[36])
+       ,new UpdateCursor(def[36])
        ,new ForEachCursor(def[37])
        ,new ForEachCursor(def[38])
        ,new ForEachCursor(def[39])
        ,new ForEachCursor(def[40])
        ,new ForEachCursor(def[41])
        ,new ForEachCursor(def[42])
+       ,new ForEachCursor(def[43])
      };
   }
 
@@ -6782,11 +6796,10 @@ namespace GeneXus.Programs {
         };
         Object[] prmT000F25;
         prmT000F25 = new Object[] {
+        new ParDef("EmployeeId",GXType.Int64,10,0)
         };
         Object[] prmT000F26;
         prmT000F26 = new Object[] {
-        new ParDef("EmployeeId",GXType.Int64,10,0) ,
-        new ParDef("VacationSetDate",GXType.Date,8,0)
         };
         Object[] prmT000F27;
         prmT000F27 = new Object[] {
@@ -6796,64 +6809,64 @@ namespace GeneXus.Programs {
         Object[] prmT000F28;
         prmT000F28 = new Object[] {
         new ParDef("EmployeeId",GXType.Int64,10,0) ,
+        new ParDef("VacationSetDate",GXType.Date,8,0)
+        };
+        Object[] prmT000F29;
+        prmT000F29 = new Object[] {
+        new ParDef("EmployeeId",GXType.Int64,10,0) ,
         new ParDef("VacationSetDate",GXType.Date,8,0) ,
         new ParDef("VacationSetDays",GXType.Number,4,1) ,
         new ParDef("VacationSetDescription",GXType.VarChar,200,0){Nullable=true}
         };
-        Object[] prmT000F29;
-        prmT000F29 = new Object[] {
+        Object[] prmT000F30;
+        prmT000F30 = new Object[] {
         new ParDef("VacationSetDays",GXType.Number,4,1) ,
         new ParDef("VacationSetDescription",GXType.VarChar,200,0){Nullable=true} ,
         new ParDef("EmployeeId",GXType.Int64,10,0) ,
         new ParDef("VacationSetDate",GXType.Date,8,0)
         };
-        Object[] prmT000F30;
-        prmT000F30 = new Object[] {
+        Object[] prmT000F31;
+        prmT000F31 = new Object[] {
         new ParDef("EmployeeId",GXType.Int64,10,0) ,
         new ParDef("VacationSetDate",GXType.Date,8,0)
         };
-        Object[] prmT000F31;
-        prmT000F31 = new Object[] {
-        new ParDef("EmployeeId",GXType.Int64,10,0)
-        };
         Object[] prmT000F32;
         prmT000F32 = new Object[] {
-        new ParDef("EmployeeId",GXType.Int64,10,0) ,
-        new ParDef("ProjectId",GXType.Int64,10,0)
+        new ParDef("EmployeeId",GXType.Int64,10,0)
         };
         Object[] prmT000F33;
         prmT000F33 = new Object[] {
+        new ParDef("EmployeeId",GXType.Int64,10,0) ,
         new ParDef("ProjectId",GXType.Int64,10,0)
         };
         Object[] prmT000F34;
         prmT000F34 = new Object[] {
-        new ParDef("EmployeeId",GXType.Int64,10,0) ,
         new ParDef("ProjectId",GXType.Int64,10,0)
         };
         Object[] prmT000F35;
         prmT000F35 = new Object[] {
         new ParDef("EmployeeId",GXType.Int64,10,0) ,
-        new ParDef("EmployeeIsActiveInProject",GXType.Boolean,4,0) ,
         new ParDef("ProjectId",GXType.Int64,10,0)
         };
         Object[] prmT000F36;
         prmT000F36 = new Object[] {
-        new ParDef("EmployeeIsActiveInProject",GXType.Boolean,4,0) ,
         new ParDef("EmployeeId",GXType.Int64,10,0) ,
+        new ParDef("EmployeeIsActiveInProject",GXType.Boolean,4,0) ,
         new ParDef("ProjectId",GXType.Int64,10,0)
         };
         Object[] prmT000F37;
         prmT000F37 = new Object[] {
+        new ParDef("EmployeeIsActiveInProject",GXType.Boolean,4,0) ,
         new ParDef("EmployeeId",GXType.Int64,10,0) ,
         new ParDef("ProjectId",GXType.Int64,10,0)
         };
         Object[] prmT000F38;
         prmT000F38 = new Object[] {
+        new ParDef("EmployeeId",GXType.Int64,10,0) ,
         new ParDef("ProjectId",GXType.Int64,10,0)
         };
         Object[] prmT000F39;
         prmT000F39 = new Object[] {
-        new ParDef("EmployeeId",GXType.Int64,10,0) ,
         new ParDef("ProjectId",GXType.Int64,10,0)
         };
         Object[] prmT000F40;
@@ -6863,16 +6876,21 @@ namespace GeneXus.Programs {
         };
         Object[] prmT000F41;
         prmT000F41 = new Object[] {
-        new ParDef("EmployeeId",GXType.Int64,10,0)
+        new ParDef("EmployeeId",GXType.Int64,10,0) ,
+        new ParDef("ProjectId",GXType.Int64,10,0)
         };
         Object[] prmT000F42;
         prmT000F42 = new Object[] {
+        new ParDef("EmployeeId",GXType.Int64,10,0)
         };
         Object[] prmT000F43;
         prmT000F43 = new Object[] {
         };
         Object[] prmT000F44;
         prmT000F44 = new Object[] {
+        };
+        Object[] prmT000F45;
+        prmT000F45 = new Object[] {
         new ParDef("EmployeeEmail",GXType.VarChar,100,0) ,
         new ParDef("EmployeeId",GXType.Int64,10,0)
         };
@@ -6897,29 +6915,30 @@ namespace GeneXus.Programs {
            ,new CursorDef("T000F19", "SAVEPOINT gxupdate;DELETE FROM Employee  WHERE EmployeeId = :EmployeeId;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmT000F19)
            ,new CursorDef("T000F20", "SELECT CompanyName FROM Company WHERE CompanyId = :CompanyId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F20,1, GxCacheFrequency.OFF ,true,false )
            ,new CursorDef("T000F21", "SELECT ProjectId FROM Project WHERE ProjectManagerId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F21,1, GxCacheFrequency.OFF ,true,true )
-           ,new CursorDef("T000F22", "SELECT SupportRequestId FROM SupportRequest WHERE EmployeeId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F22,1, GxCacheFrequency.OFF ,true,true )
-           ,new CursorDef("T000F23", "SELECT LeaveRequestId FROM LeaveRequest WHERE EmployeeId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F23,1, GxCacheFrequency.OFF ,true,true )
-           ,new CursorDef("T000F24", "SELECT WorkHourLogId FROM WorkHourLog WHERE EmployeeId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F24,1, GxCacheFrequency.OFF ,true,true )
-           ,new CursorDef("T000F25", "SELECT EmployeeId FROM Employee ORDER BY EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F25,100, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("T000F26", "SELECT EmployeeId, VacationSetDate, VacationSetDays, VacationSetDescription FROM EmployeeVacationSet WHERE EmployeeId = :EmployeeId and VacationSetDate = :VacationSetDate ORDER BY EmployeeId, VacationSetDate ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F26,11, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("T000F27", "SELECT EmployeeId, VacationSetDate FROM EmployeeVacationSet WHERE EmployeeId = :EmployeeId AND VacationSetDate = :VacationSetDate ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F27,1, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("T000F28", "SAVEPOINT gxupdate;INSERT INTO EmployeeVacationSet(EmployeeId, VacationSetDate, VacationSetDays, VacationSetDescription) VALUES(:EmployeeId, :VacationSetDate, :VacationSetDays, :VacationSetDescription);RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT,prmT000F28)
-           ,new CursorDef("T000F29", "SAVEPOINT gxupdate;UPDATE EmployeeVacationSet SET VacationSetDays=:VacationSetDays, VacationSetDescription=:VacationSetDescription  WHERE EmployeeId = :EmployeeId AND VacationSetDate = :VacationSetDate;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmT000F29)
-           ,new CursorDef("T000F30", "SAVEPOINT gxupdate;DELETE FROM EmployeeVacationSet  WHERE EmployeeId = :EmployeeId AND VacationSetDate = :VacationSetDate;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmT000F30)
-           ,new CursorDef("T000F31", "SELECT EmployeeId, VacationSetDate FROM EmployeeVacationSet WHERE EmployeeId = :EmployeeId ORDER BY EmployeeId, VacationSetDate ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F31,11, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("T000F32", "SELECT T1.EmployeeId, T1.EmployeeIsActiveInProject, T2.ProjectName, T1.ProjectId FROM (EmployeeProject T1 INNER JOIN Project T2 ON T2.ProjectId = T1.ProjectId) WHERE T1.EmployeeId = :EmployeeId and T1.ProjectId = :ProjectId ORDER BY T1.EmployeeId, T1.ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F32,100, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("T000F33", "SELECT ProjectName FROM Project WHERE ProjectId = :ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F33,1, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("T000F34", "SELECT EmployeeId, ProjectId FROM EmployeeProject WHERE EmployeeId = :EmployeeId AND ProjectId = :ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F34,1, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("T000F35", "SAVEPOINT gxupdate;INSERT INTO EmployeeProject(EmployeeId, EmployeeIsActiveInProject, ProjectId) VALUES(:EmployeeId, :EmployeeIsActiveInProject, :ProjectId);RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT,prmT000F35)
-           ,new CursorDef("T000F36", "SAVEPOINT gxupdate;UPDATE EmployeeProject SET EmployeeIsActiveInProject=:EmployeeIsActiveInProject  WHERE EmployeeId = :EmployeeId AND ProjectId = :ProjectId;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmT000F36)
-           ,new CursorDef("T000F37", "SAVEPOINT gxupdate;DELETE FROM EmployeeProject  WHERE EmployeeId = :EmployeeId AND ProjectId = :ProjectId;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmT000F37)
-           ,new CursorDef("T000F38", "SELECT ProjectName FROM Project WHERE ProjectId = :ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F38,1, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("T000F39", "SELECT ProjectId FROM Project WHERE ProjectManagerId = :EmployeeId AND ProjectId = :ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F39,1, GxCacheFrequency.OFF ,true,true )
-           ,new CursorDef("T000F40", "SELECT WorkHourLogId FROM WorkHourLog WHERE EmployeeId = :EmployeeId AND ProjectId = :ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F40,1, GxCacheFrequency.OFF ,true,true )
-           ,new CursorDef("T000F41", "SELECT EmployeeId, ProjectId FROM EmployeeProject WHERE EmployeeId = :EmployeeId ORDER BY EmployeeId, ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F41,100, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("T000F42", "SELECT CompanyId, CompanyName FROM Company ORDER BY CompanyName ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F42,0, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F22", "SELECT AuditId FROM Audit WHERE EmployeeId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F22,1, GxCacheFrequency.OFF ,true,true )
+           ,new CursorDef("T000F23", "SELECT SupportRequestId FROM SupportRequest WHERE EmployeeId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F23,1, GxCacheFrequency.OFF ,true,true )
+           ,new CursorDef("T000F24", "SELECT LeaveRequestId FROM LeaveRequest WHERE EmployeeId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F24,1, GxCacheFrequency.OFF ,true,true )
+           ,new CursorDef("T000F25", "SELECT WorkHourLogId FROM WorkHourLog WHERE EmployeeId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F25,1, GxCacheFrequency.OFF ,true,true )
+           ,new CursorDef("T000F26", "SELECT EmployeeId FROM Employee ORDER BY EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F26,100, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F27", "SELECT EmployeeId, VacationSetDate, VacationSetDays, VacationSetDescription FROM EmployeeVacationSet WHERE EmployeeId = :EmployeeId and VacationSetDate = :VacationSetDate ORDER BY EmployeeId, VacationSetDate ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F27,11, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F28", "SELECT EmployeeId, VacationSetDate FROM EmployeeVacationSet WHERE EmployeeId = :EmployeeId AND VacationSetDate = :VacationSetDate ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F28,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F29", "SAVEPOINT gxupdate;INSERT INTO EmployeeVacationSet(EmployeeId, VacationSetDate, VacationSetDays, VacationSetDescription) VALUES(:EmployeeId, :VacationSetDate, :VacationSetDays, :VacationSetDescription);RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT,prmT000F29)
+           ,new CursorDef("T000F30", "SAVEPOINT gxupdate;UPDATE EmployeeVacationSet SET VacationSetDays=:VacationSetDays, VacationSetDescription=:VacationSetDescription  WHERE EmployeeId = :EmployeeId AND VacationSetDate = :VacationSetDate;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmT000F30)
+           ,new CursorDef("T000F31", "SAVEPOINT gxupdate;DELETE FROM EmployeeVacationSet  WHERE EmployeeId = :EmployeeId AND VacationSetDate = :VacationSetDate;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmT000F31)
+           ,new CursorDef("T000F32", "SELECT EmployeeId, VacationSetDate FROM EmployeeVacationSet WHERE EmployeeId = :EmployeeId ORDER BY EmployeeId, VacationSetDate ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F32,11, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F33", "SELECT T1.EmployeeId, T1.EmployeeIsActiveInProject, T2.ProjectName, T1.ProjectId FROM (EmployeeProject T1 INNER JOIN Project T2 ON T2.ProjectId = T1.ProjectId) WHERE T1.EmployeeId = :EmployeeId and T1.ProjectId = :ProjectId ORDER BY T1.EmployeeId, T1.ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F33,100, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F34", "SELECT ProjectName FROM Project WHERE ProjectId = :ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F34,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F35", "SELECT EmployeeId, ProjectId FROM EmployeeProject WHERE EmployeeId = :EmployeeId AND ProjectId = :ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F35,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F36", "SAVEPOINT gxupdate;INSERT INTO EmployeeProject(EmployeeId, EmployeeIsActiveInProject, ProjectId) VALUES(:EmployeeId, :EmployeeIsActiveInProject, :ProjectId);RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT,prmT000F36)
+           ,new CursorDef("T000F37", "SAVEPOINT gxupdate;UPDATE EmployeeProject SET EmployeeIsActiveInProject=:EmployeeIsActiveInProject  WHERE EmployeeId = :EmployeeId AND ProjectId = :ProjectId;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmT000F37)
+           ,new CursorDef("T000F38", "SAVEPOINT gxupdate;DELETE FROM EmployeeProject  WHERE EmployeeId = :EmployeeId AND ProjectId = :ProjectId;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmT000F38)
+           ,new CursorDef("T000F39", "SELECT ProjectName FROM Project WHERE ProjectId = :ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F39,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F40", "SELECT ProjectId FROM Project WHERE ProjectManagerId = :EmployeeId AND ProjectId = :ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F40,1, GxCacheFrequency.OFF ,true,true )
+           ,new CursorDef("T000F41", "SELECT WorkHourLogId FROM WorkHourLog WHERE EmployeeId = :EmployeeId AND ProjectId = :ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F41,1, GxCacheFrequency.OFF ,true,true )
+           ,new CursorDef("T000F42", "SELECT EmployeeId, ProjectId FROM EmployeeProject WHERE EmployeeId = :EmployeeId ORDER BY EmployeeId, ProjectId ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F42,100, GxCacheFrequency.OFF ,true,false )
            ,new CursorDef("T000F43", "SELECT CompanyId, CompanyName FROM Company ORDER BY CompanyName ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F43,0, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("T000F44", "SELECT EmployeeEmail FROM Employee WHERE (EmployeeEmail = :EmployeeEmail) AND (Not ( EmployeeId = :EmployeeId)) ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F44,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F44", "SELECT CompanyId, CompanyName FROM Company ORDER BY CompanyName ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F44,0, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("T000F45", "SELECT EmployeeEmail FROM Employee WHERE (EmployeeEmail = :EmployeeEmail) AND (Not ( EmployeeId = :EmployeeId)) ",true, GxErrorMask.GX_NOMASK, false, this,prmT000F45,1, GxCacheFrequency.OFF ,true,false )
         };
      }
   }
@@ -7047,16 +7066,15 @@ namespace GeneXus.Programs {
               return;
            case 24 :
               ((long[]) buf[0])[0] = rslt.getLong(1);
+              return;
+           case 25 :
+              ((long[]) buf[0])[0] = rslt.getLong(1);
               ((DateTime[]) buf[1])[0] = rslt.getGXDate(2);
               ((decimal[]) buf[2])[0] = rslt.getDecimal(3);
               ((string[]) buf[3])[0] = rslt.getVarchar(4);
               ((bool[]) buf[4])[0] = rslt.wasNull(4);
               return;
-           case 25 :
-              ((long[]) buf[0])[0] = rslt.getLong(1);
-              ((DateTime[]) buf[1])[0] = rslt.getGXDate(2);
-              return;
-           case 29 :
+           case 26 :
               ((long[]) buf[0])[0] = rslt.getLong(1);
               ((DateTime[]) buf[1])[0] = rslt.getGXDate(2);
               return;
@@ -7072,39 +7090,43 @@ namespace GeneXus.Programs {
      {
            case 30 :
               ((long[]) buf[0])[0] = rslt.getLong(1);
+              ((DateTime[]) buf[1])[0] = rslt.getGXDate(2);
+              return;
+           case 31 :
+              ((long[]) buf[0])[0] = rslt.getLong(1);
               ((bool[]) buf[1])[0] = rslt.getBool(2);
               ((string[]) buf[2])[0] = rslt.getString(3, 100);
               ((long[]) buf[3])[0] = rslt.getLong(4);
               return;
-           case 31 :
+           case 32 :
               ((string[]) buf[0])[0] = rslt.getString(1, 100);
               return;
-           case 32 :
+           case 33 :
               ((long[]) buf[0])[0] = rslt.getLong(1);
               ((long[]) buf[1])[0] = rslt.getLong(2);
               return;
-           case 36 :
-              ((string[]) buf[0])[0] = rslt.getString(1, 100);
-              return;
            case 37 :
-              ((long[]) buf[0])[0] = rslt.getLong(1);
+              ((string[]) buf[0])[0] = rslt.getString(1, 100);
               return;
            case 38 :
               ((long[]) buf[0])[0] = rslt.getLong(1);
               return;
            case 39 :
               ((long[]) buf[0])[0] = rslt.getLong(1);
-              ((long[]) buf[1])[0] = rslt.getLong(2);
               return;
            case 40 :
               ((long[]) buf[0])[0] = rslt.getLong(1);
-              ((string[]) buf[1])[0] = rslt.getString(2, 100);
+              ((long[]) buf[1])[0] = rslt.getLong(2);
               return;
            case 41 :
               ((long[]) buf[0])[0] = rslt.getLong(1);
               ((string[]) buf[1])[0] = rslt.getString(2, 100);
               return;
            case 42 :
+              ((long[]) buf[0])[0] = rslt.getLong(1);
+              ((string[]) buf[1])[0] = rslt.getString(2, 100);
+              return;
+           case 43 :
               ((string[]) buf[0])[0] = rslt.getVarchar(1);
               return;
      }

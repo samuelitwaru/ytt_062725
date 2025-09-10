@@ -2452,7 +2452,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025826171659", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025910845039", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2468,7 +2468,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("leaverequestlist.js", "?20258261716510", false, true);
+         context.AddJavascriptSource("leaverequestlist.js", "?2025910845044", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -3634,7 +3634,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(T1.LeaveRequestStartDate < :AV67ToDate and T1.LeaveRequestEndDate > :AV66FromDate)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Leaverequestlistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T3.LeaveTypeName like '%' || :lV70Leaverequestlistds_1_filterfulltext) or ( T2.EmployeeName like '%' || :lV70Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestHalfDay like '%' || :lV70Leaverequestlistds_1_filterfulltext) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV70Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestDescription like '%' || :lV70Leaverequestlistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T3.LeaveTypeName) like '%' || LOWER(:lV70Leaverequestlistds_1_filterfulltext)) or ( LOWER(T2.EmployeeName) like '%' || LOWER(:lV70Leaverequestlistds_1_filterfulltext)) or ( LOWER(T1.LeaveRequestHalfDay) like '%' || LOWER(:lV70Leaverequestlistds_1_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV70Leaverequestlistds_1_filterfulltext) or ( LOWER(T1.LeaveRequestDescription) like '%' || LOWER(:lV70Leaverequestlistds_1_filterfulltext)))");
          }
          else
          {
@@ -3898,7 +3898,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(T1.LeaveRequestStartDate < :AV67ToDate and T1.LeaveRequestEndDate > :AV66FromDate)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV70Leaverequestlistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T2.LeaveTypeName like '%' || :lV70Leaverequestlistds_1_filterfulltext) or ( T3.EmployeeName like '%' || :lV70Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestHalfDay like '%' || :lV70Leaverequestlistds_1_filterfulltext) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV70Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestDescription like '%' || :lV70Leaverequestlistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T2.LeaveTypeName) like '%' || LOWER(:lV70Leaverequestlistds_1_filterfulltext)) or ( LOWER(T3.EmployeeName) like '%' || LOWER(:lV70Leaverequestlistds_1_filterfulltext)) or ( LOWER(T1.LeaveRequestHalfDay) like '%' || LOWER(:lV70Leaverequestlistds_1_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV70Leaverequestlistds_1_filterfulltext) or ( LOWER(T1.LeaveRequestDescription) like '%' || LOWER(:lV70Leaverequestlistds_1_filterfulltext)))");
          }
          else
          {

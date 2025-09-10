@@ -407,7 +407,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(CompanyId = :AV57Udparg6)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV52Leavetypewwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( LeaveTypeName like '%' || :lV52Leavetypewwds_1_filterfulltext) or ( 'no' like '%' || LOWER(:lV52Leavetypewwds_1_filterfulltext) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV52Leavetypewwds_1_filterfulltext) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV52Leavetypewwds_1_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV52Leavetypewwds_1_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
+            AddWhere(sWhereString, "(( LOWER(LeaveTypeName) like '%' || LOWER(:lV52Leavetypewwds_1_filterfulltext)) or ( 'no' like '%' || LOWER(:lV52Leavetypewwds_1_filterfulltext) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV52Leavetypewwds_1_filterfulltext) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV52Leavetypewwds_1_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV52Leavetypewwds_1_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
          }
          else
          {

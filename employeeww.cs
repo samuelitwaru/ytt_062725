@@ -2495,7 +2495,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513592715", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202591083815", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2511,7 +2511,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("employeeww.js", "?202572513592719", false, true);
+         context.AddJavascriptSource("employeeww.js", "?202591083819", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -3700,7 +3700,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(Not ( :AV86Udparg1 and Not :AV87Udparg2) or ( T1.CompanyId = :AV88Udparg3))");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV90Employeewwds_4_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T1.EmployeeName like '%' || :lV90Employeewwds_4_filterfulltext) or ( T1.EmployeeEmail like '%' || :lV90Employeewwds_4_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T1.EmployeeName) like '%' || LOWER(:lV90Employeewwds_4_filterfulltext)) or ( LOWER(T1.EmployeeEmail) like '%' || LOWER(:lV90Employeewwds_4_filterfulltext)))");
          }
          else
          {
@@ -3842,7 +3842,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(Not ( :AV86Udparg1 and Not :AV87Udparg2) or ( T1.CompanyId = :AV88Udparg3))");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV90Employeewwds_4_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T1.EmployeeName like '%' || :lV90Employeewwds_4_filterfulltext) or ( T1.EmployeeEmail like '%' || :lV90Employeewwds_4_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T1.EmployeeName) like '%' || LOWER(:lV90Employeewwds_4_filterfulltext)) or ( LOWER(T1.EmployeeEmail) like '%' || LOWER(:lV90Employeewwds_4_filterfulltext)))");
          }
          else
          {

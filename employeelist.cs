@@ -2388,7 +2388,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257251401297", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202591083561", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2404,7 +2404,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("employeelist.js", "?2025725140130", false, true);
+         context.AddJavascriptSource("employeelist.js", "?202591083565", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -3522,7 +3522,7 @@ namespace GeneXus.Programs {
          sOrderString = "";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Employeelistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T1.EmployeeName like '%' || :lV66Employeelistds_1_filterfulltext) or ( T1.EmployeeEmail like '%' || :lV66Employeelistds_1_filterfulltext) or ( T2.CompanyName like '%' || :lV66Employeelistds_1_filterfulltext) or ( SUBSTR(TO_CHAR(T1.EmployeeVactionDays,'90.9'), 2) like '%' || :lV66Employeelistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T1.EmployeeName) like '%' || LOWER(:lV66Employeelistds_1_filterfulltext)) or ( LOWER(T1.EmployeeEmail) like '%' || LOWER(:lV66Employeelistds_1_filterfulltext)) or ( LOWER(T2.CompanyName) like '%' || LOWER(:lV66Employeelistds_1_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.EmployeeVactionDays,'90.9'), 2) like '%' || :lV66Employeelistds_1_filterfulltext))");
          }
          else
          {
@@ -3713,7 +3713,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT COUNT(*) FROM (Employee T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId)";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV66Employeelistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T1.EmployeeName like '%' || :lV66Employeelistds_1_filterfulltext) or ( T1.EmployeeEmail like '%' || :lV66Employeelistds_1_filterfulltext) or ( T2.CompanyName like '%' || :lV66Employeelistds_1_filterfulltext) or ( SUBSTR(TO_CHAR(T1.EmployeeVactionDays,'90.9'), 2) like '%' || :lV66Employeelistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T1.EmployeeName) like '%' || LOWER(:lV66Employeelistds_1_filterfulltext)) or ( LOWER(T1.EmployeeEmail) like '%' || LOWER(:lV66Employeelistds_1_filterfulltext)) or ( LOWER(T2.CompanyName) like '%' || LOWER(:lV66Employeelistds_1_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.EmployeeVactionDays,'90.9'), 2) like '%' || :lV66Employeelistds_1_filterfulltext))");
          }
          else
          {

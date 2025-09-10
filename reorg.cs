@@ -58,92 +58,34 @@ namespace GeneXus.Programs {
          /* Load data into tables. */
       }
 
-      public void CreateAudit( )
+      public void ReorganizeAudit( )
       {
          string cmdBuffer = "";
          /* Indices for table Audit */
-         try
-         {
-            cmdBuffer=" CREATE SEQUENCE AuditId MINVALUE 1 INCREMENT 1 "
-            ;
-            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
-            RGZ.ExecuteStmt() ;
-            RGZ.Drop();
-         }
-         catch
-         {
-            cmdBuffer=" DROP SEQUENCE AuditId CASCADE "
-            ;
-            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-            RGZ.ErrorMask = GxErrorMask.GX_MASKNOTFOUND | GxErrorMask.GX_MASKLOOPLOCK;
-            RGZ.ExecuteStmt() ;
-            RGZ.Drop();
-            cmdBuffer=" CREATE SEQUENCE AuditId MINVALUE 1 INCREMENT 1 "
-            ;
-            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
-            RGZ.ExecuteStmt() ;
-            RGZ.Drop();
-         }
-         try
-         {
-            cmdBuffer=" CREATE TABLE Audit (AuditId bigint NOT NULL DEFAULT nextval('AuditId'), AuditDate date NOT NULL , AuditTableName CHAR(100) NOT NULL , AuditDescription VARCHAR(200) NOT NULL , AuditShortDescription VARCHAR(200) NOT NULL , AuditAction VARCHAR(10) NOT NULL , SecUserId bigint NOT NULL , PRIMARY KEY(AuditId))  "
-            ;
-            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
-            RGZ.ExecuteStmt() ;
-            RGZ.Drop();
-         }
-         catch
-         {
-            try
-            {
-               cmdBuffer=" DROP TABLE Audit CASCADE "
-               ;
-               RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-               RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
-               RGZ.ExecuteStmt() ;
-               RGZ.Drop();
-            }
-            catch
-            {
-               try
-               {
-                  cmdBuffer=" DROP VIEW Audit CASCADE "
-                  ;
-                  RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-                  RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
-                  RGZ.ExecuteStmt() ;
-                  RGZ.Drop();
-               }
-               catch
-               {
-                  try
-                  {
-                     cmdBuffer=" DROP FUNCTION Audit CASCADE "
-                     ;
-                     RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-                     RGZ.ErrorMask = GxErrorMask.GX_MASKNOTFOUND | GxErrorMask.GX_MASKLOOPLOCK;
-                     RGZ.ExecuteStmt() ;
-                     RGZ.Drop();
-                  }
-                  catch
-                  {
-                  }
-               }
-            }
-            cmdBuffer=" CREATE TABLE Audit (AuditId bigint NOT NULL DEFAULT nextval('AuditId'), AuditDate date NOT NULL , AuditTableName CHAR(100) NOT NULL , AuditDescription VARCHAR(200) NOT NULL , AuditShortDescription VARCHAR(200) NOT NULL , AuditAction VARCHAR(10) NOT NULL , SecUserId bigint NOT NULL , PRIMARY KEY(AuditId))  "
-            ;
-            RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
-            RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
-            RGZ.ExecuteStmt() ;
-            RGZ.Drop();
-         }
+         cmdBuffer=" ALTER TABLE Audit ADD Trn_Id VARCHAR(40) NOT NULL DEFAULT '' "
+         ;
+         RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+         RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
+         RGZ.ExecuteStmt() ;
+         RGZ.Drop();
+         cmdBuffer=" ALTER TABLE Audit ALTER COLUMN Trn_Id DROP DEFAULT "
+         ;
+         RGZ = new GxCommand(dsDefault.Db, cmdBuffer, dsDefault,0,true,false,null);
+         RGZ.ErrorMask = GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK;
+         RGZ.ExecuteStmt() ;
+         RGZ.Drop();
       }
 
       private void TablesCount( )
       {
+         if ( ! IsResumeMode( ) )
+         {
+            /* Using cursor P00012 */
+            pr_default.execute(0);
+            AuditCount = P00012_AAuditCount[0];
+            pr_default.close(0);
+            PrintRecordCount ( "Audit" ,  AuditCount );
+         }
       }
 
       private bool PreviousCheck( )
@@ -153,39 +95,36 @@ namespace GeneXus.Programs {
             return true ;
          }
          sSchemaVar = GXUtil.UserId( "Server", context, pr_default);
-         if ( tableexist("Audit",sSchemaVar) )
+         if ( ColumnExist("Audit",sSchemaVar,"Trn_Id") )
          {
-            SetCheckError ( GXResourceManager.GetMessage("GXM_table_exist", new   object[]  {"Audit"}) ) ;
+            SetCheckError ( GXResourceManager.GetMessage("GXM_column_exist", new   object[]  {"Trn_Id", "Audit"}) ) ;
             return false ;
          }
          return true ;
       }
 
-      private bool tableexist( string sTableName ,
-                               string sMySchemaName )
+      private bool ColumnExist( string sTableName ,
+                                string sMySchemaName ,
+                                string sMyColumnName )
       {
          bool result;
          result = false;
-         /* Using cursor P00012 */
-         pr_default.execute(0, new Object[] {sTableName, sMySchemaName});
-         while ( (pr_default.getStatus(0) != 101) )
-         {
-            tablename = P00012_Atablename[0];
-            ntablename = P00012_ntablename[0];
-            schemaname = P00012_Aschemaname[0];
-            nschemaname = P00012_nschemaname[0];
-            result = true;
-            pr_default.readNext(0);
-         }
-         pr_default.close(0);
          /* Using cursor P00023 */
-         pr_default.execute(1, new Object[] {sTableName, sMySchemaName});
+         pr_default.execute(1, new Object[] {sTableName, sMySchemaName, sMyColumnName});
          while ( (pr_default.getStatus(1) != 101) )
          {
             tablename = P00023_Atablename[0];
             ntablename = P00023_ntablename[0];
             schemaname = P00023_Aschemaname[0];
             nschemaname = P00023_nschemaname[0];
+            columnname = P00023_Acolumnname[0];
+            ncolumnname = P00023_ncolumnname[0];
+            attrelid = P00023_Aattrelid[0];
+            nattrelid = P00023_nattrelid[0];
+            oid = P00023_Aoid[0];
+            noid = P00023_noid[0];
+            relname = P00023_Arelname[0];
+            nrelname = P00023_nrelname[0];
             result = true;
             pr_default.readNext(1);
          }
@@ -195,7 +134,7 @@ namespace GeneXus.Programs {
 
       private void ExecuteOnlyTablesReorganization( )
       {
-         ReorgExecute.RegisterBlockForSubmit( 1 ,  "CreateAudit" , new Object[]{ });
+         ReorgExecute.RegisterBlockForSubmit( 1 ,  "ReorganizeAudit" , new Object[]{ });
       }
 
       private void ExecuteOnlyRisReorganization( )
@@ -217,7 +156,7 @@ namespace GeneXus.Programs {
 
       private void SetPrecedencetables( )
       {
-         GXReorganization.SetMsg( 1 ,  GXResourceManager.GetMessage("GXM_filecrea", new   object[]  {"Audit", ""}) );
+         GXReorganization.SetMsg( 1 ,  GXResourceManager.GetMessage("GXM_fileupdate", new   object[]  {"Audit", ""}) );
       }
 
       private void SetPrecedenceris( )
@@ -250,28 +189,42 @@ namespace GeneXus.Programs {
 
       public override void initialize( )
       {
+         P00012_AAuditCount = new int[1] ;
          sSchemaVar = "";
          sTableName = "";
          sMySchemaName = "";
+         sMyColumnName = "";
          tablename = "";
          ntablename = false;
          schemaname = "";
          nschemaname = false;
-         P00012_Atablename = new string[] {""} ;
-         P00012_ntablename = new bool[] {false} ;
-         P00012_Aschemaname = new string[] {""} ;
-         P00012_nschemaname = new bool[] {false} ;
+         columnname = "";
+         ncolumnname = false;
+         attrelid = "";
+         nattrelid = false;
+         oid = "";
+         noid = false;
+         relname = "";
+         nrelname = false;
          P00023_Atablename = new string[] {""} ;
          P00023_ntablename = new bool[] {false} ;
          P00023_Aschemaname = new string[] {""} ;
          P00023_nschemaname = new bool[] {false} ;
+         P00023_Acolumnname = new string[] {""} ;
+         P00023_ncolumnname = new bool[] {false} ;
+         P00023_Aattrelid = new string[] {""} ;
+         P00023_nattrelid = new bool[] {false} ;
+         P00023_Aoid = new string[] {""} ;
+         P00023_noid = new bool[] {false} ;
+         P00023_Arelname = new string[] {""} ;
+         P00023_nrelname = new bool[] {false} ;
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.reorg__default(),
             new Object[][] {
                 new Object[] {
-               P00012_Atablename, P00012_Aschemaname
+               P00012_AAuditCount
                }
                , new Object[] {
-               P00023_Atablename, P00023_Aschemaname
+               P00023_Atablename, P00023_Aschemaname, P00023_Acolumnname, P00023_Aattrelid, P00023_Aoid, P00023_Arelname
                }
             }
          );
@@ -279,25 +232,40 @@ namespace GeneXus.Programs {
       }
 
       protected short ErrCode ;
+      protected int AuditCount ;
       protected string sSchemaVar ;
       protected string sTableName ;
       protected string sMySchemaName ;
+      protected string sMyColumnName ;
       protected bool ntablename ;
       protected bool nschemaname ;
+      protected bool ncolumnname ;
+      protected bool nattrelid ;
+      protected bool noid ;
+      protected bool nrelname ;
       protected string tablename ;
       protected string schemaname ;
+      protected string columnname ;
+      protected string attrelid ;
+      protected string oid ;
+      protected string relname ;
       protected IGxDataStore dsGAM ;
       protected IGxDataStore dsDefault ;
       protected GxCommand RGZ ;
       protected IDataStoreProvider pr_default ;
-      protected string[] P00012_Atablename ;
-      protected bool[] P00012_ntablename ;
-      protected string[] P00012_Aschemaname ;
-      protected bool[] P00012_nschemaname ;
+      protected int[] P00012_AAuditCount ;
       protected string[] P00023_Atablename ;
       protected bool[] P00023_ntablename ;
       protected string[] P00023_Aschemaname ;
       protected bool[] P00023_nschemaname ;
+      protected string[] P00023_Acolumnname ;
+      protected bool[] P00023_ncolumnname ;
+      protected string[] P00023_Aattrelid ;
+      protected bool[] P00023_nattrelid ;
+      protected string[] P00023_Aoid ;
+      protected bool[] P00023_noid ;
+      protected string[] P00023_Arelname ;
+      protected bool[] P00023_nrelname ;
    }
 
    public class reorg__default : DataStoreHelperBase, IDataStoreHelper
@@ -318,17 +286,16 @@ namespace GeneXus.Programs {
        {
           Object[] prmP00012;
           prmP00012 = new Object[] {
-          new ParDef("sTableName",GXType.Char,255,0) ,
-          new ParDef("sMySchemaName",GXType.Char,255,0)
           };
           Object[] prmP00023;
           prmP00023 = new Object[] {
           new ParDef("sTableName",GXType.Char,255,0) ,
-          new ParDef("sMySchemaName",GXType.Char,255,0)
+          new ParDef("sMySchemaName",GXType.Char,255,0) ,
+          new ParDef("sMyColumnName",GXType.Char,255,0)
           };
           def= new CursorDef[] {
-              new CursorDef("P00012", "SELECT TABLENAME, TABLEOWNER FROM PG_TABLES WHERE (UPPER(TABLENAME) = ( UPPER(:sTableName))) AND (UPPER(TABLEOWNER) = ( UPPER(:sMySchemaName))) ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00012,100, GxCacheFrequency.OFF ,true,false )
-             ,new CursorDef("P00023", "SELECT VIEWNAME, VIEWOWNER FROM PG_VIEWS WHERE (UPPER(VIEWNAME) = ( UPPER(:sTableName))) AND (UPPER(VIEWOWNER) = ( UPPER(:sMySchemaName))) ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00023,100, GxCacheFrequency.OFF ,true,false )
+              new CursorDef("P00012", "SELECT COUNT(*) FROM Audit ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00012,100, GxCacheFrequency.OFF ,true,false )
+             ,new CursorDef("P00023", "SELECT T.TABLENAME, T.TABLEOWNER, T1.ATTNAME, T1.ATTRELID, T2.OID, T2.RELNAME FROM PG_TABLES T, PG_ATTRIBUTE T1, PG_CLASS T2 WHERE (UPPER(T.TABLENAME) = ( UPPER(:sTableName))) AND (UPPER(T.TABLEOWNER) = ( UPPER(:sMySchemaName))) AND (UPPER(T1.ATTNAME) = ( UPPER(:sMyColumnName))) AND (T2.OID = ( T1.ATTRELID)) AND (T2.RELNAME = ( T.TABLENAME)) ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00023,100, GxCacheFrequency.OFF ,true,false )
           };
        }
     }
@@ -340,12 +307,15 @@ namespace GeneXus.Programs {
        switch ( cursor )
        {
              case 0 :
-                ((string[]) buf[0])[0] = rslt.getVarchar(1);
-                ((string[]) buf[1])[0] = rslt.getVarchar(2);
+                ((int[]) buf[0])[0] = rslt.getInt(1);
                 return;
              case 1 :
                 ((string[]) buf[0])[0] = rslt.getVarchar(1);
                 ((string[]) buf[1])[0] = rslt.getVarchar(2);
+                ((string[]) buf[2])[0] = rslt.getVarchar(3);
+                ((string[]) buf[3])[0] = rslt.getVarchar(4);
+                ((string[]) buf[4])[0] = rslt.getVarchar(5);
+                ((string[]) buf[5])[0] = rslt.getVarchar(6);
                 return;
        }
     }

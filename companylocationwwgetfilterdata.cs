@@ -463,7 +463,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT CompanyLocationName, CompanyLocationCode, CompanyLocationId FROM CompanyLocation";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV42Companylocationwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( CompanyLocationName like '%' || :lV42Companylocationwwds_1_filterfulltext) or ( CompanyLocationCode like '%' || :lV42Companylocationwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(CompanyLocationName) like '%' || LOWER(:lV42Companylocationwwds_1_filterfulltext)) or ( LOWER(CompanyLocationCode) like '%' || LOWER(:lV42Companylocationwwds_1_filterfulltext)))");
          }
          else
          {
@@ -533,7 +533,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT CompanyLocationCode, CompanyLocationName, CompanyLocationId FROM CompanyLocation";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV42Companylocationwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( CompanyLocationName like '%' || :lV42Companylocationwwds_1_filterfulltext) or ( CompanyLocationCode like '%' || :lV42Companylocationwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(CompanyLocationName) like '%' || LOWER(:lV42Companylocationwwds_1_filterfulltext)) or ( LOWER(CompanyLocationCode) like '%' || LOWER(:lV42Companylocationwwds_1_filterfulltext)))");
          }
          else
          {

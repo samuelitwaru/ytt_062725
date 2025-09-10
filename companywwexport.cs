@@ -533,7 +533,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT T1.CompanyLocationId, T2.CompanyLocationName, T1.CompanyName, T1.CompanyId FROM (Company T1 INNER JOIN CompanyLocation T2 ON T2.CompanyLocationId = T1.CompanyLocationId)";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV48Companywwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T1.CompanyName like '%' || :lV48Companywwds_1_filterfulltext) or ( T2.CompanyLocationName like '%' || :lV48Companywwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T1.CompanyName) like '%' || LOWER(:lV48Companywwds_1_filterfulltext)) or ( LOWER(T2.CompanyLocationName) like '%' || LOWER(:lV48Companywwds_1_filterfulltext)))");
          }
          else
          {

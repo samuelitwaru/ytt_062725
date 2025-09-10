@@ -63,6 +63,8 @@ namespace GeneXus.Programs {
             {
                GX_msglist.addItem(endTrnMsgTxt, endTrnMsgCod, 0, "", true);
             }
+            /* Execute user event: After Trn */
+            E110T2 ();
             trnEnded = 0;
             standaloneNotModal( ) ;
             standaloneModal( ) ;
@@ -104,6 +106,7 @@ namespace GeneXus.Programs {
                CheckExtendedTable0T32( ) ;
                if ( AnyError == 0 )
                {
+                  ZM0T32( 4) ;
                }
                CloseExtendedTableCursors0T32( ) ;
             }
@@ -113,9 +116,36 @@ namespace GeneXus.Programs {
          }
       }
 
+      protected void E120T2( )
+      {
+         /* Start Routine */
+         returnInSub = false;
+         new GeneXus.Programs.wwpbaseobjects.loadwwpcontext(context ).execute( out  AV8WWPContext) ;
+         AV10TrnContext.FromXml(AV11WebSession.Get("TrnContext"), null, "", "");
+         if ( ( StringUtil.StrCmp(AV10TrnContext.gxTpr_Transactionname, AV22Pgmname) == 0 ) && ( StringUtil.StrCmp(Gx_mode, "INS") == 0 ) )
+         {
+            AV23GXV1 = 1;
+            while ( AV23GXV1 <= AV10TrnContext.gxTpr_Attributes.Count )
+            {
+               AV13TrnContextAtt = ((WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute)AV10TrnContext.gxTpr_Attributes.Item(AV23GXV1));
+               if ( StringUtil.StrCmp(AV13TrnContextAtt.gxTpr_Attributename, "EmployeeId") == 0 )
+               {
+                  AV12Insert_EmployeeId = (long)(Math.Round(NumberUtil.Val( AV13TrnContextAtt.gxTpr_Attributevalue, "."), 18, MidpointRounding.ToEven));
+               }
+               AV23GXV1 = (int)(AV23GXV1+1);
+            }
+         }
+      }
+
+      protected void E110T2( )
+      {
+         /* After Trn Routine */
+         returnInSub = false;
+      }
+
       protected void ZM0T32( short GX_JID )
       {
-         if ( ( GX_JID == 1 ) || ( GX_JID == 0 ) )
+         if ( ( GX_JID == 3 ) || ( GX_JID == 0 ) )
          {
             Z205AuditDate = A205AuditDate;
             Z206AuditTableName = A206AuditTableName;
@@ -123,8 +153,15 @@ namespace GeneXus.Programs {
             Z208AuditShortDescription = A208AuditShortDescription;
             Z209AuditAction = A209AuditAction;
             Z210SecUserId = A210SecUserId;
+            Z211Trn_Id = A211Trn_Id;
+            Z106EmployeeId = A106EmployeeId;
          }
-         if ( GX_JID == -1 )
+         if ( ( GX_JID == 4 ) || ( GX_JID == 0 ) )
+         {
+            Z147EmployeeBalance = A147EmployeeBalance;
+            Z148EmployeeName = A148EmployeeName;
+         }
+         if ( GX_JID == -3 )
          {
             Z204AuditId = A204AuditId;
             Z205AuditDate = A205AuditDate;
@@ -133,11 +170,16 @@ namespace GeneXus.Programs {
             Z208AuditShortDescription = A208AuditShortDescription;
             Z209AuditAction = A209AuditAction;
             Z210SecUserId = A210SecUserId;
+            Z211Trn_Id = A211Trn_Id;
+            Z106EmployeeId = A106EmployeeId;
+            Z147EmployeeBalance = A147EmployeeBalance;
+            Z148EmployeeName = A148EmployeeName;
          }
       }
 
       protected void standaloneNotModal( )
       {
+         AV22Pgmname = "Audit_BC";
       }
 
       protected void standaloneModal( )
@@ -146,20 +188,24 @@ namespace GeneXus.Programs {
 
       protected void Load0T32( )
       {
-         /* Using cursor BC000T4 */
-         pr_default.execute(2, new Object[] {A204AuditId});
-         if ( (pr_default.getStatus(2) != 101) )
+         /* Using cursor BC000T5 */
+         pr_default.execute(3, new Object[] {A204AuditId});
+         if ( (pr_default.getStatus(3) != 101) )
          {
             RcdFound32 = 1;
-            A205AuditDate = BC000T4_A205AuditDate[0];
-            A206AuditTableName = BC000T4_A206AuditTableName[0];
-            A207AuditDescription = BC000T4_A207AuditDescription[0];
-            A208AuditShortDescription = BC000T4_A208AuditShortDescription[0];
-            A209AuditAction = BC000T4_A209AuditAction[0];
-            A210SecUserId = BC000T4_A210SecUserId[0];
-            ZM0T32( -1) ;
+            A147EmployeeBalance = BC000T5_A147EmployeeBalance[0];
+            A205AuditDate = BC000T5_A205AuditDate[0];
+            A206AuditTableName = BC000T5_A206AuditTableName[0];
+            A207AuditDescription = BC000T5_A207AuditDescription[0];
+            A208AuditShortDescription = BC000T5_A208AuditShortDescription[0];
+            A209AuditAction = BC000T5_A209AuditAction[0];
+            A210SecUserId = BC000T5_A210SecUserId[0];
+            A148EmployeeName = BC000T5_A148EmployeeName[0];
+            A211Trn_Id = BC000T5_A211Trn_Id[0];
+            A106EmployeeId = BC000T5_A106EmployeeId[0];
+            ZM0T32( -3) ;
          }
-         pr_default.close(2);
+         pr_default.close(3);
          OnLoadActions0T32( ) ;
       }
 
@@ -170,10 +216,21 @@ namespace GeneXus.Programs {
       protected void CheckExtendedTable0T32( )
       {
          standaloneModal( ) ;
+         /* Using cursor BC000T4 */
+         pr_default.execute(2, new Object[] {A106EmployeeId});
+         if ( (pr_default.getStatus(2) == 101) )
+         {
+            GX_msglist.addItem("No matching ''.", "ForeignKeyNotFound", 1, "EMPLOYEEID");
+            AnyError = 1;
+         }
+         A147EmployeeBalance = BC000T4_A147EmployeeBalance[0];
+         A148EmployeeName = BC000T4_A148EmployeeName[0];
+         pr_default.close(2);
       }
 
       protected void CloseExtendedTableCursors0T32( )
       {
+         pr_default.close(2);
       }
 
       protected void enableDisable( )
@@ -182,9 +239,9 @@ namespace GeneXus.Programs {
 
       protected void GetKey0T32( )
       {
-         /* Using cursor BC000T5 */
-         pr_default.execute(3, new Object[] {A204AuditId});
-         if ( (pr_default.getStatus(3) != 101) )
+         /* Using cursor BC000T6 */
+         pr_default.execute(4, new Object[] {A204AuditId});
+         if ( (pr_default.getStatus(4) != 101) )
          {
             RcdFound32 = 1;
          }
@@ -192,7 +249,7 @@ namespace GeneXus.Programs {
          {
             RcdFound32 = 0;
          }
-         pr_default.close(3);
+         pr_default.close(4);
       }
 
       protected void getByPrimaryKey( )
@@ -201,7 +258,7 @@ namespace GeneXus.Programs {
          pr_default.execute(1, new Object[] {A204AuditId});
          if ( (pr_default.getStatus(1) != 101) )
          {
-            ZM0T32( 1) ;
+            ZM0T32( 3) ;
             RcdFound32 = 1;
             A204AuditId = BC000T3_A204AuditId[0];
             A205AuditDate = BC000T3_A205AuditDate[0];
@@ -210,6 +267,8 @@ namespace GeneXus.Programs {
             A208AuditShortDescription = BC000T3_A208AuditShortDescription[0];
             A209AuditAction = BC000T3_A209AuditAction[0];
             A210SecUserId = BC000T3_A210SecUserId[0];
+            A211Trn_Id = BC000T3_A211Trn_Id[0];
+            A106EmployeeId = BC000T3_A106EmployeeId[0];
             Z204AuditId = A204AuditId;
             sMode32 = Gx_mode;
             Gx_mode = "DSP";
@@ -280,7 +339,7 @@ namespace GeneXus.Programs {
             {
                Gx_longc = true;
             }
-            if ( Gx_longc || ( Z210SecUserId != BC000T2_A210SecUserId[0] ) )
+            if ( Gx_longc || ( Z210SecUserId != BC000T2_A210SecUserId[0] ) || ( StringUtil.StrCmp(Z211Trn_Id, BC000T2_A211Trn_Id[0]) != 0 ) || ( Z106EmployeeId != BC000T2_A106EmployeeId[0] ) )
             {
                GX_msglist.addItem(context.GetMessage( "GXM_waschg", new   object[]  {"Audit"}), "RecordWasChanged", 1, "");
                AnyError = 1;
@@ -308,14 +367,14 @@ namespace GeneXus.Programs {
                   BeforeInsert0T32( ) ;
                   if ( AnyError == 0 )
                   {
-                     /* Using cursor BC000T6 */
-                     pr_default.execute(4, new Object[] {A205AuditDate, A206AuditTableName, A207AuditDescription, A208AuditShortDescription, A209AuditAction, A210SecUserId});
-                     pr_default.close(4);
-                     /* Retrieving last key number assigned */
                      /* Using cursor BC000T7 */
-                     pr_default.execute(5);
-                     A204AuditId = BC000T7_A204AuditId[0];
+                     pr_default.execute(5, new Object[] {A205AuditDate, A206AuditTableName, A207AuditDescription, A208AuditShortDescription, A209AuditAction, A210SecUserId, A211Trn_Id, A106EmployeeId});
                      pr_default.close(5);
+                     /* Retrieving last key number assigned */
+                     /* Using cursor BC000T8 */
+                     pr_default.execute(6);
+                     A204AuditId = BC000T8_A204AuditId[0];
+                     pr_default.close(6);
                      pr_default.SmartCacheProvider.SetUpdated("Audit");
                      if ( AnyError == 0 )
                      {
@@ -363,11 +422,11 @@ namespace GeneXus.Programs {
                   BeforeUpdate0T32( ) ;
                   if ( AnyError == 0 )
                   {
-                     /* Using cursor BC000T8 */
-                     pr_default.execute(6, new Object[] {A205AuditDate, A206AuditTableName, A207AuditDescription, A208AuditShortDescription, A209AuditAction, A210SecUserId, A204AuditId});
-                     pr_default.close(6);
+                     /* Using cursor BC000T9 */
+                     pr_default.execute(7, new Object[] {A205AuditDate, A206AuditTableName, A207AuditDescription, A208AuditShortDescription, A209AuditAction, A210SecUserId, A211Trn_Id, A106EmployeeId, A204AuditId});
+                     pr_default.close(7);
                      pr_default.SmartCacheProvider.SetUpdated("Audit");
-                     if ( (pr_default.getStatus(6) == 103) )
+                     if ( (pr_default.getStatus(7) == 103) )
                      {
                         GX_msglist.addItem(context.GetMessage( "GXM_lock", new   object[]  {"Audit"}), "RecordIsLocked", 1, "");
                         AnyError = 1;
@@ -419,9 +478,9 @@ namespace GeneXus.Programs {
                if ( AnyError == 0 )
                {
                   /* No cascading delete specified. */
-                  /* Using cursor BC000T9 */
-                  pr_default.execute(7, new Object[] {A204AuditId});
-                  pr_default.close(7);
+                  /* Using cursor BC000T10 */
+                  pr_default.execute(8, new Object[] {A204AuditId});
+                  pr_default.close(8);
                   pr_default.SmartCacheProvider.SetUpdated("Audit");
                   if ( AnyError == 0 )
                   {
@@ -450,7 +509,15 @@ namespace GeneXus.Programs {
       protected void OnDeleteControls0T32( )
       {
          standaloneModal( ) ;
-         /* No delete mode formulas found. */
+         if ( AnyError == 0 )
+         {
+            /* Delete mode formulas */
+            /* Using cursor BC000T11 */
+            pr_default.execute(9, new Object[] {A106EmployeeId});
+            A147EmployeeBalance = BC000T11_A147EmployeeBalance[0];
+            A148EmployeeName = BC000T11_A148EmployeeName[0];
+            pr_default.close(9);
+         }
       }
 
       protected void EndLevel0T32( )
@@ -481,19 +548,24 @@ namespace GeneXus.Programs {
 
       public void ScanKeyStart0T32( )
       {
-         /* Using cursor BC000T10 */
-         pr_default.execute(8, new Object[] {A204AuditId});
+         /* Scan By routine */
+         /* Using cursor BC000T12 */
+         pr_default.execute(10, new Object[] {A204AuditId});
          RcdFound32 = 0;
-         if ( (pr_default.getStatus(8) != 101) )
+         if ( (pr_default.getStatus(10) != 101) )
          {
             RcdFound32 = 1;
-            A204AuditId = BC000T10_A204AuditId[0];
-            A205AuditDate = BC000T10_A205AuditDate[0];
-            A206AuditTableName = BC000T10_A206AuditTableName[0];
-            A207AuditDescription = BC000T10_A207AuditDescription[0];
-            A208AuditShortDescription = BC000T10_A208AuditShortDescription[0];
-            A209AuditAction = BC000T10_A209AuditAction[0];
-            A210SecUserId = BC000T10_A210SecUserId[0];
+            A147EmployeeBalance = BC000T12_A147EmployeeBalance[0];
+            A204AuditId = BC000T12_A204AuditId[0];
+            A205AuditDate = BC000T12_A205AuditDate[0];
+            A206AuditTableName = BC000T12_A206AuditTableName[0];
+            A207AuditDescription = BC000T12_A207AuditDescription[0];
+            A208AuditShortDescription = BC000T12_A208AuditShortDescription[0];
+            A209AuditAction = BC000T12_A209AuditAction[0];
+            A210SecUserId = BC000T12_A210SecUserId[0];
+            A148EmployeeName = BC000T12_A148EmployeeName[0];
+            A211Trn_Id = BC000T12_A211Trn_Id[0];
+            A106EmployeeId = BC000T12_A106EmployeeId[0];
          }
          /* Load Subordinate Levels */
       }
@@ -501,7 +573,7 @@ namespace GeneXus.Programs {
       protected void ScanKeyNext0T32( )
       {
          /* Scan next routine */
-         pr_default.readNext(8);
+         pr_default.readNext(10);
          RcdFound32 = 0;
          ScanKeyLoad0T32( ) ;
       }
@@ -510,23 +582,27 @@ namespace GeneXus.Programs {
       {
          sMode32 = Gx_mode;
          Gx_mode = "DSP";
-         if ( (pr_default.getStatus(8) != 101) )
+         if ( (pr_default.getStatus(10) != 101) )
          {
             RcdFound32 = 1;
-            A204AuditId = BC000T10_A204AuditId[0];
-            A205AuditDate = BC000T10_A205AuditDate[0];
-            A206AuditTableName = BC000T10_A206AuditTableName[0];
-            A207AuditDescription = BC000T10_A207AuditDescription[0];
-            A208AuditShortDescription = BC000T10_A208AuditShortDescription[0];
-            A209AuditAction = BC000T10_A209AuditAction[0];
-            A210SecUserId = BC000T10_A210SecUserId[0];
+            A147EmployeeBalance = BC000T12_A147EmployeeBalance[0];
+            A204AuditId = BC000T12_A204AuditId[0];
+            A205AuditDate = BC000T12_A205AuditDate[0];
+            A206AuditTableName = BC000T12_A206AuditTableName[0];
+            A207AuditDescription = BC000T12_A207AuditDescription[0];
+            A208AuditShortDescription = BC000T12_A208AuditShortDescription[0];
+            A209AuditAction = BC000T12_A209AuditAction[0];
+            A210SecUserId = BC000T12_A210SecUserId[0];
+            A148EmployeeName = BC000T12_A148EmployeeName[0];
+            A211Trn_Id = BC000T12_A211Trn_Id[0];
+            A106EmployeeId = BC000T12_A106EmployeeId[0];
          }
          Gx_mode = sMode32;
       }
 
       protected void ScanKeyEnd0T32( )
       {
-         pr_default.close(8);
+         pr_default.close(10);
       }
 
       protected void AfterConfirm0T32( )
@@ -579,18 +655,24 @@ namespace GeneXus.Programs {
 
       protected void InitializeNonKey0T32( )
       {
+         A147EmployeeBalance = 0;
          A205AuditDate = DateTime.MinValue;
          A206AuditTableName = "";
          A207AuditDescription = "";
          A208AuditShortDescription = "";
          A209AuditAction = "";
          A210SecUserId = 0;
+         A106EmployeeId = 0;
+         A148EmployeeName = "";
+         A211Trn_Id = "";
          Z205AuditDate = DateTime.MinValue;
          Z206AuditTableName = "";
          Z207AuditDescription = "";
          Z208AuditShortDescription = "";
          Z209AuditAction = "";
          Z210SecUserId = 0;
+         Z211Trn_Id = "";
+         Z106EmployeeId = 0;
       }
 
       protected void InitAll0T32( )
@@ -632,6 +714,9 @@ namespace GeneXus.Programs {
          obj32.gxTpr_Auditshortdescription = A208AuditShortDescription;
          obj32.gxTpr_Auditaction = A209AuditAction;
          obj32.gxTpr_Secuserid = A210SecUserId;
+         obj32.gxTpr_Employeeid = A106EmployeeId;
+         obj32.gxTpr_Employeename = A148EmployeeName;
+         obj32.gxTpr_Trn_id = A211Trn_Id;
          obj32.gxTpr_Auditid = A204AuditId;
          obj32.gxTpr_Auditid_Z = Z204AuditId;
          obj32.gxTpr_Auditdate_Z = Z205AuditDate;
@@ -640,6 +725,9 @@ namespace GeneXus.Programs {
          obj32.gxTpr_Auditshortdescription_Z = Z208AuditShortDescription;
          obj32.gxTpr_Auditaction_Z = Z209AuditAction;
          obj32.gxTpr_Secuserid_Z = Z210SecUserId;
+         obj32.gxTpr_Employeeid_Z = Z106EmployeeId;
+         obj32.gxTpr_Employeename_Z = Z148EmployeeName;
+         obj32.gxTpr_Trn_id_Z = Z211Trn_Id;
          obj32.gxTpr_Mode = Gx_mode;
          return  ;
       }
@@ -660,6 +748,9 @@ namespace GeneXus.Programs {
          A208AuditShortDescription = obj32.gxTpr_Auditshortdescription;
          A209AuditAction = obj32.gxTpr_Auditaction;
          A210SecUserId = obj32.gxTpr_Secuserid;
+         A106EmployeeId = obj32.gxTpr_Employeeid;
+         A148EmployeeName = obj32.gxTpr_Employeename;
+         A211Trn_Id = obj32.gxTpr_Trn_id;
          A204AuditId = obj32.gxTpr_Auditid;
          Z204AuditId = obj32.gxTpr_Auditid_Z;
          Z205AuditDate = obj32.gxTpr_Auditdate_Z;
@@ -668,6 +759,9 @@ namespace GeneXus.Programs {
          Z208AuditShortDescription = obj32.gxTpr_Auditshortdescription_Z;
          Z209AuditAction = obj32.gxTpr_Auditaction_Z;
          Z210SecUserId = obj32.gxTpr_Secuserid_Z;
+         Z106EmployeeId = obj32.gxTpr_Employeeid_Z;
+         Z148EmployeeName = obj32.gxTpr_Employeename_Z;
+         Z211Trn_Id = obj32.gxTpr_Trn_id_Z;
          Gx_mode = obj32.gxTpr_Mode;
          return  ;
       }
@@ -690,7 +784,7 @@ namespace GeneXus.Programs {
             Gx_mode = "UPD";
             Z204AuditId = A204AuditId;
          }
-         ZM0T32( -1) ;
+         ZM0T32( -3) ;
          OnLoadActions0T32( ) ;
          AddRow0T32( ) ;
          ScanKeyEnd0T32( ) ;
@@ -719,7 +813,7 @@ namespace GeneXus.Programs {
             Gx_mode = "UPD";
             Z204AuditId = A204AuditId;
          }
-         ZM0T32( -1) ;
+         ZM0T32( -3) ;
          OnLoadActions0T32( ) ;
          AddRow0T32( ) ;
          ScanKeyEnd0T32( ) ;
@@ -1094,6 +1188,7 @@ namespace GeneXus.Programs {
       protected override void CloseCursors( )
       {
          pr_default.close(1);
+         pr_default.close(9);
       }
 
       public override void initialize( )
@@ -1101,6 +1196,11 @@ namespace GeneXus.Programs {
          Gx_mode = "";
          endTrnMsgTxt = "";
          endTrnMsgCod = "";
+         AV8WWPContext = new GeneXus.Programs.wwpbaseobjects.SdtWWPContext(context);
+         AV10TrnContext = new WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext(context);
+         AV11WebSession = context.GetSession();
+         AV22Pgmname = "";
+         AV13TrnContextAtt = new WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute(context);
          Z205AuditDate = DateTime.MinValue;
          A205AuditDate = DateTime.MinValue;
          Z206AuditTableName = "";
@@ -1111,14 +1211,24 @@ namespace GeneXus.Programs {
          A208AuditShortDescription = "";
          Z209AuditAction = "";
          A209AuditAction = "";
-         BC000T4_A204AuditId = new long[1] ;
-         BC000T4_A205AuditDate = new DateTime[] {DateTime.MinValue} ;
-         BC000T4_A206AuditTableName = new string[] {""} ;
-         BC000T4_A207AuditDescription = new string[] {""} ;
-         BC000T4_A208AuditShortDescription = new string[] {""} ;
-         BC000T4_A209AuditAction = new string[] {""} ;
-         BC000T4_A210SecUserId = new long[1] ;
+         Z211Trn_Id = "";
+         A211Trn_Id = "";
+         Z148EmployeeName = "";
+         A148EmployeeName = "";
+         BC000T5_A147EmployeeBalance = new decimal[1] ;
          BC000T5_A204AuditId = new long[1] ;
+         BC000T5_A205AuditDate = new DateTime[] {DateTime.MinValue} ;
+         BC000T5_A206AuditTableName = new string[] {""} ;
+         BC000T5_A207AuditDescription = new string[] {""} ;
+         BC000T5_A208AuditShortDescription = new string[] {""} ;
+         BC000T5_A209AuditAction = new string[] {""} ;
+         BC000T5_A210SecUserId = new long[1] ;
+         BC000T5_A148EmployeeName = new string[] {""} ;
+         BC000T5_A211Trn_Id = new string[] {""} ;
+         BC000T5_A106EmployeeId = new long[1] ;
+         BC000T4_A147EmployeeBalance = new decimal[1] ;
+         BC000T4_A148EmployeeName = new string[] {""} ;
+         BC000T6_A204AuditId = new long[1] ;
          BC000T3_A204AuditId = new long[1] ;
          BC000T3_A205AuditDate = new DateTime[] {DateTime.MinValue} ;
          BC000T3_A206AuditTableName = new string[] {""} ;
@@ -1126,6 +1236,8 @@ namespace GeneXus.Programs {
          BC000T3_A208AuditShortDescription = new string[] {""} ;
          BC000T3_A209AuditAction = new string[] {""} ;
          BC000T3_A210SecUserId = new long[1] ;
+         BC000T3_A211Trn_Id = new string[] {""} ;
+         BC000T3_A106EmployeeId = new long[1] ;
          sMode32 = "";
          BC000T2_A204AuditId = new long[1] ;
          BC000T2_A205AuditDate = new DateTime[] {DateTime.MinValue} ;
@@ -1134,14 +1246,22 @@ namespace GeneXus.Programs {
          BC000T2_A208AuditShortDescription = new string[] {""} ;
          BC000T2_A209AuditAction = new string[] {""} ;
          BC000T2_A210SecUserId = new long[1] ;
-         BC000T7_A204AuditId = new long[1] ;
-         BC000T10_A204AuditId = new long[1] ;
-         BC000T10_A205AuditDate = new DateTime[] {DateTime.MinValue} ;
-         BC000T10_A206AuditTableName = new string[] {""} ;
-         BC000T10_A207AuditDescription = new string[] {""} ;
-         BC000T10_A208AuditShortDescription = new string[] {""} ;
-         BC000T10_A209AuditAction = new string[] {""} ;
-         BC000T10_A210SecUserId = new long[1] ;
+         BC000T2_A211Trn_Id = new string[] {""} ;
+         BC000T2_A106EmployeeId = new long[1] ;
+         BC000T8_A204AuditId = new long[1] ;
+         BC000T11_A147EmployeeBalance = new decimal[1] ;
+         BC000T11_A148EmployeeName = new string[] {""} ;
+         BC000T12_A147EmployeeBalance = new decimal[1] ;
+         BC000T12_A204AuditId = new long[1] ;
+         BC000T12_A205AuditDate = new DateTime[] {DateTime.MinValue} ;
+         BC000T12_A206AuditTableName = new string[] {""} ;
+         BC000T12_A207AuditDescription = new string[] {""} ;
+         BC000T12_A208AuditShortDescription = new string[] {""} ;
+         BC000T12_A209AuditAction = new string[] {""} ;
+         BC000T12_A210SecUserId = new long[1] ;
+         BC000T12_A148EmployeeName = new string[] {""} ;
+         BC000T12_A211Trn_Id = new string[] {""} ;
+         BC000T12_A106EmployeeId = new long[1] ;
          BackMsgLst = new msglist();
          LclMsgLst = new msglist();
          pr_gam = new DataStoreProvider(context, new GeneXus.Programs.audit_bc__gam(),
@@ -1151,51 +1271,72 @@ namespace GeneXus.Programs {
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.audit_bc__default(),
             new Object[][] {
                 new Object[] {
-               BC000T2_A204AuditId, BC000T2_A205AuditDate, BC000T2_A206AuditTableName, BC000T2_A207AuditDescription, BC000T2_A208AuditShortDescription, BC000T2_A209AuditAction, BC000T2_A210SecUserId
+               BC000T2_A204AuditId, BC000T2_A205AuditDate, BC000T2_A206AuditTableName, BC000T2_A207AuditDescription, BC000T2_A208AuditShortDescription, BC000T2_A209AuditAction, BC000T2_A210SecUserId, BC000T2_A211Trn_Id, BC000T2_A106EmployeeId
                }
                , new Object[] {
-               BC000T3_A204AuditId, BC000T3_A205AuditDate, BC000T3_A206AuditTableName, BC000T3_A207AuditDescription, BC000T3_A208AuditShortDescription, BC000T3_A209AuditAction, BC000T3_A210SecUserId
+               BC000T3_A204AuditId, BC000T3_A205AuditDate, BC000T3_A206AuditTableName, BC000T3_A207AuditDescription, BC000T3_A208AuditShortDescription, BC000T3_A209AuditAction, BC000T3_A210SecUserId, BC000T3_A211Trn_Id, BC000T3_A106EmployeeId
                }
                , new Object[] {
-               BC000T4_A204AuditId, BC000T4_A205AuditDate, BC000T4_A206AuditTableName, BC000T4_A207AuditDescription, BC000T4_A208AuditShortDescription, BC000T4_A209AuditAction, BC000T4_A210SecUserId
+               BC000T4_A147EmployeeBalance, BC000T4_A148EmployeeName
                }
                , new Object[] {
-               BC000T5_A204AuditId
+               BC000T5_A147EmployeeBalance, BC000T5_A204AuditId, BC000T5_A205AuditDate, BC000T5_A206AuditTableName, BC000T5_A207AuditDescription, BC000T5_A208AuditShortDescription, BC000T5_A209AuditAction, BC000T5_A210SecUserId, BC000T5_A148EmployeeName, BC000T5_A211Trn_Id,
+               BC000T5_A106EmployeeId
                }
                , new Object[] {
-               }
-               , new Object[] {
-               BC000T7_A204AuditId
-               }
-               , new Object[] {
+               BC000T6_A204AuditId
                }
                , new Object[] {
                }
                , new Object[] {
-               BC000T10_A204AuditId, BC000T10_A205AuditDate, BC000T10_A206AuditTableName, BC000T10_A207AuditDescription, BC000T10_A208AuditShortDescription, BC000T10_A209AuditAction, BC000T10_A210SecUserId
+               BC000T8_A204AuditId
+               }
+               , new Object[] {
+               }
+               , new Object[] {
+               }
+               , new Object[] {
+               BC000T11_A147EmployeeBalance, BC000T11_A148EmployeeName
+               }
+               , new Object[] {
+               BC000T12_A147EmployeeBalance, BC000T12_A204AuditId, BC000T12_A205AuditDate, BC000T12_A206AuditTableName, BC000T12_A207AuditDescription, BC000T12_A208AuditShortDescription, BC000T12_A209AuditAction, BC000T12_A210SecUserId, BC000T12_A148EmployeeName, BC000T12_A211Trn_Id,
+               BC000T12_A106EmployeeId
                }
             }
          );
+         AV22Pgmname = "Audit_BC";
          INITTRN();
          /* Execute Start event if defined. */
+         /* Execute user event: Start */
+         E120T2 ();
          standaloneNotModal( ) ;
       }
 
       private short AnyError ;
       private short RcdFound32 ;
       private int trnEnded ;
+      private int AV23GXV1 ;
       private long Z204AuditId ;
       private long A204AuditId ;
+      private long AV12Insert_EmployeeId ;
       private long Z210SecUserId ;
       private long A210SecUserId ;
+      private long Z106EmployeeId ;
+      private long A106EmployeeId ;
+      private decimal Z147EmployeeBalance ;
+      private decimal A147EmployeeBalance ;
       private string Gx_mode ;
       private string endTrnMsgTxt ;
       private string endTrnMsgCod ;
+      private string AV22Pgmname ;
       private string Z206AuditTableName ;
       private string A206AuditTableName ;
+      private string Z148EmployeeName ;
+      private string A148EmployeeName ;
       private string sMode32 ;
       private DateTime Z205AuditDate ;
       private DateTime A205AuditDate ;
+      private bool returnInSub ;
       private bool Gx_longc ;
       private string Z207AuditDescription ;
       private string A207AuditDescription ;
@@ -1203,17 +1344,29 @@ namespace GeneXus.Programs {
       private string A208AuditShortDescription ;
       private string Z209AuditAction ;
       private string A209AuditAction ;
+      private string Z211Trn_Id ;
+      private string A211Trn_Id ;
+      private IGxSession AV11WebSession ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
+      private GeneXus.Programs.wwpbaseobjects.SdtWWPContext AV8WWPContext ;
+      private WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext AV10TrnContext ;
+      private WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute AV13TrnContextAtt ;
       private IDataStoreProvider pr_default ;
-      private long[] BC000T4_A204AuditId ;
-      private DateTime[] BC000T4_A205AuditDate ;
-      private string[] BC000T4_A206AuditTableName ;
-      private string[] BC000T4_A207AuditDescription ;
-      private string[] BC000T4_A208AuditShortDescription ;
-      private string[] BC000T4_A209AuditAction ;
-      private long[] BC000T4_A210SecUserId ;
+      private decimal[] BC000T5_A147EmployeeBalance ;
       private long[] BC000T5_A204AuditId ;
+      private DateTime[] BC000T5_A205AuditDate ;
+      private string[] BC000T5_A206AuditTableName ;
+      private string[] BC000T5_A207AuditDescription ;
+      private string[] BC000T5_A208AuditShortDescription ;
+      private string[] BC000T5_A209AuditAction ;
+      private long[] BC000T5_A210SecUserId ;
+      private string[] BC000T5_A148EmployeeName ;
+      private string[] BC000T5_A211Trn_Id ;
+      private long[] BC000T5_A106EmployeeId ;
+      private decimal[] BC000T4_A147EmployeeBalance ;
+      private string[] BC000T4_A148EmployeeName ;
+      private long[] BC000T6_A204AuditId ;
       private long[] BC000T3_A204AuditId ;
       private DateTime[] BC000T3_A205AuditDate ;
       private string[] BC000T3_A206AuditTableName ;
@@ -1221,6 +1374,8 @@ namespace GeneXus.Programs {
       private string[] BC000T3_A208AuditShortDescription ;
       private string[] BC000T3_A209AuditAction ;
       private long[] BC000T3_A210SecUserId ;
+      private string[] BC000T3_A211Trn_Id ;
+      private long[] BC000T3_A106EmployeeId ;
       private long[] BC000T2_A204AuditId ;
       private DateTime[] BC000T2_A205AuditDate ;
       private string[] BC000T2_A206AuditTableName ;
@@ -1228,14 +1383,22 @@ namespace GeneXus.Programs {
       private string[] BC000T2_A208AuditShortDescription ;
       private string[] BC000T2_A209AuditAction ;
       private long[] BC000T2_A210SecUserId ;
-      private long[] BC000T7_A204AuditId ;
-      private long[] BC000T10_A204AuditId ;
-      private DateTime[] BC000T10_A205AuditDate ;
-      private string[] BC000T10_A206AuditTableName ;
-      private string[] BC000T10_A207AuditDescription ;
-      private string[] BC000T10_A208AuditShortDescription ;
-      private string[] BC000T10_A209AuditAction ;
-      private long[] BC000T10_A210SecUserId ;
+      private string[] BC000T2_A211Trn_Id ;
+      private long[] BC000T2_A106EmployeeId ;
+      private long[] BC000T8_A204AuditId ;
+      private decimal[] BC000T11_A147EmployeeBalance ;
+      private string[] BC000T11_A148EmployeeName ;
+      private decimal[] BC000T12_A147EmployeeBalance ;
+      private long[] BC000T12_A204AuditId ;
+      private DateTime[] BC000T12_A205AuditDate ;
+      private string[] BC000T12_A206AuditTableName ;
+      private string[] BC000T12_A207AuditDescription ;
+      private string[] BC000T12_A208AuditShortDescription ;
+      private string[] BC000T12_A209AuditAction ;
+      private long[] BC000T12_A210SecUserId ;
+      private string[] BC000T12_A148EmployeeName ;
+      private string[] BC000T12_A211Trn_Id ;
+      private long[] BC000T12_A106EmployeeId ;
       private SdtAudit bcAudit ;
       private msglist BackMsgLst ;
       private msglist LclMsgLst ;
@@ -1284,11 +1447,13 @@ namespace GeneXus.Programs {
        ,new ForEachCursor(def[1])
        ,new ForEachCursor(def[2])
        ,new ForEachCursor(def[3])
-       ,new UpdateCursor(def[4])
-       ,new ForEachCursor(def[5])
-       ,new UpdateCursor(def[6])
+       ,new ForEachCursor(def[4])
+       ,new UpdateCursor(def[5])
+       ,new ForEachCursor(def[6])
        ,new UpdateCursor(def[7])
-       ,new ForEachCursor(def[8])
+       ,new UpdateCursor(def[8])
+       ,new ForEachCursor(def[9])
+       ,new ForEachCursor(def[10])
      };
   }
 
@@ -1307,7 +1472,7 @@ namespace GeneXus.Programs {
         };
         Object[] prmBC000T4;
         prmBC000T4 = new Object[] {
-        new ParDef("AuditId",GXType.Int64,10,0)
+        new ParDef("EmployeeId",GXType.Int64,10,0)
         };
         Object[] prmBC000T5;
         prmBC000T5 = new Object[] {
@@ -1315,44 +1480,58 @@ namespace GeneXus.Programs {
         };
         Object[] prmBC000T6;
         prmBC000T6 = new Object[] {
-        new ParDef("AuditDate",GXType.Date,8,0) ,
-        new ParDef("AuditTableName",GXType.Char,100,0) ,
-        new ParDef("AuditDescription",GXType.VarChar,200,0) ,
-        new ParDef("AuditShortDescription",GXType.VarChar,200,0) ,
-        new ParDef("AuditAction",GXType.VarChar,10,0) ,
-        new ParDef("SecUserId",GXType.Int64,10,0)
+        new ParDef("AuditId",GXType.Int64,10,0)
         };
         Object[] prmBC000T7;
         prmBC000T7 = new Object[] {
-        };
-        Object[] prmBC000T8;
-        prmBC000T8 = new Object[] {
         new ParDef("AuditDate",GXType.Date,8,0) ,
         new ParDef("AuditTableName",GXType.Char,100,0) ,
         new ParDef("AuditDescription",GXType.VarChar,200,0) ,
         new ParDef("AuditShortDescription",GXType.VarChar,200,0) ,
         new ParDef("AuditAction",GXType.VarChar,10,0) ,
         new ParDef("SecUserId",GXType.Int64,10,0) ,
-        new ParDef("AuditId",GXType.Int64,10,0)
+        new ParDef("Trn_Id",GXType.VarChar,40,0) ,
+        new ParDef("EmployeeId",GXType.Int64,10,0)
+        };
+        Object[] prmBC000T8;
+        prmBC000T8 = new Object[] {
         };
         Object[] prmBC000T9;
         prmBC000T9 = new Object[] {
+        new ParDef("AuditDate",GXType.Date,8,0) ,
+        new ParDef("AuditTableName",GXType.Char,100,0) ,
+        new ParDef("AuditDescription",GXType.VarChar,200,0) ,
+        new ParDef("AuditShortDescription",GXType.VarChar,200,0) ,
+        new ParDef("AuditAction",GXType.VarChar,10,0) ,
+        new ParDef("SecUserId",GXType.Int64,10,0) ,
+        new ParDef("Trn_Id",GXType.VarChar,40,0) ,
+        new ParDef("EmployeeId",GXType.Int64,10,0) ,
         new ParDef("AuditId",GXType.Int64,10,0)
         };
         Object[] prmBC000T10;
         prmBC000T10 = new Object[] {
         new ParDef("AuditId",GXType.Int64,10,0)
         };
+        Object[] prmBC000T11;
+        prmBC000T11 = new Object[] {
+        new ParDef("EmployeeId",GXType.Int64,10,0)
+        };
+        Object[] prmBC000T12;
+        prmBC000T12 = new Object[] {
+        new ParDef("AuditId",GXType.Int64,10,0)
+        };
         def= new CursorDef[] {
-            new CursorDef("BC000T2", "SELECT AuditId, AuditDate, AuditTableName, AuditDescription, AuditShortDescription, AuditAction, SecUserId FROM Audit WHERE AuditId = :AuditId  FOR UPDATE OF Audit",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T2,1, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("BC000T3", "SELECT AuditId, AuditDate, AuditTableName, AuditDescription, AuditShortDescription, AuditAction, SecUserId FROM Audit WHERE AuditId = :AuditId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T3,1, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("BC000T4", "SELECT TM1.AuditId, TM1.AuditDate, TM1.AuditTableName, TM1.AuditDescription, TM1.AuditShortDescription, TM1.AuditAction, TM1.SecUserId FROM Audit TM1 WHERE TM1.AuditId = :AuditId ORDER BY TM1.AuditId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T4,100, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("BC000T5", "SELECT AuditId FROM Audit WHERE AuditId = :AuditId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T5,1, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("BC000T6", "SAVEPOINT gxupdate;INSERT INTO Audit(AuditDate, AuditTableName, AuditDescription, AuditShortDescription, AuditAction, SecUserId) VALUES(:AuditDate, :AuditTableName, :AuditDescription, :AuditShortDescription, :AuditAction, :SecUserId);RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT,prmBC000T6)
-           ,new CursorDef("BC000T7", "SELECT currval('AuditId') ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T7,1, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("BC000T8", "SAVEPOINT gxupdate;UPDATE Audit SET AuditDate=:AuditDate, AuditTableName=:AuditTableName, AuditDescription=:AuditDescription, AuditShortDescription=:AuditShortDescription, AuditAction=:AuditAction, SecUserId=:SecUserId  WHERE AuditId = :AuditId;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmBC000T8)
-           ,new CursorDef("BC000T9", "SAVEPOINT gxupdate;DELETE FROM Audit  WHERE AuditId = :AuditId;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmBC000T9)
-           ,new CursorDef("BC000T10", "SELECT TM1.AuditId, TM1.AuditDate, TM1.AuditTableName, TM1.AuditDescription, TM1.AuditShortDescription, TM1.AuditAction, TM1.SecUserId FROM Audit TM1 WHERE TM1.AuditId = :AuditId ORDER BY TM1.AuditId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T10,100, GxCacheFrequency.OFF ,true,false )
+            new CursorDef("BC000T2", "SELECT AuditId, AuditDate, AuditTableName, AuditDescription, AuditShortDescription, AuditAction, SecUserId, Trn_Id, EmployeeId FROM Audit WHERE AuditId = :AuditId  FOR UPDATE OF Audit",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T2,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("BC000T3", "SELECT AuditId, AuditDate, AuditTableName, AuditDescription, AuditShortDescription, AuditAction, SecUserId, Trn_Id, EmployeeId FROM Audit WHERE AuditId = :AuditId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T3,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("BC000T4", "SELECT EmployeeBalance, EmployeeName FROM Employee WHERE EmployeeId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T4,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("BC000T5", "SELECT T2.EmployeeBalance, TM1.AuditId, TM1.AuditDate, TM1.AuditTableName, TM1.AuditDescription, TM1.AuditShortDescription, TM1.AuditAction, TM1.SecUserId, T2.EmployeeName, TM1.Trn_Id, TM1.EmployeeId FROM (Audit TM1 INNER JOIN Employee T2 ON T2.EmployeeId = TM1.EmployeeId) WHERE TM1.AuditId = :AuditId ORDER BY TM1.AuditId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T5,100, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("BC000T6", "SELECT AuditId FROM Audit WHERE AuditId = :AuditId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T6,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("BC000T7", "SAVEPOINT gxupdate;INSERT INTO Audit(AuditDate, AuditTableName, AuditDescription, AuditShortDescription, AuditAction, SecUserId, Trn_Id, EmployeeId) VALUES(:AuditDate, :AuditTableName, :AuditDescription, :AuditShortDescription, :AuditAction, :SecUserId, :Trn_Id, :EmployeeId);RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT,prmBC000T7)
+           ,new CursorDef("BC000T8", "SELECT currval('AuditId') ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T8,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("BC000T9", "SAVEPOINT gxupdate;UPDATE Audit SET AuditDate=:AuditDate, AuditTableName=:AuditTableName, AuditDescription=:AuditDescription, AuditShortDescription=:AuditShortDescription, AuditAction=:AuditAction, SecUserId=:SecUserId, Trn_Id=:Trn_Id, EmployeeId=:EmployeeId  WHERE AuditId = :AuditId;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmBC000T9)
+           ,new CursorDef("BC000T10", "SAVEPOINT gxupdate;DELETE FROM Audit  WHERE AuditId = :AuditId;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmBC000T10)
+           ,new CursorDef("BC000T11", "SELECT EmployeeBalance, EmployeeName FROM Employee WHERE EmployeeId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T11,1, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("BC000T12", "SELECT T2.EmployeeBalance, TM1.AuditId, TM1.AuditDate, TM1.AuditTableName, TM1.AuditDescription, TM1.AuditShortDescription, TM1.AuditAction, TM1.SecUserId, T2.EmployeeName, TM1.Trn_Id, TM1.EmployeeId FROM (Audit TM1 INNER JOIN Employee T2 ON T2.EmployeeId = TM1.EmployeeId) WHERE TM1.AuditId = :AuditId ORDER BY TM1.AuditId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000T12,100, GxCacheFrequency.OFF ,true,false )
         };
      }
   }
@@ -1371,6 +1550,8 @@ namespace GeneXus.Programs {
               ((string[]) buf[4])[0] = rslt.getVarchar(5);
               ((string[]) buf[5])[0] = rslt.getVarchar(6);
               ((long[]) buf[6])[0] = rslt.getLong(7);
+              ((string[]) buf[7])[0] = rslt.getVarchar(8);
+              ((long[]) buf[8])[0] = rslt.getLong(9);
               return;
            case 1 :
               ((long[]) buf[0])[0] = rslt.getLong(1);
@@ -1380,30 +1561,48 @@ namespace GeneXus.Programs {
               ((string[]) buf[4])[0] = rslt.getVarchar(5);
               ((string[]) buf[5])[0] = rslt.getVarchar(6);
               ((long[]) buf[6])[0] = rslt.getLong(7);
+              ((string[]) buf[7])[0] = rslt.getVarchar(8);
+              ((long[]) buf[8])[0] = rslt.getLong(9);
               return;
            case 2 :
-              ((long[]) buf[0])[0] = rslt.getLong(1);
-              ((DateTime[]) buf[1])[0] = rslt.getGXDate(2);
-              ((string[]) buf[2])[0] = rslt.getString(3, 100);
-              ((string[]) buf[3])[0] = rslt.getVarchar(4);
-              ((string[]) buf[4])[0] = rslt.getVarchar(5);
-              ((string[]) buf[5])[0] = rslt.getVarchar(6);
-              ((long[]) buf[6])[0] = rslt.getLong(7);
+              ((decimal[]) buf[0])[0] = rslt.getDecimal(1);
+              ((string[]) buf[1])[0] = rslt.getString(2, 100);
               return;
            case 3 :
-              ((long[]) buf[0])[0] = rslt.getLong(1);
-              return;
-           case 5 :
-              ((long[]) buf[0])[0] = rslt.getLong(1);
-              return;
-           case 8 :
-              ((long[]) buf[0])[0] = rslt.getLong(1);
-              ((DateTime[]) buf[1])[0] = rslt.getGXDate(2);
-              ((string[]) buf[2])[0] = rslt.getString(3, 100);
-              ((string[]) buf[3])[0] = rslt.getVarchar(4);
+              ((decimal[]) buf[0])[0] = rslt.getDecimal(1);
+              ((long[]) buf[1])[0] = rslt.getLong(2);
+              ((DateTime[]) buf[2])[0] = rslt.getGXDate(3);
+              ((string[]) buf[3])[0] = rslt.getString(4, 100);
               ((string[]) buf[4])[0] = rslt.getVarchar(5);
               ((string[]) buf[5])[0] = rslt.getVarchar(6);
-              ((long[]) buf[6])[0] = rslt.getLong(7);
+              ((string[]) buf[6])[0] = rslt.getVarchar(7);
+              ((long[]) buf[7])[0] = rslt.getLong(8);
+              ((string[]) buf[8])[0] = rslt.getString(9, 100);
+              ((string[]) buf[9])[0] = rslt.getVarchar(10);
+              ((long[]) buf[10])[0] = rslt.getLong(11);
+              return;
+           case 4 :
+              ((long[]) buf[0])[0] = rslt.getLong(1);
+              return;
+           case 6 :
+              ((long[]) buf[0])[0] = rslt.getLong(1);
+              return;
+           case 9 :
+              ((decimal[]) buf[0])[0] = rslt.getDecimal(1);
+              ((string[]) buf[1])[0] = rslt.getString(2, 100);
+              return;
+           case 10 :
+              ((decimal[]) buf[0])[0] = rslt.getDecimal(1);
+              ((long[]) buf[1])[0] = rslt.getLong(2);
+              ((DateTime[]) buf[2])[0] = rslt.getGXDate(3);
+              ((string[]) buf[3])[0] = rslt.getString(4, 100);
+              ((string[]) buf[4])[0] = rslt.getVarchar(5);
+              ((string[]) buf[5])[0] = rslt.getVarchar(6);
+              ((string[]) buf[6])[0] = rslt.getVarchar(7);
+              ((long[]) buf[7])[0] = rslt.getLong(8);
+              ((string[]) buf[8])[0] = rslt.getString(9, 100);
+              ((string[]) buf[9])[0] = rslt.getVarchar(10);
+              ((long[]) buf[10])[0] = rslt.getLong(11);
               return;
      }
   }

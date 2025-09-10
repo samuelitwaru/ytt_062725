@@ -2264,7 +2264,7 @@ namespace GeneXus.Programs.workwithplus {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257251354330", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259107581634", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2280,7 +2280,7 @@ namespace GeneXus.Programs.workwithplus {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("workwithplus/wwp_parameterww.js", "?20257251354333", false, true);
+         context.AddJavascriptSource("workwithplus/wwp_parameterww.js", "?20259107581639", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -3129,7 +3129,7 @@ namespace GeneXus.Programs.workwithplus {
          sOrderString = "";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV51Workwithplus_wwp_parameterwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( WWPParameterKey like '%' || :lV51Workwithplus_wwp_parameterwwds_1_filterfulltext) or ( WWPParameterCategory like '%' || :lV51Workwithplus_wwp_parameterwwds_1_filterfulltext) or ( WWPParameterDescription like '%' || :lV51Workwithplus_wwp_parameterwwds_1_filterfulltext) or ( ( CASE  WHEN LENGTH(RTRIM(WWPParameterValue)) <= 30 THEN WWPParameterValue ELSE RTRIM(LTRIM(SUBSTR(WWPParameterValue, 1, 27))) || '...' END) like '%' || :lV51Workwithplus_wwp_parameterwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(WWPParameterKey) like '%' || LOWER(:lV51Workwithplus_wwp_parameterwwds_1_filterfulltext)) or ( LOWER(WWPParameterCategory) like '%' || LOWER(:lV51Workwithplus_wwp_parameterwwds_1_filterfulltext)) or ( LOWER(WWPParameterDescription) like '%' || LOWER(:lV51Workwithplus_wwp_parameterwwds_1_filterfulltext)) or ( LOWER(( CASE  WHEN LENGTH(RTRIM(WWPParameterValue)) <= 30 THEN WWPParameterValue ELSE RTRIM(LTRIM(SUBSTR(WWPParameterValue, 1, 27))) || '...' END)) like '%' || LOWER(:lV51Workwithplus_wwp_parameterwwds_1_filterfulltext)))");
          }
          else
          {
@@ -3276,7 +3276,7 @@ namespace GeneXus.Programs.workwithplus {
          scmdbuf = "SELECT COUNT(*) FROM WWP_Parameter";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV51Workwithplus_wwp_parameterwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( WWPParameterKey like '%' || :lV51Workwithplus_wwp_parameterwwds_1_filterfulltext) or ( WWPParameterCategory like '%' || :lV51Workwithplus_wwp_parameterwwds_1_filterfulltext) or ( WWPParameterDescription like '%' || :lV51Workwithplus_wwp_parameterwwds_1_filterfulltext) or ( ( CASE  WHEN LENGTH(RTRIM(WWPParameterValue)) <= 30 THEN WWPParameterValue ELSE RTRIM(LTRIM(SUBSTR(WWPParameterValue, 1, 27))) || '...' END) like '%' || :lV51Workwithplus_wwp_parameterwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(WWPParameterKey) like '%' || LOWER(:lV51Workwithplus_wwp_parameterwwds_1_filterfulltext)) or ( LOWER(WWPParameterCategory) like '%' || LOWER(:lV51Workwithplus_wwp_parameterwwds_1_filterfulltext)) or ( LOWER(WWPParameterDescription) like '%' || LOWER(:lV51Workwithplus_wwp_parameterwwds_1_filterfulltext)) or ( LOWER(( CASE  WHEN LENGTH(RTRIM(WWPParameterValue)) <= 30 THEN WWPParameterValue ELSE RTRIM(LTRIM(SUBSTR(WWPParameterValue, 1, 27))) || '...' END)) like '%' || LOWER(:lV51Workwithplus_wwp_parameterwwds_1_filterfulltext)))");
          }
          else
          {

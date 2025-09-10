@@ -705,7 +705,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT T1.CompanyId, T1.EmployeeVactionDays, T1.EmployeeIsActive, T1.EmployeeIsManager, T2.CompanyName, T1.EmployeeEmail, T1.EmployeeName, T1.EmployeeFirstName, T1.EmployeeId FROM (Employee T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId)";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Employeelistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T1.EmployeeName like '%' || :lV60Employeelistds_1_filterfulltext) or ( T1.EmployeeEmail like '%' || :lV60Employeelistds_1_filterfulltext) or ( T2.CompanyName like '%' || :lV60Employeelistds_1_filterfulltext) or ( SUBSTR(TO_CHAR(T1.EmployeeVactionDays,'90.9'), 2) like '%' || :lV60Employeelistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T1.EmployeeName) like '%' || LOWER(:lV60Employeelistds_1_filterfulltext)) or ( LOWER(T1.EmployeeEmail) like '%' || LOWER(:lV60Employeelistds_1_filterfulltext)) or ( LOWER(T2.CompanyName) like '%' || LOWER(:lV60Employeelistds_1_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.EmployeeVactionDays,'90.9'), 2) like '%' || :lV60Employeelistds_1_filterfulltext))");
          }
          else
          {

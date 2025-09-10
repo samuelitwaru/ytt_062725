@@ -2314,7 +2314,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257251412814", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202591084950", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2330,7 +2330,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("trnnewww.js", "?20257251412818", false, true);
+         context.AddJavascriptSource("trnnewww.js", "?202591084954", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -3214,7 +3214,7 @@ namespace GeneXus.Programs {
          sOrderString = "";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV53Trnnewwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(TrnNewId,'9999999999'), 2) like '%' || :lV53Trnnewwwds_1_filterfulltext) or ( TrnNewName like '%' || :lV53Trnnewwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(TrnNewId,'9999999999'), 2) like '%' || :lV53Trnnewwwds_1_filterfulltext) or ( LOWER(TrnNewName) like '%' || LOWER(:lV53Trnnewwwds_1_filterfulltext)))");
          }
          else
          {
@@ -3328,7 +3328,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT COUNT(*) FROM TrnNew";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV53Trnnewwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(TrnNewId,'9999999999'), 2) like '%' || :lV53Trnnewwwds_1_filterfulltext) or ( TrnNewName like '%' || :lV53Trnnewwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(TrnNewId,'9999999999'), 2) like '%' || :lV53Trnnewwwds_1_filterfulltext) or ( LOWER(TrnNewName) like '%' || LOWER(:lV53Trnnewwwds_1_filterfulltext)))");
          }
          else
          {

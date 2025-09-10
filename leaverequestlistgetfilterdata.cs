@@ -342,12 +342,12 @@ namespace GeneXus.Programs {
             BRKAT2 = false;
             A124LeaveTypeId = P00AT2_A124LeaveTypeId[0];
             A106EmployeeId = P00AT2_A106EmployeeId[0];
-            A131LeaveRequestDuration = P00AT2_A131LeaveRequestDuration[0];
-            A130LeaveRequestEndDate = P00AT2_A130LeaveRequestEndDate[0];
-            A129LeaveRequestStartDate = P00AT2_A129LeaveRequestStartDate[0];
             A133LeaveRequestDescription = P00AT2_A133LeaveRequestDescription[0];
+            A131LeaveRequestDuration = P00AT2_A131LeaveRequestDuration[0];
             A171LeaveRequestHalfDay = P00AT2_A171LeaveRequestHalfDay[0];
             n171LeaveRequestHalfDay = P00AT2_n171LeaveRequestHalfDay[0];
+            A130LeaveRequestEndDate = P00AT2_A130LeaveRequestEndDate[0];
+            A129LeaveRequestStartDate = P00AT2_A129LeaveRequestStartDate[0];
             A148EmployeeName = P00AT2_A148EmployeeName[0];
             A125LeaveTypeName = P00AT2_A125LeaveTypeName[0];
             A127LeaveRequestId = P00AT2_A127LeaveRequestId[0];
@@ -462,12 +462,12 @@ namespace GeneXus.Programs {
             A148EmployeeName = P00AT3_A148EmployeeName[0];
             A106EmployeeId = P00AT3_A106EmployeeId[0];
             A124LeaveTypeId = P00AT3_A124LeaveTypeId[0];
-            A131LeaveRequestDuration = P00AT3_A131LeaveRequestDuration[0];
-            A130LeaveRequestEndDate = P00AT3_A130LeaveRequestEndDate[0];
-            A129LeaveRequestStartDate = P00AT3_A129LeaveRequestStartDate[0];
             A133LeaveRequestDescription = P00AT3_A133LeaveRequestDescription[0];
+            A131LeaveRequestDuration = P00AT3_A131LeaveRequestDuration[0];
             A171LeaveRequestHalfDay = P00AT3_A171LeaveRequestHalfDay[0];
             n171LeaveRequestHalfDay = P00AT3_n171LeaveRequestHalfDay[0];
+            A130LeaveRequestEndDate = P00AT3_A130LeaveRequestEndDate[0];
+            A129LeaveRequestStartDate = P00AT3_A129LeaveRequestStartDate[0];
             A125LeaveTypeName = P00AT3_A125LeaveTypeName[0];
             A127LeaveRequestId = P00AT3_A127LeaveRequestId[0];
             A148EmployeeName = P00AT3_A148EmployeeName[0];
@@ -579,10 +579,10 @@ namespace GeneXus.Programs {
             n171LeaveRequestHalfDay = P00AT4_n171LeaveRequestHalfDay[0];
             A106EmployeeId = P00AT4_A106EmployeeId[0];
             A124LeaveTypeId = P00AT4_A124LeaveTypeId[0];
+            A133LeaveRequestDescription = P00AT4_A133LeaveRequestDescription[0];
             A131LeaveRequestDuration = P00AT4_A131LeaveRequestDuration[0];
             A130LeaveRequestEndDate = P00AT4_A130LeaveRequestEndDate[0];
             A129LeaveRequestStartDate = P00AT4_A129LeaveRequestStartDate[0];
-            A133LeaveRequestDescription = P00AT4_A133LeaveRequestDescription[0];
             A148EmployeeName = P00AT4_A148EmployeeName[0];
             A125LeaveTypeName = P00AT4_A125LeaveTypeName[0];
             A127LeaveRequestId = P00AT4_A127LeaveRequestId[0];
@@ -694,10 +694,10 @@ namespace GeneXus.Programs {
             A106EmployeeId = P00AT5_A106EmployeeId[0];
             A124LeaveTypeId = P00AT5_A124LeaveTypeId[0];
             A131LeaveRequestDuration = P00AT5_A131LeaveRequestDuration[0];
-            A130LeaveRequestEndDate = P00AT5_A130LeaveRequestEndDate[0];
-            A129LeaveRequestStartDate = P00AT5_A129LeaveRequestStartDate[0];
             A171LeaveRequestHalfDay = P00AT5_A171LeaveRequestHalfDay[0];
             n171LeaveRequestHalfDay = P00AT5_n171LeaveRequestHalfDay[0];
+            A130LeaveRequestEndDate = P00AT5_A130LeaveRequestEndDate[0];
+            A129LeaveRequestStartDate = P00AT5_A129LeaveRequestStartDate[0];
             A148EmployeeName = P00AT5_A148EmployeeName[0];
             A125LeaveTypeName = P00AT5_A125LeaveTypeName[0];
             A127LeaveRequestId = P00AT5_A127LeaveRequestId[0];
@@ -800,12 +800,12 @@ namespace GeneXus.Programs {
          A130LeaveRequestEndDate = DateTime.MinValue;
          P00AT2_A124LeaveTypeId = new long[1] ;
          P00AT2_A106EmployeeId = new long[1] ;
-         P00AT2_A131LeaveRequestDuration = new decimal[1] ;
-         P00AT2_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
-         P00AT2_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
          P00AT2_A133LeaveRequestDescription = new string[] {""} ;
+         P00AT2_A131LeaveRequestDuration = new decimal[1] ;
          P00AT2_A171LeaveRequestHalfDay = new string[] {""} ;
          P00AT2_n171LeaveRequestHalfDay = new bool[] {false} ;
+         P00AT2_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
+         P00AT2_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
          P00AT2_A148EmployeeName = new string[] {""} ;
          P00AT2_A125LeaveTypeName = new string[] {""} ;
          P00AT2_A127LeaveRequestId = new long[1] ;
@@ -813,22 +813,22 @@ namespace GeneXus.Programs {
          P00AT3_A148EmployeeName = new string[] {""} ;
          P00AT3_A106EmployeeId = new long[1] ;
          P00AT3_A124LeaveTypeId = new long[1] ;
-         P00AT3_A131LeaveRequestDuration = new decimal[1] ;
-         P00AT3_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
-         P00AT3_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
          P00AT3_A133LeaveRequestDescription = new string[] {""} ;
+         P00AT3_A131LeaveRequestDuration = new decimal[1] ;
          P00AT3_A171LeaveRequestHalfDay = new string[] {""} ;
          P00AT3_n171LeaveRequestHalfDay = new bool[] {false} ;
+         P00AT3_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
+         P00AT3_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
          P00AT3_A125LeaveTypeName = new string[] {""} ;
          P00AT3_A127LeaveRequestId = new long[1] ;
          P00AT4_A171LeaveRequestHalfDay = new string[] {""} ;
          P00AT4_n171LeaveRequestHalfDay = new bool[] {false} ;
          P00AT4_A106EmployeeId = new long[1] ;
          P00AT4_A124LeaveTypeId = new long[1] ;
+         P00AT4_A133LeaveRequestDescription = new string[] {""} ;
          P00AT4_A131LeaveRequestDuration = new decimal[1] ;
          P00AT4_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
          P00AT4_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
-         P00AT4_A133LeaveRequestDescription = new string[] {""} ;
          P00AT4_A148EmployeeName = new string[] {""} ;
          P00AT4_A125LeaveTypeName = new string[] {""} ;
          P00AT4_A127LeaveRequestId = new long[1] ;
@@ -836,29 +836,29 @@ namespace GeneXus.Programs {
          P00AT5_A106EmployeeId = new long[1] ;
          P00AT5_A124LeaveTypeId = new long[1] ;
          P00AT5_A131LeaveRequestDuration = new decimal[1] ;
-         P00AT5_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
-         P00AT5_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
          P00AT5_A171LeaveRequestHalfDay = new string[] {""} ;
          P00AT5_n171LeaveRequestHalfDay = new bool[] {false} ;
+         P00AT5_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
+         P00AT5_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
          P00AT5_A148EmployeeName = new string[] {""} ;
          P00AT5_A125LeaveTypeName = new string[] {""} ;
          P00AT5_A127LeaveRequestId = new long[1] ;
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.leaverequestlistgetfilterdata__default(),
             new Object[][] {
                 new Object[] {
-               P00AT2_A124LeaveTypeId, P00AT2_A106EmployeeId, P00AT2_A131LeaveRequestDuration, P00AT2_A130LeaveRequestEndDate, P00AT2_A129LeaveRequestStartDate, P00AT2_A133LeaveRequestDescription, P00AT2_A171LeaveRequestHalfDay, P00AT2_n171LeaveRequestHalfDay, P00AT2_A148EmployeeName, P00AT2_A125LeaveTypeName,
+               P00AT2_A124LeaveTypeId, P00AT2_A106EmployeeId, P00AT2_A133LeaveRequestDescription, P00AT2_A131LeaveRequestDuration, P00AT2_A171LeaveRequestHalfDay, P00AT2_n171LeaveRequestHalfDay, P00AT2_A130LeaveRequestEndDate, P00AT2_A129LeaveRequestStartDate, P00AT2_A148EmployeeName, P00AT2_A125LeaveTypeName,
                P00AT2_A127LeaveRequestId
                }
                , new Object[] {
-               P00AT3_A148EmployeeName, P00AT3_A106EmployeeId, P00AT3_A124LeaveTypeId, P00AT3_A131LeaveRequestDuration, P00AT3_A130LeaveRequestEndDate, P00AT3_A129LeaveRequestStartDate, P00AT3_A133LeaveRequestDescription, P00AT3_A171LeaveRequestHalfDay, P00AT3_n171LeaveRequestHalfDay, P00AT3_A125LeaveTypeName,
+               P00AT3_A148EmployeeName, P00AT3_A106EmployeeId, P00AT3_A124LeaveTypeId, P00AT3_A133LeaveRequestDescription, P00AT3_A131LeaveRequestDuration, P00AT3_A171LeaveRequestHalfDay, P00AT3_n171LeaveRequestHalfDay, P00AT3_A130LeaveRequestEndDate, P00AT3_A129LeaveRequestStartDate, P00AT3_A125LeaveTypeName,
                P00AT3_A127LeaveRequestId
                }
                , new Object[] {
-               P00AT4_A171LeaveRequestHalfDay, P00AT4_n171LeaveRequestHalfDay, P00AT4_A106EmployeeId, P00AT4_A124LeaveTypeId, P00AT4_A131LeaveRequestDuration, P00AT4_A130LeaveRequestEndDate, P00AT4_A129LeaveRequestStartDate, P00AT4_A133LeaveRequestDescription, P00AT4_A148EmployeeName, P00AT4_A125LeaveTypeName,
+               P00AT4_A171LeaveRequestHalfDay, P00AT4_n171LeaveRequestHalfDay, P00AT4_A106EmployeeId, P00AT4_A124LeaveTypeId, P00AT4_A133LeaveRequestDescription, P00AT4_A131LeaveRequestDuration, P00AT4_A130LeaveRequestEndDate, P00AT4_A129LeaveRequestStartDate, P00AT4_A148EmployeeName, P00AT4_A125LeaveTypeName,
                P00AT4_A127LeaveRequestId
                }
                , new Object[] {
-               P00AT5_A133LeaveRequestDescription, P00AT5_A106EmployeeId, P00AT5_A124LeaveTypeId, P00AT5_A131LeaveRequestDuration, P00AT5_A130LeaveRequestEndDate, P00AT5_A129LeaveRequestStartDate, P00AT5_A171LeaveRequestHalfDay, P00AT5_n171LeaveRequestHalfDay, P00AT5_A148EmployeeName, P00AT5_A125LeaveTypeName,
+               P00AT5_A133LeaveRequestDescription, P00AT5_A106EmployeeId, P00AT5_A124LeaveTypeId, P00AT5_A131LeaveRequestDuration, P00AT5_A171LeaveRequestHalfDay, P00AT5_n171LeaveRequestHalfDay, P00AT5_A130LeaveRequestEndDate, P00AT5_A129LeaveRequestStartDate, P00AT5_A148EmployeeName, P00AT5_A125LeaveTypeName,
                P00AT5_A127LeaveRequestId
                }
             }
@@ -948,34 +948,34 @@ namespace GeneXus.Programs {
       private IDataStoreProvider pr_default ;
       private long[] P00AT2_A124LeaveTypeId ;
       private long[] P00AT2_A106EmployeeId ;
-      private decimal[] P00AT2_A131LeaveRequestDuration ;
-      private DateTime[] P00AT2_A130LeaveRequestEndDate ;
-      private DateTime[] P00AT2_A129LeaveRequestStartDate ;
       private string[] P00AT2_A133LeaveRequestDescription ;
+      private decimal[] P00AT2_A131LeaveRequestDuration ;
       private string[] P00AT2_A171LeaveRequestHalfDay ;
       private bool[] P00AT2_n171LeaveRequestHalfDay ;
+      private DateTime[] P00AT2_A130LeaveRequestEndDate ;
+      private DateTime[] P00AT2_A129LeaveRequestStartDate ;
       private string[] P00AT2_A148EmployeeName ;
       private string[] P00AT2_A125LeaveTypeName ;
       private long[] P00AT2_A127LeaveRequestId ;
       private string[] P00AT3_A148EmployeeName ;
       private long[] P00AT3_A106EmployeeId ;
       private long[] P00AT3_A124LeaveTypeId ;
-      private decimal[] P00AT3_A131LeaveRequestDuration ;
-      private DateTime[] P00AT3_A130LeaveRequestEndDate ;
-      private DateTime[] P00AT3_A129LeaveRequestStartDate ;
       private string[] P00AT3_A133LeaveRequestDescription ;
+      private decimal[] P00AT3_A131LeaveRequestDuration ;
       private string[] P00AT3_A171LeaveRequestHalfDay ;
       private bool[] P00AT3_n171LeaveRequestHalfDay ;
+      private DateTime[] P00AT3_A130LeaveRequestEndDate ;
+      private DateTime[] P00AT3_A129LeaveRequestStartDate ;
       private string[] P00AT3_A125LeaveTypeName ;
       private long[] P00AT3_A127LeaveRequestId ;
       private string[] P00AT4_A171LeaveRequestHalfDay ;
       private bool[] P00AT4_n171LeaveRequestHalfDay ;
       private long[] P00AT4_A106EmployeeId ;
       private long[] P00AT4_A124LeaveTypeId ;
+      private string[] P00AT4_A133LeaveRequestDescription ;
       private decimal[] P00AT4_A131LeaveRequestDuration ;
       private DateTime[] P00AT4_A130LeaveRequestEndDate ;
       private DateTime[] P00AT4_A129LeaveRequestStartDate ;
-      private string[] P00AT4_A133LeaveRequestDescription ;
       private string[] P00AT4_A148EmployeeName ;
       private string[] P00AT4_A125LeaveTypeName ;
       private long[] P00AT4_A127LeaveRequestId ;
@@ -983,10 +983,10 @@ namespace GeneXus.Programs {
       private long[] P00AT5_A106EmployeeId ;
       private long[] P00AT5_A124LeaveTypeId ;
       private decimal[] P00AT5_A131LeaveRequestDuration ;
-      private DateTime[] P00AT5_A130LeaveRequestEndDate ;
-      private DateTime[] P00AT5_A129LeaveRequestStartDate ;
       private string[] P00AT5_A171LeaveRequestHalfDay ;
       private bool[] P00AT5_n171LeaveRequestHalfDay ;
+      private DateTime[] P00AT5_A130LeaveRequestEndDate ;
+      private DateTime[] P00AT5_A129LeaveRequestStartDate ;
       private string[] P00AT5_A148EmployeeName ;
       private string[] P00AT5_A125LeaveTypeName ;
       private long[] P00AT5_A127LeaveRequestId ;
@@ -1031,11 +1031,11 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int1 = new short[23];
          Object[] GXv_Object2 = new Object[2];
-         scmdbuf = "SELECT T1.LeaveTypeId, T1.EmployeeId, T1.LeaveRequestDuration, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T1.LeaveRequestDescription, T1.LeaveRequestHalfDay, T3.EmployeeName, T2.LeaveTypeName, T1.LeaveRequestId FROM ((LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId) INNER JOIN Employee T3 ON T3.EmployeeId = T1.EmployeeId)";
+         scmdbuf = "SELECT T1.LeaveTypeId, T1.EmployeeId, T1.LeaveRequestDescription, T1.LeaveRequestDuration, T1.LeaveRequestHalfDay, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T3.EmployeeName, T2.LeaveTypeName, T1.LeaveRequestId FROM ((LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId) INNER JOIN Employee T3 ON T3.EmployeeId = T1.EmployeeId)";
          AddWhere(sWhereString, "(T1.LeaveRequestStartDate < :AV55ToDate and T1.LeaveRequestEndDate > :AV54FromDate)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV59Leaverequestlistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T2.LeaveTypeName like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T3.EmployeeName like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestHalfDay like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestDescription like '%' || :lV59Leaverequestlistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T2.LeaveTypeName) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( LOWER(T3.EmployeeName) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( LOWER(T1.LeaveRequestHalfDay) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( LOWER(T1.LeaveRequestDescription) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)))");
          }
          else
          {
@@ -1230,11 +1230,11 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int3 = new short[23];
          Object[] GXv_Object4 = new Object[2];
-         scmdbuf = "SELECT T2.EmployeeName, T1.EmployeeId, T1.LeaveTypeId, T1.LeaveRequestDuration, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T1.LeaveRequestDescription, T1.LeaveRequestHalfDay, T3.LeaveTypeName, T1.LeaveRequestId FROM ((LeaveRequest T1 INNER JOIN Employee T2 ON T2.EmployeeId = T1.EmployeeId) INNER JOIN LeaveType T3 ON T3.LeaveTypeId = T1.LeaveTypeId)";
+         scmdbuf = "SELECT T2.EmployeeName, T1.EmployeeId, T1.LeaveTypeId, T1.LeaveRequestDescription, T1.LeaveRequestDuration, T1.LeaveRequestHalfDay, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T3.LeaveTypeName, T1.LeaveRequestId FROM ((LeaveRequest T1 INNER JOIN Employee T2 ON T2.EmployeeId = T1.EmployeeId) INNER JOIN LeaveType T3 ON T3.LeaveTypeId = T1.LeaveTypeId)";
          AddWhere(sWhereString, "(T1.LeaveRequestStartDate < :AV55ToDate and T1.LeaveRequestEndDate > :AV54FromDate)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV59Leaverequestlistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T3.LeaveTypeName like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T2.EmployeeName like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestHalfDay like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestDescription like '%' || :lV59Leaverequestlistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T3.LeaveTypeName) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( LOWER(T2.EmployeeName) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( LOWER(T1.LeaveRequestHalfDay) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( LOWER(T1.LeaveRequestDescription) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)))");
          }
          else
          {
@@ -1429,11 +1429,11 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int5 = new short[23];
          Object[] GXv_Object6 = new Object[2];
-         scmdbuf = "SELECT T1.LeaveRequestHalfDay, T1.EmployeeId, T1.LeaveTypeId, T1.LeaveRequestDuration, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T1.LeaveRequestDescription, T2.EmployeeName, T3.LeaveTypeName, T1.LeaveRequestId FROM ((LeaveRequest T1 INNER JOIN Employee T2 ON T2.EmployeeId = T1.EmployeeId) INNER JOIN LeaveType T3 ON T3.LeaveTypeId = T1.LeaveTypeId)";
+         scmdbuf = "SELECT T1.LeaveRequestHalfDay, T1.EmployeeId, T1.LeaveTypeId, T1.LeaveRequestDescription, T1.LeaveRequestDuration, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T2.EmployeeName, T3.LeaveTypeName, T1.LeaveRequestId FROM ((LeaveRequest T1 INNER JOIN Employee T2 ON T2.EmployeeId = T1.EmployeeId) INNER JOIN LeaveType T3 ON T3.LeaveTypeId = T1.LeaveTypeId)";
          AddWhere(sWhereString, "(T1.LeaveRequestStartDate < :AV55ToDate and T1.LeaveRequestEndDate > :AV54FromDate)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV59Leaverequestlistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T3.LeaveTypeName like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T2.EmployeeName like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestHalfDay like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestDescription like '%' || :lV59Leaverequestlistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T3.LeaveTypeName) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( LOWER(T2.EmployeeName) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( LOWER(T1.LeaveRequestHalfDay) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( LOWER(T1.LeaveRequestDescription) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)))");
          }
          else
          {
@@ -1628,11 +1628,11 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int7 = new short[23];
          Object[] GXv_Object8 = new Object[2];
-         scmdbuf = "SELECT T1.LeaveRequestDescription, T1.EmployeeId, T1.LeaveTypeId, T1.LeaveRequestDuration, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T1.LeaveRequestHalfDay, T2.EmployeeName, T3.LeaveTypeName, T1.LeaveRequestId FROM ((LeaveRequest T1 INNER JOIN Employee T2 ON T2.EmployeeId = T1.EmployeeId) INNER JOIN LeaveType T3 ON T3.LeaveTypeId = T1.LeaveTypeId)";
+         scmdbuf = "SELECT T1.LeaveRequestDescription, T1.EmployeeId, T1.LeaveTypeId, T1.LeaveRequestDuration, T1.LeaveRequestHalfDay, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T2.EmployeeName, T3.LeaveTypeName, T1.LeaveRequestId FROM ((LeaveRequest T1 INNER JOIN Employee T2 ON T2.EmployeeId = T1.EmployeeId) INNER JOIN LeaveType T3 ON T3.LeaveTypeId = T1.LeaveTypeId)";
          AddWhere(sWhereString, "(T1.LeaveRequestStartDate < :AV55ToDate and T1.LeaveRequestEndDate > :AV54FromDate)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV59Leaverequestlistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T3.LeaveTypeName like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T2.EmployeeName like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestHalfDay like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( T1.LeaveRequestDescription like '%' || :lV59Leaverequestlistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T3.LeaveTypeName) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( LOWER(T2.EmployeeName) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( LOWER(T1.LeaveRequestHalfDay) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV59Leaverequestlistds_1_filterfulltext) or ( LOWER(T1.LeaveRequestDescription) like '%' || LOWER(:lV59Leaverequestlistds_1_filterfulltext)))");
          }
          else
          {
@@ -1949,12 +1949,12 @@ namespace GeneXus.Programs {
              case 0 :
                 ((long[]) buf[0])[0] = rslt.getLong(1);
                 ((long[]) buf[1])[0] = rslt.getLong(2);
-                ((decimal[]) buf[2])[0] = rslt.getDecimal(3);
-                ((DateTime[]) buf[3])[0] = rslt.getGXDate(4);
-                ((DateTime[]) buf[4])[0] = rslt.getGXDate(5);
-                ((string[]) buf[5])[0] = rslt.getVarchar(6);
-                ((string[]) buf[6])[0] = rslt.getString(7, 20);
-                ((bool[]) buf[7])[0] = rslt.wasNull(7);
+                ((string[]) buf[2])[0] = rslt.getVarchar(3);
+                ((decimal[]) buf[3])[0] = rslt.getDecimal(4);
+                ((string[]) buf[4])[0] = rslt.getString(5, 20);
+                ((bool[]) buf[5])[0] = rslt.wasNull(5);
+                ((DateTime[]) buf[6])[0] = rslt.getGXDate(6);
+                ((DateTime[]) buf[7])[0] = rslt.getGXDate(7);
                 ((string[]) buf[8])[0] = rslt.getString(8, 100);
                 ((string[]) buf[9])[0] = rslt.getString(9, 100);
                 ((long[]) buf[10])[0] = rslt.getLong(10);
@@ -1963,12 +1963,12 @@ namespace GeneXus.Programs {
                 ((string[]) buf[0])[0] = rslt.getString(1, 100);
                 ((long[]) buf[1])[0] = rslt.getLong(2);
                 ((long[]) buf[2])[0] = rslt.getLong(3);
-                ((decimal[]) buf[3])[0] = rslt.getDecimal(4);
-                ((DateTime[]) buf[4])[0] = rslt.getGXDate(5);
-                ((DateTime[]) buf[5])[0] = rslt.getGXDate(6);
-                ((string[]) buf[6])[0] = rslt.getVarchar(7);
-                ((string[]) buf[7])[0] = rslt.getString(8, 20);
-                ((bool[]) buf[8])[0] = rslt.wasNull(8);
+                ((string[]) buf[3])[0] = rslt.getVarchar(4);
+                ((decimal[]) buf[4])[0] = rslt.getDecimal(5);
+                ((string[]) buf[5])[0] = rslt.getString(6, 20);
+                ((bool[]) buf[6])[0] = rslt.wasNull(6);
+                ((DateTime[]) buf[7])[0] = rslt.getGXDate(7);
+                ((DateTime[]) buf[8])[0] = rslt.getGXDate(8);
                 ((string[]) buf[9])[0] = rslt.getString(9, 100);
                 ((long[]) buf[10])[0] = rslt.getLong(10);
                 return;
@@ -1977,10 +1977,10 @@ namespace GeneXus.Programs {
                 ((bool[]) buf[1])[0] = rslt.wasNull(1);
                 ((long[]) buf[2])[0] = rslt.getLong(2);
                 ((long[]) buf[3])[0] = rslt.getLong(3);
-                ((decimal[]) buf[4])[0] = rslt.getDecimal(4);
-                ((DateTime[]) buf[5])[0] = rslt.getGXDate(5);
+                ((string[]) buf[4])[0] = rslt.getVarchar(4);
+                ((decimal[]) buf[5])[0] = rslt.getDecimal(5);
                 ((DateTime[]) buf[6])[0] = rslt.getGXDate(6);
-                ((string[]) buf[7])[0] = rslt.getVarchar(7);
+                ((DateTime[]) buf[7])[0] = rslt.getGXDate(7);
                 ((string[]) buf[8])[0] = rslt.getString(8, 100);
                 ((string[]) buf[9])[0] = rslt.getString(9, 100);
                 ((long[]) buf[10])[0] = rslt.getLong(10);
@@ -1990,10 +1990,10 @@ namespace GeneXus.Programs {
                 ((long[]) buf[1])[0] = rslt.getLong(2);
                 ((long[]) buf[2])[0] = rslt.getLong(3);
                 ((decimal[]) buf[3])[0] = rslt.getDecimal(4);
-                ((DateTime[]) buf[4])[0] = rslt.getGXDate(5);
-                ((DateTime[]) buf[5])[0] = rslt.getGXDate(6);
-                ((string[]) buf[6])[0] = rslt.getString(7, 20);
-                ((bool[]) buf[7])[0] = rslt.wasNull(7);
+                ((string[]) buf[4])[0] = rslt.getString(5, 20);
+                ((bool[]) buf[5])[0] = rslt.wasNull(5);
+                ((DateTime[]) buf[6])[0] = rslt.getGXDate(6);
+                ((DateTime[]) buf[7])[0] = rslt.getGXDate(7);
                 ((string[]) buf[8])[0] = rslt.getString(8, 100);
                 ((string[]) buf[9])[0] = rslt.getString(9, 100);
                 ((long[]) buf[10])[0] = rslt.getLong(10);

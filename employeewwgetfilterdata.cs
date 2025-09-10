@@ -531,7 +531,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT EmployeeName, EmployeeId, CompanyId, EmployeeIsActive, EmployeeIsManager, EmployeeEmail FROM Employee";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Employeewwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( EmployeeName like '%' || :lV60Employeewwds_1_filterfulltext) or ( EmployeeEmail like '%' || :lV60Employeewwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(EmployeeName) like '%' || LOWER(:lV60Employeewwds_1_filterfulltext)) or ( LOWER(EmployeeEmail) like '%' || LOWER(:lV60Employeewwds_1_filterfulltext)))");
          }
          else
          {
@@ -637,7 +637,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT EmployeeEmail, EmployeeId, CompanyId, EmployeeIsActive, EmployeeIsManager, EmployeeName FROM Employee";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV60Employeewwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( EmployeeName like '%' || :lV60Employeewwds_1_filterfulltext) or ( EmployeeEmail like '%' || :lV60Employeewwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(EmployeeName) like '%' || LOWER(:lV60Employeewwds_1_filterfulltext)) or ( LOWER(EmployeeEmail) like '%' || LOWER(:lV60Employeewwds_1_filterfulltext)))");
          }
          else
          {

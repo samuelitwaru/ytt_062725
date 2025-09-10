@@ -3039,7 +3039,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202582617151272", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259107561391", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -3055,7 +3055,7 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("leaverequestrejected.js", "?202582617151273", false, true);
+         context.AddJavascriptSource("leaverequestrejected.js", "?20259107561391", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -4345,7 +4345,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(Not ( :AV72Udparg1 and Not :AV73Udparg2) or ( T3.CompanyId = :AV74Udparg3))");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV78Leaverequestrejectedds_4_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T2.EmployeeName like '%' || :lV78Leaverequestrejectedds_4_filterfulltext) or ( T3.LeaveTypeName like '%' || :lV78Leaverequestrejectedds_4_filterfulltext) or ( T1.LeaveRequestHalfDay like '%' || :lV78Leaverequestrejectedds_4_filterfulltext) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV78Leaverequestrejectedds_4_filterfulltext) or ( SUBSTR(TO_CHAR(T2.EmployeeBalance,'90.9'), 2) like '%' || :lV78Leaverequestrejectedds_4_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T2.EmployeeName) like '%' || LOWER(:lV78Leaverequestrejectedds_4_filterfulltext)) or ( LOWER(T3.LeaveTypeName) like '%' || LOWER(:lV78Leaverequestrejectedds_4_filterfulltext)) or ( LOWER(T1.LeaveRequestHalfDay) like '%' || LOWER(:lV78Leaverequestrejectedds_4_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV78Leaverequestrejectedds_4_filterfulltext) or ( SUBSTR(TO_CHAR(T2.EmployeeBalance,'90.9'), 2) like '%' || :lV78Leaverequestrejectedds_4_filterfulltext))");
          }
          else
          {
@@ -4596,7 +4596,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(Not ( :AV72Udparg1 and Not :AV73Udparg2) or ( T2.CompanyId = :AV74Udparg3))");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV78Leaverequestrejectedds_4_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T3.EmployeeName like '%' || :lV78Leaverequestrejectedds_4_filterfulltext) or ( T2.LeaveTypeName like '%' || :lV78Leaverequestrejectedds_4_filterfulltext) or ( T1.LeaveRequestHalfDay like '%' || :lV78Leaverequestrejectedds_4_filterfulltext) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV78Leaverequestrejectedds_4_filterfulltext) or ( SUBSTR(TO_CHAR(T3.EmployeeBalance,'90.9'), 2) like '%' || :lV78Leaverequestrejectedds_4_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T3.EmployeeName) like '%' || LOWER(:lV78Leaverequestrejectedds_4_filterfulltext)) or ( LOWER(T2.LeaveTypeName) like '%' || LOWER(:lV78Leaverequestrejectedds_4_filterfulltext)) or ( LOWER(T1.LeaveRequestHalfDay) like '%' || LOWER(:lV78Leaverequestrejectedds_4_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV78Leaverequestrejectedds_4_filterfulltext) or ( SUBSTR(TO_CHAR(T3.EmployeeBalance,'90.9'), 2) like '%' || :lV78Leaverequestrejectedds_4_filterfulltext))");
          }
          else
          {

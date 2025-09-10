@@ -388,7 +388,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT TrnNewName, TrnNewDate, TrnNewId FROM TrnNew";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV42Trnnewwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(TrnNewId,'9999999999'), 2) like '%' || :lV42Trnnewwwds_1_filterfulltext) or ( TrnNewName like '%' || :lV42Trnnewwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(TrnNewId,'9999999999'), 2) like '%' || :lV42Trnnewwwds_1_filterfulltext) or ( LOWER(TrnNewName) like '%' || LOWER(:lV42Trnnewwwds_1_filterfulltext)))");
          }
          else
          {

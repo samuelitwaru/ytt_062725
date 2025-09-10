@@ -63,20 +63,25 @@ namespace GeneXus.Programs.wwpbaseobjects {
       {
          /* GeneXus formulas */
          /* Output device settings */
+         new logtofile(context ).execute(  ">>> "+AV8AuditingObject.ToJSonString(false, true)) ;
+         GXt_int1 = AV22EmployeeId;
+         new getloggedinemployeeid(context ).execute( out  GXt_int1) ;
+         AV22EmployeeId = GXt_int1;
          new GeneXus.Programs.wwpbaseobjects.loadwwpcontext(context ).execute( out  AV19WWPContext) ;
          AV18AuditPrimaryKey = "";
          AV20FirstRecord = true;
-         AV22GXV1 = 1;
-         while ( AV22GXV1 <= AV8AuditingObject.gxTpr_Record.Count )
+         AV23GXV1 = 1;
+         while ( AV23GXV1 <= AV8AuditingObject.gxTpr_Record.Count )
          {
-            AV9AuditingObjectRecordItem = ((WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem)AV8AuditingObject.gxTpr_Record.Item(AV22GXV1));
+            AV9AuditingObjectRecordItem = ((WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem)AV8AuditingObject.gxTpr_Record.Item(AV23GXV1));
             AV12Audit = new SdtAudit(context);
             AV12Audit.gxTpr_Auditdate = DateTimeUtil.Now( context);
+            AV12Audit.gxTpr_Employeeid = AV22EmployeeId;
             AV12Audit.gxTpr_Audittablename = AV9AuditingObjectRecordItem.gxTpr_Tablename;
             if ( AV20FirstRecord )
             {
-               AV17AuditShortDescription = "Record with key '";
-               AV16AuditDescription = "Record with key '";
+               AV17AuditShortDescription = "Record '";
+               AV16AuditDescription = "Record '";
                AV21ActualMode = AV8AuditingObject.gxTpr_Mode;
             }
             else
@@ -97,37 +102,38 @@ namespace GeneXus.Programs.wwpbaseobjects {
             {
                AV12Audit.gxTpr_Auditaction = "Delete";
             }
-            AV23GXV2 = 1;
-            while ( AV23GXV2 <= AV9AuditingObjectRecordItem.gxTpr_Attribute.Count )
+            AV24GXV2 = 1;
+            while ( AV24GXV2 <= AV9AuditingObjectRecordItem.gxTpr_Attribute.Count )
             {
-               AV10AuditingObjectRecordItemAttributeItem = ((WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem_AttributeItem)AV9AuditingObjectRecordItem.gxTpr_Attribute.Item(AV23GXV2));
+               AV10AuditingObjectRecordItemAttributeItem = ((WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem_AttributeItem)AV9AuditingObjectRecordItem.gxTpr_Attribute.Item(AV24GXV2));
+               new logtofile(context ).execute(  ">>> "+AV10AuditingObjectRecordItemAttributeItem.gxTpr_Name+" >>> "+AV10AuditingObjectRecordItemAttributeItem.gxTpr_Newvalue+" >>> "+AV10AuditingObjectRecordItemAttributeItem.gxTpr_Oldvalue) ;
                if ( AV10AuditingObjectRecordItemAttributeItem.gxTpr_Ispartofkey )
                {
                   if ( StringUtil.StrCmp(AV21ActualMode, "INS") == 0 )
                   {
-                     AV17AuditShortDescription += AV10AuditingObjectRecordItemAttributeItem.gxTpr_Description + " = " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Newvalue + " ";
                      AV16AuditDescription += AV10AuditingObjectRecordItemAttributeItem.gxTpr_Description + " = " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Newvalue + " ";
+                     AV12Audit.gxTpr_Trn_id = AV10AuditingObjectRecordItemAttributeItem.gxTpr_Newvalue;
                   }
                   else
                   {
-                     AV17AuditShortDescription += AV10AuditingObjectRecordItemAttributeItem.gxTpr_Description + " = " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Oldvalue + " ";
                      AV16AuditDescription += AV10AuditingObjectRecordItemAttributeItem.gxTpr_Description + " = " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Oldvalue + " ";
+                     AV12Audit.gxTpr_Trn_id = AV10AuditingObjectRecordItemAttributeItem.gxTpr_Oldvalue;
                   }
                }
                if ( AV10AuditingObjectRecordItemAttributeItem.gxTpr_Isdescriptionattribute )
                {
                   if ( StringUtil.StrCmp(AV21ActualMode, "INS") == 0 )
                   {
-                     AV17AuditShortDescription += "- " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Description + " = " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Newvalue + " ";
+                     AV17AuditShortDescription += AV10AuditingObjectRecordItemAttributeItem.gxTpr_Description + " = " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Newvalue + " ";
                      AV16AuditDescription += "- " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Description + " = " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Newvalue + " ";
                   }
                   else
                   {
-                     AV17AuditShortDescription += "- " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Description + " = " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Oldvalue + " ";
+                     AV17AuditShortDescription += AV10AuditingObjectRecordItemAttributeItem.gxTpr_Description + " = " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Oldvalue + " ";
                      AV16AuditDescription += "- " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Description + " = " + AV10AuditingObjectRecordItemAttributeItem.gxTpr_Oldvalue + " ";
                   }
                }
-               AV23GXV2 = (int)(AV23GXV2+1);
+               AV24GXV2 = (int)(AV24GXV2+1);
             }
             if ( AV20FirstRecord )
             {
@@ -152,10 +158,10 @@ namespace GeneXus.Programs.wwpbaseobjects {
                AV16AuditDescription += "deleted." + StringUtil.NewLine( ) + " Attributes:" + StringUtil.NewLine( );
             }
             AV17AuditShortDescription += ".";
-            AV24GXV3 = 1;
-            while ( AV24GXV3 <= AV9AuditingObjectRecordItem.gxTpr_Attribute.Count )
+            AV25GXV3 = 1;
+            while ( AV25GXV3 <= AV9AuditingObjectRecordItem.gxTpr_Attribute.Count )
             {
-               AV10AuditingObjectRecordItemAttributeItem = ((WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem_AttributeItem)AV9AuditingObjectRecordItem.gxTpr_Attribute.Item(AV24GXV3));
+               AV10AuditingObjectRecordItemAttributeItem = ((WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem_AttributeItem)AV9AuditingObjectRecordItem.gxTpr_Attribute.Item(AV25GXV3));
                if ( ! ( AV10AuditingObjectRecordItemAttributeItem.gxTpr_Ispartofkey ) )
                {
                   if ( StringUtil.StrCmp(AV21ActualMode, "INS") == 0 )
@@ -180,7 +186,7 @@ namespace GeneXus.Programs.wwpbaseobjects {
                      }
                   }
                }
-               AV24GXV3 = (int)(AV24GXV3+1);
+               AV25GXV3 = (int)(AV25GXV3+1);
             }
             AV12Audit.gxTpr_Auditdescription = AV16AuditDescription;
             AV12Audit.gxTpr_Auditshortdescription = AV17AuditShortDescription;
@@ -189,7 +195,7 @@ namespace GeneXus.Programs.wwpbaseobjects {
             {
                context.CommitDataStores("wwpbaseobjects.audittransaction",pr_default);
             }
-            AV22GXV1 = (int)(AV22GXV1+1);
+            AV23GXV1 = (int)(AV23GXV1+1);
          }
          cleanup();
       }
@@ -225,9 +231,11 @@ namespace GeneXus.Programs.wwpbaseobjects {
          /* GeneXus formulas. */
       }
 
-      private int AV22GXV1 ;
-      private int AV23GXV2 ;
-      private int AV24GXV3 ;
+      private int AV23GXV1 ;
+      private int AV24GXV2 ;
+      private int AV25GXV3 ;
+      private long AV22EmployeeId ;
+      private long GXt_int1 ;
       private string AV21ActualMode ;
       private bool AV20FirstRecord ;
       private string AV11CallerName ;

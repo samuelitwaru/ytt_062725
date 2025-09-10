@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: "YTT_version4"
-  version: "20250908183918"
+  version: "20250910050601"
 servers:
   - url: http://localhost:8082/YTT_version4NETPostgreSQL14/rest
 paths:
@@ -757,6 +757,52 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WorkHourLog"
+  /AuditLoadDVCombo:
+    post:
+      tags:
+        - AuditLoadDVCombo
+      operationId: "AuditLoadDVCombo"
+      summary: "Audit Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuditLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuditLoadDVComboOutput"
+        404:
+          description: "Not found"
+  /AuditWWGetFilterData:
+    post:
+      tags:
+        - AuditWWGetFilterData
+      operationId: "AuditWWGetFilterData"
+      summary: "Audit WWGet Filter Data"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuditWWGetFilterDataInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuditWWGetFilterDataOutput"
+        404:
+          description: "Not found"
   /CompanyLocationWWGetFilterData:
     post:
       tags:
@@ -3462,6 +3508,22 @@ components:
           type: "string"
       required:
         - gx_md5_hash
+    AuditLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
+          type: "string"
+    AuditWWGetFilterDataOutput:
+      properties:
+        OptionsJson:
+          type: "string"
+        OptionsDescJson:
+          type: "string"
+        OptionIndexesJson:
+          type: "string"
     CompanyLocationWWGetFilterDataOutput:
       properties:
         OptionsJson:
@@ -3883,6 +3945,27 @@ components:
     WPLeaveReportLoadDVComboOutput:
       properties:
         Combo_DataJson:
+          type: "string"
+    AuditLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        AuditId:
+          type: "integer"
+          format: "int64"
+        SearchTxtParms:
+          type: "string"
+    AuditWWGetFilterDataInput:  
+      properties:
+        DDOName:
+          type: "string"
+        SearchTxtParms:
+          type: "string"
+        SearchTxtTo:
           type: "string"
     CompanyLocationWWGetFilterDataInput:  
       properties:

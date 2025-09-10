@@ -57,6 +57,7 @@ namespace GeneXus.Programs {
          metadata.Set("BT", "Audit");
          metadata.Set("PK", "[ \"AuditId\" ]");
          metadata.Set("PKAssigned", "[ \"AuditId\" ]");
+         metadata.Set("FKList", "[ { \"FK\":[ \"EmployeeId\" ],\"FKMap\":[  ] } ]");
          metadata.Set("AllowInsert", "True");
          metadata.Set("AllowUpdate", "True");
          metadata.Set("AllowDelete", "True");
@@ -75,6 +76,9 @@ namespace GeneXus.Programs {
          state.Add("gxTpr_Auditshortdescription_Z");
          state.Add("gxTpr_Auditaction_Z");
          state.Add("gxTpr_Secuserid_Z");
+         state.Add("gxTpr_Employeeid_Z");
+         state.Add("gxTpr_Employeename_Z");
+         state.Add("gxTpr_Trn_id_Z");
          return state ;
       }
 
@@ -89,6 +93,9 @@ namespace GeneXus.Programs {
          gxTv_SdtAudit_Auditshortdescription = sdt.gxTv_SdtAudit_Auditshortdescription ;
          gxTv_SdtAudit_Auditaction = sdt.gxTv_SdtAudit_Auditaction ;
          gxTv_SdtAudit_Secuserid = sdt.gxTv_SdtAudit_Secuserid ;
+         gxTv_SdtAudit_Employeeid = sdt.gxTv_SdtAudit_Employeeid ;
+         gxTv_SdtAudit_Employeename = sdt.gxTv_SdtAudit_Employeename ;
+         gxTv_SdtAudit_Trn_id = sdt.gxTv_SdtAudit_Trn_id ;
          gxTv_SdtAudit_Mode = sdt.gxTv_SdtAudit_Mode ;
          gxTv_SdtAudit_Initialized = sdt.gxTv_SdtAudit_Initialized ;
          gxTv_SdtAudit_Auditid_Z = sdt.gxTv_SdtAudit_Auditid_Z ;
@@ -98,6 +105,9 @@ namespace GeneXus.Programs {
          gxTv_SdtAudit_Auditshortdescription_Z = sdt.gxTv_SdtAudit_Auditshortdescription_Z ;
          gxTv_SdtAudit_Auditaction_Z = sdt.gxTv_SdtAudit_Auditaction_Z ;
          gxTv_SdtAudit_Secuserid_Z = sdt.gxTv_SdtAudit_Secuserid_Z ;
+         gxTv_SdtAudit_Employeeid_Z = sdt.gxTv_SdtAudit_Employeeid_Z ;
+         gxTv_SdtAudit_Employeename_Z = sdt.gxTv_SdtAudit_Employeename_Z ;
+         gxTv_SdtAudit_Trn_id_Z = sdt.gxTv_SdtAudit_Trn_id_Z ;
          return  ;
       }
 
@@ -132,6 +142,9 @@ namespace GeneXus.Programs {
          AddObjectProperty("AuditShortDescription", gxTv_SdtAudit_Auditshortdescription, false, includeNonInitialized);
          AddObjectProperty("AuditAction", gxTv_SdtAudit_Auditaction, false, includeNonInitialized);
          AddObjectProperty("SecUserId", gxTv_SdtAudit_Secuserid, false, includeNonInitialized);
+         AddObjectProperty("EmployeeId", gxTv_SdtAudit_Employeeid, false, includeNonInitialized);
+         AddObjectProperty("EmployeeName", gxTv_SdtAudit_Employeename, false, includeNonInitialized);
+         AddObjectProperty("Trn_Id", gxTv_SdtAudit_Trn_id, false, includeNonInitialized);
          if ( includeState )
          {
             AddObjectProperty("Mode", gxTv_SdtAudit_Mode, false, includeNonInitialized);
@@ -152,6 +165,9 @@ namespace GeneXus.Programs {
             AddObjectProperty("AuditShortDescription_Z", gxTv_SdtAudit_Auditshortdescription_Z, false, includeNonInitialized);
             AddObjectProperty("AuditAction_Z", gxTv_SdtAudit_Auditaction_Z, false, includeNonInitialized);
             AddObjectProperty("SecUserId_Z", gxTv_SdtAudit_Secuserid_Z, false, includeNonInitialized);
+            AddObjectProperty("EmployeeId_Z", gxTv_SdtAudit_Employeeid_Z, false, includeNonInitialized);
+            AddObjectProperty("EmployeeName_Z", gxTv_SdtAudit_Employeename_Z, false, includeNonInitialized);
+            AddObjectProperty("Trn_Id_Z", gxTv_SdtAudit_Trn_id_Z, false, includeNonInitialized);
          }
          return  ;
       }
@@ -193,6 +209,21 @@ namespace GeneXus.Programs {
             sdtIsNull = 0;
             gxTv_SdtAudit_Secuserid = sdt.gxTv_SdtAudit_Secuserid ;
          }
+         if ( sdt.IsDirty("EmployeeId") )
+         {
+            sdtIsNull = 0;
+            gxTv_SdtAudit_Employeeid = sdt.gxTv_SdtAudit_Employeeid ;
+         }
+         if ( sdt.IsDirty("EmployeeName") )
+         {
+            sdtIsNull = 0;
+            gxTv_SdtAudit_Employeename = sdt.gxTv_SdtAudit_Employeename ;
+         }
+         if ( sdt.IsDirty("Trn_Id") )
+         {
+            sdtIsNull = 0;
+            gxTv_SdtAudit_Trn_id = sdt.gxTv_SdtAudit_Trn_id ;
+         }
          return  ;
       }
 
@@ -216,6 +247,9 @@ namespace GeneXus.Programs {
                this.gxTv_SdtAudit_Auditshortdescription_Z_SetNull( );
                this.gxTv_SdtAudit_Auditaction_Z_SetNull( );
                this.gxTv_SdtAudit_Secuserid_Z_SetNull( );
+               this.gxTv_SdtAudit_Employeeid_Z_SetNull( );
+               this.gxTv_SdtAudit_Employeename_Z_SetNull( );
+               this.gxTv_SdtAudit_Trn_id_Z_SetNull( );
             }
             gxTv_SdtAudit_Auditid = value;
             SetDirty("Auditid");
@@ -334,6 +368,54 @@ namespace GeneXus.Programs {
             sdtIsNull = 0;
             gxTv_SdtAudit_Secuserid = value;
             SetDirty("Secuserid");
+         }
+
+      }
+
+      [  SoapElement( ElementName = "EmployeeId" )]
+      [  XmlElement( ElementName = "EmployeeId"   )]
+      public long gxTpr_Employeeid
+      {
+         get {
+            return gxTv_SdtAudit_Employeeid ;
+         }
+
+         set {
+            sdtIsNull = 0;
+            gxTv_SdtAudit_Employeeid = value;
+            SetDirty("Employeeid");
+         }
+
+      }
+
+      [  SoapElement( ElementName = "EmployeeName" )]
+      [  XmlElement( ElementName = "EmployeeName"   )]
+      public string gxTpr_Employeename
+      {
+         get {
+            return gxTv_SdtAudit_Employeename ;
+         }
+
+         set {
+            sdtIsNull = 0;
+            gxTv_SdtAudit_Employeename = value;
+            SetDirty("Employeename");
+         }
+
+      }
+
+      [  SoapElement( ElementName = "Trn_Id" )]
+      [  XmlElement( ElementName = "Trn_Id"   )]
+      public string gxTpr_Trn_id
+      {
+         get {
+            return gxTv_SdtAudit_Trn_id ;
+         }
+
+         set {
+            sdtIsNull = 0;
+            gxTv_SdtAudit_Trn_id = value;
+            SetDirty("Trn_id");
          }
 
       }
@@ -609,6 +691,90 @@ namespace GeneXus.Programs {
          return false ;
       }
 
+      [  SoapElement( ElementName = "EmployeeId_Z" )]
+      [  XmlElement( ElementName = "EmployeeId_Z"   )]
+      public long gxTpr_Employeeid_Z
+      {
+         get {
+            return gxTv_SdtAudit_Employeeid_Z ;
+         }
+
+         set {
+            sdtIsNull = 0;
+            gxTv_SdtAudit_Employeeid_Z = value;
+            SetDirty("Employeeid_Z");
+         }
+
+      }
+
+      public void gxTv_SdtAudit_Employeeid_Z_SetNull( )
+      {
+         gxTv_SdtAudit_Employeeid_Z = 0;
+         SetDirty("Employeeid_Z");
+         return  ;
+      }
+
+      public bool gxTv_SdtAudit_Employeeid_Z_IsNull( )
+      {
+         return false ;
+      }
+
+      [  SoapElement( ElementName = "EmployeeName_Z" )]
+      [  XmlElement( ElementName = "EmployeeName_Z"   )]
+      public string gxTpr_Employeename_Z
+      {
+         get {
+            return gxTv_SdtAudit_Employeename_Z ;
+         }
+
+         set {
+            sdtIsNull = 0;
+            gxTv_SdtAudit_Employeename_Z = value;
+            SetDirty("Employeename_Z");
+         }
+
+      }
+
+      public void gxTv_SdtAudit_Employeename_Z_SetNull( )
+      {
+         gxTv_SdtAudit_Employeename_Z = "";
+         SetDirty("Employeename_Z");
+         return  ;
+      }
+
+      public bool gxTv_SdtAudit_Employeename_Z_IsNull( )
+      {
+         return false ;
+      }
+
+      [  SoapElement( ElementName = "Trn_Id_Z" )]
+      [  XmlElement( ElementName = "Trn_Id_Z"   )]
+      public string gxTpr_Trn_id_Z
+      {
+         get {
+            return gxTv_SdtAudit_Trn_id_Z ;
+         }
+
+         set {
+            sdtIsNull = 0;
+            gxTv_SdtAudit_Trn_id_Z = value;
+            SetDirty("Trn_id_Z");
+         }
+
+      }
+
+      public void gxTv_SdtAudit_Trn_id_Z_SetNull( )
+      {
+         gxTv_SdtAudit_Trn_id_Z = "";
+         SetDirty("Trn_id_Z");
+         return  ;
+      }
+
+      public bool gxTv_SdtAudit_Trn_id_Z_IsNull( )
+      {
+         return false ;
+      }
+
       [XmlIgnore]
       private static GXTypeInfo _typeProps;
       protected override GXTypeInfo TypeInfo
@@ -631,12 +797,16 @@ namespace GeneXus.Programs {
          gxTv_SdtAudit_Auditdescription = "";
          gxTv_SdtAudit_Auditshortdescription = "";
          gxTv_SdtAudit_Auditaction = "";
+         gxTv_SdtAudit_Employeename = "";
+         gxTv_SdtAudit_Trn_id = "";
          gxTv_SdtAudit_Mode = "";
          gxTv_SdtAudit_Auditdate_Z = DateTime.MinValue;
          gxTv_SdtAudit_Audittablename_Z = "";
          gxTv_SdtAudit_Auditdescription_Z = "";
          gxTv_SdtAudit_Auditshortdescription_Z = "";
          gxTv_SdtAudit_Auditaction_Z = "";
+         gxTv_SdtAudit_Employeename_Z = "";
+         gxTv_SdtAudit_Trn_id_Z = "";
          sDateCnv = "";
          sNumToPad = "";
          IGxSilentTrn obj;
@@ -657,11 +827,15 @@ namespace GeneXus.Programs {
       private short gxTv_SdtAudit_Initialized ;
       private long gxTv_SdtAudit_Auditid ;
       private long gxTv_SdtAudit_Secuserid ;
+      private long gxTv_SdtAudit_Employeeid ;
       private long gxTv_SdtAudit_Auditid_Z ;
       private long gxTv_SdtAudit_Secuserid_Z ;
+      private long gxTv_SdtAudit_Employeeid_Z ;
       private string gxTv_SdtAudit_Audittablename ;
+      private string gxTv_SdtAudit_Employeename ;
       private string gxTv_SdtAudit_Mode ;
       private string gxTv_SdtAudit_Audittablename_Z ;
+      private string gxTv_SdtAudit_Employeename_Z ;
       private string sDateCnv ;
       private string sNumToPad ;
       private DateTime gxTv_SdtAudit_Auditdate ;
@@ -669,9 +843,11 @@ namespace GeneXus.Programs {
       private string gxTv_SdtAudit_Auditdescription ;
       private string gxTv_SdtAudit_Auditshortdescription ;
       private string gxTv_SdtAudit_Auditaction ;
+      private string gxTv_SdtAudit_Trn_id ;
       private string gxTv_SdtAudit_Auditdescription_Z ;
       private string gxTv_SdtAudit_Auditshortdescription_Z ;
       private string gxTv_SdtAudit_Auditaction_Z ;
+      private string gxTv_SdtAudit_Trn_id_Z ;
    }
 
    [DataContract(Name = @"Audit", Namespace = "YTT_version4")]
@@ -784,6 +960,48 @@ namespace GeneXus.Programs {
 
       }
 
+      [DataMember( Name = "EmployeeId" , Order = 7 )]
+      [GxSeudo()]
+      public string gxTpr_Employeeid
+      {
+         get {
+            return StringUtil.LTrim( StringUtil.Str( (decimal)(sdt.gxTpr_Employeeid), 10, 0)) ;
+         }
+
+         set {
+            sdt.gxTpr_Employeeid = (long)(Math.Round(NumberUtil.Val( value, "."), 18, MidpointRounding.ToEven));
+         }
+
+      }
+
+      [DataMember( Name = "EmployeeName" , Order = 8 )]
+      [GxSeudo()]
+      public string gxTpr_Employeename
+      {
+         get {
+            return StringUtil.RTrim( sdt.gxTpr_Employeename) ;
+         }
+
+         set {
+            sdt.gxTpr_Employeename = value;
+         }
+
+      }
+
+      [DataMember( Name = "Trn_Id" , Order = 9 )]
+      [GxSeudo()]
+      public string gxTpr_Trn_id
+      {
+         get {
+            return sdt.gxTpr_Trn_id ;
+         }
+
+         set {
+            sdt.gxTpr_Trn_id = value;
+         }
+
+      }
+
       public SdtAudit sdt
       {
          get {
@@ -805,7 +1023,7 @@ namespace GeneXus.Programs {
          }
       }
 
-      [DataMember( Name = "gx_md5_hash", Order = 7 )]
+      [DataMember( Name = "gx_md5_hash", Order = 10 )]
       public string Hash
       {
          get {

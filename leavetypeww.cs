@@ -2303,7 +2303,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202594923359", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025910821399", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2319,7 +2319,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("leavetypeww.js", "?2025949233510", false, true);
+         context.AddJavascriptSource("leavetypeww.js", "?202591082143", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2532,7 +2532,7 @@ namespace GeneXus.Programs {
             /* Single line edit */
             TempTags = "  onfocus=\"gx.evt.onfocus(this, 49,'',false,'" + sGXsfl_39_idx + "',39)\"";
             ROClassString = "Attribute";
-            GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavApprovedcolor_Internalname,(string)AV65ApprovedColor,(string)AV65ApprovedColor,TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,49);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtavApprovedcolor_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(int)edtavApprovedcolor_Visible,(int)edtavApprovedcolor_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(int)2097152,(short)0,(short)1,(short)39,(short)0,(short)0,(short)-1,(bool)true,(string)"GeneXus\\Html",(string)"start",(bool)false,(string)""});
+            GridRow.AddColumnProperties("edit", 1, isAjaxCallMode( ), new Object[] {(string)edtavApprovedcolor_Internalname,(string)AV65ApprovedColor,(string)"",TempTags+" onchange=\""+""+";gx.evt.onchange(this, event)\" "+" onblur=\""+""+";gx.evt.onblur(this,49);\"",(string)"'"+""+"'"+",false,"+"'"+""+"'",(string)"",(string)"",(string)"",(string)"",(string)edtavApprovedcolor_Jsonclick,(short)0,(string)"Attribute",(string)"",(string)ROClassString,(string)"WWColumn",(string)"",(int)edtavApprovedcolor_Visible,(int)edtavApprovedcolor_Enabled,(short)0,(string)"text",(string)"",(short)0,(string)"px",(short)17,(string)"px",(short)40,(short)0,(short)0,(short)39,(short)0,(short)-1,(short)-1,(bool)true,(string)"",(string)"start",(bool)true,(string)""});
             send_integrity_lvl_hashes2O2( ) ;
             GridContainer.AddRow(GridRow);
             nGXsfl_39_idx = ((subGrid_Islastpage==1)&&(nGXsfl_39_idx+1>subGrid_fnc_Recordsperpage( )) ? 1 : nGXsfl_39_idx+1);
@@ -3228,12 +3228,12 @@ namespace GeneXus.Programs {
       private bool GXt_boolean3 ;
       private string AV51TFLeaveTypeVacationLeave_SelsJson ;
       private string AV53TFLeaveTypeLoggingWorkHours_SelsJson ;
-      private string AV65ApprovedColor ;
       private string AV23ColumnsSelectorXML ;
       private string AV29ManageFiltersXml ;
       private string AV24UserCustomValue ;
       private string AV20FilterFullText ;
       private string AV9GridAppliedFilters ;
+      private string AV65ApprovedColor ;
       private string lV68Leavetypewwds_2_filterfulltext ;
       private string AV68Leavetypewwds_2_filterfulltext ;
       private string AV55AuxText ;
@@ -3319,7 +3319,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(CompanyId = :AV66Udparg1)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Leavetypewwds_2_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( LeaveTypeName like '%' || :lV68Leavetypewwds_2_filterfulltext) or ( 'no' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
+            AddWhere(sWhereString, "(( LOWER(LeaveTypeName) like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext)) or ( 'no' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
          }
          else
          {
@@ -3415,7 +3415,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(CompanyId = :AV66Udparg1)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV68Leavetypewwds_2_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( LeaveTypeName like '%' || :lV68Leavetypewwds_2_filterfulltext) or ( 'no' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
+            AddWhere(sWhereString, "(( LOWER(LeaveTypeName) like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext)) or ( 'no' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV68Leavetypewwds_2_filterfulltext) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
          }
          else
          {

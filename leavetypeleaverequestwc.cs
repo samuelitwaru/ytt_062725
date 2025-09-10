@@ -2282,7 +2282,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513515341", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259107562436", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2298,7 +2298,7 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("leavetypeleaverequestwc.js", "?202572513515342", false, true);
+         context.AddJavascriptSource("leavetypeleaverequestwc.js", "?20259107562436", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -3219,7 +3219,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(LeaveTypeId = :AV8LeaveTypeId)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV16FilterFullText)) )
          {
-            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(LeaveRequestId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( LeaveRequestHalfDay like '%' || :lV16FilterFullText) or ( SUBSTR(TO_CHAR(LeaveRequestDuration,'90.9'), 2) like '%' || :lV16FilterFullText) or ( 'pending' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Pending')) or ( 'approved' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Approved')) or ( 'rejected' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Rejected')) or ( LeaveRequestDescription like '%' || :lV16FilterFullText) or ( LeaveRequestRejectionReason like '%' || :lV16FilterFullText) or ( SUBSTR(TO_CHAR(EmployeeId,'9999999999'), 2) like '%' || :lV16FilterFullText))");
+            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(LeaveRequestId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( LOWER(LeaveRequestHalfDay) like '%' || LOWER(:lV16FilterFullText)) or ( SUBSTR(TO_CHAR(LeaveRequestDuration,'90.9'), 2) like '%' || :lV16FilterFullText) or ( 'pending' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Pending')) or ( 'approved' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Approved')) or ( 'rejected' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Rejected')) or ( LOWER(LeaveRequestDescription) like '%' || LOWER(:lV16FilterFullText)) or ( LOWER(LeaveRequestRejectionReason) like '%' || LOWER(:lV16FilterFullText)) or ( SUBSTR(TO_CHAR(EmployeeId,'9999999999'), 2) like '%' || :lV16FilterFullText))");
          }
          else
          {
@@ -3345,7 +3345,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(LeaveTypeId = :AV8LeaveTypeId)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV16FilterFullText)) )
          {
-            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(LeaveRequestId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( LeaveRequestHalfDay like '%' || :lV16FilterFullText) or ( SUBSTR(TO_CHAR(LeaveRequestDuration,'90.9'), 2) like '%' || :lV16FilterFullText) or ( 'pending' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Pending')) or ( 'approved' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Approved')) or ( 'rejected' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Rejected')) or ( LeaveRequestDescription like '%' || :lV16FilterFullText) or ( LeaveRequestRejectionReason like '%' || :lV16FilterFullText) or ( SUBSTR(TO_CHAR(EmployeeId,'9999999999'), 2) like '%' || :lV16FilterFullText))");
+            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(LeaveRequestId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( LOWER(LeaveRequestHalfDay) like '%' || LOWER(:lV16FilterFullText)) or ( SUBSTR(TO_CHAR(LeaveRequestDuration,'90.9'), 2) like '%' || :lV16FilterFullText) or ( 'pending' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Pending')) or ( 'approved' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Approved')) or ( 'rejected' like '%' || LOWER(:lV16FilterFullText) and LeaveRequestStatus = ( 'Rejected')) or ( LOWER(LeaveRequestDescription) like '%' || LOWER(:lV16FilterFullText)) or ( LOWER(LeaveRequestRejectionReason) like '%' || LOWER(:lV16FilterFullText)) or ( SUBSTR(TO_CHAR(EmployeeId,'9999999999'), 2) like '%' || :lV16FilterFullText))");
          }
          else
          {

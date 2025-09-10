@@ -2245,7 +2245,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513513356", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2025910756819", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2261,7 +2261,7 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("companyleavetypewc.js", "?202572513513356", false, true);
+         context.AddJavascriptSource("companyleavetypewc.js", "?2025910756820", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -3026,7 +3026,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(CompanyId = :AV8CompanyId)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV16FilterFullText)) )
          {
-            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(LeaveTypeId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( LeaveTypeName like '%' || :lV16FilterFullText) or ( 'no' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
+            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(LeaveTypeId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( LOWER(LeaveTypeName) like '%' || LOWER(:lV16FilterFullText)) or ( 'no' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
          }
          else
          {
@@ -3098,7 +3098,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(CompanyId = :AV8CompanyId)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV16FilterFullText)) )
          {
-            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(LeaveTypeId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( LeaveTypeName like '%' || :lV16FilterFullText) or ( 'no' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
+            AddWhere(sWhereString, "(( SUBSTR(TO_CHAR(LeaveTypeId,'9999999999'), 2) like '%' || :lV16FilterFullText) or ( LOWER(LeaveTypeName) like '%' || LOWER(:lV16FilterFullText)) or ( 'no' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeVacationLeave = ( 'No')) or ( 'yes' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeVacationLeave = ( 'Yes')) or ( 'no' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeLoggingWorkHours = ( 'No')) or ( 'yes' like '%' || LOWER(:lV16FilterFullText) and LeaveTypeLoggingWorkHours = ( 'Yes')))");
          }
          else
          {

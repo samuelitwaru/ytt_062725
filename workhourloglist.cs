@@ -2762,7 +2762,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513514089", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259107555487", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2778,7 +2778,7 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("workhourloglist.js", "?202572513514092", false, true);
+         context.AddJavascriptSource("workhourloglist.js", "?20259107555491", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -3810,7 +3810,7 @@ namespace GeneXus.Programs {
          sOrderString = "";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Workhourloglistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T2.ProjectName like '%' || :lV58Workhourloglistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T2.ProjectName) like '%' || LOWER(:lV58Workhourloglistds_1_filterfulltext)))");
          }
          else
          {
@@ -4028,7 +4028,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT COUNT(*) FROM ((WorkHourLog T1 INNER JOIN Project T3 ON T3.ProjectId = T1.ProjectId) INNER JOIN Employee T2 ON T2.EmployeeId = T1.EmployeeId)";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV58Workhourloglistds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T3.ProjectName like '%' || :lV58Workhourloglistds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T3.ProjectName) like '%' || LOWER(:lV58Workhourloglistds_1_filterfulltext)))");
          }
          else
          {

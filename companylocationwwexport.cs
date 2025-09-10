@@ -528,7 +528,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT CompanyLocationCode, CompanyLocationName, CompanyLocationId FROM CompanyLocation";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV44Companylocationwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( CompanyLocationName like '%' || :lV44Companylocationwwds_1_filterfulltext) or ( CompanyLocationCode like '%' || :lV44Companylocationwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(CompanyLocationName) like '%' || LOWER(:lV44Companylocationwwds_1_filterfulltext)) or ( LOWER(CompanyLocationCode) like '%' || LOWER(:lV44Companylocationwwds_1_filterfulltext)))");
          }
          else
          {

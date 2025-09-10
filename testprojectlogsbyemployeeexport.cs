@@ -307,10 +307,10 @@ namespace GeneXus.Programs {
          while ( (pr_default.getStatus(0) != 101) )
          {
             A102ProjectId = P00AH2_A102ProjectId[0];
-            A119WorkHourLogDate = P00AH2_A119WorkHourLogDate[0];
             A103ProjectName = P00AH2_A103ProjectName[0];
             A123WorkHourLogDescription = P00AH2_A123WorkHourLogDescription[0];
             A120WorkHourLogDuration = P00AH2_A120WorkHourLogDuration[0];
+            A119WorkHourLogDate = P00AH2_A119WorkHourLogDate[0];
             A118WorkHourLogId = P00AH2_A118WorkHourLogId[0];
             A103ProjectName = P00AH2_A103ProjectName[0];
             AV14CellRow = (int)(AV14CellRow+1);
@@ -531,10 +531,10 @@ namespace GeneXus.Programs {
          A103ProjectName = "";
          A119WorkHourLogDate = DateTime.MinValue;
          P00AH2_A102ProjectId = new long[1] ;
-         P00AH2_A119WorkHourLogDate = new DateTime[] {DateTime.MinValue} ;
          P00AH2_A103ProjectName = new string[] {""} ;
          P00AH2_A123WorkHourLogDescription = new string[] {""} ;
          P00AH2_A120WorkHourLogDuration = new string[] {""} ;
+         P00AH2_A119WorkHourLogDate = new DateTime[] {DateTime.MinValue} ;
          P00AH2_A118WorkHourLogId = new long[1] ;
          GXt_dtime3 = (DateTime)(DateTime.MinValue);
          AV28UserCustomValue = "";
@@ -545,7 +545,7 @@ namespace GeneXus.Programs {
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.testprojectlogsbyemployeeexport__default(),
             new Object[][] {
                 new Object[] {
-               P00AH2_A102ProjectId, P00AH2_A119WorkHourLogDate, P00AH2_A103ProjectName, P00AH2_A123WorkHourLogDescription, P00AH2_A120WorkHourLogDuration, P00AH2_A118WorkHourLogId
+               P00AH2_A102ProjectId, P00AH2_A103ProjectName, P00AH2_A123WorkHourLogDescription, P00AH2_A120WorkHourLogDuration, P00AH2_A119WorkHourLogDate, P00AH2_A118WorkHourLogId
                }
             }
          );
@@ -606,10 +606,10 @@ namespace GeneXus.Programs {
       private WorkWithPlus.workwithplus_web.SdtWWPColumnsSelector_Column AV26ColumnsSelector_Column ;
       private IDataStoreProvider pr_default ;
       private long[] P00AH2_A102ProjectId ;
-      private DateTime[] P00AH2_A119WorkHourLogDate ;
       private string[] P00AH2_A103ProjectName ;
       private string[] P00AH2_A123WorkHourLogDescription ;
       private string[] P00AH2_A120WorkHourLogDuration ;
+      private DateTime[] P00AH2_A119WorkHourLogDate ;
       private long[] P00AH2_A118WorkHourLogId ;
       private WorkWithPlus.workwithplus_web.SdtWWPColumnsSelector AV25ColumnsSelectorAux ;
       private WorkWithPlus.workwithplus_web.SdtWWPGridState AV22GridState ;
@@ -641,10 +641,10 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int4 = new short[11];
          Object[] GXv_Object5 = new Object[2];
-         scmdbuf = "SELECT T1.ProjectId, T1.WorkHourLogDate, T2.ProjectName, T1.WorkHourLogDescription, T1.WorkHourLogDuration, T1.WorkHourLogId FROM (WorkHourLog T1 INNER JOIN Project T2 ON T2.ProjectId = T1.ProjectId)";
+         scmdbuf = "SELECT T1.ProjectId, T2.ProjectName, T1.WorkHourLogDescription, T1.WorkHourLogDuration, T1.WorkHourLogDate, T1.WorkHourLogId FROM (WorkHourLog T1 INNER JOIN Project T2 ON T2.ProjectId = T1.ProjectId)";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV46Testprojectlogsbyemployeeds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T1.WorkHourLogDuration like '%' || :lV46Testprojectlogsbyemployeeds_1_filterfulltext) or ( T1.WorkHourLogDescription like '%' || :lV46Testprojectlogsbyemployeeds_1_filterfulltext) or ( T2.ProjectName like '%' || :lV46Testprojectlogsbyemployeeds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T1.WorkHourLogDuration) like '%' || LOWER(:lV46Testprojectlogsbyemployeeds_1_filterfulltext)) or ( LOWER(T1.WorkHourLogDescription) like '%' || LOWER(:lV46Testprojectlogsbyemployeeds_1_filterfulltext)) or ( LOWER(T2.ProjectName) like '%' || LOWER(:lV46Testprojectlogsbyemployeeds_1_filterfulltext)))");
          }
          else
          {
@@ -819,10 +819,10 @@ namespace GeneXus.Programs {
        {
              case 0 :
                 ((long[]) buf[0])[0] = rslt.getLong(1);
-                ((DateTime[]) buf[1])[0] = rslt.getGXDate(2);
-                ((string[]) buf[2])[0] = rslt.getString(3, 100);
-                ((string[]) buf[3])[0] = rslt.getLongVarchar(4);
-                ((string[]) buf[4])[0] = rslt.getVarchar(5);
+                ((string[]) buf[1])[0] = rslt.getString(2, 100);
+                ((string[]) buf[2])[0] = rslt.getLongVarchar(3);
+                ((string[]) buf[3])[0] = rslt.getVarchar(4);
+                ((DateTime[]) buf[4])[0] = rslt.getGXDate(5);
                 ((long[]) buf[5])[0] = rslt.getLong(6);
                 return;
        }

@@ -569,7 +569,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(date_part('year', HolidayStartDate) = date_part('year', :Gx_date) or date_part('year', HolidayStartDate) = date_part('year', (CAST(:Gx_date AS date) + CAST (1 || ' YEAR' AS INTERVAL))))");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV56Holidaywwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( HolidayName like '%' || :lV56Holidaywwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(HolidayName) like '%' || LOWER(:lV56Holidaywwds_1_filterfulltext)))");
          }
          else
          {

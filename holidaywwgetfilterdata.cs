@@ -403,7 +403,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(CompanyId = :AV61Udparg7)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV54Holidaywwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( HolidayName like '%' || :lV54Holidaywwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(HolidayName) like '%' || LOWER(:lV54Holidaywwds_1_filterfulltext)))");
          }
          else
          {

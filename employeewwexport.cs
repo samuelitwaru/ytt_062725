@@ -627,7 +627,7 @@ namespace GeneXus.Programs {
          scmdbuf = "SELECT EmployeeId, CompanyId, EmployeeIsActive, EmployeeIsManager, EmployeeEmail, EmployeeName, EmployeeFirstName FROM Employee";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV63Employeewwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( EmployeeName like '%' || :lV63Employeewwds_1_filterfulltext) or ( EmployeeEmail like '%' || :lV63Employeewwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(EmployeeName) like '%' || LOWER(:lV63Employeewwds_1_filterfulltext)) or ( LOWER(EmployeeEmail) like '%' || LOWER(:lV63Employeewwds_1_filterfulltext)))");
          }
          else
          {

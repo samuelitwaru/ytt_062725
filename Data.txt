@@ -1,33 +1,37 @@
-Employeees: [213,149,376,336,276,263,631,120]
-Project:   69
-Dates: 01/08/25 31/08/25
-       336
-01/08/25
-31/08/25
-        69
-       149
-01/08/25
-31/08/25
-        69
-Employeees: [259,361,238]
-Project:  143
-Dates: 01/08/25 31/08/25
-       238
-01/08/25
-31/08/25
-       143
-       361
-01/08/25
-31/08/25
-       143
-Employeees: [634,624,177]
-Project:  161
-Dates: 01/08/25 31/08/25
-       624
-01/08/25
-31/08/25
-       161
-       634
-01/08/25
-31/08/25
-       161
+Subject: SICK LEAVE MAX ONE MONTH                                                                             REQUEST UPDATE
+Body: <p>Dear Manager, </p><p>This is to inform you that <b>Samuel Itwaru</b> has updated a leave request as below: </p><p>Start Date: <b>01/09/25</b></p><p>End Date: <b>01/09/25</b></p><p>Reason for Leave Request: <b>Medical checkup, hello worl</b></p>
+Manager Email: samuel.itwaru@example.ug
+>>> {"Mode":"UPD","Record":[{"TableName":"LeaveRequest","Mode":"UPD","Attribute":[{"Name":"LeaveRequestId","IsPartOfKey":true,"IsDescriptionAttribute":false,"OldValue":"     12764","NewValue":"     12764","Description":"Request Id"},{"Name":"LeaveTypeId","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"         1","NewValue":"         1","Description":"Leave Types"},{"Name":"LeaveTypeName","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"Sick Leave Max One Month                                                                            ","NewValue":"Sick Leave Max One Month                                                                            ","Description":"Leave Type Name"},{"Name":"LeaveRequestDate","IsPartOfKey":false,"IsDescriptionAttribute":true,"OldValue":"09/09/25","NewValue":"09/09/25","Description":"Request Date"},{"Name":"LeaveRequestStartDate","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"01/09/25","NewValue":"01/09/25","Description":"Start Date"},{"Name":"LeaveRequestEndDate","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"01/09/25","NewValue":"01/09/25","Description":"End Date"},{"Name":"LeaveRequestHalfDay","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"","Description":"Half Day"},{"Name":"LeaveRequestDuration","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":" 1.0","NewValue":" 1.0","Description":"Request Duration"},{"Name":"LeaveRequestStatus","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"Approved            ","NewValue":"Approved            ","Description":"Request Status"},{"Name":"LeaveRequestDescription","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"Medical checkup, hello worl","NewValue":"Medical checkup, hello worl","Description":"Leave Description"},{"Name":"LeaveRequestRejectionReason","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"","Description":"Rejection Reason"},{"Name":"EmployeeId","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"       368","NewValue":"       368","Description":"Employees"},{"Name":"EmployeeName","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"Samuel Itwaru                                                                                                                   ","NewValue":"Samuel Itwaru                                                                                                                   ","Description":"Employee Name"},{"Name":"EmployeeBalance","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"16.5","NewValue":"16.5","Description":"Employee Balance"},{"Name":"LeaveTypeVacationLeave","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"No                  ","NewValue":"No                  ","Description":"Leave Type Vacation Leave"},{"Name":"LeaveTypeLoggingWorkHours","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"No                  ","NewValue":"No                  ","Description":"Leave Type Logging Work Hours"}]}]}
+>>> LeaveRequestId >>>      12764 >>>      12764
+>>> LeaveTypeId >>>          1 >>>          1
+>>> LeaveTypeName >>> Sick Leave Max One Month                                                                             >>> Sick Leave Max One Month                                                                            
+>>> LeaveRequestDate >>> 09/09/25 >>> 09/09/25
+>>> LeaveRequestStartDate >>> 01/09/25 >>> 01/09/25
+>>> LeaveRequestEndDate >>> 01/09/25 >>> 01/09/25
+>>> LeaveRequestHalfDay >>>  >>> 
+>>> LeaveRequestDuration >>>  1.0 >>>  1.0
+>>> LeaveRequestStatus >>> Approved             >>> Approved            
+>>> LeaveRequestDescription >>> Medical checkup, hello worl >>> Medical checkup, hello worl
+>>> LeaveRequestRejectionReason >>>  >>> 
+>>> EmployeeId >>>        368 >>>        368
+>>> EmployeeName >>> Samuel Itwaru                                                                                                                    >>> Samuel Itwaru                                                                                                                   
+>>> EmployeeBalance >>> 16.5 >>> 16.5
+>>> LeaveTypeVacationLeave >>> No                   >>> No                  
+>>> LeaveTypeLoggingWorkHours >>> No                   >>> No                  
+>>> {"Mode":"INS","Record":[{"TableName":"LeaveRequest","Mode":"","Attribute":[{"Name":"LeaveRequestId","IsPartOfKey":true,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"     12835","Description":"Request Id"},{"Name":"LeaveTypeId","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"        15","Description":"Leave Types"},{"Name":"LeaveTypeName","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"Testing                                                                                             ","Description":"Leave Type Name"},{"Name":"LeaveRequestDate","IsPartOfKey":false,"IsDescriptionAttribute":true,"OldValue":"","NewValue":"10/09/25","Description":"Request Date"},{"Name":"LeaveRequestStartDate","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"10/09/25","Description":"Start Date"},{"Name":"LeaveRequestEndDate","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"10/09/25","Description":"End Date"},{"Name":"LeaveRequestHalfDay","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"","Description":"Half Day"},{"Name":"LeaveRequestDuration","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":" 1.0","Description":"Request Duration"},{"Name":"LeaveRequestStatus","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"Pending             ","Description":"Request Status"},{"Name":"LeaveRequestDescription","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"hello","Description":"Leave Description"},{"Name":"LeaveRequestRejectionReason","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"","Description":"Rejection Reason"},{"Name":"EmployeeId","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"       368","Description":"Employees"},{"Name":"EmployeeName","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"Samuel Itwaru                                                                                                                   ","Description":"Employee Name"},{"Name":"EmployeeBalance","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"16.5","Description":"Employee Balance"},{"Name":"LeaveTypeVacationLeave","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"No                  ","Description":"Leave Type Vacation Leave"},{"Name":"LeaveTypeLoggingWorkHours","IsPartOfKey":false,"IsDescriptionAttribute":false,"OldValue":"","NewValue":"No                  ","Description":"Leave Type Logging Work Hours"}]}]}
+>>> LeaveRequestId >>>      12835 >>> 
+>>> LeaveTypeId >>>         15 >>> 
+>>> LeaveTypeName >>> Testing                                                                                              >>> 
+>>> LeaveRequestDate >>> 10/09/25 >>> 
+>>> LeaveRequestStartDate >>> 10/09/25 >>> 
+>>> LeaveRequestEndDate >>> 10/09/25 >>> 
+>>> LeaveRequestHalfDay >>>  >>> 
+>>> LeaveRequestDuration >>>  1.0 >>> 
+>>> LeaveRequestStatus >>> Pending              >>> 
+>>> LeaveRequestDescription >>> hello >>> 
+>>> LeaveRequestRejectionReason >>>  >>> 
+>>> EmployeeId >>>        368 >>> 
+>>> EmployeeName >>> Samuel Itwaru                                                                                                                    >>> 
+>>> EmployeeBalance >>> 16.5 >>> 
+>>> LeaveTypeVacationLeave >>> No                   >>> 
+>>> LeaveTypeLoggingWorkHours >>> No                   >>> 

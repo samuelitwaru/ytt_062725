@@ -2911,7 +2911,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20257251405944", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202591084898", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2927,7 +2927,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("leaverequestww.js", "?20257251405947", false, true);
+         context.AddJavascriptSource("leaverequestww.js", "?20259108492", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -4327,7 +4327,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(T1.EmployeeId = :AV89Udparg1)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV92Leaverequestwwds_2_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T2.LeaveTypeName like '%' || :lV92Leaverequestwwds_2_filterfulltext) or ( T1.LeaveRequestHalfDay like '%' || :lV92Leaverequestwwds_2_filterfulltext) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV92Leaverequestwwds_2_filterfulltext) or ( 'pending' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Pending')) or ( 'approved' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Approved')) or ( 'rejected' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Rejected')))");
+            AddWhere(sWhereString, "(( LOWER(T2.LeaveTypeName) like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext)) or ( LOWER(T1.LeaveRequestHalfDay) like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV92Leaverequestwwds_2_filterfulltext) or ( 'pending' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Pending')) or ( 'approved' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Approved')) or ( 'rejected' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Rejected')))");
          }
          else
          {
@@ -4547,7 +4547,7 @@ namespace GeneXus.Programs {
          AddWhere(sWhereString, "(T1.EmployeeId = :AV89Udparg1)");
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV92Leaverequestwwds_2_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T2.LeaveTypeName like '%' || :lV92Leaverequestwwds_2_filterfulltext) or ( T1.LeaveRequestHalfDay like '%' || :lV92Leaverequestwwds_2_filterfulltext) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV92Leaverequestwwds_2_filterfulltext) or ( 'pending' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Pending')) or ( 'approved' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Approved')) or ( 'rejected' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Rejected')))");
+            AddWhere(sWhereString, "(( LOWER(T2.LeaveTypeName) like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext)) or ( LOWER(T1.LeaveRequestHalfDay) like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext)) or ( SUBSTR(TO_CHAR(T1.LeaveRequestDuration,'90.9'), 2) like '%' || :lV92Leaverequestwwds_2_filterfulltext) or ( 'pending' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Pending')) or ( 'approved' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Approved')) or ( 'rejected' like '%' || LOWER(:lV92Leaverequestwwds_2_filterfulltext) and T1.LeaveRequestStatus = ( 'Rejected')))");
          }
          else
          {

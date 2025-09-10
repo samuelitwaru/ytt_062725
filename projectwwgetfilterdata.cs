@@ -272,8 +272,8 @@ namespace GeneXus.Programs {
             n162ProjectManagerId = P00A42_n162ProjectManagerId[0];
             A103ProjectName = P00A42_A103ProjectName[0];
             A163ProjectManagerName = P00A42_A163ProjectManagerName[0];
-            A105ProjectStatus = P00A42_A105ProjectStatus[0];
             A104ProjectDescription = P00A42_A104ProjectDescription[0];
+            A105ProjectStatus = P00A42_A105ProjectStatus[0];
             A102ProjectId = P00A42_A102ProjectId[0];
             A163ProjectManagerName = P00A42_A163ProjectManagerName[0];
             AV29count = 0;
@@ -358,8 +358,8 @@ namespace GeneXus.Programs {
             n162ProjectManagerId = P00A43_n162ProjectManagerId[0];
             A104ProjectDescription = P00A43_A104ProjectDescription[0];
             A163ProjectManagerName = P00A43_A163ProjectManagerName[0];
-            A105ProjectStatus = P00A43_A105ProjectStatus[0];
             A103ProjectName = P00A43_A103ProjectName[0];
+            A105ProjectStatus = P00A43_A105ProjectStatus[0];
             A102ProjectId = P00A43_A102ProjectId[0];
             A163ProjectManagerName = P00A43_A163ProjectManagerName[0];
             AV29count = 0;
@@ -443,9 +443,9 @@ namespace GeneXus.Programs {
             A162ProjectManagerId = P00A44_A162ProjectManagerId[0];
             n162ProjectManagerId = P00A44_n162ProjectManagerId[0];
             A163ProjectManagerName = P00A44_A163ProjectManagerName[0];
-            A105ProjectStatus = P00A44_A105ProjectStatus[0];
             A104ProjectDescription = P00A44_A104ProjectDescription[0];
             A103ProjectName = P00A44_A103ProjectName[0];
+            A105ProjectStatus = P00A44_A105ProjectStatus[0];
             A102ProjectId = P00A44_A102ProjectId[0];
             A163ProjectManagerName = P00A44_A163ProjectManagerName[0];
             AV29count = 0;
@@ -535,34 +535,34 @@ namespace GeneXus.Programs {
          P00A42_n162ProjectManagerId = new bool[] {false} ;
          P00A42_A103ProjectName = new string[] {""} ;
          P00A42_A163ProjectManagerName = new string[] {""} ;
-         P00A42_A105ProjectStatus = new string[] {""} ;
          P00A42_A104ProjectDescription = new string[] {""} ;
+         P00A42_A105ProjectStatus = new string[] {""} ;
          P00A42_A102ProjectId = new long[1] ;
          AV24Option = "";
          P00A43_A162ProjectManagerId = new long[1] ;
          P00A43_n162ProjectManagerId = new bool[] {false} ;
          P00A43_A104ProjectDescription = new string[] {""} ;
          P00A43_A163ProjectManagerName = new string[] {""} ;
-         P00A43_A105ProjectStatus = new string[] {""} ;
          P00A43_A103ProjectName = new string[] {""} ;
+         P00A43_A105ProjectStatus = new string[] {""} ;
          P00A43_A102ProjectId = new long[1] ;
          P00A44_A162ProjectManagerId = new long[1] ;
          P00A44_n162ProjectManagerId = new bool[] {false} ;
          P00A44_A163ProjectManagerName = new string[] {""} ;
-         P00A44_A105ProjectStatus = new string[] {""} ;
          P00A44_A104ProjectDescription = new string[] {""} ;
          P00A44_A103ProjectName = new string[] {""} ;
+         P00A44_A105ProjectStatus = new string[] {""} ;
          P00A44_A102ProjectId = new long[1] ;
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.projectwwgetfilterdata__default(),
             new Object[][] {
                 new Object[] {
-               P00A42_A162ProjectManagerId, P00A42_n162ProjectManagerId, P00A42_A103ProjectName, P00A42_A163ProjectManagerName, P00A42_A105ProjectStatus, P00A42_A104ProjectDescription, P00A42_A102ProjectId
+               P00A42_A162ProjectManagerId, P00A42_n162ProjectManagerId, P00A42_A103ProjectName, P00A42_A163ProjectManagerName, P00A42_A104ProjectDescription, P00A42_A105ProjectStatus, P00A42_A102ProjectId
                }
                , new Object[] {
-               P00A43_A162ProjectManagerId, P00A43_n162ProjectManagerId, P00A43_A104ProjectDescription, P00A43_A163ProjectManagerName, P00A43_A105ProjectStatus, P00A43_A103ProjectName, P00A43_A102ProjectId
+               P00A43_A162ProjectManagerId, P00A43_n162ProjectManagerId, P00A43_A104ProjectDescription, P00A43_A163ProjectManagerName, P00A43_A103ProjectName, P00A43_A105ProjectStatus, P00A43_A102ProjectId
                }
                , new Object[] {
-               P00A44_A162ProjectManagerId, P00A44_n162ProjectManagerId, P00A44_A163ProjectManagerName, P00A44_A105ProjectStatus, P00A44_A104ProjectDescription, P00A44_A103ProjectName, P00A44_A102ProjectId
+               P00A44_A162ProjectManagerId, P00A44_n162ProjectManagerId, P00A44_A163ProjectManagerName, P00A44_A104ProjectDescription, P00A44_A103ProjectName, P00A44_A105ProjectStatus, P00A44_A102ProjectId
                }
             }
          );
@@ -629,22 +629,22 @@ namespace GeneXus.Programs {
       private bool[] P00A42_n162ProjectManagerId ;
       private string[] P00A42_A103ProjectName ;
       private string[] P00A42_A163ProjectManagerName ;
-      private string[] P00A42_A105ProjectStatus ;
       private string[] P00A42_A104ProjectDescription ;
+      private string[] P00A42_A105ProjectStatus ;
       private long[] P00A42_A102ProjectId ;
       private long[] P00A43_A162ProjectManagerId ;
       private bool[] P00A43_n162ProjectManagerId ;
       private string[] P00A43_A104ProjectDescription ;
       private string[] P00A43_A163ProjectManagerName ;
-      private string[] P00A43_A105ProjectStatus ;
       private string[] P00A43_A103ProjectName ;
+      private string[] P00A43_A105ProjectStatus ;
       private long[] P00A43_A102ProjectId ;
       private long[] P00A44_A162ProjectManagerId ;
       private bool[] P00A44_n162ProjectManagerId ;
       private string[] P00A44_A163ProjectManagerName ;
-      private string[] P00A44_A105ProjectStatus ;
       private string[] P00A44_A104ProjectDescription ;
       private string[] P00A44_A103ProjectName ;
+      private string[] P00A44_A105ProjectStatus ;
       private long[] P00A44_A102ProjectId ;
       private string aP3_OptionsJson ;
       private string aP4_OptionsDescJson ;
@@ -672,10 +672,10 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int1 = new short[11];
          Object[] GXv_Object2 = new Object[2];
-         scmdbuf = "SELECT T1.ProjectManagerId AS ProjectManagerId, T1.ProjectName, T2.EmployeeName AS ProjectManagerName, T1.ProjectStatus, T1.ProjectDescription, T1.ProjectId FROM (Project T1 LEFT JOIN Employee T2 ON T2.EmployeeId = T1.ProjectManagerId)";
+         scmdbuf = "SELECT T1.ProjectManagerId AS ProjectManagerId, T1.ProjectName, T2.EmployeeName AS ProjectManagerName, T1.ProjectDescription, T1.ProjectStatus, T1.ProjectId FROM (Project T1 LEFT JOIN Employee T2 ON T2.EmployeeId = T1.ProjectManagerId)";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV48Projectwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T1.ProjectName like '%' || :lV48Projectwwds_1_filterfulltext) or ( T1.ProjectDescription like '%' || :lV48Projectwwds_1_filterfulltext) or ( 'active' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Active')) or ( 'inactive' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Inactive')) or ( T2.EmployeeName like '%' || :lV48Projectwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T1.ProjectName) like '%' || LOWER(:lV48Projectwwds_1_filterfulltext)) or ( LOWER(T1.ProjectDescription) like '%' || LOWER(:lV48Projectwwds_1_filterfulltext)) or ( 'active' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Active')) or ( 'inactive' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Inactive')) or ( LOWER(T2.EmployeeName) like '%' || LOWER(:lV48Projectwwds_1_filterfulltext)))");
          }
          else
          {
@@ -775,10 +775,10 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int3 = new short[11];
          Object[] GXv_Object4 = new Object[2];
-         scmdbuf = "SELECT T1.ProjectManagerId AS ProjectManagerId, T1.ProjectDescription, T2.EmployeeName AS ProjectManagerName, T1.ProjectStatus, T1.ProjectName, T1.ProjectId FROM (Project T1 LEFT JOIN Employee T2 ON T2.EmployeeId = T1.ProjectManagerId)";
+         scmdbuf = "SELECT T1.ProjectManagerId AS ProjectManagerId, T1.ProjectDescription, T2.EmployeeName AS ProjectManagerName, T1.ProjectName, T1.ProjectStatus, T1.ProjectId FROM (Project T1 LEFT JOIN Employee T2 ON T2.EmployeeId = T1.ProjectManagerId)";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV48Projectwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T1.ProjectName like '%' || :lV48Projectwwds_1_filterfulltext) or ( T1.ProjectDescription like '%' || :lV48Projectwwds_1_filterfulltext) or ( 'active' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Active')) or ( 'inactive' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Inactive')) or ( T2.EmployeeName like '%' || :lV48Projectwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T1.ProjectName) like '%' || LOWER(:lV48Projectwwds_1_filterfulltext)) or ( LOWER(T1.ProjectDescription) like '%' || LOWER(:lV48Projectwwds_1_filterfulltext)) or ( 'active' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Active')) or ( 'inactive' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Inactive')) or ( LOWER(T2.EmployeeName) like '%' || LOWER(:lV48Projectwwds_1_filterfulltext)))");
          }
          else
          {
@@ -878,10 +878,10 @@ namespace GeneXus.Programs {
          string scmdbuf;
          short[] GXv_int5 = new short[11];
          Object[] GXv_Object6 = new Object[2];
-         scmdbuf = "SELECT T1.ProjectManagerId AS ProjectManagerId, T2.EmployeeName AS ProjectManagerName, T1.ProjectStatus, T1.ProjectDescription, T1.ProjectName, T1.ProjectId FROM (Project T1 LEFT JOIN Employee T2 ON T2.EmployeeId = T1.ProjectManagerId)";
+         scmdbuf = "SELECT T1.ProjectManagerId AS ProjectManagerId, T2.EmployeeName AS ProjectManagerName, T1.ProjectDescription, T1.ProjectName, T1.ProjectStatus, T1.ProjectId FROM (Project T1 LEFT JOIN Employee T2 ON T2.EmployeeId = T1.ProjectManagerId)";
          if ( ! String.IsNullOrEmpty(StringUtil.RTrim( AV48Projectwwds_1_filterfulltext)) )
          {
-            AddWhere(sWhereString, "(( T1.ProjectName like '%' || :lV48Projectwwds_1_filterfulltext) or ( T1.ProjectDescription like '%' || :lV48Projectwwds_1_filterfulltext) or ( 'active' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Active')) or ( 'inactive' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Inactive')) or ( T2.EmployeeName like '%' || :lV48Projectwwds_1_filterfulltext))");
+            AddWhere(sWhereString, "(( LOWER(T1.ProjectName) like '%' || LOWER(:lV48Projectwwds_1_filterfulltext)) or ( LOWER(T1.ProjectDescription) like '%' || LOWER(:lV48Projectwwds_1_filterfulltext)) or ( 'active' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Active')) or ( 'inactive' like '%' || LOWER(:lV48Projectwwds_1_filterfulltext) and T1.ProjectStatus = ( 'Inactive')) or ( LOWER(T2.EmployeeName) like '%' || LOWER(:lV48Projectwwds_1_filterfulltext)))");
          }
          else
          {
@@ -1054,8 +1054,8 @@ namespace GeneXus.Programs {
                 ((bool[]) buf[1])[0] = rslt.wasNull(1);
                 ((string[]) buf[2])[0] = rslt.getString(2, 100);
                 ((string[]) buf[3])[0] = rslt.getString(3, 100);
-                ((string[]) buf[4])[0] = rslt.getString(4, 20);
-                ((string[]) buf[5])[0] = rslt.getVarchar(5);
+                ((string[]) buf[4])[0] = rslt.getVarchar(4);
+                ((string[]) buf[5])[0] = rslt.getString(5, 20);
                 ((long[]) buf[6])[0] = rslt.getLong(6);
                 return;
              case 1 :
@@ -1063,17 +1063,17 @@ namespace GeneXus.Programs {
                 ((bool[]) buf[1])[0] = rslt.wasNull(1);
                 ((string[]) buf[2])[0] = rslt.getVarchar(2);
                 ((string[]) buf[3])[0] = rslt.getString(3, 100);
-                ((string[]) buf[4])[0] = rslt.getString(4, 20);
-                ((string[]) buf[5])[0] = rslt.getString(5, 100);
+                ((string[]) buf[4])[0] = rslt.getString(4, 100);
+                ((string[]) buf[5])[0] = rslt.getString(5, 20);
                 ((long[]) buf[6])[0] = rslt.getLong(6);
                 return;
              case 2 :
                 ((long[]) buf[0])[0] = rslt.getLong(1);
                 ((bool[]) buf[1])[0] = rslt.wasNull(1);
                 ((string[]) buf[2])[0] = rslt.getString(2, 100);
-                ((string[]) buf[3])[0] = rslt.getString(3, 20);
-                ((string[]) buf[4])[0] = rslt.getVarchar(4);
-                ((string[]) buf[5])[0] = rslt.getString(5, 100);
+                ((string[]) buf[3])[0] = rslt.getVarchar(3);
+                ((string[]) buf[4])[0] = rslt.getString(4, 100);
+                ((string[]) buf[5])[0] = rslt.getString(5, 20);
                 ((long[]) buf[6])[0] = rslt.getLong(6);
                 return;
        }
