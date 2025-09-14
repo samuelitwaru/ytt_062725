@@ -103,32 +103,32 @@ namespace GeneXus.Programs {
       {
          /* 'LOADOLDVALUES' Routine */
          returnInSub = false;
-         /* Using cursor P00BT2 */
+         /* Using cursor P00BX2 */
          pr_default.execute(0, new Object[] {AV16LeaveRequestId});
          while ( (pr_default.getStatus(0) != 101) )
          {
-            A127LeaveRequestId = P00BT2_A127LeaveRequestId[0];
-            A124LeaveTypeId = P00BT2_A124LeaveTypeId[0];
-            A125LeaveTypeName = P00BT2_A125LeaveTypeName[0];
-            A128LeaveRequestDate = P00BT2_A128LeaveRequestDate[0];
-            A129LeaveRequestStartDate = P00BT2_A129LeaveRequestStartDate[0];
-            A130LeaveRequestEndDate = P00BT2_A130LeaveRequestEndDate[0];
-            A171LeaveRequestHalfDay = P00BT2_A171LeaveRequestHalfDay[0];
-            n171LeaveRequestHalfDay = P00BT2_n171LeaveRequestHalfDay[0];
-            A131LeaveRequestDuration = P00BT2_A131LeaveRequestDuration[0];
-            A132LeaveRequestStatus = P00BT2_A132LeaveRequestStatus[0];
-            A133LeaveRequestDescription = P00BT2_A133LeaveRequestDescription[0];
-            A134LeaveRequestRejectionReason = P00BT2_A134LeaveRequestRejectionReason[0];
-            A106EmployeeId = P00BT2_A106EmployeeId[0];
-            A148EmployeeName = P00BT2_A148EmployeeName[0];
-            A147EmployeeBalance = P00BT2_A147EmployeeBalance[0];
-            A144LeaveTypeVacationLeave = P00BT2_A144LeaveTypeVacationLeave[0];
-            A145LeaveTypeLoggingWorkHours = P00BT2_A145LeaveTypeLoggingWorkHours[0];
-            A125LeaveTypeName = P00BT2_A125LeaveTypeName[0];
-            A144LeaveTypeVacationLeave = P00BT2_A144LeaveTypeVacationLeave[0];
-            A145LeaveTypeLoggingWorkHours = P00BT2_A145LeaveTypeLoggingWorkHours[0];
-            A148EmployeeName = P00BT2_A148EmployeeName[0];
-            A147EmployeeBalance = P00BT2_A147EmployeeBalance[0];
+            A127LeaveRequestId = P00BX2_A127LeaveRequestId[0];
+            A124LeaveTypeId = P00BX2_A124LeaveTypeId[0];
+            A125LeaveTypeName = P00BX2_A125LeaveTypeName[0];
+            A128LeaveRequestDate = P00BX2_A128LeaveRequestDate[0];
+            A129LeaveRequestStartDate = P00BX2_A129LeaveRequestStartDate[0];
+            A130LeaveRequestEndDate = P00BX2_A130LeaveRequestEndDate[0];
+            A171LeaveRequestHalfDay = P00BX2_A171LeaveRequestHalfDay[0];
+            n171LeaveRequestHalfDay = P00BX2_n171LeaveRequestHalfDay[0];
+            A131LeaveRequestDuration = P00BX2_A131LeaveRequestDuration[0];
+            A132LeaveRequestStatus = P00BX2_A132LeaveRequestStatus[0];
+            A133LeaveRequestDescription = P00BX2_A133LeaveRequestDescription[0];
+            A134LeaveRequestRejectionReason = P00BX2_A134LeaveRequestRejectionReason[0];
+            A106EmployeeId = P00BX2_A106EmployeeId[0];
+            A148EmployeeName = P00BX2_A148EmployeeName[0];
+            A147EmployeeBalance = P00BX2_A147EmployeeBalance[0];
+            A144LeaveTypeVacationLeave = P00BX2_A144LeaveTypeVacationLeave[0];
+            A145LeaveTypeLoggingWorkHours = P00BX2_A145LeaveTypeLoggingWorkHours[0];
+            A125LeaveTypeName = P00BX2_A125LeaveTypeName[0];
+            A144LeaveTypeVacationLeave = P00BX2_A144LeaveTypeVacationLeave[0];
+            A145LeaveTypeLoggingWorkHours = P00BX2_A145LeaveTypeLoggingWorkHours[0];
+            A148EmployeeName = P00BX2_A148EmployeeName[0];
+            A147EmployeeBalance = P00BX2_A147EmployeeBalance[0];
             AV10AuditingObject = new WorkWithPlus.workwithplus_web.SdtAuditingObject(context);
             AV10AuditingObject.gxTpr_Mode = AV14ActualMode;
             AV11AuditingObjectRecordItem = new WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem(context);
@@ -257,32 +257,32 @@ namespace GeneXus.Programs {
       {
          /* 'LOADNEWVALUES' Routine */
          returnInSub = false;
-         /* Using cursor P00BT3 */
+         /* Using cursor P00BX3 */
          pr_default.execute(1, new Object[] {AV16LeaveRequestId});
          while ( (pr_default.getStatus(1) != 101) )
          {
-            A127LeaveRequestId = P00BT3_A127LeaveRequestId[0];
-            A124LeaveTypeId = P00BT3_A124LeaveTypeId[0];
-            A125LeaveTypeName = P00BT3_A125LeaveTypeName[0];
-            A128LeaveRequestDate = P00BT3_A128LeaveRequestDate[0];
-            A129LeaveRequestStartDate = P00BT3_A129LeaveRequestStartDate[0];
-            A130LeaveRequestEndDate = P00BT3_A130LeaveRequestEndDate[0];
-            A171LeaveRequestHalfDay = P00BT3_A171LeaveRequestHalfDay[0];
-            n171LeaveRequestHalfDay = P00BT3_n171LeaveRequestHalfDay[0];
-            A131LeaveRequestDuration = P00BT3_A131LeaveRequestDuration[0];
-            A132LeaveRequestStatus = P00BT3_A132LeaveRequestStatus[0];
-            A133LeaveRequestDescription = P00BT3_A133LeaveRequestDescription[0];
-            A134LeaveRequestRejectionReason = P00BT3_A134LeaveRequestRejectionReason[0];
-            A106EmployeeId = P00BT3_A106EmployeeId[0];
-            A148EmployeeName = P00BT3_A148EmployeeName[0];
-            A147EmployeeBalance = P00BT3_A147EmployeeBalance[0];
-            A144LeaveTypeVacationLeave = P00BT3_A144LeaveTypeVacationLeave[0];
-            A145LeaveTypeLoggingWorkHours = P00BT3_A145LeaveTypeLoggingWorkHours[0];
-            A125LeaveTypeName = P00BT3_A125LeaveTypeName[0];
-            A144LeaveTypeVacationLeave = P00BT3_A144LeaveTypeVacationLeave[0];
-            A145LeaveTypeLoggingWorkHours = P00BT3_A145LeaveTypeLoggingWorkHours[0];
-            A148EmployeeName = P00BT3_A148EmployeeName[0];
-            A147EmployeeBalance = P00BT3_A147EmployeeBalance[0];
+            A127LeaveRequestId = P00BX3_A127LeaveRequestId[0];
+            A124LeaveTypeId = P00BX3_A124LeaveTypeId[0];
+            A125LeaveTypeName = P00BX3_A125LeaveTypeName[0];
+            A128LeaveRequestDate = P00BX3_A128LeaveRequestDate[0];
+            A129LeaveRequestStartDate = P00BX3_A129LeaveRequestStartDate[0];
+            A130LeaveRequestEndDate = P00BX3_A130LeaveRequestEndDate[0];
+            A171LeaveRequestHalfDay = P00BX3_A171LeaveRequestHalfDay[0];
+            n171LeaveRequestHalfDay = P00BX3_n171LeaveRequestHalfDay[0];
+            A131LeaveRequestDuration = P00BX3_A131LeaveRequestDuration[0];
+            A132LeaveRequestStatus = P00BX3_A132LeaveRequestStatus[0];
+            A133LeaveRequestDescription = P00BX3_A133LeaveRequestDescription[0];
+            A134LeaveRequestRejectionReason = P00BX3_A134LeaveRequestRejectionReason[0];
+            A106EmployeeId = P00BX3_A106EmployeeId[0];
+            A148EmployeeName = P00BX3_A148EmployeeName[0];
+            A147EmployeeBalance = P00BX3_A147EmployeeBalance[0];
+            A144LeaveTypeVacationLeave = P00BX3_A144LeaveTypeVacationLeave[0];
+            A145LeaveTypeLoggingWorkHours = P00BX3_A145LeaveTypeLoggingWorkHours[0];
+            A125LeaveTypeName = P00BX3_A125LeaveTypeName[0];
+            A144LeaveTypeVacationLeave = P00BX3_A144LeaveTypeVacationLeave[0];
+            A145LeaveTypeLoggingWorkHours = P00BX3_A145LeaveTypeLoggingWorkHours[0];
+            A148EmployeeName = P00BX3_A148EmployeeName[0];
+            A147EmployeeBalance = P00BX3_A147EmployeeBalance[0];
             if ( StringUtil.StrCmp(AV14ActualMode, "INS") == 0 )
             {
                AV10AuditingObject = new WorkWithPlus.workwithplus_web.SdtAuditingObject(context);
@@ -500,23 +500,23 @@ namespace GeneXus.Programs {
 
       public override void initialize( )
       {
-         P00BT2_A127LeaveRequestId = new long[1] ;
-         P00BT2_A124LeaveTypeId = new long[1] ;
-         P00BT2_A125LeaveTypeName = new string[] {""} ;
-         P00BT2_A128LeaveRequestDate = new DateTime[] {DateTime.MinValue} ;
-         P00BT2_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
-         P00BT2_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
-         P00BT2_A171LeaveRequestHalfDay = new string[] {""} ;
-         P00BT2_n171LeaveRequestHalfDay = new bool[] {false} ;
-         P00BT2_A131LeaveRequestDuration = new decimal[1] ;
-         P00BT2_A132LeaveRequestStatus = new string[] {""} ;
-         P00BT2_A133LeaveRequestDescription = new string[] {""} ;
-         P00BT2_A134LeaveRequestRejectionReason = new string[] {""} ;
-         P00BT2_A106EmployeeId = new long[1] ;
-         P00BT2_A148EmployeeName = new string[] {""} ;
-         P00BT2_A147EmployeeBalance = new decimal[1] ;
-         P00BT2_A144LeaveTypeVacationLeave = new string[] {""} ;
-         P00BT2_A145LeaveTypeLoggingWorkHours = new string[] {""} ;
+         P00BX2_A127LeaveRequestId = new long[1] ;
+         P00BX2_A124LeaveTypeId = new long[1] ;
+         P00BX2_A125LeaveTypeName = new string[] {""} ;
+         P00BX2_A128LeaveRequestDate = new DateTime[] {DateTime.MinValue} ;
+         P00BX2_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
+         P00BX2_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
+         P00BX2_A171LeaveRequestHalfDay = new string[] {""} ;
+         P00BX2_n171LeaveRequestHalfDay = new bool[] {false} ;
+         P00BX2_A131LeaveRequestDuration = new decimal[1] ;
+         P00BX2_A132LeaveRequestStatus = new string[] {""} ;
+         P00BX2_A133LeaveRequestDescription = new string[] {""} ;
+         P00BX2_A134LeaveRequestRejectionReason = new string[] {""} ;
+         P00BX2_A106EmployeeId = new long[1] ;
+         P00BX2_A148EmployeeName = new string[] {""} ;
+         P00BX2_A147EmployeeBalance = new decimal[1] ;
+         P00BX2_A144LeaveTypeVacationLeave = new string[] {""} ;
+         P00BX2_A145LeaveTypeLoggingWorkHours = new string[] {""} ;
          A125LeaveTypeName = "";
          A128LeaveRequestDate = DateTime.MinValue;
          A129LeaveRequestStartDate = DateTime.MinValue;
@@ -530,32 +530,32 @@ namespace GeneXus.Programs {
          A145LeaveTypeLoggingWorkHours = "";
          AV11AuditingObjectRecordItem = new WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem(context);
          AV12AuditingObjectRecordItemAttributeItem = new WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem_AttributeItem(context);
-         P00BT3_A127LeaveRequestId = new long[1] ;
-         P00BT3_A124LeaveTypeId = new long[1] ;
-         P00BT3_A125LeaveTypeName = new string[] {""} ;
-         P00BT3_A128LeaveRequestDate = new DateTime[] {DateTime.MinValue} ;
-         P00BT3_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
-         P00BT3_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
-         P00BT3_A171LeaveRequestHalfDay = new string[] {""} ;
-         P00BT3_n171LeaveRequestHalfDay = new bool[] {false} ;
-         P00BT3_A131LeaveRequestDuration = new decimal[1] ;
-         P00BT3_A132LeaveRequestStatus = new string[] {""} ;
-         P00BT3_A133LeaveRequestDescription = new string[] {""} ;
-         P00BT3_A134LeaveRequestRejectionReason = new string[] {""} ;
-         P00BT3_A106EmployeeId = new long[1] ;
-         P00BT3_A148EmployeeName = new string[] {""} ;
-         P00BT3_A147EmployeeBalance = new decimal[1] ;
-         P00BT3_A144LeaveTypeVacationLeave = new string[] {""} ;
-         P00BT3_A145LeaveTypeLoggingWorkHours = new string[] {""} ;
+         P00BX3_A127LeaveRequestId = new long[1] ;
+         P00BX3_A124LeaveTypeId = new long[1] ;
+         P00BX3_A125LeaveTypeName = new string[] {""} ;
+         P00BX3_A128LeaveRequestDate = new DateTime[] {DateTime.MinValue} ;
+         P00BX3_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
+         P00BX3_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
+         P00BX3_A171LeaveRequestHalfDay = new string[] {""} ;
+         P00BX3_n171LeaveRequestHalfDay = new bool[] {false} ;
+         P00BX3_A131LeaveRequestDuration = new decimal[1] ;
+         P00BX3_A132LeaveRequestStatus = new string[] {""} ;
+         P00BX3_A133LeaveRequestDescription = new string[] {""} ;
+         P00BX3_A134LeaveRequestRejectionReason = new string[] {""} ;
+         P00BX3_A106EmployeeId = new long[1] ;
+         P00BX3_A148EmployeeName = new string[] {""} ;
+         P00BX3_A147EmployeeBalance = new decimal[1] ;
+         P00BX3_A144LeaveTypeVacationLeave = new string[] {""} ;
+         P00BX3_A145LeaveTypeLoggingWorkHours = new string[] {""} ;
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.loadauditleaverequest__default(),
             new Object[][] {
                 new Object[] {
-               P00BT2_A127LeaveRequestId, P00BT2_A124LeaveTypeId, P00BT2_A125LeaveTypeName, P00BT2_A128LeaveRequestDate, P00BT2_A129LeaveRequestStartDate, P00BT2_A130LeaveRequestEndDate, P00BT2_A171LeaveRequestHalfDay, P00BT2_n171LeaveRequestHalfDay, P00BT2_A131LeaveRequestDuration, P00BT2_A132LeaveRequestStatus,
-               P00BT2_A133LeaveRequestDescription, P00BT2_A134LeaveRequestRejectionReason, P00BT2_A106EmployeeId, P00BT2_A148EmployeeName, P00BT2_A147EmployeeBalance, P00BT2_A144LeaveTypeVacationLeave, P00BT2_A145LeaveTypeLoggingWorkHours
+               P00BX2_A127LeaveRequestId, P00BX2_A124LeaveTypeId, P00BX2_A125LeaveTypeName, P00BX2_A128LeaveRequestDate, P00BX2_A129LeaveRequestStartDate, P00BX2_A130LeaveRequestEndDate, P00BX2_A171LeaveRequestHalfDay, P00BX2_n171LeaveRequestHalfDay, P00BX2_A131LeaveRequestDuration, P00BX2_A132LeaveRequestStatus,
+               P00BX2_A133LeaveRequestDescription, P00BX2_A134LeaveRequestRejectionReason, P00BX2_A106EmployeeId, P00BX2_A148EmployeeName, P00BX2_A147EmployeeBalance, P00BX2_A144LeaveTypeVacationLeave, P00BX2_A145LeaveTypeLoggingWorkHours
                }
                , new Object[] {
-               P00BT3_A127LeaveRequestId, P00BT3_A124LeaveTypeId, P00BT3_A125LeaveTypeName, P00BT3_A128LeaveRequestDate, P00BT3_A129LeaveRequestStartDate, P00BT3_A130LeaveRequestEndDate, P00BT3_A171LeaveRequestHalfDay, P00BT3_n171LeaveRequestHalfDay, P00BT3_A131LeaveRequestDuration, P00BT3_A132LeaveRequestStatus,
-               P00BT3_A133LeaveRequestDescription, P00BT3_A134LeaveRequestRejectionReason, P00BT3_A106EmployeeId, P00BT3_A148EmployeeName, P00BT3_A147EmployeeBalance, P00BT3_A144LeaveTypeVacationLeave, P00BT3_A145LeaveTypeLoggingWorkHours
+               P00BX3_A127LeaveRequestId, P00BX3_A124LeaveTypeId, P00BX3_A125LeaveTypeName, P00BX3_A128LeaveRequestDate, P00BX3_A129LeaveRequestStartDate, P00BX3_A130LeaveRequestEndDate, P00BX3_A171LeaveRequestHalfDay, P00BX3_n171LeaveRequestHalfDay, P00BX3_A131LeaveRequestDuration, P00BX3_A132LeaveRequestStatus,
+               P00BX3_A133LeaveRequestDescription, P00BX3_A134LeaveRequestRejectionReason, P00BX3_A106EmployeeId, P00BX3_A148EmployeeName, P00BX3_A147EmployeeBalance, P00BX3_A144LeaveTypeVacationLeave, P00BX3_A145LeaveTypeLoggingWorkHours
                }
             }
          );
@@ -590,42 +590,42 @@ namespace GeneXus.Programs {
       private WorkWithPlus.workwithplus_web.SdtAuditingObject AV10AuditingObject ;
       private WorkWithPlus.workwithplus_web.SdtAuditingObject aP1_AuditingObject ;
       private IDataStoreProvider pr_default ;
-      private long[] P00BT2_A127LeaveRequestId ;
-      private long[] P00BT2_A124LeaveTypeId ;
-      private string[] P00BT2_A125LeaveTypeName ;
-      private DateTime[] P00BT2_A128LeaveRequestDate ;
-      private DateTime[] P00BT2_A129LeaveRequestStartDate ;
-      private DateTime[] P00BT2_A130LeaveRequestEndDate ;
-      private string[] P00BT2_A171LeaveRequestHalfDay ;
-      private bool[] P00BT2_n171LeaveRequestHalfDay ;
-      private decimal[] P00BT2_A131LeaveRequestDuration ;
-      private string[] P00BT2_A132LeaveRequestStatus ;
-      private string[] P00BT2_A133LeaveRequestDescription ;
-      private string[] P00BT2_A134LeaveRequestRejectionReason ;
-      private long[] P00BT2_A106EmployeeId ;
-      private string[] P00BT2_A148EmployeeName ;
-      private decimal[] P00BT2_A147EmployeeBalance ;
-      private string[] P00BT2_A144LeaveTypeVacationLeave ;
-      private string[] P00BT2_A145LeaveTypeLoggingWorkHours ;
+      private long[] P00BX2_A127LeaveRequestId ;
+      private long[] P00BX2_A124LeaveTypeId ;
+      private string[] P00BX2_A125LeaveTypeName ;
+      private DateTime[] P00BX2_A128LeaveRequestDate ;
+      private DateTime[] P00BX2_A129LeaveRequestStartDate ;
+      private DateTime[] P00BX2_A130LeaveRequestEndDate ;
+      private string[] P00BX2_A171LeaveRequestHalfDay ;
+      private bool[] P00BX2_n171LeaveRequestHalfDay ;
+      private decimal[] P00BX2_A131LeaveRequestDuration ;
+      private string[] P00BX2_A132LeaveRequestStatus ;
+      private string[] P00BX2_A133LeaveRequestDescription ;
+      private string[] P00BX2_A134LeaveRequestRejectionReason ;
+      private long[] P00BX2_A106EmployeeId ;
+      private string[] P00BX2_A148EmployeeName ;
+      private decimal[] P00BX2_A147EmployeeBalance ;
+      private string[] P00BX2_A144LeaveTypeVacationLeave ;
+      private string[] P00BX2_A145LeaveTypeLoggingWorkHours ;
       private WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem AV11AuditingObjectRecordItem ;
       private WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem_AttributeItem AV12AuditingObjectRecordItemAttributeItem ;
-      private long[] P00BT3_A127LeaveRequestId ;
-      private long[] P00BT3_A124LeaveTypeId ;
-      private string[] P00BT3_A125LeaveTypeName ;
-      private DateTime[] P00BT3_A128LeaveRequestDate ;
-      private DateTime[] P00BT3_A129LeaveRequestStartDate ;
-      private DateTime[] P00BT3_A130LeaveRequestEndDate ;
-      private string[] P00BT3_A171LeaveRequestHalfDay ;
-      private bool[] P00BT3_n171LeaveRequestHalfDay ;
-      private decimal[] P00BT3_A131LeaveRequestDuration ;
-      private string[] P00BT3_A132LeaveRequestStatus ;
-      private string[] P00BT3_A133LeaveRequestDescription ;
-      private string[] P00BT3_A134LeaveRequestRejectionReason ;
-      private long[] P00BT3_A106EmployeeId ;
-      private string[] P00BT3_A148EmployeeName ;
-      private decimal[] P00BT3_A147EmployeeBalance ;
-      private string[] P00BT3_A144LeaveTypeVacationLeave ;
-      private string[] P00BT3_A145LeaveTypeLoggingWorkHours ;
+      private long[] P00BX3_A127LeaveRequestId ;
+      private long[] P00BX3_A124LeaveTypeId ;
+      private string[] P00BX3_A125LeaveTypeName ;
+      private DateTime[] P00BX3_A128LeaveRequestDate ;
+      private DateTime[] P00BX3_A129LeaveRequestStartDate ;
+      private DateTime[] P00BX3_A130LeaveRequestEndDate ;
+      private string[] P00BX3_A171LeaveRequestHalfDay ;
+      private bool[] P00BX3_n171LeaveRequestHalfDay ;
+      private decimal[] P00BX3_A131LeaveRequestDuration ;
+      private string[] P00BX3_A132LeaveRequestStatus ;
+      private string[] P00BX3_A133LeaveRequestDescription ;
+      private string[] P00BX3_A134LeaveRequestRejectionReason ;
+      private long[] P00BX3_A106EmployeeId ;
+      private string[] P00BX3_A148EmployeeName ;
+      private decimal[] P00BX3_A147EmployeeBalance ;
+      private string[] P00BX3_A144LeaveTypeVacationLeave ;
+      private string[] P00BX3_A145LeaveTypeLoggingWorkHours ;
    }
 
    public class loadauditleaverequest__default : DataStoreHelperBase, IDataStoreHelper
@@ -644,17 +644,17 @@ namespace GeneXus.Programs {
     {
        if ( def == null )
        {
-          Object[] prmP00BT2;
-          prmP00BT2 = new Object[] {
+          Object[] prmP00BX2;
+          prmP00BX2 = new Object[] {
           new ParDef("AV16LeaveRequestId",GXType.Int64,10,0)
           };
-          Object[] prmP00BT3;
-          prmP00BT3 = new Object[] {
+          Object[] prmP00BX3;
+          prmP00BX3 = new Object[] {
           new ParDef("AV16LeaveRequestId",GXType.Int64,10,0)
           };
           def= new CursorDef[] {
-              new CursorDef("P00BT2", "SELECT T1.LeaveRequestId, T1.LeaveTypeId, T2.LeaveTypeName, T1.LeaveRequestDate, T1.LeaveRequestStartDate, T1.LeaveRequestEndDate, T1.LeaveRequestHalfDay, T1.LeaveRequestDuration, T1.LeaveRequestStatus, T1.LeaveRequestDescription, T1.LeaveRequestRejectionReason, T1.EmployeeId, T3.EmployeeName, T3.EmployeeBalance, T2.LeaveTypeVacationLeave, T2.LeaveTypeLoggingWorkHours FROM ((LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId) INNER JOIN Employee T3 ON T3.EmployeeId = T1.EmployeeId) WHERE T1.LeaveRequestId = :AV16LeaveRequestId ORDER BY T1.LeaveRequestId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00BT2,1, GxCacheFrequency.OFF ,false,true )
-             ,new CursorDef("P00BT3", "SELECT T1.LeaveRequestId, T1.LeaveTypeId, T2.LeaveTypeName, T1.LeaveRequestDate, T1.LeaveRequestStartDate, T1.LeaveRequestEndDate, T1.LeaveRequestHalfDay, T1.LeaveRequestDuration, T1.LeaveRequestStatus, T1.LeaveRequestDescription, T1.LeaveRequestRejectionReason, T1.EmployeeId, T3.EmployeeName, T3.EmployeeBalance, T2.LeaveTypeVacationLeave, T2.LeaveTypeLoggingWorkHours FROM ((LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId) INNER JOIN Employee T3 ON T3.EmployeeId = T1.EmployeeId) WHERE T1.LeaveRequestId = :AV16LeaveRequestId ORDER BY T1.LeaveRequestId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00BT3,1, GxCacheFrequency.OFF ,false,true )
+              new CursorDef("P00BX2", "SELECT T1.LeaveRequestId, T1.LeaveTypeId, T2.LeaveTypeName, T1.LeaveRequestDate, T1.LeaveRequestStartDate, T1.LeaveRequestEndDate, T1.LeaveRequestHalfDay, T1.LeaveRequestDuration, T1.LeaveRequestStatus, T1.LeaveRequestDescription, T1.LeaveRequestRejectionReason, T1.EmployeeId, T3.EmployeeName, T3.EmployeeBalance, T2.LeaveTypeVacationLeave, T2.LeaveTypeLoggingWorkHours FROM ((LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId) INNER JOIN Employee T3 ON T3.EmployeeId = T1.EmployeeId) WHERE T1.LeaveRequestId = :AV16LeaveRequestId ORDER BY T1.LeaveRequestId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00BX2,1, GxCacheFrequency.OFF ,false,true )
+             ,new CursorDef("P00BX3", "SELECT T1.LeaveRequestId, T1.LeaveTypeId, T2.LeaveTypeName, T1.LeaveRequestDate, T1.LeaveRequestStartDate, T1.LeaveRequestEndDate, T1.LeaveRequestHalfDay, T1.LeaveRequestDuration, T1.LeaveRequestStatus, T1.LeaveRequestDescription, T1.LeaveRequestRejectionReason, T1.EmployeeId, T3.EmployeeName, T3.EmployeeBalance, T2.LeaveTypeVacationLeave, T2.LeaveTypeLoggingWorkHours FROM ((LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId) INNER JOIN Employee T3 ON T3.EmployeeId = T1.EmployeeId) WHERE T1.LeaveRequestId = :AV16LeaveRequestId ORDER BY T1.LeaveRequestId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00BX3,1, GxCacheFrequency.OFF ,false,true )
           };
        }
     }

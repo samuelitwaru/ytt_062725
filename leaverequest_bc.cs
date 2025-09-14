@@ -820,17 +820,6 @@ namespace GeneXus.Programs {
             new prc_getemployeebalance(context ).execute(  A106EmployeeId, out  GXt_decimal1) ;
             AV49EmployeeBalance = GXt_decimal1;
          }
-         if ( AnyError == 0 )
-         {
-            /* Using cursor BC000J15 */
-            pr_default.execute(13, new Object[] {A127LeaveRequestId});
-            if ( (pr_default.getStatus(13) != 101) )
-            {
-               GX_msglist.addItem(context.GetMessage( "GXM_del", new   object[]  {"Leave Request Action"}), "CannotDeleteReferencedRecord", 1, "");
-               AnyError = 1;
-            }
-            pr_default.close(13);
-         }
       }
 
       protected void EndLevel0J21( )
@@ -862,29 +851,29 @@ namespace GeneXus.Programs {
       public void ScanKeyStart0J21( )
       {
          /* Scan By routine */
-         /* Using cursor BC000J16 */
-         pr_default.execute(14, new Object[] {A127LeaveRequestId});
+         /* Using cursor BC000J15 */
+         pr_default.execute(13, new Object[] {A127LeaveRequestId});
          RcdFound21 = 0;
-         if ( (pr_default.getStatus(14) != 101) )
+         if ( (pr_default.getStatus(13) != 101) )
          {
             RcdFound21 = 1;
-            A147EmployeeBalance = BC000J16_A147EmployeeBalance[0];
-            A127LeaveRequestId = BC000J16_A127LeaveRequestId[0];
-            A131LeaveRequestDuration = BC000J16_A131LeaveRequestDuration[0];
-            A130LeaveRequestEndDate = BC000J16_A130LeaveRequestEndDate[0];
-            A125LeaveTypeName = BC000J16_A125LeaveTypeName[0];
-            A128LeaveRequestDate = BC000J16_A128LeaveRequestDate[0];
-            A129LeaveRequestStartDate = BC000J16_A129LeaveRequestStartDate[0];
-            A171LeaveRequestHalfDay = BC000J16_A171LeaveRequestHalfDay[0];
-            n171LeaveRequestHalfDay = BC000J16_n171LeaveRequestHalfDay[0];
-            A132LeaveRequestStatus = BC000J16_A132LeaveRequestStatus[0];
-            A133LeaveRequestDescription = BC000J16_A133LeaveRequestDescription[0];
-            A134LeaveRequestRejectionReason = BC000J16_A134LeaveRequestRejectionReason[0];
-            A148EmployeeName = BC000J16_A148EmployeeName[0];
-            A144LeaveTypeVacationLeave = BC000J16_A144LeaveTypeVacationLeave[0];
-            A145LeaveTypeLoggingWorkHours = BC000J16_A145LeaveTypeLoggingWorkHours[0];
-            A124LeaveTypeId = BC000J16_A124LeaveTypeId[0];
-            A106EmployeeId = BC000J16_A106EmployeeId[0];
+            A147EmployeeBalance = BC000J15_A147EmployeeBalance[0];
+            A127LeaveRequestId = BC000J15_A127LeaveRequestId[0];
+            A131LeaveRequestDuration = BC000J15_A131LeaveRequestDuration[0];
+            A130LeaveRequestEndDate = BC000J15_A130LeaveRequestEndDate[0];
+            A125LeaveTypeName = BC000J15_A125LeaveTypeName[0];
+            A128LeaveRequestDate = BC000J15_A128LeaveRequestDate[0];
+            A129LeaveRequestStartDate = BC000J15_A129LeaveRequestStartDate[0];
+            A171LeaveRequestHalfDay = BC000J15_A171LeaveRequestHalfDay[0];
+            n171LeaveRequestHalfDay = BC000J15_n171LeaveRequestHalfDay[0];
+            A132LeaveRequestStatus = BC000J15_A132LeaveRequestStatus[0];
+            A133LeaveRequestDescription = BC000J15_A133LeaveRequestDescription[0];
+            A134LeaveRequestRejectionReason = BC000J15_A134LeaveRequestRejectionReason[0];
+            A148EmployeeName = BC000J15_A148EmployeeName[0];
+            A144LeaveTypeVacationLeave = BC000J15_A144LeaveTypeVacationLeave[0];
+            A145LeaveTypeLoggingWorkHours = BC000J15_A145LeaveTypeLoggingWorkHours[0];
+            A124LeaveTypeId = BC000J15_A124LeaveTypeId[0];
+            A106EmployeeId = BC000J15_A106EmployeeId[0];
          }
          /* Load Subordinate Levels */
       }
@@ -892,7 +881,7 @@ namespace GeneXus.Programs {
       protected void ScanKeyNext0J21( )
       {
          /* Scan next routine */
-         pr_default.readNext(14);
+         pr_default.readNext(13);
          RcdFound21 = 0;
          ScanKeyLoad0J21( ) ;
       }
@@ -901,33 +890,33 @@ namespace GeneXus.Programs {
       {
          sMode21 = Gx_mode;
          Gx_mode = "DSP";
-         if ( (pr_default.getStatus(14) != 101) )
+         if ( (pr_default.getStatus(13) != 101) )
          {
             RcdFound21 = 1;
-            A147EmployeeBalance = BC000J16_A147EmployeeBalance[0];
-            A127LeaveRequestId = BC000J16_A127LeaveRequestId[0];
-            A131LeaveRequestDuration = BC000J16_A131LeaveRequestDuration[0];
-            A130LeaveRequestEndDate = BC000J16_A130LeaveRequestEndDate[0];
-            A125LeaveTypeName = BC000J16_A125LeaveTypeName[0];
-            A128LeaveRequestDate = BC000J16_A128LeaveRequestDate[0];
-            A129LeaveRequestStartDate = BC000J16_A129LeaveRequestStartDate[0];
-            A171LeaveRequestHalfDay = BC000J16_A171LeaveRequestHalfDay[0];
-            n171LeaveRequestHalfDay = BC000J16_n171LeaveRequestHalfDay[0];
-            A132LeaveRequestStatus = BC000J16_A132LeaveRequestStatus[0];
-            A133LeaveRequestDescription = BC000J16_A133LeaveRequestDescription[0];
-            A134LeaveRequestRejectionReason = BC000J16_A134LeaveRequestRejectionReason[0];
-            A148EmployeeName = BC000J16_A148EmployeeName[0];
-            A144LeaveTypeVacationLeave = BC000J16_A144LeaveTypeVacationLeave[0];
-            A145LeaveTypeLoggingWorkHours = BC000J16_A145LeaveTypeLoggingWorkHours[0];
-            A124LeaveTypeId = BC000J16_A124LeaveTypeId[0];
-            A106EmployeeId = BC000J16_A106EmployeeId[0];
+            A147EmployeeBalance = BC000J15_A147EmployeeBalance[0];
+            A127LeaveRequestId = BC000J15_A127LeaveRequestId[0];
+            A131LeaveRequestDuration = BC000J15_A131LeaveRequestDuration[0];
+            A130LeaveRequestEndDate = BC000J15_A130LeaveRequestEndDate[0];
+            A125LeaveTypeName = BC000J15_A125LeaveTypeName[0];
+            A128LeaveRequestDate = BC000J15_A128LeaveRequestDate[0];
+            A129LeaveRequestStartDate = BC000J15_A129LeaveRequestStartDate[0];
+            A171LeaveRequestHalfDay = BC000J15_A171LeaveRequestHalfDay[0];
+            n171LeaveRequestHalfDay = BC000J15_n171LeaveRequestHalfDay[0];
+            A132LeaveRequestStatus = BC000J15_A132LeaveRequestStatus[0];
+            A133LeaveRequestDescription = BC000J15_A133LeaveRequestDescription[0];
+            A134LeaveRequestRejectionReason = BC000J15_A134LeaveRequestRejectionReason[0];
+            A148EmployeeName = BC000J15_A148EmployeeName[0];
+            A144LeaveTypeVacationLeave = BC000J15_A144LeaveTypeVacationLeave[0];
+            A145LeaveTypeLoggingWorkHours = BC000J15_A145LeaveTypeLoggingWorkHours[0];
+            A124LeaveTypeId = BC000J15_A124LeaveTypeId[0];
+            A106EmployeeId = BC000J15_A106EmployeeId[0];
          }
          Gx_mode = sMode21;
       }
 
       protected void ScanKeyEnd0J21( )
       {
-         pr_default.close(14);
+         pr_default.close(13);
       }
 
       protected void AfterConfirm0J21( )
@@ -1716,24 +1705,23 @@ namespace GeneXus.Programs {
          BC000J13_A145LeaveTypeLoggingWorkHours = new string[] {""} ;
          BC000J14_A147EmployeeBalance = new decimal[1] ;
          BC000J14_A148EmployeeName = new string[] {""} ;
-         BC000J15_A201LeaveRequestActionId = new long[1] ;
-         BC000J16_A147EmployeeBalance = new decimal[1] ;
-         BC000J16_A127LeaveRequestId = new long[1] ;
-         BC000J16_A131LeaveRequestDuration = new decimal[1] ;
-         BC000J16_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
-         BC000J16_A125LeaveTypeName = new string[] {""} ;
-         BC000J16_A128LeaveRequestDate = new DateTime[] {DateTime.MinValue} ;
-         BC000J16_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
-         BC000J16_A171LeaveRequestHalfDay = new string[] {""} ;
-         BC000J16_n171LeaveRequestHalfDay = new bool[] {false} ;
-         BC000J16_A132LeaveRequestStatus = new string[] {""} ;
-         BC000J16_A133LeaveRequestDescription = new string[] {""} ;
-         BC000J16_A134LeaveRequestRejectionReason = new string[] {""} ;
-         BC000J16_A148EmployeeName = new string[] {""} ;
-         BC000J16_A144LeaveTypeVacationLeave = new string[] {""} ;
-         BC000J16_A145LeaveTypeLoggingWorkHours = new string[] {""} ;
-         BC000J16_A124LeaveTypeId = new long[1] ;
-         BC000J16_A106EmployeeId = new long[1] ;
+         BC000J15_A147EmployeeBalance = new decimal[1] ;
+         BC000J15_A127LeaveRequestId = new long[1] ;
+         BC000J15_A131LeaveRequestDuration = new decimal[1] ;
+         BC000J15_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
+         BC000J15_A125LeaveTypeName = new string[] {""} ;
+         BC000J15_A128LeaveRequestDate = new DateTime[] {DateTime.MinValue} ;
+         BC000J15_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
+         BC000J15_A171LeaveRequestHalfDay = new string[] {""} ;
+         BC000J15_n171LeaveRequestHalfDay = new bool[] {false} ;
+         BC000J15_A132LeaveRequestStatus = new string[] {""} ;
+         BC000J15_A133LeaveRequestDescription = new string[] {""} ;
+         BC000J15_A134LeaveRequestRejectionReason = new string[] {""} ;
+         BC000J15_A148EmployeeName = new string[] {""} ;
+         BC000J15_A144LeaveTypeVacationLeave = new string[] {""} ;
+         BC000J15_A145LeaveTypeLoggingWorkHours = new string[] {""} ;
+         BC000J15_A124LeaveTypeId = new long[1] ;
+         BC000J15_A106EmployeeId = new long[1] ;
          N130LeaveRequestEndDate = DateTime.MinValue;
          i129LeaveRequestStartDate = DateTime.MinValue;
          BackMsgLst = new msglist();
@@ -1785,11 +1773,8 @@ namespace GeneXus.Programs {
                BC000J14_A147EmployeeBalance, BC000J14_A148EmployeeName
                }
                , new Object[] {
-               BC000J15_A201LeaveRequestActionId
-               }
-               , new Object[] {
-               BC000J16_A147EmployeeBalance, BC000J16_A127LeaveRequestId, BC000J16_A131LeaveRequestDuration, BC000J16_A130LeaveRequestEndDate, BC000J16_A125LeaveTypeName, BC000J16_A128LeaveRequestDate, BC000J16_A129LeaveRequestStartDate, BC000J16_A171LeaveRequestHalfDay, BC000J16_n171LeaveRequestHalfDay, BC000J16_A132LeaveRequestStatus,
-               BC000J16_A133LeaveRequestDescription, BC000J16_A134LeaveRequestRejectionReason, BC000J16_A148EmployeeName, BC000J16_A144LeaveTypeVacationLeave, BC000J16_A145LeaveTypeLoggingWorkHours, BC000J16_A124LeaveTypeId, BC000J16_A106EmployeeId
+               BC000J15_A147EmployeeBalance, BC000J15_A127LeaveRequestId, BC000J15_A131LeaveRequestDuration, BC000J15_A130LeaveRequestEndDate, BC000J15_A125LeaveTypeName, BC000J15_A128LeaveRequestDate, BC000J15_A129LeaveRequestStartDate, BC000J15_A171LeaveRequestHalfDay, BC000J15_n171LeaveRequestHalfDay, BC000J15_A132LeaveRequestStatus,
+               BC000J15_A133LeaveRequestDescription, BC000J15_A134LeaveRequestRejectionReason, BC000J15_A148EmployeeName, BC000J15_A144LeaveTypeVacationLeave, BC000J15_A145LeaveTypeLoggingWorkHours, BC000J15_A124LeaveTypeId, BC000J15_A106EmployeeId
                }
             }
          );
@@ -1963,24 +1948,23 @@ namespace GeneXus.Programs {
       private string[] BC000J13_A145LeaveTypeLoggingWorkHours ;
       private decimal[] BC000J14_A147EmployeeBalance ;
       private string[] BC000J14_A148EmployeeName ;
-      private long[] BC000J15_A201LeaveRequestActionId ;
-      private decimal[] BC000J16_A147EmployeeBalance ;
-      private long[] BC000J16_A127LeaveRequestId ;
-      private decimal[] BC000J16_A131LeaveRequestDuration ;
-      private DateTime[] BC000J16_A130LeaveRequestEndDate ;
-      private string[] BC000J16_A125LeaveTypeName ;
-      private DateTime[] BC000J16_A128LeaveRequestDate ;
-      private DateTime[] BC000J16_A129LeaveRequestStartDate ;
-      private string[] BC000J16_A171LeaveRequestHalfDay ;
-      private bool[] BC000J16_n171LeaveRequestHalfDay ;
-      private string[] BC000J16_A132LeaveRequestStatus ;
-      private string[] BC000J16_A133LeaveRequestDescription ;
-      private string[] BC000J16_A134LeaveRequestRejectionReason ;
-      private string[] BC000J16_A148EmployeeName ;
-      private string[] BC000J16_A144LeaveTypeVacationLeave ;
-      private string[] BC000J16_A145LeaveTypeLoggingWorkHours ;
-      private long[] BC000J16_A124LeaveTypeId ;
-      private long[] BC000J16_A106EmployeeId ;
+      private decimal[] BC000J15_A147EmployeeBalance ;
+      private long[] BC000J15_A127LeaveRequestId ;
+      private decimal[] BC000J15_A131LeaveRequestDuration ;
+      private DateTime[] BC000J15_A130LeaveRequestEndDate ;
+      private string[] BC000J15_A125LeaveTypeName ;
+      private DateTime[] BC000J15_A128LeaveRequestDate ;
+      private DateTime[] BC000J15_A129LeaveRequestStartDate ;
+      private string[] BC000J15_A171LeaveRequestHalfDay ;
+      private bool[] BC000J15_n171LeaveRequestHalfDay ;
+      private string[] BC000J15_A132LeaveRequestStatus ;
+      private string[] BC000J15_A133LeaveRequestDescription ;
+      private string[] BC000J15_A134LeaveRequestRejectionReason ;
+      private string[] BC000J15_A148EmployeeName ;
+      private string[] BC000J15_A144LeaveTypeVacationLeave ;
+      private string[] BC000J15_A145LeaveTypeLoggingWorkHours ;
+      private long[] BC000J15_A124LeaveTypeId ;
+      private long[] BC000J15_A106EmployeeId ;
       private msglist BackMsgLst ;
       private msglist LclMsgLst ;
       private IDataStoreProvider pr_gam ;
@@ -2038,7 +2022,6 @@ namespace GeneXus.Programs {
        ,new ForEachCursor(def[11])
        ,new ForEachCursor(def[12])
        ,new ForEachCursor(def[13])
-       ,new ForEachCursor(def[14])
      };
   }
 
@@ -2122,10 +2105,6 @@ namespace GeneXus.Programs {
         prmBC000J15 = new Object[] {
         new ParDef("LeaveRequestId",GXType.Int64,10,0)
         };
-        Object[] prmBC000J16;
-        prmBC000J16 = new Object[] {
-        new ParDef("LeaveRequestId",GXType.Int64,10,0)
-        };
         def= new CursorDef[] {
             new CursorDef("BC000J2", "SELECT LeaveRequestId, LeaveRequestDuration, LeaveRequestEndDate, LeaveRequestDate, LeaveRequestStartDate, LeaveRequestHalfDay, LeaveRequestStatus, LeaveRequestDescription, LeaveRequestRejectionReason, LeaveTypeId, EmployeeId FROM LeaveRequest WHERE LeaveRequestId = :LeaveRequestId  FOR UPDATE OF LeaveRequest",true, GxErrorMask.GX_NOMASK, false, this,prmBC000J2,1, GxCacheFrequency.OFF ,true,false )
            ,new CursorDef("BC000J3", "SELECT LeaveRequestId, LeaveRequestDuration, LeaveRequestEndDate, LeaveRequestDate, LeaveRequestStartDate, LeaveRequestHalfDay, LeaveRequestStatus, LeaveRequestDescription, LeaveRequestRejectionReason, LeaveTypeId, EmployeeId FROM LeaveRequest WHERE LeaveRequestId = :LeaveRequestId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000J3,1, GxCacheFrequency.OFF ,true,false )
@@ -2140,8 +2119,7 @@ namespace GeneXus.Programs {
            ,new CursorDef("BC000J12", "SAVEPOINT gxupdate;DELETE FROM LeaveRequest  WHERE LeaveRequestId = :LeaveRequestId;RELEASE SAVEPOINT gxupdate", GxErrorMask.GX_ROLLBACKSAVEPOINT | GxErrorMask.GX_NOMASK,prmBC000J12)
            ,new CursorDef("BC000J13", "SELECT LeaveTypeName, LeaveTypeVacationLeave, LeaveTypeLoggingWorkHours FROM LeaveType WHERE LeaveTypeId = :LeaveTypeId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000J13,1, GxCacheFrequency.OFF ,true,false )
            ,new CursorDef("BC000J14", "SELECT EmployeeBalance, EmployeeName FROM Employee WHERE EmployeeId = :EmployeeId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000J14,1, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("BC000J15", "SELECT LeaveRequestActionId FROM LeaveRequestAction WHERE LeaveRequestId = :LeaveRequestId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000J15,1, GxCacheFrequency.OFF ,true,true )
-           ,new CursorDef("BC000J16", "SELECT T3.EmployeeBalance, TM1.LeaveRequestId, TM1.LeaveRequestDuration, TM1.LeaveRequestEndDate, T2.LeaveTypeName, TM1.LeaveRequestDate, TM1.LeaveRequestStartDate, TM1.LeaveRequestHalfDay, TM1.LeaveRequestStatus, TM1.LeaveRequestDescription, TM1.LeaveRequestRejectionReason, T3.EmployeeName, T2.LeaveTypeVacationLeave, T2.LeaveTypeLoggingWorkHours, TM1.LeaveTypeId, TM1.EmployeeId FROM ((LeaveRequest TM1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = TM1.LeaveTypeId) INNER JOIN Employee T3 ON T3.EmployeeId = TM1.EmployeeId) WHERE TM1.LeaveRequestId = :LeaveRequestId ORDER BY TM1.LeaveRequestId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000J16,100, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("BC000J15", "SELECT T3.EmployeeBalance, TM1.LeaveRequestId, TM1.LeaveRequestDuration, TM1.LeaveRequestEndDate, T2.LeaveTypeName, TM1.LeaveRequestDate, TM1.LeaveRequestStartDate, TM1.LeaveRequestHalfDay, TM1.LeaveRequestStatus, TM1.LeaveRequestDescription, TM1.LeaveRequestRejectionReason, T3.EmployeeName, T2.LeaveTypeVacationLeave, T2.LeaveTypeLoggingWorkHours, TM1.LeaveTypeId, TM1.EmployeeId FROM ((LeaveRequest TM1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = TM1.LeaveTypeId) INNER JOIN Employee T3 ON T3.EmployeeId = TM1.EmployeeId) WHERE TM1.LeaveRequestId = :LeaveRequestId ORDER BY TM1.LeaveRequestId ",true, GxErrorMask.GX_NOMASK, false, this,prmBC000J15,100, GxCacheFrequency.OFF ,true,false )
         };
      }
   }
@@ -2243,9 +2221,6 @@ namespace GeneXus.Programs {
               ((string[]) buf[1])[0] = rslt.getString(2, 100);
               return;
            case 13 :
-              ((long[]) buf[0])[0] = rslt.getLong(1);
-              return;
-           case 14 :
               ((decimal[]) buf[0])[0] = rslt.getDecimal(1);
               ((long[]) buf[1])[0] = rslt.getLong(2);
               ((decimal[]) buf[2])[0] = rslt.getDecimal(3);

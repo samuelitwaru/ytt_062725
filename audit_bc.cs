@@ -106,7 +106,7 @@ namespace GeneXus.Programs {
                CheckExtendedTable0T32( ) ;
                if ( AnyError == 0 )
                {
-                  ZM0T32( 4) ;
+                  ZM0T32( 5) ;
                }
                CloseExtendedTableCursors0T32( ) ;
             }
@@ -145,7 +145,7 @@ namespace GeneXus.Programs {
 
       protected void ZM0T32( short GX_JID )
       {
-         if ( ( GX_JID == 3 ) || ( GX_JID == 0 ) )
+         if ( ( GX_JID == 4 ) || ( GX_JID == 0 ) )
          {
             Z205AuditDate = A205AuditDate;
             Z206AuditTableName = A206AuditTableName;
@@ -156,12 +156,12 @@ namespace GeneXus.Programs {
             Z211Trn_Id = A211Trn_Id;
             Z106EmployeeId = A106EmployeeId;
          }
-         if ( ( GX_JID == 4 ) || ( GX_JID == 0 ) )
+         if ( ( GX_JID == 5 ) || ( GX_JID == 0 ) )
          {
             Z147EmployeeBalance = A147EmployeeBalance;
             Z148EmployeeName = A148EmployeeName;
          }
-         if ( GX_JID == -3 )
+         if ( GX_JID == -4 )
          {
             Z204AuditId = A204AuditId;
             Z205AuditDate = A205AuditDate;
@@ -184,6 +184,17 @@ namespace GeneXus.Programs {
 
       protected void standaloneModal( )
       {
+         GXt_int1 = A106EmployeeId;
+         new getloggedinemployeeid(context ).execute( out  GXt_int1) ;
+         A106EmployeeId = GXt_int1;
+         if ( ( StringUtil.StrCmp(Gx_mode, "INS") == 0 ) && ( Gx_BScreen == 0 ) )
+         {
+            /* Using cursor BC000T4 */
+            pr_default.execute(2, new Object[] {A106EmployeeId});
+            A147EmployeeBalance = BC000T4_A147EmployeeBalance[0];
+            A148EmployeeName = BC000T4_A148EmployeeName[0];
+            pr_default.close(2);
+         }
       }
 
       protected void Load0T32( )
@@ -203,7 +214,7 @@ namespace GeneXus.Programs {
             A148EmployeeName = BC000T5_A148EmployeeName[0];
             A211Trn_Id = BC000T5_A211Trn_Id[0];
             A106EmployeeId = BC000T5_A106EmployeeId[0];
-            ZM0T32( -3) ;
+            ZM0T32( -4) ;
          }
          pr_default.close(3);
          OnLoadActions0T32( ) ;
@@ -258,7 +269,7 @@ namespace GeneXus.Programs {
          pr_default.execute(1, new Object[] {A204AuditId});
          if ( (pr_default.getStatus(1) != 101) )
          {
-            ZM0T32( 3) ;
+            ZM0T32( 4) ;
             RcdFound32 = 1;
             A204AuditId = BC000T3_A204AuditId[0];
             A205AuditDate = BC000T3_A205AuditDate[0];
@@ -655,6 +666,7 @@ namespace GeneXus.Programs {
 
       protected void InitializeNonKey0T32( )
       {
+         A106EmployeeId = 0;
          A147EmployeeBalance = 0;
          A205AuditDate = DateTime.MinValue;
          A206AuditTableName = "";
@@ -662,7 +674,6 @@ namespace GeneXus.Programs {
          A208AuditShortDescription = "";
          A209AuditAction = "";
          A210SecUserId = 0;
-         A106EmployeeId = 0;
          A148EmployeeName = "";
          A211Trn_Id = "";
          Z205AuditDate = DateTime.MinValue;
@@ -683,6 +694,7 @@ namespace GeneXus.Programs {
 
       protected void StandaloneModalInsert( )
       {
+         A106EmployeeId = i106EmployeeId;
       }
 
       protected bool IsIns( )
@@ -708,13 +720,13 @@ namespace GeneXus.Programs {
       public void VarsToRow32( SdtAudit obj32 )
       {
          obj32.gxTpr_Mode = Gx_mode;
+         obj32.gxTpr_Employeeid = A106EmployeeId;
          obj32.gxTpr_Auditdate = A205AuditDate;
          obj32.gxTpr_Audittablename = A206AuditTableName;
          obj32.gxTpr_Auditdescription = A207AuditDescription;
          obj32.gxTpr_Auditshortdescription = A208AuditShortDescription;
          obj32.gxTpr_Auditaction = A209AuditAction;
          obj32.gxTpr_Secuserid = A210SecUserId;
-         obj32.gxTpr_Employeeid = A106EmployeeId;
          obj32.gxTpr_Employeename = A148EmployeeName;
          obj32.gxTpr_Trn_id = A211Trn_Id;
          obj32.gxTpr_Auditid = A204AuditId;
@@ -742,13 +754,13 @@ namespace GeneXus.Programs {
                                int forceLoad )
       {
          Gx_mode = obj32.gxTpr_Mode;
+         A106EmployeeId = obj32.gxTpr_Employeeid;
          A205AuditDate = obj32.gxTpr_Auditdate;
          A206AuditTableName = obj32.gxTpr_Audittablename;
          A207AuditDescription = obj32.gxTpr_Auditdescription;
          A208AuditShortDescription = obj32.gxTpr_Auditshortdescription;
          A209AuditAction = obj32.gxTpr_Auditaction;
          A210SecUserId = obj32.gxTpr_Secuserid;
-         A106EmployeeId = obj32.gxTpr_Employeeid;
          A148EmployeeName = obj32.gxTpr_Employeename;
          A211Trn_Id = obj32.gxTpr_Trn_id;
          A204AuditId = obj32.gxTpr_Auditid;
@@ -784,7 +796,7 @@ namespace GeneXus.Programs {
             Gx_mode = "UPD";
             Z204AuditId = A204AuditId;
          }
-         ZM0T32( -3) ;
+         ZM0T32( -4) ;
          OnLoadActions0T32( ) ;
          AddRow0T32( ) ;
          ScanKeyEnd0T32( ) ;
@@ -813,7 +825,7 @@ namespace GeneXus.Programs {
             Gx_mode = "UPD";
             Z204AuditId = A204AuditId;
          }
-         ZM0T32( -3) ;
+         ZM0T32( -4) ;
          OnLoadActions0T32( ) ;
          AddRow0T32( ) ;
          ScanKeyEnd0T32( ) ;
@@ -1215,6 +1227,8 @@ namespace GeneXus.Programs {
          A211Trn_Id = "";
          Z148EmployeeName = "";
          A148EmployeeName = "";
+         BC000T4_A147EmployeeBalance = new decimal[1] ;
+         BC000T4_A148EmployeeName = new string[] {""} ;
          BC000T5_A147EmployeeBalance = new decimal[1] ;
          BC000T5_A204AuditId = new long[1] ;
          BC000T5_A205AuditDate = new DateTime[] {DateTime.MinValue} ;
@@ -1226,8 +1240,6 @@ namespace GeneXus.Programs {
          BC000T5_A148EmployeeName = new string[] {""} ;
          BC000T5_A211Trn_Id = new string[] {""} ;
          BC000T5_A106EmployeeId = new long[1] ;
-         BC000T4_A147EmployeeBalance = new decimal[1] ;
-         BC000T4_A148EmployeeName = new string[] {""} ;
          BC000T6_A204AuditId = new long[1] ;
          BC000T3_A204AuditId = new long[1] ;
          BC000T3_A205AuditDate = new DateTime[] {DateTime.MinValue} ;
@@ -1313,6 +1325,7 @@ namespace GeneXus.Programs {
       }
 
       private short AnyError ;
+      private short Gx_BScreen ;
       private short RcdFound32 ;
       private int trnEnded ;
       private int AV23GXV1 ;
@@ -1323,6 +1336,8 @@ namespace GeneXus.Programs {
       private long A210SecUserId ;
       private long Z106EmployeeId ;
       private long A106EmployeeId ;
+      private long GXt_int1 ;
+      private long i106EmployeeId ;
       private decimal Z147EmployeeBalance ;
       private decimal A147EmployeeBalance ;
       private string Gx_mode ;
@@ -1353,6 +1368,8 @@ namespace GeneXus.Programs {
       private WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext AV10TrnContext ;
       private WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute AV13TrnContextAtt ;
       private IDataStoreProvider pr_default ;
+      private decimal[] BC000T4_A147EmployeeBalance ;
+      private string[] BC000T4_A148EmployeeName ;
       private decimal[] BC000T5_A147EmployeeBalance ;
       private long[] BC000T5_A204AuditId ;
       private DateTime[] BC000T5_A205AuditDate ;
@@ -1364,8 +1381,6 @@ namespace GeneXus.Programs {
       private string[] BC000T5_A148EmployeeName ;
       private string[] BC000T5_A211Trn_Id ;
       private long[] BC000T5_A106EmployeeId ;
-      private decimal[] BC000T4_A147EmployeeBalance ;
-      private string[] BC000T4_A148EmployeeName ;
       private long[] BC000T6_A204AuditId ;
       private long[] BC000T3_A204AuditId ;
       private DateTime[] BC000T3_A205AuditDate ;

@@ -98,8 +98,6 @@ namespace GeneXus.Programs {
       {
          /* GeneXus formulas */
          /* Output device settings */
-         new logtofile(context ).execute(  StringUtil.Trim( StringUtil.Str( (decimal)(AV15LeaveTypeId), 10, 0))+" : "+StringUtil.Trim( StringUtil.Str( (decimal)(AV16ProjectId), 10, 0))) ;
-         new logtofile(context ).execute(  "Token: "+AV20Token) ;
          if ( String.IsNullOrEmpty(StringUtil.RTrim( AV20Token)) )
          {
             /* Execute user subroutine: 'AUTHFAILED' */
@@ -253,8 +251,6 @@ namespace GeneXus.Programs {
             pr_default.readNext(1);
          }
          pr_default.close(1);
-         new logtofile(context ).execute(  AV14ICSLeaveExport) ;
-         new logtofile(context ).execute(  "----------------------------------------------------------") ;
          AV14ICSLeaveExport += "END:VCALENDAR" + StringUtil.NewLine( );
          AV18HttpResponse.AddString(AV14ICSLeaveExport);
          if ( context.WillRedirect( ) )
@@ -271,7 +267,6 @@ namespace GeneXus.Programs {
          returnInSub = false;
          AV19ErrorMessage = "ERROR: AUTH FAILED";
          AV18HttpResponse.AddString(AV19ErrorMessage);
-         new logtofile(context ).execute(  AV19ErrorMessage) ;
          context.nUserReturn = 1;
          if ( context.WillRedirect( ) )
          {

@@ -53,6 +53,21 @@ namespace GeneXus.Programs {
             dyncall( GetNextPar( )) ;
             return  ;
          }
+         else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxAggSel5"+"_"+"EMPLOYEEID") == 0 )
+         {
+            AV12Insert_EmployeeId = (long)(Math.Round(NumberUtil.Val( GetPar( "Insert_EmployeeId"), "."), 18, MidpointRounding.ToEven));
+            AssignAttri("", false, "AV12Insert_EmployeeId", StringUtil.LTrimStr( (decimal)(AV12Insert_EmployeeId), 10, 0));
+            AV19ComboEmployeeId = (long)(Math.Round(NumberUtil.Val( GetPar( "ComboEmployeeId"), "."), 18, MidpointRounding.ToEven));
+            AssignAttri("", false, "AV19ComboEmployeeId", StringUtil.LTrimStr( (decimal)(AV19ComboEmployeeId), 10, 0));
+            setAjaxCallMode();
+            if ( ! IsValidAjaxCall( true) )
+            {
+               GxWebError = 1;
+               return  ;
+            }
+            GX5ASAEMPLOYEEID0T32( AV12Insert_EmployeeId, AV19ComboEmployeeId) ;
+            return  ;
+         }
          else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxExecAct_"+"gxLoad_9") == 0 )
          {
             A106EmployeeId = (long)(Math.Round(NumberUtil.Val( GetPar( "EmployeeId"), "."), 18, MidpointRounding.ToEven));
@@ -1130,8 +1145,18 @@ namespace GeneXus.Programs {
          }
          else
          {
-            A106EmployeeId = AV19ComboEmployeeId;
-            AssignAttri("", false, "A106EmployeeId", StringUtil.LTrimStr( (decimal)(A106EmployeeId), 10, 0));
+            if ( true )
+            {
+               A106EmployeeId = AV19ComboEmployeeId;
+               AssignAttri("", false, "A106EmployeeId", StringUtil.LTrimStr( (decimal)(A106EmployeeId), 10, 0));
+            }
+            else
+            {
+               GXt_int3 = A106EmployeeId;
+               new getloggedinemployeeid(context ).execute( out  GXt_int3) ;
+               A106EmployeeId = GXt_int3;
+               AssignAttri("", false, "A106EmployeeId", StringUtil.LTrimStr( (decimal)(A106EmployeeId), 10, 0));
+            }
          }
          if ( StringUtil.StrCmp(Gx_mode, "DSP") == 0 )
          {
@@ -2162,7 +2187,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259910161531", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20259101641212", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2178,7 +2203,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("audit.js", "?20259910161532", false, true);
+         context.AddJavascriptSource("audit.js", "?20259101641215", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2270,6 +2295,41 @@ namespace GeneXus.Programs {
       protected void dynload_actions( )
       {
          /* End function dynload_actions */
+      }
+
+      protected void GX5ASAEMPLOYEEID0T32( long AV12Insert_EmployeeId ,
+                                           long AV19ComboEmployeeId )
+      {
+         if ( ( StringUtil.StrCmp(Gx_mode, "INS") == 0 ) && ! (0==AV12Insert_EmployeeId) )
+         {
+            A106EmployeeId = AV12Insert_EmployeeId;
+            AssignAttri("", false, "A106EmployeeId", StringUtil.LTrimStr( (decimal)(A106EmployeeId), 10, 0));
+         }
+         else
+         {
+            if ( true )
+            {
+               A106EmployeeId = AV19ComboEmployeeId;
+               AssignAttri("", false, "A106EmployeeId", StringUtil.LTrimStr( (decimal)(A106EmployeeId), 10, 0));
+            }
+            else
+            {
+               GXt_int3 = A106EmployeeId;
+               new getloggedinemployeeid(context ).execute( out  GXt_int3) ;
+               A106EmployeeId = GXt_int3;
+               AssignAttri("", false, "A106EmployeeId", StringUtil.LTrimStr( (decimal)(A106EmployeeId), 10, 0));
+            }
+         }
+         GxWebStd.set_html_headers( context, 0, "", "");
+         AddString( "[[") ;
+         AddString( "\""+GXUtil.EncodeJSConstant( StringUtil.LTrim( StringUtil.NToC( (decimal)(A106EmployeeId), 10, 0, ".", "")))+"\"") ;
+         AddString( "]") ;
+         if ( true )
+         {
+            AddString( ",") ;
+            AddString( "101") ;
+         }
+         AddString( "]") ;
       }
 
       protected void init_web_controls( )
@@ -2560,12 +2620,13 @@ namespace GeneXus.Programs {
       private long Z210SecUserId ;
       private long Z106EmployeeId ;
       private long N106EmployeeId ;
+      private long AV12Insert_EmployeeId ;
+      private long AV19ComboEmployeeId ;
       private long A106EmployeeId ;
       private long AV7AuditId ;
       private long A204AuditId ;
       private long A210SecUserId ;
-      private long AV19ComboEmployeeId ;
-      private long AV12Insert_EmployeeId ;
+      private long GXt_int3 ;
       private decimal A147EmployeeBalance ;
       private decimal Z147EmployeeBalance ;
       private string sPrefix ;

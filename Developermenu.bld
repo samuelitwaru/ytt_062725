@@ -1,5 +1,4 @@
 audit
-leaverequestaction
 trn_emailtemplate
 trnnew
 supportrequest
@@ -259,7 +258,6 @@ testprojectlogsbyemployeegetfilterdata
 sitesettingloaddvcombo
 areloadleaverequests
 areloadleaverequests
-atest
 adailyremindertomanagerua
 adailyremindertomanagerua
 adailyremindertomanagerlk
@@ -418,8 +416,8 @@ workwithplus\awwp_parameter_dataprovider
 sdsvc_UpdateWorkHourLog_Level_Detail
 sdsvc_LogHoursPanel_Level_Detail
 sdsvc_ViewLeaveRequest_Level_Detail
-sdsvc_LeaveRequestPanel_Level_Detail
 sdsvc_UpdateLeaveRequest_Level_Detail
+sdsvc_LeaveRequestPanel_Level_Detail
 api_timetracker
 api_timetracker
 gamsdnotauthorized
@@ -431,11 +429,11 @@ profilepanel
 updateworkhourlog
 loghourspanel
 po_worklogs
-viewleaverequest
-leaverequestpanel
-updateleaverequest
 yttv3sdnotauthorized
 yttv3sd
 landingpanel
+viewleaverequest
+updateleaverequest
+leaverequestpanel
 po_leaverequestsgridpanel
 GeneXus.Programs.Common

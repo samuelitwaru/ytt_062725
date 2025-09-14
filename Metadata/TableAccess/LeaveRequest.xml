@@ -3,7 +3,6 @@
   <Table name="Employee" />
   <Table name="LeaveType" />
   <Table name="LeaveRequest" />
-  <Table name="LeaveRequestAction" />
   <Table name="EmployeeProject" />
   <Table name="Company" />
   <Table name="Project" />

@@ -96,12 +96,6 @@ namespace GeneXus.Programs {
             AV11baseUrl = "https://staging.timetracker.yukon.software";
          }
          AV12url = AV11baseUrl + "/oauth/access_token";
-         new logtofile(context ).execute(  AV12url) ;
-         new logtofile(context ).execute(  "client id:"+AV9clientId) ;
-         new logtofile(context ).execute(  "BASE URL:"+AV10HttpRequest.BaseURL) ;
-         new logtofile(context ).execute(  "Key:"+AV19secretKey) ;
-         new logtofile(context ).execute(  "user:"+AV16username) ;
-         new logtofile(context ).execute(  "pwd:"+AV17password) ;
          AV13httpclient.AddHeader("Content-Type", "application/x-www-form-urlencoded");
          AV13httpclient.AddVariable("client_id", AV9clientId);
          AV13httpclient.AddVariable("grant_type", "password");
@@ -110,7 +104,6 @@ namespace GeneXus.Programs {
          AV13httpclient.AddVariable("password", AV17password);
          AV13httpclient.Execute("POST", AV12url);
          AV14result = AV13httpclient.ToString();
-         new logtofile(context ).execute(  ">>>"+AV14result) ;
          cleanup();
       }
 
@@ -132,7 +125,6 @@ namespace GeneXus.Programs {
          AV10HttpRequest = new GxHttpRequest( context);
          AV11baseUrl = "";
          AV12url = "";
-         AV19secretKey = "";
          AV13httpclient = new GxHttpClient( context);
          AV14result = "";
          /* GeneXus formulas. */
@@ -144,7 +136,6 @@ namespace GeneXus.Programs {
       private string AV17password ;
       private string AV11baseUrl ;
       private string AV12url ;
-      private string AV19secretKey ;
       private GxHttpClient AV13httpclient ;
       private GxHttpRequest AV10HttpRequest ;
    }

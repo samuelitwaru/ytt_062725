@@ -63,7 +63,6 @@ namespace GeneXus.Programs.wwpbaseobjects {
       {
          /* GeneXus formulas */
          /* Output device settings */
-         new logtofile(context ).execute(  ">>> "+AV8AuditingObject.ToJSonString(false, true)) ;
          GXt_int1 = AV22EmployeeId;
          new getloggedinemployeeid(context ).execute( out  GXt_int1) ;
          AV22EmployeeId = GXt_int1;
@@ -106,7 +105,6 @@ namespace GeneXus.Programs.wwpbaseobjects {
             while ( AV24GXV2 <= AV9AuditingObjectRecordItem.gxTpr_Attribute.Count )
             {
                AV10AuditingObjectRecordItemAttributeItem = ((WorkWithPlus.workwithplus_web.SdtAuditingObject_RecordItem_AttributeItem)AV9AuditingObjectRecordItem.gxTpr_Attribute.Item(AV24GXV2));
-               new logtofile(context ).execute(  ">>> "+AV10AuditingObjectRecordItemAttributeItem.gxTpr_Name+" >>> "+AV10AuditingObjectRecordItemAttributeItem.gxTpr_Newvalue+" >>> "+AV10AuditingObjectRecordItemAttributeItem.gxTpr_Oldvalue) ;
                if ( AV10AuditingObjectRecordItemAttributeItem.gxTpr_Ispartofkey )
                {
                   if ( StringUtil.StrCmp(AV21ActualMode, "INS") == 0 )

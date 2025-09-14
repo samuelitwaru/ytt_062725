@@ -87,6 +87,7 @@ function UCVISTimeline($) {
 						var groupCount = 3;
 						var itemCount = 20;
 						
+						
 						// create a data set with groups
 						var groups = new vis.DataSet();
 
