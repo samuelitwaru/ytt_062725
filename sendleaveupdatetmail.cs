@@ -92,9 +92,9 @@ namespace GeneXus.Programs {
          pr_default.close(0);
          AV15Subject = StringUtil.Upper( AV10LeaveRequest.gxTpr_Leavetypename) + " REQUEST UPDATE";
          AV11Body = "<p>Dear Manager, </p>" + "<p>This is to inform you that <b>" + AV8Employee.gxTpr_Employeename + "</b> has updated a leave request as below: </p>" + "<p>Start Date: <b>" + context.localUtil.DToC( AV10LeaveRequest.gxTpr_Leaverequeststartdate, 2, "/") + "</b></p>" + "<p>End Date: <b>" + context.localUtil.DToC( AV10LeaveRequest.gxTpr_Leaverequestenddate, 2, "/") + "</b></p>" + "<p>Reason for Leave Request: <b>" + AV10LeaveRequest.gxTpr_Leaverequestdescription + "</b></p>";
-         new logtofile(context ).execute(  "Subject: "+AV15Subject) ;
-         new logtofile(context ).execute(  "Body: "+AV11Body) ;
-         new logtofile(context ).execute(  "Manager Email: "+AV13ManagerEmail) ;
+         new sendemail(context ).execute(  AV13ManagerEmail, ref  AV15Subject, ref  AV11Body) ;
+         AV14NotificationText = StringUtil.Trim( AV8Employee.gxTpr_Employeefirstname) + " " + StringUtil.Trim( AV8Employee.gxTpr_Employeelastname) + " has updated a leave request.";
+         new sdsendpushnotifications(context ).execute(  "Leave Request",  AV14NotificationText,  0) ;
          cleanup();
       }
 
@@ -122,6 +122,7 @@ namespace GeneXus.Programs {
          AV13ManagerEmail = "";
          AV15Subject = "";
          AV11Body = "";
+         AV14NotificationText = "";
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.sendleaveupdatetmail__default(),
             new Object[][] {
                 new Object[] {
@@ -141,6 +142,7 @@ namespace GeneXus.Programs {
       private string A109EmployeeEmail ;
       private string AV13ManagerEmail ;
       private string AV15Subject ;
+      private string AV14NotificationText ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
       private GeneXus.Programs.genexussecurity.SdtGAMUser AV9GAMUser ;
