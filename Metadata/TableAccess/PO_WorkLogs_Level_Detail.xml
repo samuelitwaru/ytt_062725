@@ -10,4 +10,5 @@
   <Table name="EmployeeProject" />
   <Table name="SupportRequest" />
   <Table name="EmployeeVacationSet" />
+  <Table name="Audit" />
 </Dependencies>

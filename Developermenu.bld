@@ -265,9 +265,9 @@ adailyremindertomanagerlk
 acreateemployeeaccounts
 projectwwgetfilterdata
 aisdateholiday
-aemployeeleavetotal
 aemployeeleavereport
-logtofile
+alogtofile
+alogtofile
 aformatdatetime
 aformatdatetime
 asendcontactusemail
@@ -428,12 +428,12 @@ passwordchangepanel
 profilepanel
 updateworkhourlog
 loghourspanel
-po_worklogs
 yttv3sdnotauthorized
 yttv3sd
 landingpanel
 viewleaverequest
 updateleaverequest
-leaverequestpanel
 po_leaverequestsgridpanel
+leaverequestpanel
+po_worklogs
 GeneXus.Programs.Common

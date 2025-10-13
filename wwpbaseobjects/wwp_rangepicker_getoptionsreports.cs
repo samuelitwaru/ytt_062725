@@ -65,12 +65,12 @@ namespace GeneXus.Programs.wwpbaseobjects {
          AV8PickerOptions.gxTpr_Datepicker.gxTpr_Showweeknumbers = true;
          new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_yesterday( ref  AV8PickerOptions) ;
          new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_today( ref  AV8PickerOptions) ;
-         new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_lastweek( ref  AV8PickerOptions) ;
-         new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_lastmonth( ref  AV8PickerOptions) ;
          new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_thisweek( ref  AV8PickerOptions) ;
+         new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_lastweek( ref  AV8PickerOptions) ;
          new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_thismonth( ref  AV8PickerOptions) ;
-         new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_lastyear( ref  AV8PickerOptions) ;
+         new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_lastmonth( ref  AV8PickerOptions) ;
          new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_thisyear( ref  AV8PickerOptions) ;
+         new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_addpredefinedrange(context ).gxep_lastyear( ref  AV8PickerOptions) ;
          cleanup();
       }
 

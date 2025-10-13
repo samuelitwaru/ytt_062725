@@ -22,58 +22,37 @@ using System.Threading;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 namespace GeneXus.Programs {
-   public class aemployeeleavetotal : GXProcedure
+   public class aemployeeleavetotal : GXWebProcedure
    {
-      public static int Main( string[] args )
+      public override void webExecute( )
       {
-         return new aemployeeleavetotal().MainImpl(args); ;
-      }
-
-      public int executeCmdLine( string[] args )
-      {
-         return ExecuteCmdLine(args); ;
-      }
-
-      protected override int ExecuteCmdLine( string[] args )
-      {
-          long aP0_EmployeeId ;
-         DateTime aP1_FromDate = new DateTime()  ;
-         DateTime aP2_ToDate = new DateTime()  ;
-          decimal aP3_Duration ;
-         if ( 0 < args.Length )
+         context.SetDefaultTheme("WorkWithPlusDS", true);
+         initialize();
+         if ( String.IsNullOrEmpty(StringUtil.RTrim( context.GetCookie( "GX_SESSION_ID"))) )
          {
-            aP0_EmployeeId=((long)(NumberUtil.Val( (string)(args[0]), ".")));
+            gxcookieaux = context.SetCookie( "GX_SESSION_ID", Encrypt64( Crypto.GetEncryptionKey( ), Crypto.GetServerKey( )), "", (DateTime)(DateTime.MinValue), "", (short)(context.GetHttpSecure( )));
          }
-         else
+         GXKey = Decrypt64( context.GetCookie( "GX_SESSION_ID"), Crypto.GetServerKey( ));
+         if ( nGotPars == 0 )
          {
-            aP0_EmployeeId=0;
+            entryPointCalled = false;
+            gxfirstwebparm = GetFirstPar( "EmployeeId");
+            if ( ! entryPointCalled )
+            {
+               AV8EmployeeId = (long)(Math.Round(NumberUtil.Val( gxfirstwebparm, "."), 18, MidpointRounding.ToEven));
+               if ( StringUtil.StrCmp(gxfirstwebparm, "viewer") != 0 )
+               {
+                  AV10FromDate = context.localUtil.ParseDateParm( GetPar( "FromDate"));
+                  AV11ToDate = context.localUtil.ParseDateParm( GetPar( "ToDate"));
+                  AV14Duration = NumberUtil.Val( GetPar( "Duration"), ".");
+               }
+            }
          }
-         if ( 1 < args.Length )
+         if ( GxWebError == 0 )
          {
-            aP1_FromDate=((DateTime)(context.localUtil.CToD( (string)(args[1]), 2)));
+            ExecutePrivate();
          }
-         else
-         {
-            aP1_FromDate=DateTime.MinValue;
-         }
-         if ( 2 < args.Length )
-         {
-            aP2_ToDate=((DateTime)(context.localUtil.CToD( (string)(args[2]), 2)));
-         }
-         else
-         {
-            aP2_ToDate=DateTime.MinValue;
-         }
-         if ( 3 < args.Length )
-         {
-            aP3_Duration=((decimal)(NumberUtil.Val( (string)(args[3]), ".")));
-         }
-         else
-         {
-            aP3_Duration=0;
-         }
-         execute(aP0_EmployeeId, aP1_FromDate, aP2_ToDate, out aP3_Duration);
-         return GX.GXRuntime.ExitCode ;
+         cleanup();
       }
 
       public aemployeeleavetotal( )
@@ -135,9 +114,9 @@ namespace GeneXus.Programs {
          /* Output device settings */
          if ( (0==AV8EmployeeId) && (DateTime.MinValue==AV10FromDate) && (DateTime.MinValue==AV11ToDate) )
          {
-            AV8EmployeeId = 148;
-            AV10FromDate = context.localUtil.YMDToD( 2025, 7, 7);
-            AV11ToDate = context.localUtil.YMDToD( 2025, 7, 13);
+            AV8EmployeeId = 245;
+            AV10FromDate = context.localUtil.YMDToD( 2025, 9, 8);
+            AV11ToDate = context.localUtil.YMDToD( 2025, 9, 14);
          }
          /* Using cursor P009Y2 */
          pr_default.execute(0, new Object[] {AV8EmployeeId});
@@ -235,13 +214,20 @@ namespace GeneXus.Programs {
          if ( AV27GXLvl34 == 0 )
          {
          }
+         new logtofile(context ).execute(  "Final Duration:"+StringUtil.Str( AV14Duration, 4, 1)) ;
          AV14Duration = (decimal)(AV14Duration*8*60);
+         if ( context.WillRedirect( ) )
+         {
+            context.Redirect( context.wjLoc );
+            context.wjLoc = "";
+         }
          cleanup();
       }
 
       public override void cleanup( )
       {
          CloseCursors();
+         base.cleanup();
          if ( IsMain )
          {
             context.CloseConnections();
@@ -251,6 +237,8 @@ namespace GeneXus.Programs {
 
       public override void initialize( )
       {
+         GXKey = "";
+         gxfirstwebparm = "";
          P009Y2_A100CompanyId = new long[1] ;
          P009Y2_A106EmployeeId = new long[1] ;
          P009Y2_A148EmployeeName = new string[] {""} ;
@@ -295,6 +283,9 @@ namespace GeneXus.Programs {
          /* GeneXus formulas. */
       }
 
+      private short gxcookieaux ;
+      private short nGotPars ;
+      private short GxWebError ;
       private short AV9Count ;
       private short AV27GXLvl34 ;
       private long AV8EmployeeId ;
@@ -307,6 +298,8 @@ namespace GeneXus.Programs {
       private long A127LeaveRequestId ;
       private decimal AV14Duration ;
       private decimal A131LeaveRequestDuration ;
+      private string GXKey ;
+      private string gxfirstwebparm ;
       private string A148EmployeeName ;
       private string AV20EmployeeName ;
       private string A132LeaveRequestStatus ;
@@ -319,6 +312,7 @@ namespace GeneXus.Programs {
       private DateTime AV12LeaveStartDate ;
       private DateTime AV13LeaveEndDate ;
       private DateTime AV21CurrentDate ;
+      private bool entryPointCalled ;
       private bool A139HolidayIsActive ;
       private bool AV24IsWeekend ;
       private IGxDataStore dsGAM ;

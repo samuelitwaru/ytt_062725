@@ -5,6 +5,8 @@ using GeneXus.Resources;
 using GeneXus.Application;
 using GeneXus.Metadata;
 using GeneXus.Cryptography;
+using System.Data;
+using GeneXus.Data;
 using com.genexus;
 using GeneXus.Data.ADO;
 using GeneXus.Data.NTier;
@@ -26,26 +28,29 @@ namespace GeneXus.Programs {
       {
          context = new GxContext(  );
          DataStoreUtil.LoadDataStores( context);
+         dsGAM = context.GetDataStore("GAM");
+         dsDefault = context.GetDataStore("Default");
          IsMain = true;
-         context.SetDefaultTheme("WorkWithPlusDS", true);
       }
 
       public logtofile( IGxContext context )
       {
          this.context = context;
          IsMain = false;
+         dsGAM = context.GetDataStore("GAM");
+         dsDefault = context.GetDataStore("Default");
       }
 
       public void execute( string aP0_Message )
       {
-         this.AV8Message = aP0_Message;
+         this.AV2Message = aP0_Message;
          initialize();
          ExecuteImpl();
       }
 
       public void executeSubmit( string aP0_Message )
       {
-         this.AV8Message = aP0_Message;
+         this.AV2Message = aP0_Message;
          SubmitImpl();
       }
 
@@ -53,10 +58,11 @@ namespace GeneXus.Programs {
       {
          /* GeneXus formulas */
          /* Output device settings */
-         AV9File.Source = "Data.txt";
-         AV9File.Open("");
-         AV9File.WriteLine(AV8Message);
-         AV9File.Close();
+         args = new Object[] {(string)AV2Message} ;
+         ClassLoader.Execute("alogtofile","GeneXus.Programs","alogtofile", new Object[] {context }, "execute", args);
+         if ( ( args != null ) && ( args.Length == 1 ) )
+         {
+         }
          cleanup();
       }
 
@@ -67,17 +73,17 @@ namespace GeneXus.Programs {
          {
             context.CloseConnections();
          }
-         ExitApp();
       }
 
       public override void initialize( )
       {
-         AV9File = new GxFile(context.GetPhysicalPath());
          /* GeneXus formulas. */
       }
 
-      private string AV8Message ;
-      private GxFile AV9File ;
+      private string AV2Message ;
+      private IGxDataStore dsGAM ;
+      private IGxDataStore dsDefault ;
+      private Object[] args ;
    }
 
 }
