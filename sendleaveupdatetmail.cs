@@ -91,7 +91,7 @@ namespace GeneXus.Programs {
          }
          pr_default.close(0);
          AV15Subject = StringUtil.Upper( AV10LeaveRequest.gxTpr_Leavetypename) + " REQUEST UPDATE";
-         AV11Body = "<p>Dear Manager, </p>" + "<p>This is to inform you that <b>" + AV8Employee.gxTpr_Employeename + "</b> has updated a leave request as below: </p>" + "<p>Start Date: <b>" + context.localUtil.DToC( AV10LeaveRequest.gxTpr_Leaverequeststartdate, 2, "/") + "</b></p>" + "<p>End Date: <b>" + context.localUtil.DToC( AV10LeaveRequest.gxTpr_Leaverequestenddate, 2, "/") + "</b></p>" + "<p>Reason for Leave Request: <b>" + AV10LeaveRequest.gxTpr_Leaverequestdescription + "</b></p>";
+         AV11Body = "<p>Dear Manager, </p>" + "<p>This is to inform you that <b>" + AV8Employee.gxTpr_Employeename + "</b> has updated a leave request to <b>" + StringUtil.Trim( AV10LeaveRequest.gxTpr_Employeename) + "</b> as below: </p>" + "<p>Start Date: <b>" + context.localUtil.DToC( AV10LeaveRequest.gxTpr_Leaverequeststartdate, 2, "/") + "</b></p>" + "<p>End Date: <b>" + context.localUtil.DToC( AV10LeaveRequest.gxTpr_Leaverequestenddate, 2, "/") + "</b></p>" + "<p>Reason for Leave Request: <b>" + AV10LeaveRequest.gxTpr_Leaverequestdescription + "</b></p>";
          new sendemail(context ).execute(  AV13ManagerEmail, ref  AV15Subject, ref  AV11Body) ;
          AV14NotificationText = StringUtil.Trim( AV8Employee.gxTpr_Employeefirstname) + " " + StringUtil.Trim( AV8Employee.gxTpr_Employeelastname) + " has updated a leave request.";
          new sdsendpushnotifications(context ).execute(  "Leave Request",  AV14NotificationText,  0) ;
