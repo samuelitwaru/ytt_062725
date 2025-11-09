@@ -1,13 +1,321 @@
-function UCVISTimeline(n){var i='<div style="display:none">\t{{startDate}}\t{{endDate}}\t{{item}}<\/div><br /><div id="visualization" ><\/div><div id="key" style="display:flex; margin-top: 10px">\t<div style="display:flex;">\t\t<div style="background: #dddddd; height:10px; width:10px; margin: 4px"><\/div> <label>Pending<\/label>\t\t<div style="background: #D5DDF6; height:10px; width:10px; margin: 4px"><\/div> <label>Default<\/label>\t<\/div><\/div>',u={},t;Mustache.parse(i);var f=0,e=0,o=0,r;this.show=function(){r=n(this.getContainerControl());f=0;e=0;o=0;this.setHtml(Mustache.render(i,this,u));this.renderChildContainers();n(this.getContainerControl()).find("[data-event='Click']").on("click",this.onClickHandler.closure(this)).each(function(n){this.setAttribute("data-items-index",n+1)});n(this.getContainerControl()).find("[data-event='click2']").on("click2",this.onclick2Handler.closure(this)).each(function(n){this.setAttribute("data-items-index",n+1)});n(this.getContainerControl()).find("[data-event='DateRangeChanged']").on("daterangechanged",this.onDateRangeChangedHandler.closure(this)).each(function(n){this.setAttribute("data-items-index",n+1)});this.Init2()};this.Scripts=[];this.Init2=function(){var f,v,e,r,y,t,s,h,o;try{const k=document.createElement("style");f=`
+function UCVISTimeline($) {
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+
+	var template = '<div style=\"display:none\">	{{startDate}}	{{endDate}}	{{item}}</div><br /><div id=\"visualization\" ></div><div id=\"key\" style=\"display:flex; margin-top: 10px\">	<div style=\"display:flex;\">		<div style=\"background: #dddddd; height:10px; width:10px; margin: 4px\"></div> <label>Pending</label>		<div style=\"background: #D5DDF6; height:10px; width:10px; margin: 4px\"></div> <label>Default</label>	</div></div>';
+	var partials = {  }; 
+	Mustache.parse(template);
+	var _iOnClick = 0; 
+	var _iOnclick2 = 0; 
+	var _iOnDateRangeChanged = 0; 
+	var $container;
+	this.show = function() {
+			$container = $(this.getContainerControl());
+
+			// Raise before show scripts
+
+			_iOnClick = 0; 
+			_iOnclick2 = 0; 
+			_iOnDateRangeChanged = 0; 
+
+			//if (this.IsPostBack)
+				this.setHtml(Mustache.render(template, this, partials));
+			this.renderChildContainers();
+
+			$(this.getContainerControl())
+				.find("[data-event='Click']")
+				.on('click', this.onClickHandler.closure(this))
+				.each(function (i) {
+					this.setAttribute("data-items-index", i + 1);
+				}); 
+			$(this.getContainerControl())
+				.find("[data-event='click2']")
+				.on('click2', this.onclick2Handler.closure(this))
+				.each(function (i) {
+					this.setAttribute("data-items-index", i + 1);
+				}); 
+			$(this.getContainerControl())
+				.find("[data-event='DateRangeChanged']")
+				.on('daterangechanged', this.onDateRangeChangedHandler.closure(this))
+				.each(function (i) {
+					this.setAttribute("data-items-index", i + 1);
+				}); 
+
+			// Raise after show scripts
+			this.Init2(); 
+	}
+
+	this.Scripts = [];
+
+		this.Init2 = function() {
+
+					try {			
+						const style = document.createElement('style');
+					
+					
+						// append holiday styling
+						var styleString = `
 							.vis-item.vis-background.holiday {
 								background-color: #faf2cc80;
 							}
-						`;function rt(n){const t=`${n.getFullYear()}`.slice(-2),i=("0"+(n.getMonth()+1)).slice(-2),r=("0"+n.getDate()).slice(-2);return`${i}/${r}/${t}`}const d=this;var i=JSON.parse(this.events),p=JSON.parse(this.holidayEvents),c=JSON.parse(this.groups),l=JSON.parse(this.leavetypes),a=new vis.DataSet;for(t=0;t<c.length;t++)v=c[t],a.add(v);for(i=i.concat(p),e=new vis.DataSet,t=0;t<i.length;t++)r=i[t],e.add(r),f+=`
-							.vis-item.ApprovedLeave.leave-${r.id} {
-								background-color: ${r.color};
+						`
+						
+						function formatDate(date) {
+							const year = `${date.getFullYear()}`.slice(-2);
+							const month = ('0' + (date.getMonth() + 1)).slice(-2); 
+							const day = ('0' + date.getDate()).slice(-2);
+							return `${month}/${day}/${year}`
+						}
+						
+						const UC = this;
+						
+						var events = JSON.parse(this.events)
+						
+						var holidayEvents = JSON.parse(this.holidayEvents)
+						
+						var eventGroups = JSON.parse(this.groups)
+						var leavetypes = JSON.parse(this.leavetypes)
+						var groupCount = 3;
+						var itemCount = 20;
+						
+						
+						// create a data set with groups
+						var groups = new vis.DataSet();
+
+						for (var i = 0; i < eventGroups.length; i++) {
+							var eventGroup = eventGroups[i]
+							groups.add(eventGroup)
+						}
+					
+						events = events.concat(holidayEvents)
+				
+						// create a dataset with items
+						var items = new vis.DataSet();
+						for (var i = 0; i < events.length; i++) {
+							var event = events[i]
+							items.add(event)
+							styleString += `
+							.vis-item.ApprovedLeave.leave-${event.id} {
+								background-color: ${event.color};
 							}
-							`;k.innerHTML=f;document.head.appendChild(k);var w=document.getElementById("visualization"),b={groupOrder:"content",orientation:{axis:"both"},timeAxis:{scale:"day",step:1},showWeekScale:!0,start:this.startDate,end:this.stopDate,zoomable:!0,verticalScroll:!0,horizontalScroll:!0,zoomKey:"ctrlKey",format:{minorLabels:{day:"ddd DD"}},maxHeight:"100%"},o=n(window).height(),d=n("#visualization").height(),u=new vis.Timeline(w);u.setOptions(b);u.setGroups(a);u.setItems(e);u.on("click",function(n){d.item=n.item;d.Click();let t=window.scrollY});for(y=document.getElementById("key"),t=0;t<l.length;t++)s=l[t],h=document.createElement("div"),h.innerHTML=`
+							`
+						}
+					
+						style.innerHTML = styleString
+						document.head.appendChild(style);
+					
+						// create visualization
+						var container = document.getElementById('visualization');
+						var options = {
+							groupOrder: 'content',  // groupOrder can be a property name or a sorting function
+							orientation: {
+								axis: 'both'
+							},
+							timeAxis: {
+								scale: 'day',
+								step: 1
+							},
+							showWeekScale: true,
+							start: this.startDate,
+							end: this.stopDate,
+							zoomable:true,
+							verticalScroll: true,
+							horizontalScroll: true,
+							zoomKey: 'ctrlKey',
+							format: {
+								minorLabels: {day: 'ddd DD'},
+								//majorLabels: {day: 'w'}
+				    		},
+							maxHeight: '100%',
+						};
+						
+						var winHeight = $(window).height();
+						var timelineHeight = $('#visualization').height()
+						
+						var timeline = new vis.Timeline(container);
+						timeline.setOptions(options);
+						timeline.setGroups(groups);
+						timeline.setItems(items);
+						
+						timeline.on('click', function (properties) {
+							UC.item = properties.item
+							UC.Click()
+							let scrollTop = window.scrollY;
+						});
+						
+			//			timeline.on('rangechanged', function (properties) {
+			//				UC.newStartDate = formatDate(properties.start)
+			//				UC.newStopDate = formatDate(properties.end)
+			//				var newItems = new vis.DataSet();
+			//				UC.RangeChangedFromUC = true
+			//			});
+						
+						var keyDiv = document.getElementById('key')
+						
+						for (var i=0; i < leavetypes.length; i++) {
+							var type = leavetypes[i]
+							var element = document.createElement('div')
+							element.innerHTML = `
 							<div style="display:flex;">
-							<div style="background: ${s.LeaveTypeColorApproved}; height:10px; width:10px; margin: 4px; margin-left: 10px"></div> <label>${s.LeaveTypeName}</label>
+							<div style="background: ${type.LeaveTypeColorApproved}; height:10px; width:10px; margin: 4px; margin-left: 10px"></div> <label>${type.LeaveTypeName}</label>
 							</div>
-							`,y.appendChild(h);o=n(window).height();const g=document.getElementById("visualization");function nt(t){for(let i of t)i.contentRect.height>o-250&&(n("#visualization").css("height",o-250),n("#visualization").css("overflow","auto"))}const tt=new ResizeObserver(nt);tt.observe(g);function it(){const n=document.querySelectorAll(".vis-item-content");n.forEach(n=>{n.style.textWrap="auto"})}it()}catch(k){console.error(k)}};this.SetItems=function(n){var n,i,t,r;for(this.events=n,n=JSON.parse(this.events),i=new vis.DataSet,t=0;t<n.length;t++)r=n[t],i.add(r)};this.Refresh=function(n,t){this.events=n;this.groups=t;this.show()};this.onClickHandler=function(n){if(n){var t=n.currentTarget;n.preventDefault()}this.Click&&this.Click()};this.onclick2Handler=function(n){if(n){var t=n.currentTarget;n.preventDefault()}this.click2&&this.click2()};this.onDateRangeChangedHandler=function(n){if(n){var t=n.currentTarget;n.preventDefault()}this.DateRangeChanged&&this.DateRangeChanged()};this.autoToggleVisibility=!0;t={};this.renderChildContainers=function(){r.find("[data-slot][data-parent='"+this.ContainerName+"']").each(function(i,r){var e=n(r),f=e.attr("data-slot"),u;u=t[f];u||(u=this.getChildContainer(f),t[f]=u,u.parentNode.removeChild(u));e.append(u);n(u).show()}.closure(this))}}
+							`
+							keyDiv.appendChild(element);
+						}
+						
+						var winHeight = $(window).height();			
+						const visDiv = document.getElementById('visualization');
+						
+				        // Callback function to execute when the div's size changes
+				        function onResize(entries) {
+				            for (let entry of entries) {
+				                if (entry.contentRect.height > winHeight-250) {
+									$('#visualization').css("height", winHeight-250)
+									$('#visualization').css("overflow", 'auto')
+								}
+								
+				            }
+				        }
+						
+				        // Create a new ResizeObserver instance
+				        const resizeObserver = new ResizeObserver(onResize);
+						resizeObserver.observe(visDiv);
+						
+						
+						function wrapHolidayText() {
+							const elements = document.querySelectorAll('.vis-item-content');
+							elements.forEach(el => {
+								el.style.textWrap = 'auto';
+							});
+						}
+					
+					
+						wrapHolidayText()
+						
+					}catch(e){
+						console.error(e)
+					}
+				
+		}
+		this.SetItems = function(events ) {
+
+					this.events = events
+					var events = JSON.parse(this.events)
+					var items = new vis.DataSet();
+					for (var i = 0; i < events.length; i++) {
+						var event = events[i]
+						items.add(event)
+					}
+				
+		}
+		this.Refresh = function(events ,groups ) {
+
+					this.events = events
+					this.groups = groups
+					this.show()
+				
+		}
+
+
+		this.onClickHandler = function (e) {
+			if (e) {
+				var target = e.currentTarget;
+				e.preventDefault();
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+			}
+
+			if (this.Click) {
+				this.Click();
+			}
+		} 
+
+		this.onclick2Handler = function (e) {
+			if (e) {
+				var target = e.currentTarget;
+				e.preventDefault();
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+			}
+
+			if (this.click2) {
+				this.click2();
+			}
+		} 
+
+		this.onDateRangeChangedHandler = function (e) {
+			if (e) {
+				var target = e.currentTarget;
+				e.preventDefault();
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+			}
+
+			if (this.DateRangeChanged) {
+				this.DateRangeChanged();
+			}
+		} 
+
+	this.autoToggleVisibility = true;
+
+	var childContainers = {};
+	this.renderChildContainers = function () {
+		$container
+			.find("[data-slot][data-parent='" + this.ContainerName + "']")
+			.each((function (i, slot) {
+				var $slot = $(slot),
+					slotName = $slot.attr('data-slot'),
+					slotContentEl;
+
+				slotContentEl = childContainers[slotName];
+				if (!slotContentEl) {				
+					slotContentEl = this.getChildContainer(slotName)
+					childContainers[slotName] = slotContentEl;
+					slotContentEl.parentNode.removeChild(slotContentEl);
+				}
+				$slot.append(slotContentEl);
+				$(slotContentEl).show();
+			}).closure(this));
+	};
+
+}
