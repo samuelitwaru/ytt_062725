@@ -47,13 +47,15 @@ namespace GeneXus.Programs {
                            ref GxSimpleCollection<long> aP2_CompanyLocationIdCollection ,
                            ref GxSimpleCollection<long> aP3_EmployeeIdCollection ,
                            ref GxSimpleCollection<long> aP4_ProjectIdCollection ,
-                           out GXBaseCollection<SdtSDTEmployeeWeekReport> aP5_SDTEmployeeWeekReportCollection )
+                           ref bool aP5_ShowOnlyReportedHours ,
+                           out GXBaseCollection<SdtSDTEmployeeWeekReport> aP6_SDTEmployeeWeekReportCollection )
       {
          this.AV11FromDate = aP0_FromDate;
          this.AV10ToDate = aP1_ToDate;
          this.AV32CompanyLocationIdCollection = aP2_CompanyLocationIdCollection;
          this.AV12EmployeeIdCollection = aP3_EmployeeIdCollection;
          this.AV8ProjectIdCollection = aP4_ProjectIdCollection;
+         this.AV36ShowOnlyReportedHours = aP5_ShowOnlyReportedHours;
          this.AV24SDTEmployeeWeekReportCollection = new GXBaseCollection<SdtSDTEmployeeWeekReport>( context, "SDTEmployeeWeekReport", "YTT_version4") ;
          initialize();
          ExecuteImpl();
@@ -62,16 +64,18 @@ namespace GeneXus.Programs {
          aP2_CompanyLocationIdCollection=this.AV32CompanyLocationIdCollection;
          aP3_EmployeeIdCollection=this.AV12EmployeeIdCollection;
          aP4_ProjectIdCollection=this.AV8ProjectIdCollection;
-         aP5_SDTEmployeeWeekReportCollection=this.AV24SDTEmployeeWeekReportCollection;
+         aP5_ShowOnlyReportedHours=this.AV36ShowOnlyReportedHours;
+         aP6_SDTEmployeeWeekReportCollection=this.AV24SDTEmployeeWeekReportCollection;
       }
 
       public GXBaseCollection<SdtSDTEmployeeWeekReport> executeUdp( ref DateTime aP0_FromDate ,
                                                                     ref DateTime aP1_ToDate ,
                                                                     ref GxSimpleCollection<long> aP2_CompanyLocationIdCollection ,
                                                                     ref GxSimpleCollection<long> aP3_EmployeeIdCollection ,
-                                                                    ref GxSimpleCollection<long> aP4_ProjectIdCollection )
+                                                                    ref GxSimpleCollection<long> aP4_ProjectIdCollection ,
+                                                                    ref bool aP5_ShowOnlyReportedHours )
       {
-         execute(ref aP0_FromDate, ref aP1_ToDate, ref aP2_CompanyLocationIdCollection, ref aP3_EmployeeIdCollection, ref aP4_ProjectIdCollection, out aP5_SDTEmployeeWeekReportCollection);
+         execute(ref aP0_FromDate, ref aP1_ToDate, ref aP2_CompanyLocationIdCollection, ref aP3_EmployeeIdCollection, ref aP4_ProjectIdCollection, ref aP5_ShowOnlyReportedHours, out aP6_SDTEmployeeWeekReportCollection);
          return AV24SDTEmployeeWeekReportCollection ;
       }
 
@@ -80,13 +84,15 @@ namespace GeneXus.Programs {
                                  ref GxSimpleCollection<long> aP2_CompanyLocationIdCollection ,
                                  ref GxSimpleCollection<long> aP3_EmployeeIdCollection ,
                                  ref GxSimpleCollection<long> aP4_ProjectIdCollection ,
-                                 out GXBaseCollection<SdtSDTEmployeeWeekReport> aP5_SDTEmployeeWeekReportCollection )
+                                 ref bool aP5_ShowOnlyReportedHours ,
+                                 out GXBaseCollection<SdtSDTEmployeeWeekReport> aP6_SDTEmployeeWeekReportCollection )
       {
          this.AV11FromDate = aP0_FromDate;
          this.AV10ToDate = aP1_ToDate;
          this.AV32CompanyLocationIdCollection = aP2_CompanyLocationIdCollection;
          this.AV12EmployeeIdCollection = aP3_EmployeeIdCollection;
          this.AV8ProjectIdCollection = aP4_ProjectIdCollection;
+         this.AV36ShowOnlyReportedHours = aP5_ShowOnlyReportedHours;
          this.AV24SDTEmployeeWeekReportCollection = new GXBaseCollection<SdtSDTEmployeeWeekReport>( context, "SDTEmployeeWeekReport", "YTT_version4") ;
          SubmitImpl();
          aP0_FromDate=this.AV11FromDate;
@@ -94,7 +100,8 @@ namespace GeneXus.Programs {
          aP2_CompanyLocationIdCollection=this.AV32CompanyLocationIdCollection;
          aP3_EmployeeIdCollection=this.AV12EmployeeIdCollection;
          aP4_ProjectIdCollection=this.AV8ProjectIdCollection;
-         aP5_SDTEmployeeWeekReportCollection=this.AV24SDTEmployeeWeekReportCollection;
+         aP5_ShowOnlyReportedHours=this.AV36ShowOnlyReportedHours;
+         aP6_SDTEmployeeWeekReportCollection=this.AV24SDTEmployeeWeekReportCollection;
       }
 
       protected override void ExecutePrivate( )
@@ -285,13 +292,27 @@ namespace GeneXus.Programs {
                AV23SDTEmployeeWeekReport.gxTpr_Daylogreports = AV34SDT_DayLogReportCollection;
                if ( AV8ProjectIdCollection.Count == 0 )
                {
-                  AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
+                  /* Execute user subroutine: 'ADDEMPLOYEERECORD' */
+                  S111 ();
+                  if ( returnInSub )
+                  {
+                     pr_default.close(1);
+                     cleanup();
+                     if (true) return;
+                  }
                }
                else
                {
                   if ( ( AV8ProjectIdCollection.Count > 0 ) && ( AV21Total > 0 ) )
                   {
-                     AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
+                     /* Execute user subroutine: 'ADDEMPLOYEERECORD' */
+                     S111 ();
+                     if ( returnInSub )
+                     {
+                        pr_default.close(1);
+                        cleanup();
+                        if (true) return;
+                     }
                   }
                }
                /* Exit For each command. Update data (if necessary), close cursors & exit. */
@@ -303,6 +324,23 @@ namespace GeneXus.Programs {
          }
          pr_default.close(0);
          cleanup();
+      }
+
+      protected void S111( )
+      {
+         /* 'ADDEMPLOYEERECORD' Routine */
+         returnInSub = false;
+         if ( AV36ShowOnlyReportedHours )
+         {
+            if ( AV21Total > 0 )
+            {
+               AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
+            }
+         }
+         else
+         {
+            AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
+         }
       }
 
       public override void cleanup( )
@@ -391,8 +429,10 @@ namespace GeneXus.Programs {
       private DateTime AV10ToDate ;
       private DateTime GXt_date3 ;
       private DateTime GXt_date2 ;
+      private bool AV36ShowOnlyReportedHours ;
       private bool A112EmployeeIsActive ;
       private bool GXt_boolean6 ;
+      private bool returnInSub ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
       private DateTime aP0_FromDate ;
@@ -403,6 +443,7 @@ namespace GeneXus.Programs {
       private GxSimpleCollection<long> aP3_EmployeeIdCollection ;
       private GxSimpleCollection<long> AV8ProjectIdCollection ;
       private GxSimpleCollection<long> aP4_ProjectIdCollection ;
+      private bool aP5_ShowOnlyReportedHours ;
       private GXBaseCollection<SdtSDTEmployeeWeekReport> AV24SDTEmployeeWeekReportCollection ;
       private IDataStoreProvider pr_default ;
       private long[] P00BN2_A100CompanyId ;
@@ -416,7 +457,7 @@ namespace GeneXus.Programs {
       private SdtSDTEmployeeWeekReport AV23SDTEmployeeWeekReport ;
       private GXBaseCollection<SdtSDT_DayLogReport> AV34SDT_DayLogReportCollection ;
       private SdtSDT_DayLogReport AV35SDT_DayLogReport ;
-      private GXBaseCollection<SdtSDTEmployeeWeekReport> aP5_SDTEmployeeWeekReportCollection ;
+      private GXBaseCollection<SdtSDTEmployeeWeekReport> aP6_SDTEmployeeWeekReportCollection ;
    }
 
    public class prc_employeeweekreport__default : DataStoreHelperBase, IDataStoreHelper

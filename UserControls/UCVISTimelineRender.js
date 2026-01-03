@@ -69,7 +69,6 @@ function UCVISTimeline($) {
 							}
 						`
 						
-						
 						function formatDate(date) {
 							const year = `${date.getFullYear()}`.slice(-2);
 							const month = ('0' + (date.getMonth() + 1)).slice(-2); 

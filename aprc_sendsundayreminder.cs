@@ -125,7 +125,10 @@ namespace GeneXus.Programs {
             AV11ToDate = DateTimeUtil.DAdd( Gx_date, (-1));
             DateTimeUtil.DAdd( AV10FromDate, -8) ;
             GXt_objcol_SdtSDTEmployeeWeekReport1 = AV16SDTEmployeeWeekReports;
-            new prc_employeeweekreport(context ).execute( ref  AV10FromDate, ref  AV11ToDate, ref  AV12CompanyLocationIdCollection, ref  AV13EmployeeIdCollection, ref  AV14ProjectIdCollection, out  GXt_objcol_SdtSDTEmployeeWeekReport1) ;
+            GXt_boolean2 = (bool)(GXt_objcol_SdtSDTEmployeeWeekReport1);
+            GXt_objcol_SdtSDTEmployeeWeekReport3 = new GXBaseCollection<SdtSDTEmployeeWeekReport>();
+            new prc_employeeweekreport(context ).execute( ref  AV10FromDate, ref  AV11ToDate, ref  AV12CompanyLocationIdCollection, ref  AV13EmployeeIdCollection, ref  AV14ProjectIdCollection, ref  GXt_boolean2, out  GXt_objcol_SdtSDTEmployeeWeekReport3) ;
+            GXt_objcol_SdtSDTEmployeeWeekReport1 = GXt_boolean2;
             AV16SDTEmployeeWeekReports = GXt_objcol_SdtSDTEmployeeWeekReport1;
             AV9name = A107EmployeeFirstName;
             if ( AV16SDTEmployeeWeekReports.Count == 1 )
@@ -237,6 +240,7 @@ namespace GeneXus.Programs {
          AV16SDTEmployeeWeekReports = new GXBaseCollection<SdtSDTEmployeeWeekReport>( context, "SDTEmployeeWeekReport", "YTT_version4");
          GXt_objcol_SdtSDTEmployeeWeekReport1 = new GXBaseCollection<SdtSDTEmployeeWeekReport>( context, "SDTEmployeeWeekReport", "YTT_version4");
          AV14ProjectIdCollection = new GxSimpleCollection<long>();
+         GXt_objcol_SdtSDTEmployeeWeekReport3 = new GXBaseCollection<SdtSDTEmployeeWeekReport>( context, "SDTEmployeeWeekReport", "YTT_version4");
          AV9name = "";
          AV19SDTEmployeeWeekReport = new SdtSDTEmployeeWeekReport(context);
          AV24row = "";
@@ -279,6 +283,7 @@ namespace GeneXus.Programs {
       private DateTime AV10FromDate ;
       private bool entryPointCalled ;
       private bool returnInSub ;
+      private bool GXt_boolean2 ;
       private string A192EmailTemplateContent ;
       private string AV18EmailTemplateContent ;
       private string AV17Body ;
@@ -303,6 +308,7 @@ namespace GeneXus.Programs {
       private GXBaseCollection<SdtSDTEmployeeWeekReport> AV16SDTEmployeeWeekReports ;
       private GXBaseCollection<SdtSDTEmployeeWeekReport> GXt_objcol_SdtSDTEmployeeWeekReport1 ;
       private GxSimpleCollection<long> AV14ProjectIdCollection ;
+      private GXBaseCollection<SdtSDTEmployeeWeekReport> GXt_objcol_SdtSDTEmployeeWeekReport3 ;
       private SdtSDTEmployeeWeekReport AV19SDTEmployeeWeekReport ;
       private SdtSDT_DayLogReport AV22SDT_DayLogReport ;
    }
@@ -315,8 +321,8 @@ namespace GeneXus.Programs {
       {
          System.Text.StringBuilder sWhereString = new System.Text.StringBuilder();
          string scmdbuf;
-         short[] GXv_int2 = new short[1];
-         Object[] GXv_Object3 = new Object[2];
+         short[] GXv_int4 = new short[1];
+         Object[] GXv_Object5 = new Object[2];
          scmdbuf = "SELECT T1.CompanyId, T2.CompanyLocationId, T1.EmployeeId, T1.EmployeeFirstName, T1.EmployeeEmail FROM (Employee T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId)";
          if ( ! (0==AV28CompanyLocationId) )
          {
@@ -324,13 +330,13 @@ namespace GeneXus.Programs {
          }
          else
          {
-            GXv_int2[0] = 1;
+            GXv_int4[0] = 1;
          }
          scmdbuf += sWhereString;
          scmdbuf += " ORDER BY T1.EmployeeId";
-         GXv_Object3[0] = scmdbuf;
-         GXv_Object3[1] = GXv_int2;
-         return GXv_Object3 ;
+         GXv_Object5[0] = scmdbuf;
+         GXv_Object5[1] = GXv_int4;
+         return GXv_Object5 ;
       }
 
       public override Object [] getDynamicStatement( int cursor ,
