@@ -144,4 +144,7 @@
   <Object name="DBEmployeeHours_Filter1" id="0" type="Query" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DBEmployeeHours" xmlns="qv">
     <DefaultOutput type="OutputTypeTable" xmlns="qv" />
   </Object>
+  <Object name="DP_HourFilledStatusCollection" id="50" type="DataProvider" IntegratedSecurityLevel="SecurityHigh" PermissionPrefix="DP_HourFilledStatus" xmlns="qv">
+    <DefaultOutput type="OutputTypePivotTable" xmlns="qv" />
+  </Object>
 </Objects>

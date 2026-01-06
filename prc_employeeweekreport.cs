@@ -47,7 +47,7 @@ namespace GeneXus.Programs {
                            ref GxSimpleCollection<long> aP2_CompanyLocationIdCollection ,
                            ref GxSimpleCollection<long> aP3_EmployeeIdCollection ,
                            ref GxSimpleCollection<long> aP4_ProjectIdCollection ,
-                           ref bool aP5_ShowOnlyReportedHours ,
+                           ref short aP5_FilledStatus ,
                            out GXBaseCollection<SdtSDTEmployeeWeekReport> aP6_SDTEmployeeWeekReportCollection )
       {
          this.AV11FromDate = aP0_FromDate;
@@ -55,7 +55,7 @@ namespace GeneXus.Programs {
          this.AV32CompanyLocationIdCollection = aP2_CompanyLocationIdCollection;
          this.AV12EmployeeIdCollection = aP3_EmployeeIdCollection;
          this.AV8ProjectIdCollection = aP4_ProjectIdCollection;
-         this.AV36ShowOnlyReportedHours = aP5_ShowOnlyReportedHours;
+         this.AV37FilledStatus = aP5_FilledStatus;
          this.AV24SDTEmployeeWeekReportCollection = new GXBaseCollection<SdtSDTEmployeeWeekReport>( context, "SDTEmployeeWeekReport", "YTT_version4") ;
          initialize();
          ExecuteImpl();
@@ -64,7 +64,7 @@ namespace GeneXus.Programs {
          aP2_CompanyLocationIdCollection=this.AV32CompanyLocationIdCollection;
          aP3_EmployeeIdCollection=this.AV12EmployeeIdCollection;
          aP4_ProjectIdCollection=this.AV8ProjectIdCollection;
-         aP5_ShowOnlyReportedHours=this.AV36ShowOnlyReportedHours;
+         aP5_FilledStatus=this.AV37FilledStatus;
          aP6_SDTEmployeeWeekReportCollection=this.AV24SDTEmployeeWeekReportCollection;
       }
 
@@ -73,9 +73,9 @@ namespace GeneXus.Programs {
                                                                     ref GxSimpleCollection<long> aP2_CompanyLocationIdCollection ,
                                                                     ref GxSimpleCollection<long> aP3_EmployeeIdCollection ,
                                                                     ref GxSimpleCollection<long> aP4_ProjectIdCollection ,
-                                                                    ref bool aP5_ShowOnlyReportedHours )
+                                                                    ref short aP5_FilledStatus )
       {
-         execute(ref aP0_FromDate, ref aP1_ToDate, ref aP2_CompanyLocationIdCollection, ref aP3_EmployeeIdCollection, ref aP4_ProjectIdCollection, ref aP5_ShowOnlyReportedHours, out aP6_SDTEmployeeWeekReportCollection);
+         execute(ref aP0_FromDate, ref aP1_ToDate, ref aP2_CompanyLocationIdCollection, ref aP3_EmployeeIdCollection, ref aP4_ProjectIdCollection, ref aP5_FilledStatus, out aP6_SDTEmployeeWeekReportCollection);
          return AV24SDTEmployeeWeekReportCollection ;
       }
 
@@ -84,7 +84,7 @@ namespace GeneXus.Programs {
                                  ref GxSimpleCollection<long> aP2_CompanyLocationIdCollection ,
                                  ref GxSimpleCollection<long> aP3_EmployeeIdCollection ,
                                  ref GxSimpleCollection<long> aP4_ProjectIdCollection ,
-                                 ref bool aP5_ShowOnlyReportedHours ,
+                                 ref short aP5_FilledStatus ,
                                  out GXBaseCollection<SdtSDTEmployeeWeekReport> aP6_SDTEmployeeWeekReportCollection )
       {
          this.AV11FromDate = aP0_FromDate;
@@ -92,7 +92,7 @@ namespace GeneXus.Programs {
          this.AV32CompanyLocationIdCollection = aP2_CompanyLocationIdCollection;
          this.AV12EmployeeIdCollection = aP3_EmployeeIdCollection;
          this.AV8ProjectIdCollection = aP4_ProjectIdCollection;
-         this.AV36ShowOnlyReportedHours = aP5_ShowOnlyReportedHours;
+         this.AV37FilledStatus = aP5_FilledStatus;
          this.AV24SDTEmployeeWeekReportCollection = new GXBaseCollection<SdtSDTEmployeeWeekReport>( context, "SDTEmployeeWeekReport", "YTT_version4") ;
          SubmitImpl();
          aP0_FromDate=this.AV11FromDate;
@@ -100,7 +100,7 @@ namespace GeneXus.Programs {
          aP2_CompanyLocationIdCollection=this.AV32CompanyLocationIdCollection;
          aP3_EmployeeIdCollection=this.AV12EmployeeIdCollection;
          aP4_ProjectIdCollection=this.AV8ProjectIdCollection;
-         aP5_ShowOnlyReportedHours=this.AV36ShowOnlyReportedHours;
+         aP5_FilledStatus=this.AV37FilledStatus;
          aP6_SDTEmployeeWeekReportCollection=this.AV24SDTEmployeeWeekReportCollection;
       }
 
@@ -330,9 +330,20 @@ namespace GeneXus.Programs {
       {
          /* 'ADDEMPLOYEERECORD' Routine */
          returnInSub = false;
-         if ( AV36ShowOnlyReportedHours )
+         if ( AV37FilledStatus == 0 )
          {
-            if ( AV21Total > 0 )
+            AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
+         }
+         else if ( AV37FilledStatus == 1 )
+         {
+            if ( AV21Total < AV22Expected )
+            {
+               AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
+            }
+         }
+         else if ( AV37FilledStatus == 2 )
+         {
+            if ( AV21Total == 0 )
             {
                AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
             }
@@ -393,6 +404,7 @@ namespace GeneXus.Programs {
          /* GeneXus formulas. */
       }
 
+      private short AV37FilledStatus ;
       private short A188EmployeeFTEHours ;
       private short AV18Sat ;
       private short AV21Total ;
@@ -429,7 +441,6 @@ namespace GeneXus.Programs {
       private DateTime AV10ToDate ;
       private DateTime GXt_date3 ;
       private DateTime GXt_date2 ;
-      private bool AV36ShowOnlyReportedHours ;
       private bool A112EmployeeIsActive ;
       private bool GXt_boolean6 ;
       private bool returnInSub ;
@@ -443,7 +454,7 @@ namespace GeneXus.Programs {
       private GxSimpleCollection<long> aP3_EmployeeIdCollection ;
       private GxSimpleCollection<long> AV8ProjectIdCollection ;
       private GxSimpleCollection<long> aP4_ProjectIdCollection ;
-      private bool aP5_ShowOnlyReportedHours ;
+      private short aP5_FilledStatus ;
       private GXBaseCollection<SdtSDTEmployeeWeekReport> AV24SDTEmployeeWeekReportCollection ;
       private IDataStoreProvider pr_default ;
       private long[] P00BN2_A100CompanyId ;
