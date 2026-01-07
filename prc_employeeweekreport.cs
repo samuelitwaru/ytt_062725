@@ -334,16 +334,16 @@ namespace GeneXus.Programs {
          {
             AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
          }
-         else if ( AV37FilledStatus == 1 )
+         else if ( AV37FilledStatus == 2 )
          {
-            if ( AV21Total < AV22Expected )
+            if ( ( AV21Total == 0 ) && ( AV21Total < AV22Expected ) )
             {
                AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
             }
          }
-         else if ( AV37FilledStatus == 2 )
+         else if ( AV37FilledStatus == 1 )
          {
-            if ( AV21Total == 0 )
+            if ( AV21Total < AV22Expected )
             {
                AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
             }
