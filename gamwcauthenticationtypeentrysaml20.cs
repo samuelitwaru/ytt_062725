@@ -3096,7 +3096,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513484976", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026182293668", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -3112,7 +3112,7 @@ namespace GeneXus.Programs {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("gamwcauthenticationtypeentrysaml20.js", "?202572513484976", false, true);
+         context.AddJavascriptSource("gamwcauthenticationtypeentrysaml20.js", "?2026182293669", false, true);
          context.AddJavascriptSource("shared/HistoryManager/HistoryManager.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/json2005.js", "", false, true);
          context.AddJavascriptSource("shared/HistoryManager/rsh/rsh.js", "", false, true);

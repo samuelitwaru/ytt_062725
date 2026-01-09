@@ -91,15 +91,23 @@ namespace GeneXus.Programs {
             A130LeaveRequestEndDate = P00AM2_A130LeaveRequestEndDate[0];
             A129LeaveRequestStartDate = P00AM2_A129LeaveRequestStartDate[0];
             A106EmployeeId = P00AM2_A106EmployeeId[0];
+            A171LeaveRequestHalfDay = P00AM2_A171LeaveRequestHalfDay[0];
+            n171LeaveRequestHalfDay = P00AM2_n171LeaveRequestHalfDay[0];
             A131LeaveRequestDuration = P00AM2_A131LeaveRequestDuration[0];
             A127LeaveRequestId = P00AM2_A127LeaveRequestId[0];
             A144LeaveTypeVacationLeave = P00AM2_A144LeaveTypeVacationLeave[0];
             if ( ( DateTimeUtil.ResetTime ( A129LeaveRequestStartDate ) < DateTimeUtil.ResetTime ( AV10DateFrom ) ) && ( DateTimeUtil.ResetTime ( A130LeaveRequestEndDate ) <= DateTimeUtil.ResetTime ( AV9DateTo ) ) )
             {
+               GXt_decimal1 = AV19ExceptDays;
+               new prc_getleaverequestdays(context ).execute(  AV10DateFrom,  A130LeaveRequestEndDate,  A171LeaveRequestHalfDay,  AV11EmployeeId, out  GXt_decimal1) ;
+               AV19ExceptDays = GXt_decimal1;
                AV17Days = (decimal)(AV17Days+AV19ExceptDays);
             }
             else if ( ( DateTimeUtil.ResetTime ( A129LeaveRequestStartDate ) >= DateTimeUtil.ResetTime ( AV10DateFrom ) ) && ( DateTimeUtil.ResetTime ( A130LeaveRequestEndDate ) > DateTimeUtil.ResetTime ( AV9DateTo ) ) )
             {
+               GXt_decimal1 = AV19ExceptDays;
+               new prc_getleaverequestdays(context ).execute(  A129LeaveRequestStartDate,  AV9DateTo,  A171LeaveRequestHalfDay,  AV11EmployeeId, out  GXt_decimal1) ;
+               AV19ExceptDays = GXt_decimal1;
                AV17Days = (decimal)(AV17Days+AV19ExceptDays);
             }
             else
@@ -130,16 +138,19 @@ namespace GeneXus.Programs {
          P00AM2_A130LeaveRequestEndDate = new DateTime[] {DateTime.MinValue} ;
          P00AM2_A129LeaveRequestStartDate = new DateTime[] {DateTime.MinValue} ;
          P00AM2_A106EmployeeId = new long[1] ;
+         P00AM2_A171LeaveRequestHalfDay = new string[] {""} ;
+         P00AM2_n171LeaveRequestHalfDay = new bool[] {false} ;
          P00AM2_A131LeaveRequestDuration = new decimal[1] ;
          P00AM2_A127LeaveRequestId = new long[1] ;
          A144LeaveTypeVacationLeave = "";
          A132LeaveRequestStatus = "";
          A130LeaveRequestEndDate = DateTime.MinValue;
          A129LeaveRequestStartDate = DateTime.MinValue;
+         A171LeaveRequestHalfDay = "";
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.prc_getemployeeapprovedvacationdays__default(),
             new Object[][] {
                 new Object[] {
-               P00AM2_A124LeaveTypeId, P00AM2_A144LeaveTypeVacationLeave, P00AM2_A132LeaveRequestStatus, P00AM2_A130LeaveRequestEndDate, P00AM2_A129LeaveRequestStartDate, P00AM2_A106EmployeeId, P00AM2_A131LeaveRequestDuration, P00AM2_A127LeaveRequestId
+               P00AM2_A124LeaveTypeId, P00AM2_A144LeaveTypeVacationLeave, P00AM2_A132LeaveRequestStatus, P00AM2_A130LeaveRequestEndDate, P00AM2_A129LeaveRequestStartDate, P00AM2_A106EmployeeId, P00AM2_A171LeaveRequestHalfDay, P00AM2_n171LeaveRequestHalfDay, P00AM2_A131LeaveRequestDuration, P00AM2_A127LeaveRequestId
                }
             }
          );
@@ -153,12 +164,15 @@ namespace GeneXus.Programs {
       private decimal AV17Days ;
       private decimal A131LeaveRequestDuration ;
       private decimal AV19ExceptDays ;
+      private decimal GXt_decimal1 ;
       private string A144LeaveTypeVacationLeave ;
       private string A132LeaveRequestStatus ;
+      private string A171LeaveRequestHalfDay ;
       private DateTime AV10DateFrom ;
       private DateTime AV9DateTo ;
       private DateTime A130LeaveRequestEndDate ;
       private DateTime A129LeaveRequestStartDate ;
+      private bool n171LeaveRequestHalfDay ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
       private IDataStoreProvider pr_default ;
@@ -168,6 +182,8 @@ namespace GeneXus.Programs {
       private DateTime[] P00AM2_A130LeaveRequestEndDate ;
       private DateTime[] P00AM2_A129LeaveRequestStartDate ;
       private long[] P00AM2_A106EmployeeId ;
+      private string[] P00AM2_A171LeaveRequestHalfDay ;
+      private bool[] P00AM2_n171LeaveRequestHalfDay ;
       private decimal[] P00AM2_A131LeaveRequestDuration ;
       private long[] P00AM2_A127LeaveRequestId ;
       private decimal aP3_Days ;
@@ -195,7 +211,7 @@ namespace GeneXus.Programs {
           new ParDef("AV10DateFrom",GXType.Date,8,0)
           };
           def= new CursorDef[] {
-              new CursorDef("P00AM2", "SELECT T1.LeaveTypeId, T2.LeaveTypeVacationLeave, T1.LeaveRequestStatus, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T1.EmployeeId, T1.LeaveRequestDuration, T1.LeaveRequestId FROM (LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId) WHERE (T1.EmployeeId = :AV11EmployeeId) AND (T1.LeaveRequestStartDate < :AV9DateTo and T1.LeaveRequestEndDate > :AV10DateFrom) AND (T1.LeaveRequestStatus = ( 'Approved')) AND (T2.LeaveTypeVacationLeave = ( 'Yes')) ORDER BY T1.EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00AM2,100, GxCacheFrequency.OFF ,false,false )
+              new CursorDef("P00AM2", "SELECT T1.LeaveTypeId, T2.LeaveTypeVacationLeave, T1.LeaveRequestStatus, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T1.EmployeeId, T1.LeaveRequestHalfDay, T1.LeaveRequestDuration, T1.LeaveRequestId FROM (LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId) WHERE (T1.EmployeeId = :AV11EmployeeId) AND (T1.LeaveRequestStartDate < :AV9DateTo and T1.LeaveRequestEndDate > :AV10DateFrom) AND (T1.LeaveRequestStatus = ( 'Approved')) AND (T2.LeaveTypeVacationLeave = ( 'Yes')) ORDER BY T1.EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00AM2,100, GxCacheFrequency.OFF ,true,false )
           };
        }
     }
@@ -213,8 +229,10 @@ namespace GeneXus.Programs {
                 ((DateTime[]) buf[3])[0] = rslt.getGXDate(4);
                 ((DateTime[]) buf[4])[0] = rslt.getGXDate(5);
                 ((long[]) buf[5])[0] = rslt.getLong(6);
-                ((decimal[]) buf[6])[0] = rslt.getDecimal(7);
-                ((long[]) buf[7])[0] = rslt.getLong(8);
+                ((string[]) buf[6])[0] = rslt.getString(7, 20);
+                ((bool[]) buf[7])[0] = rslt.wasNull(7);
+                ((decimal[]) buf[8])[0] = rslt.getDecimal(8);
+                ((long[]) buf[9])[0] = rslt.getLong(9);
                 return;
        }
     }

@@ -1693,7 +1693,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513482722", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026182291413", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1711,7 +1711,7 @@ namespace GeneXus.Programs {
       {
          if ( nGXWrapped != 1 )
          {
-            context.AddJavascriptSource("testwebpanel.js", "?202572513482724", false, true);
+            context.AddJavascriptSource("testwebpanel.js", "?2026182291414", false, true);
             context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
             context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
             context.AddJavascriptSource("DVelop/DVPaginationBar/DVPaginationBarRender.js", "", false, true);

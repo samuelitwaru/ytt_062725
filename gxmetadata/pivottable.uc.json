@@ -1,0 +1,132 @@
+{
+	"Name": "PivotTable",
+	"Target": "",
+	"IsControlType": false,
+	"Template": "<style>	/* Freeze the last 3 columns */	td:nth-last-child(1), th:nth-last-child(1),	td:nth-last-child(2), th:nth-last-child(2),	td:nth-last-child(3), th:nth-last-child(3) {		position: sticky;		right: 0;		background-color: white; /* Adjust as needed */		/* z-index: 2; */		min-width:60px;	}	td:nth-last-child(1), th:nth-last-child(1) {		right: 0px; /* Adjust width according to column width */		margin-right:10px;	}	td:nth-last-child(2), th:nth-last-child(2) {		right: 60px; /* Adjust width according to column width */	}		td:nth-last-child(3), th:nth-last-child(3) {		right: 120px; /* Adjust width according to column width */	}</style><div id=\"print\" style=\"overflow:scroll; scrollbar-width:none; border: 1px solid #dddddd; margin-right:-3px;\">	<table class=\"my-sticky-column-table\">		<thead  style=\"position:sticky; top:0; z-index:0\">			<tr>				<th class=\'text-center\' style=\"position:sticky;left:0; background:white;\">Projects per employee:</th>				{{#SDTProjects}}				<th style=\"padding: 5px; background:#f5f5f5;\" scope=\"col\" class=\"text-center\"><a id=\'Project-{{Id}}\' style=\'cursor:pointer\' class=\'project\' >{{ProjectName}}</a></th>				{{/SDTProjects}}				{{ShowLeaveTotal?}}<th style=\"padding:5px; background:#f5f5f5;\" class=\"leave text-center\">Total Leave Hours</th><th style=\"padding:5px; background:#f5f5f5;\" class=\"leave text-center\">Total</th>{{/ShowLeaveTotal}}				<th style=\"background:#f5f5f5;\" class=\"work text-center\">Total Work Hours</th>			</tr>		</thead>						<tbody style=\'max-height:100px\'>			{{#SDTEmployeeProjectHoursCollection}}			<tr class=\"GridWithPaginationBar GridNoBorder WorkWithOdd text-center\">					<td style=\"font-weight: bold;background:#f5f5f5; position:sticky; left:0; z-index:1\" class=\'text-center\'><a href=\'\' {{Click}}>{{EmployeeName}}</a></td>								{{#SDTProjects}}				<td id=\'{{EmployeeId}}-{{Id}}\' class=\"text-center\"></td>				{{/SDTProjects}}								<td class=\"work text-center\" style=\"font-weight: bold;background:#f5f5f5;\'>					<span class=\"tag\" style=\"padding: 0.5rem; {{IsWorkTimeOptimal?}} background:#00a95c; color:white; border-radius:5px;{{/IsWorkTimeOptimal}}\">{{TotalFormattedTime}}</span>				</td>				{{ShowLeaveTotal?}}<td class=\"leave text-center\" style=\"font-weight: bold; background:#f5f5f5;\">{{TotalFormattedLeave}}</td>{{/ShowLeaveTotal}}				{{ShowLeaveTotal?}}<td class=\'leave\' style=\"font-weight: bold; background:#f5f5f5;\">{{FormattedTotal}}</td>{{/ShowLeaveTotal}}							</tr>			{{/SDTEmployeeProjectHoursCollection}}					</tbody>				<tfoot>			<tr class=\"GridWithPaginationBar GridNoBorder WorkWithOdd\">				<td style=\"font-weight: bold;background:#fff; position:sticky; left:0; z-index:1\">Total</td>				{{#SDTProjects}}				<td class=\"project-total text-center\" id=\'{{Id}}\' scope=\"col\">0</td>				{{/SDTProjects}}				<td id=\'totalWorkHours\' class=\"work text-center\" style=\'bold;background:#f5f5f5;\'>{{TotalFormattedWorkTime}}</td>				{{ShowLeaveTotal?}}<td class=\"leave text-center\" style=\'\'></td>{{/ShowLeaveTotal}}				{{ShowLeaveTotal?}}<td class=\"leave text-center\" style=\'\'>{{TotalFormattedTime}}</td>{{/ShowLeaveTotal}}							</tr>		<tfoot>			</table></div><script type=\"text/javascript\">    $(document).ready(function() {			$(window).on(\'resize\', function() {			// Your code here			var newHeight = $(window).height();			console.log(\"New height: \" + newHeight);			$(\'#print\').css(\"max-height\", newHeight-100)			// Perform actions based on the new height		});  });  </script>", 
+	"Events": [
+		{
+			"Name": "Click",
+			"On": "click",
+			"Parameters": ""
+		} ,
+		{
+			"Name": "ProjectClicked",
+			"On": "projectclicked",
+			"Parameters": ""
+		} 
+	],
+	"Properties": [
+		{
+			"Id": "SDTProjects",
+			"Name": "SDTProjects",
+			"Type": "sdt",
+			"Default": ""
+		} ,
+		{
+			"Id": "SDTProjectsCurrentIndex",
+			"Name": "SDTProjectsCurrentIndex",
+			"Type": "numeric",
+			"Default": ""
+		} ,
+		{
+			"Id": "SDTEmployeeProjectHoursCollection",
+			"Name": "SDTEmployeeProjectHoursCollection",
+			"Type": "sdt",
+			"Default": ""
+		} ,
+		{
+			"Id": "SDTEmployeeProjectHoursCollectionCurrentIndex",
+			"Name": "SDTEmployeeProjectHoursCollectionCurrentIndex",
+			"Type": "numeric",
+			"Default": ""
+		} ,
+		{
+			"Id": "ProjectHours",
+			"Name": "ProjectHours",
+			"Type": "sdt",
+			"Default": ""
+		} ,
+		{
+			"Id": "TotalFormattedWorkTime",
+			"Name": "TotalFormattedWorkTime",
+			"Type": "string",
+			"Default": ""
+		} ,
+		{
+			"Id": "TotalFormattedTime",
+			"Name": "TotalFormattedTime",
+			"Type": "string",
+			"Default": ""
+		} ,
+		{
+			"Id": "CurrentProject",
+			"Name": "CurrentProject",
+			"Type": "numeric",
+			"Default": ""
+		} ,
+		{
+			"Id": "ProjectHoursCurrentIndex",
+			"Name": "ProjectHoursCurrentIndex",
+			"Type": "numeric",
+			"Default": ""
+		} ,
+		{
+			"Id": "ShowLeaveTotal",
+			"Name": "ShowLeaveTotal",
+			"Type": "boolean",
+			"Default": ""
+		} 
+	],
+	"Methods": {
+		"Public": [
+			{
+				"Name": "Refresh",
+				"Source": "		this.SDTProjects = SDTProjects		this.SDTEmployeeProjectHoursCollection = SDTEmployeeProjectHoursCollection		this.show()		this.TotalFormattedWorkTime = this.TotalFormattedWorkTime	",
+				"Return": "",
+				"Parameters": [
+					 {
+						"Name": "SDTProjects",
+						"Type": "SDTProjects"
+					} ,
+					 {
+						"Name": "SDTEmployeeProjectHoursCollection",
+						"Type": "SDTEmployeeProjectHoursCollection"
+					} 
+				]
+			} ,
+			{
+				"Name": "GetLS",
+				"Source": "		return window.localStorage.get(\'Hello\')	",
+				"Return": "",
+				"Parameters": [
+				]
+			} ,
+			{
+				"Name": "toggleLeave",
+				"Source": "		var elements = document.getElementsByClassName(\"leave\");		var workElements = document.getElementsByClassName(\"work\");						for (var i = 0; i < elements.length; i++) {						if (this.ShowLeaveTotal==\'true\') {				elements[i].classList.remove(\"hidden\");				} else {				elements[i].classList.add(\"hidden\");			}		}			for (var i = 0; i < workElements.length; i++) {						if (this.ShowLeaveTotal==\'true\') {				workElements[i].style.right = 100			} else {				workElements[i].style.right = 0			}		}	",
+				"Return": "",
+				"Parameters": [
+				]
+			} 
+		],
+		"Private": [
+		]
+	},
+	"Scripts": {
+		"AfterShow": [
+			{
+				"Name": "Start",
+				"Source": "		const UC = this;		function formatMinutesToHHMM(minutes) {			var hours = Math.floor(minutes / 60);			var remainingMinutes = minutes % 60;			// Adding leading zeros if necessary			var formattedHours = hours < 10 ? \'0\' + hours : hours;			var formattedMinutes = remainingMinutes < 10 ? \'0\' + remainingMinutes : remainingMinutes;				return formattedHours + \':\' + formattedMinutes;		}			for (let i = 0; i < this.SDTEmployeeProjectHoursCollection.length; i++) {			var employee = this.SDTEmployeeProjectHoursCollection[i]			var employeeId = employee.EmployeeId			var projects = employee.ProjectHours									if (projects) {				for (let j=0; j < projects.length; j++) {					var project = projects[j]					var cell = document.getElementById(`${employeeId}-${project.ProjectId}`)					cell.innerHTML = project.ProjectFormattedTime					var totalCell = document.getElementById(`${project.ProjectId}`)					totalCell.innerHTML = parseInt(totalCell.innerHTML) + project.ProjectTime				}			}		}		var totalCells = document.getElementsByClassName(\'project-total\')		var totalWorkHours = 0		for (let i=0; i<totalCells.length;i++) {			var cell = totalCells[i]			var projectTime = parseInt(cell.innerHTML)			totalWorkHours += projectTime			cell.innerHTML = formatMinutesToHHMM(projectTime)			document.getElementById(\'totalWorkHours\').innerHTML = formatMinutesToHHMM(totalWorkHours)			this.TotalFormattedWorkTime = formatMinutesToHHMM(totalWorkHours)		}		this.toggleLeave()				var elements = document.getElementsByClassName(\'project\')		for (let i=0; i < elements.length; i++) {			var element = elements[i]			element.onclick = (event) => {				var projectId = parseInt(event.target.id.replace(\'Project-\',\'\'))				UC.CurrentProject = projectId				UC.ProjectClicked()			}		}			if (this.ShowLeaveTotal==\'false\'){			console.log(this.ShowLeaveTotal)		}			var newHeight = $(window).height();		$(\'#print\').css(\"max-height\", newHeight-100)	",
+				"AngularLocation": ""
+			} 
+		],
+		"BeforeShow": [
+		]
+	},
+	"Dependencies": [
+	],
+	"Imports": [
+	],
+	"Styles": [
+	]
+}

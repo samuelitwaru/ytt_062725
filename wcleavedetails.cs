@@ -1018,7 +1018,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202510616241043", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026182335883", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1036,7 +1036,7 @@ namespace GeneXus.Programs {
       {
          if ( nGXWrapped != 1 )
          {
-            context.AddJavascriptSource("wcleavedetails.js", "?202510616241043", false, true);
+            context.AddJavascriptSource("wcleavedetails.js", "?2026182335884", false, true);
          }
          /* End function include_jscripts */
       }

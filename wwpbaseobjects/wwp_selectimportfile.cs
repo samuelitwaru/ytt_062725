@@ -1216,7 +1216,7 @@ namespace GeneXus.Programs.wwpbaseobjects {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513482157", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026182291245", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1232,7 +1232,7 @@ namespace GeneXus.Programs.wwpbaseobjects {
 
       protected void include_jscripts( )
       {
-         context.AddJavascriptSource("wwpbaseobjects/wwp_selectimportfile.js", "?202572513482157", false, true);
+         context.AddJavascriptSource("wwpbaseobjects/wwp_selectimportfile.js", "?2026182291245", false, true);
          /* End function include_jscripts */
       }
 

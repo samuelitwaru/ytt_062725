@@ -1,0 +1,23 @@
+{ 
+    "Resources" : [ { 
+        "Language" : "English",
+        "Theme" : "WorkWithPlus.NativeMobile.WorkWithPlusDSNative",
+        "ResourceFile" : "Images_English_WorkWithPlus_NativeMobile_WorkWithPlusDSNative.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "WorkWithPlus.NativeMobile.WorkWithPlusPredefinedStyles",
+        "ResourceFile" : "Images_English_WorkWithPlus_NativeMobile_WorkWithPlusPredefinedStyles.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "WorkWithPlus.NativeMobile.WorkWithPlusDSFontIcons",
+        "ResourceFile" : "Images_English_WorkWithPlus_NativeMobile_WorkWithPlusDSFontIcons.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "YTTV3SD_DSAnyPlatform",
+        "ResourceFile" : "Images_English_YTTV3SD_DSAnyPlatform.json"
+    }, { 
+        "Language" : "English",
+        "Theme" : "YTTV3SD_DSApple",
+        "ResourceFile" : "Images_English_YTTV3SD_DSApple.json"
+    } ]
+}

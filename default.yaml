@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: "YTT_version4"
-  version: "20251218104846"
+  version: "20260108035603"
 servers:
   - url: http://localhost:8082/YTT_version4NETPostgreSQL14/rest
 paths:
@@ -1105,29 +1105,6 @@ paths:
           description: "Successful operation"
         404:
           description: "Not found"
-  /GetLeaveRequestDays:
-    post:
-      tags:
-        - GetLeaveRequestDays
-      operationId: "GetLeaveRequestDays"
-      summary: "Get Leave Request Days"
-      security: 
-        - oAuthGXGAM: []
-      requestBody:
-        required: false
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/GetLeaveRequestDaysInput"
-      responses:
-        200:
-          description: "Successful operation"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/GetLeaveRequestDaysOutput"
-        404:
-          description: "Not found"
   /GetLoggedInEmployeeId:
     post:
       tags:
@@ -1433,6 +1410,29 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Prc_ICSLeaveAPIOutput"
+        404:
+          description: "Not found"
+  /ProjectLoadDVCombo:
+    post:
+      tags:
+        - ProjectLoadDVCombo
+      operationId: "ProjectLoadDVCombo"
+      summary: "Project Load DVCombo"
+      security: 
+        - oAuthGXGAM: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectLoadDVComboInput"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProjectLoadDVComboOutput"
         404:
           description: "Not found"
   /ProjectWWGetFilterData:
@@ -3615,11 +3615,6 @@ components:
       properties:
         Continue:
           type: "boolean"
-    GetLeaveRequestDaysOutput:
-      properties:
-        FinalDuration:
-          type: "number"
-          format: "double"
     GetLoggedInEmployeeIdOutput:
       properties:
         EmployeeId:
@@ -3714,6 +3709,14 @@ components:
     Prc_ICSLeaveAPIOutput:
       properties:
         ICSLeaveExport:
+          type: "string"
+    ProjectLoadDVComboOutput:
+      properties:
+        SelectedValue:
+          type: "string"
+        SelectedText:
+          type: "string"
+        Combo_DataJson:
           type: "string"
     ProjectWWGetFilterDataOutput:
       properties:
@@ -4122,19 +4125,6 @@ components:
           type: "string"
         DeviceName:
           type: "string"
-    GetLeaveRequestDaysInput:  
-      properties:
-        StartDate:
-          type: "string"
-          format: "date"
-        EndDate:
-          type: "string"
-          format: "date"
-        LeaveRequestHalfDay:
-          type: "string"
-        EmployeeId:
-          type: "integer"
-          format: "int64"
     GetWeeklyHoursInput:  
       properties:
         WeekDate:
@@ -4224,6 +4214,19 @@ components:
         EmployeeId:
           type: "integer"
           format: "int64"
+    ProjectLoadDVComboInput:  
+      properties:
+        ComboName:
+          type: "string"
+        TrnMode:
+          type: "string"
+        IsDynamicCall:
+          type: "boolean"
+        ProjectId:
+          type: "integer"
+          format: "int64"
+        SearchTxtParms:
+          type: "string"
     ProjectWWGetFilterDataInput:  
       properties:
         DDOName:

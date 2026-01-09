@@ -688,7 +688,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202572513593796", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026182462095", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -706,7 +706,7 @@ namespace GeneXus.Programs {
          if ( nGXWrapped != 1 )
          {
             context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-            context.AddJavascriptSource("wpemployeehours.js", "?202572513593797", false, true);
+            context.AddJavascriptSource("wpemployeehours.js", "?2026182462095", false, true);
             context.AddJavascriptSource("DashboardViewer/../QueryViewer/QueryViewerRender.js", "", false, true);
             context.AddJavascriptSource("DashboardViewer/../QueryViewer/QueryViewerCommon.js", "", false, true);
             context.AddJavascriptSource("DashboardViewer/BrowserLayoutRender.js", "", false, true);

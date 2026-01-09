@@ -78,6 +78,7 @@ namespace GeneXus.Programs {
          while ( (pr_default.getStatus(0) != 101) )
          {
             A106EmployeeId = P00AO2_A106EmployeeId[0];
+            A148EmployeeName = P00AO2_A148EmployeeName[0];
             AV13VacationSetDays = 0;
             /* Optimized group. */
             /* Using cursor P00AO3 */
@@ -89,11 +90,13 @@ namespace GeneXus.Programs {
             GXt_decimal1 = AV12VacationDays;
             new prc_getemployeeapprovedvacationdays(context ).execute(  A106EmployeeId,  context.localUtil.YMDToD( AV11Year, 1, 1),  context.localUtil.YMDToD( AV11Year, 12, 31), out  GXt_decimal1) ;
             AV12VacationDays = GXt_decimal1;
+            new logtofile(context ).execute(  StringUtil.Trim( A148EmployeeName)+" &VacationDays: "+StringUtil.Str( AV12VacationDays, 4, 1)) ;
             /* Exiting from a For First loop. */
             if (true) break;
          }
          pr_default.close(0);
          AV10EmployeeBalance = (decimal)(AV13VacationSetDays-AV12VacationDays);
+         new logtofile(context ).execute(  "&EmployeeBalance: "+StringUtil.Str( AV10EmployeeBalance, 4, 1)) ;
          cleanup();
       }
 
@@ -110,11 +113,13 @@ namespace GeneXus.Programs {
       public override void initialize( )
       {
          P00AO2_A106EmployeeId = new long[1] ;
+         P00AO2_A148EmployeeName = new string[] {""} ;
+         A148EmployeeName = "";
          P00AO3_A179VacationSetDays = new decimal[1] ;
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.prc_getemployeebalance__default(),
             new Object[][] {
                 new Object[] {
-               P00AO2_A106EmployeeId
+               P00AO2_A106EmployeeId, P00AO2_A148EmployeeName
                }
                , new Object[] {
                P00AO3_A179VacationSetDays
@@ -132,10 +137,12 @@ namespace GeneXus.Programs {
       private decimal c179VacationSetDays ;
       private decimal AV12VacationDays ;
       private decimal GXt_decimal1 ;
+      private string A148EmployeeName ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
       private IDataStoreProvider pr_default ;
       private long[] P00AO2_A106EmployeeId ;
+      private string[] P00AO2_A148EmployeeName ;
       private decimal[] P00AO3_A179VacationSetDays ;
       private decimal aP1_EmployeeBalance ;
    }
@@ -166,7 +173,7 @@ namespace GeneXus.Programs {
           new ParDef("AV11Year",GXType.Int16,4,0)
           };
           def= new CursorDef[] {
-              new CursorDef("P00AO2", "SELECT EmployeeId FROM Employee WHERE EmployeeId = :AV8EmployeeId ORDER BY EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00AO2,1, GxCacheFrequency.OFF ,true,true )
+              new CursorDef("P00AO2", "SELECT EmployeeId, EmployeeName FROM Employee WHERE EmployeeId = :AV8EmployeeId ORDER BY EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00AO2,1, GxCacheFrequency.OFF ,true,true )
              ,new CursorDef("P00AO3", "SELECT SUM(VacationSetDays) FROM EmployeeVacationSet WHERE (EmployeeId = :EmployeeId) AND (date_part('year', VacationSetDate) = :AV11Year) ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmP00AO3,1, GxCacheFrequency.OFF ,true,false )
           };
        }
@@ -180,6 +187,7 @@ namespace GeneXus.Programs {
        {
              case 0 :
                 ((long[]) buf[0])[0] = rslt.getLong(1);
+                ((string[]) buf[1])[0] = rslt.getString(2, 100);
                 return;
              case 1 :
                 ((decimal[]) buf[0])[0] = rslt.getDecimal(1);
