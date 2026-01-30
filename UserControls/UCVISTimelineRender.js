@@ -61,14 +61,13 @@ function UCVISTimeline($) {
 
 					try {			
 						const style = document.createElement('style');
-						
 						// append holiday styling
 						var styleString = `
 							.vis-item.vis-background.holiday {
 								background-color: #faf2cc80;
 							}
 						`
-						
+
 						
 						function formatDate(date) {
 							const year = `${date.getFullYear()}`.slice(-2);
@@ -125,6 +124,7 @@ function UCVISTimeline($) {
 								scale: 'day',
 								step: 1
 							},
+					
 							showWeekScale: true,
 							start: this.startDate,
 							end: this.stopDate,

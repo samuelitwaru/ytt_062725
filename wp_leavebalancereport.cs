@@ -375,6 +375,7 @@ namespace GeneXus.Programs {
          }
          GxWebStd.gx_hidden_field( context, "EMPLOYEEID", StringUtil.LTrim( StringUtil.NToC( (decimal)(A106EmployeeId), 10, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "VACATIONSETDATE", context.localUtil.DToC( A186VacationSetDate, 0, "/"));
+         GxWebStd.gx_boolean_hidden_field( context, "EMPLOYEEISACTIVE", A112EmployeeIsActive);
          GxWebStd.gx_hidden_field( context, "COMPANYID", StringUtil.LTrim( StringUtil.NToC( (decimal)(A100CompanyId), 10, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "VACATIONSETDESCRIPTION", A189VacationSetDescription);
          GxWebStd.gx_hidden_field( context, "VACATIONSETDAYS", StringUtil.LTrim( StringUtil.NToC( A179VacationSetDays, 4, 1, ".", "")));
@@ -1568,6 +1569,7 @@ namespace GeneXus.Programs {
             pr_default.execute(1, new Object[] {AV65Udparg2});
             while ( (pr_default.getStatus(1) != 101) )
             {
+               A112EmployeeIsActive = H005E3_A112EmployeeIsActive[0];
                A100CompanyId = H005E3_A100CompanyId[0];
                A106EmployeeId = H005E3_A106EmployeeId[0];
                AV43EmployeeIdsToShow.Add(A106EmployeeId, 0);
@@ -1893,6 +1895,7 @@ namespace GeneXus.Programs {
          {
             A106EmployeeId = H005E6_A106EmployeeId[0];
             A146EmployeeVactionDays = H005E6_A146EmployeeVactionDays[0];
+            A112EmployeeIsActive = H005E6_A112EmployeeIsActive[0];
             A100CompanyId = H005E6_A100CompanyId[0];
             AV36CompanyId = A100CompanyId;
             AssignAttri("", false, "AV36CompanyId", StringUtil.LTrimStr( (decimal)(AV36CompanyId), 10, 0));
@@ -2103,7 +2106,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202619649570", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20261310101719", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2119,7 +2122,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("wp_leavebalancereport.js", "?202619649570", false, true);
+         context.AddJavascriptSource("wp_leavebalancereport.js", "?20261310101720", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2565,13 +2568,13 @@ namespace GeneXus.Programs {
          setEventMetadata("GRIDPAGINATIONBAR.CHANGEROWSPERPAGE","""{"handler":"E135E2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43},{"av":"AV38Year","fld":"vYEAR","pic":"ZZZ9","hsh":true},{"av":"Gridpaginationbar_Rowsperpageselectedvalue","ctrl":"GRIDPAGINATIONBAR","prop":"RowsPerPageSelectedValue"}]""");
          setEventMetadata("GRIDPAGINATIONBAR.CHANGEROWSPERPAGE",""","oparms":[{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"}]}""");
          setEventMetadata("VUSERACTION1.CLICK","""{"handler":"E215E2","iparms":[]}""");
-         setEventMetadata("DVELOP_CONFIRMPANEL_USERACTION1.CLOSE","""{"handler":"E145E2","iparms":[{"av":"Dvelop_confirmpanel_useraction1_Result","ctrl":"DVELOP_CONFIRMPANEL_USERACTION1","prop":"Result"},{"av":"A106EmployeeId","fld":"EMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"AV50EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZ9"},{"av":"A186VacationSetDate","fld":"VACATIONSETDATE"},{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"GRID_nFirstRecordOnPage"},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9"},{"av":"AV38Year","fld":"vYEAR","pic":"ZZZ9","hsh":true},{"av":"A189VacationSetDescription","fld":"VACATIONSETDESCRIPTION"},{"av":"A179VacationSetDays","fld":"VACATIONSETDAYS","pic":"Z9.9"},{"av":"A146EmployeeVactionDays","fld":"EMPLOYEEVACTIONDAYS","pic":"Z9.9"},{"av":"A132LeaveRequestStatus","fld":"LEAVEREQUESTSTATUS"},{"av":"A144LeaveTypeVacationLeave","fld":"LEAVETYPEVACATIONLEAVE"},{"av":"A145LeaveTypeLoggingWorkHours","fld":"LEAVETYPELOGGINGWORKHOURS"},{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"A131LeaveRequestDuration","fld":"LEAVEREQUESTDURATION","pic":"Z9.9"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"},{"av":"A133LeaveRequestDescription","fld":"LEAVEREQUESTDESCRIPTION"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A116HolidayEndDate","fld":"HOLIDAYENDDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"}]""");
+         setEventMetadata("DVELOP_CONFIRMPANEL_USERACTION1.CLOSE","""{"handler":"E145E2","iparms":[{"av":"Dvelop_confirmpanel_useraction1_Result","ctrl":"DVELOP_CONFIRMPANEL_USERACTION1","prop":"Result"},{"av":"A106EmployeeId","fld":"EMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"AV50EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZ9"},{"av":"A186VacationSetDate","fld":"VACATIONSETDATE"},{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"GRID_nFirstRecordOnPage"},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43},{"av":"A112EmployeeIsActive","fld":"EMPLOYEEISACTIVE"},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9"},{"av":"AV38Year","fld":"vYEAR","pic":"ZZZ9","hsh":true},{"av":"A189VacationSetDescription","fld":"VACATIONSETDESCRIPTION"},{"av":"A179VacationSetDays","fld":"VACATIONSETDAYS","pic":"Z9.9"},{"av":"A146EmployeeVactionDays","fld":"EMPLOYEEVACTIONDAYS","pic":"Z9.9"},{"av":"A132LeaveRequestStatus","fld":"LEAVEREQUESTSTATUS"},{"av":"A144LeaveTypeVacationLeave","fld":"LEAVETYPEVACATIONLEAVE"},{"av":"A145LeaveTypeLoggingWorkHours","fld":"LEAVETYPELOGGINGWORKHOURS"},{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"A131LeaveRequestDuration","fld":"LEAVEREQUESTDURATION","pic":"Z9.9"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"},{"av":"A133LeaveRequestDescription","fld":"LEAVEREQUESTDESCRIPTION"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A116HolidayEndDate","fld":"HOLIDAYENDDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"}]""");
          setEventMetadata("DVELOP_CONFIRMPANEL_USERACTION1.CLOSE",""","oparms":[{"av":"AV37EmployeeBalance","fld":"vEMPLOYEEBALANCE","pic":"Z9.9"},{"av":"AV54Balance","fld":"vBALANCE","pic":"ZZZ9"},{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"GRID_nFirstRecordOnPage"},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43},{"av":"AV36CompanyId","fld":"vCOMPANYID","pic":"ZZZZZZZZZ9"}]}""");
          setEventMetadata("'DOSETVACATIONDAYSBTN'","""{"handler":"E165E2","iparms":[]""");
          setEventMetadata("'DOSETVACATIONDAYSBTN'",""","oparms":[{"av":"Gx_mode","fld":"vMODE","pic":"@!"},{"av":"AV48EmployeeVacationDaysSetDate","fld":"vEMPLOYEEVACATIONDAYSSETDATE"}]}""");
-         setEventMetadata("SETVACATIONDAYSBTN_MODAL.CLOSE","""{"handler":"E155E2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43},{"av":"AV38Year","fld":"vYEAR","pic":"ZZZ9","hsh":true},{"av":"AV50EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZ9"},{"av":"A106EmployeeId","fld":"EMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9"},{"av":"A186VacationSetDate","fld":"VACATIONSETDATE"},{"av":"A189VacationSetDescription","fld":"VACATIONSETDESCRIPTION"},{"av":"A179VacationSetDays","fld":"VACATIONSETDAYS","pic":"Z9.9"},{"av":"A146EmployeeVactionDays","fld":"EMPLOYEEVACTIONDAYS","pic":"Z9.9"},{"av":"A132LeaveRequestStatus","fld":"LEAVEREQUESTSTATUS"},{"av":"A144LeaveTypeVacationLeave","fld":"LEAVETYPEVACATIONLEAVE"},{"av":"A145LeaveTypeLoggingWorkHours","fld":"LEAVETYPELOGGINGWORKHOURS"},{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"A131LeaveRequestDuration","fld":"LEAVEREQUESTDURATION","pic":"Z9.9"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"},{"av":"A133LeaveRequestDescription","fld":"LEAVEREQUESTDESCRIPTION"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A116HolidayEndDate","fld":"HOLIDAYENDDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"}]""");
+         setEventMetadata("SETVACATIONDAYSBTN_MODAL.CLOSE","""{"handler":"E155E2","iparms":[{"av":"GRID_nFirstRecordOnPage"},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"},{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43},{"av":"AV38Year","fld":"vYEAR","pic":"ZZZ9","hsh":true},{"av":"AV50EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZ9"},{"av":"A106EmployeeId","fld":"EMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"A112EmployeeIsActive","fld":"EMPLOYEEISACTIVE"},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9"},{"av":"A186VacationSetDate","fld":"VACATIONSETDATE"},{"av":"A189VacationSetDescription","fld":"VACATIONSETDESCRIPTION"},{"av":"A179VacationSetDays","fld":"VACATIONSETDAYS","pic":"Z9.9"},{"av":"A146EmployeeVactionDays","fld":"EMPLOYEEVACTIONDAYS","pic":"Z9.9"},{"av":"A132LeaveRequestStatus","fld":"LEAVEREQUESTSTATUS"},{"av":"A144LeaveTypeVacationLeave","fld":"LEAVETYPEVACATIONLEAVE"},{"av":"A145LeaveTypeLoggingWorkHours","fld":"LEAVETYPELOGGINGWORKHOURS"},{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"A131LeaveRequestDuration","fld":"LEAVEREQUESTDURATION","pic":"Z9.9"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"},{"av":"A133LeaveRequestDescription","fld":"LEAVEREQUESTDESCRIPTION"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A116HolidayEndDate","fld":"HOLIDAYENDDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"}]""");
          setEventMetadata("SETVACATIONDAYSBTN_MODAL.CLOSE",""","oparms":[{"av":"AV37EmployeeBalance","fld":"vEMPLOYEEBALANCE","pic":"Z9.9"},{"av":"AV54Balance","fld":"vBALANCE","pic":"ZZZ9"},{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"GRID_nFirstRecordOnPage"},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43},{"av":"AV36CompanyId","fld":"vCOMPANYID","pic":"ZZZZZZZZZ9"},{"av":"AV27GridCurrentPage","fld":"vGRIDCURRENTPAGE","pic":"ZZZZZZZZZ9"},{"av":"AV28GridPageCount","fld":"vGRIDPAGECOUNT","pic":"ZZZZZZZZZ9"},{"ctrl":"BTNSETVACATIONDAYSBTN","prop":"Visible"}]}""");
-         setEventMetadata("COMBO_EMPLOYEEID.ONOPTIONCLICKED","""{"handler":"E115E2","iparms":[{"av":"Combo_employeeid_Selectedvalue_get","ctrl":"COMBO_EMPLOYEEID","prop":"SelectedValue_get"},{"av":"AV50EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZ9"},{"av":"A106EmployeeId","fld":"EMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9"},{"av":"A186VacationSetDate","fld":"VACATIONSETDATE"},{"av":"AV38Year","fld":"vYEAR","pic":"ZZZ9","hsh":true},{"av":"A189VacationSetDescription","fld":"VACATIONSETDESCRIPTION"},{"av":"A179VacationSetDays","fld":"VACATIONSETDAYS","pic":"Z9.9"},{"av":"A146EmployeeVactionDays","fld":"EMPLOYEEVACTIONDAYS","pic":"Z9.9"},{"av":"A132LeaveRequestStatus","fld":"LEAVEREQUESTSTATUS"},{"av":"A144LeaveTypeVacationLeave","fld":"LEAVETYPEVACATIONLEAVE"},{"av":"A145LeaveTypeLoggingWorkHours","fld":"LEAVETYPELOGGINGWORKHOURS"},{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"A131LeaveRequestDuration","fld":"LEAVEREQUESTDURATION","pic":"Z9.9"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"},{"av":"A133LeaveRequestDescription","fld":"LEAVEREQUESTDESCRIPTION"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A116HolidayEndDate","fld":"HOLIDAYENDDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"GRID_nFirstRecordOnPage"},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"}]""");
+         setEventMetadata("COMBO_EMPLOYEEID.ONOPTIONCLICKED","""{"handler":"E115E2","iparms":[{"av":"Combo_employeeid_Selectedvalue_get","ctrl":"COMBO_EMPLOYEEID","prop":"SelectedValue_get"},{"av":"AV50EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZ9"},{"av":"A106EmployeeId","fld":"EMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"A112EmployeeIsActive","fld":"EMPLOYEEISACTIVE"},{"av":"A100CompanyId","fld":"COMPANYID","pic":"ZZZZZZZZZ9"},{"av":"A186VacationSetDate","fld":"VACATIONSETDATE"},{"av":"AV38Year","fld":"vYEAR","pic":"ZZZ9","hsh":true},{"av":"A189VacationSetDescription","fld":"VACATIONSETDESCRIPTION"},{"av":"A179VacationSetDays","fld":"VACATIONSETDAYS","pic":"Z9.9"},{"av":"A146EmployeeVactionDays","fld":"EMPLOYEEVACTIONDAYS","pic":"Z9.9"},{"av":"A132LeaveRequestStatus","fld":"LEAVEREQUESTSTATUS"},{"av":"A144LeaveTypeVacationLeave","fld":"LEAVETYPEVACATIONLEAVE"},{"av":"A145LeaveTypeLoggingWorkHours","fld":"LEAVETYPELOGGINGWORKHOURS"},{"av":"A129LeaveRequestStartDate","fld":"LEAVEREQUESTSTARTDATE"},{"av":"A130LeaveRequestEndDate","fld":"LEAVEREQUESTENDDATE"},{"av":"A131LeaveRequestDuration","fld":"LEAVEREQUESTDURATION","pic":"Z9.9"},{"av":"A171LeaveRequestHalfDay","fld":"LEAVEREQUESTHALFDAY"},{"av":"A133LeaveRequestDescription","fld":"LEAVEREQUESTDESCRIPTION"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A116HolidayEndDate","fld":"HOLIDAYENDDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"GRID_nFirstRecordOnPage"},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43},{"av":"GRID_nEOF"},{"av":"subGrid_Rows","ctrl":"GRID","prop":"Rows"}]""");
          setEventMetadata("COMBO_EMPLOYEEID.ONOPTIONCLICKED",""","oparms":[{"av":"AV50EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZ9"},{"av":"AV37EmployeeBalance","fld":"vEMPLOYEEBALANCE","pic":"Z9.9"},{"av":"AV54Balance","fld":"vBALANCE","pic":"ZZZ9"},{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"GRID_nFirstRecordOnPage"},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43},{"av":"AV36CompanyId","fld":"vCOMPANYID","pic":"ZZZZZZZZZ9"}]}""");
          setEventMetadata("VUSERACTION2.CLICK","""{"handler":"E205E2","iparms":[{"av":"AV14SDT_EmployeeBalanceActions","fld":"vSDT_EMPLOYEEBALANCEACTIONS","grid":43},{"av":"nGXsfl_43_idx","ctrl":"GRID","prop":"GridCurrRow","grid":43},{"av":"GRID_nFirstRecordOnPage"},{"av":"nRC_GXsfl_43","ctrl":"GRID","prop":"GridRC","grid":43}]""");
          setEventMetadata("VUSERACTION2.CLICK",""","oparms":[{"av":"Gx_mode","fld":"vMODE","pic":"@!"},{"av":"AV48EmployeeVacationDaysSetDate","fld":"vEMPLOYEEVACATIONDAYSSETDATE"}]}""");
@@ -2651,6 +2654,7 @@ namespace GeneXus.Programs {
          AV42ProjectManagerProjectIds = new GxSimpleCollection<long>();
          AV43EmployeeIdsToShow = new GxSimpleCollection<long>();
          GXt_objcol_int1 = new GxSimpleCollection<long>();
+         H005E3_A112EmployeeIsActive = new bool[] {false} ;
          H005E3_A100CompanyId = new long[1] ;
          H005E3_A106EmployeeId = new long[1] ;
          GridRow = new GXWebRow();
@@ -2665,6 +2669,7 @@ namespace GeneXus.Programs {
          AV41Combo_DataItem = new WorkWithPlus.workwithplus_web.SdtDVB_SDTComboData_Item(context);
          H005E6_A106EmployeeId = new long[1] ;
          H005E6_A146EmployeeVactionDays = new decimal[1] ;
+         H005E6_A112EmployeeIsActive = new bool[] {false} ;
          H005E6_A100CompanyId = new long[1] ;
          H005E7_A106EmployeeId = new long[1] ;
          H005E7_A186VacationSetDate = new DateTime[] {DateTime.MinValue} ;
@@ -2708,7 +2713,7 @@ namespace GeneXus.Programs {
                H005E2_A162ProjectManagerId, H005E2_n162ProjectManagerId, H005E2_A102ProjectId
                }
                , new Object[] {
-               H005E3_A100CompanyId, H005E3_A106EmployeeId
+               H005E3_A112EmployeeIsActive, H005E3_A100CompanyId, H005E3_A106EmployeeId
                }
                , new Object[] {
                H005E4_A186VacationSetDate, H005E4_A106EmployeeId
@@ -2717,7 +2722,7 @@ namespace GeneXus.Programs {
                H005E5_A106EmployeeId, H005E5_A148EmployeeName
                }
                , new Object[] {
-               H005E6_A106EmployeeId, H005E6_A146EmployeeVactionDays, H005E6_A100CompanyId
+               H005E6_A106EmployeeId, H005E6_A146EmployeeVactionDays, H005E6_A112EmployeeIsActive, H005E6_A100CompanyId
                }
                , new Object[] {
                H005E7_A106EmployeeId, H005E7_A186VacationSetDate, H005E7_A189VacationSetDescription, H005E7_n189VacationSetDescription, H005E7_A179VacationSetDays
@@ -2955,6 +2960,7 @@ namespace GeneXus.Programs {
       private DateTime AV48EmployeeVacationDaysSetDate ;
       private bool entryPointCalled ;
       private bool toggleJsOutput ;
+      private bool A112EmployeeIsActive ;
       private bool A139HolidayIsActive ;
       private bool Combo_employeeid_Emptyitem ;
       private bool Gridpaginationbar_Showfirst ;
@@ -2999,6 +3005,7 @@ namespace GeneXus.Programs {
       private GxSimpleCollection<long> AV42ProjectManagerProjectIds ;
       private GxSimpleCollection<long> AV43EmployeeIdsToShow ;
       private GxSimpleCollection<long> GXt_objcol_int1 ;
+      private bool[] H005E3_A112EmployeeIsActive ;
       private long[] H005E3_A100CompanyId ;
       private long[] H005E3_A106EmployeeId ;
       private DateTime[] H005E4_A186VacationSetDate ;
@@ -3011,6 +3018,7 @@ namespace GeneXus.Programs {
       private WorkWithPlus.workwithplus_web.SdtDVB_SDTComboData_Item AV41Combo_DataItem ;
       private long[] H005E6_A106EmployeeId ;
       private decimal[] H005E6_A146EmployeeVactionDays ;
+      private bool[] H005E6_A112EmployeeIsActive ;
       private long[] H005E6_A100CompanyId ;
       private long[] H005E7_A106EmployeeId ;
       private DateTime[] H005E7_A186VacationSetDate ;
@@ -3166,10 +3174,10 @@ namespace GeneXus.Programs {
         };
         def= new CursorDef[] {
             new CursorDef("H005E2", "SELECT ProjectManagerId, ProjectId FROM Project WHERE ProjectManagerId = :AV63Udparg1 ORDER BY ProjectManagerId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH005E2,100, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("H005E3", "SELECT CompanyId, EmployeeId FROM Employee WHERE CompanyId = :AV65Udparg2 ORDER BY CompanyId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH005E3,100, GxCacheFrequency.OFF ,true,false )
+           ,new CursorDef("H005E3", "SELECT EmployeeIsActive, CompanyId, EmployeeId FROM Employee WHERE (CompanyId = :AV65Udparg2) AND (EmployeeIsActive = TRUE) ORDER BY CompanyId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH005E3,100, GxCacheFrequency.OFF ,true,false )
            ,new CursorDef("H005E4", "SELECT VacationSetDate, EmployeeId FROM EmployeeVacationSet WHERE EmployeeId = :AV50EmployeeId and VacationSetDate = :SdtSDTCurrentItem_1Startd ORDER BY EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH005E4,1, GxCacheFrequency.OFF ,true,true )
            ,new CursorDef("H005E5", "scmdbuf",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH005E5,100, GxCacheFrequency.OFF ,true,false )
-           ,new CursorDef("H005E6", "SELECT EmployeeId, EmployeeVactionDays, CompanyId FROM Employee WHERE EmployeeId = :AV50EmployeeId ORDER BY EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH005E6,1, GxCacheFrequency.OFF ,true,true )
+           ,new CursorDef("H005E6", "SELECT EmployeeId, EmployeeVactionDays, EmployeeIsActive, CompanyId FROM Employee WHERE (EmployeeId = :AV50EmployeeId) AND (EmployeeIsActive = TRUE) ORDER BY EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH005E6,1, GxCacheFrequency.OFF ,true,true )
            ,new CursorDef("H005E7", "SELECT EmployeeId, VacationSetDate, VacationSetDescription, VacationSetDays FROM EmployeeVacationSet WHERE (EmployeeId = :EmployeeId) AND (date_part('year', VacationSetDate) = :AV38Year) ORDER BY EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH005E7,100, GxCacheFrequency.OFF ,true,false )
            ,new CursorDef("H005E8", "SELECT T1.LeaveRequestId, T1.LeaveTypeId, T1.EmployeeId, T1.LeaveRequestEndDate, T1.LeaveRequestStartDate, T2.LeaveTypeLoggingWorkHours, T2.LeaveTypeVacationLeave, T1.LeaveRequestStatus, T1.LeaveRequestDuration, T1.LeaveRequestHalfDay, T1.LeaveRequestDescription FROM (LeaveRequest T1 INNER JOIN LeaveType T2 ON T2.LeaveTypeId = T1.LeaveTypeId) WHERE (T1.EmployeeId = :EmployeeId) AND (T1.LeaveRequestStartDate < TO_DATE(:AV38Year||'-'||12||'-'||31, 'YYYY-MM-DD')) AND (T1.LeaveRequestEndDate > TO_DATE(:AV38Year||'-'||1||'-'||1, 'YYYY-MM-DD')) AND (T1.LeaveRequestStatus = ( 'Approved')) AND (T2.LeaveTypeVacationLeave = ( 'Yes')) AND (T2.LeaveTypeLoggingWorkHours = ( 'No')) ORDER BY T1.EmployeeId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH005E8,100, GxCacheFrequency.OFF ,true,false )
            ,new CursorDef("H005E9", "SELECT HolidayId, HolidayStartDate, HolidayIsActive, CompanyId, HolidayEndDate, HolidayName FROM Holiday WHERE (CompanyId = :AV36CompanyId) AND (date_part('year', HolidayStartDate) = :AV38Year) AND (HolidayStartDate >= :LeaveRequestStartDate) AND (HolidayStartDate <= :LeaveRequestEndDate) AND (HolidayIsActive = TRUE) ORDER BY CompanyId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH005E9,100, GxCacheFrequency.OFF ,true,false )
@@ -3189,8 +3197,9 @@ namespace GeneXus.Programs {
               ((long[]) buf[2])[0] = rslt.getLong(2);
               return;
            case 1 :
-              ((long[]) buf[0])[0] = rslt.getLong(1);
+              ((bool[]) buf[0])[0] = rslt.getBool(1);
               ((long[]) buf[1])[0] = rslt.getLong(2);
+              ((long[]) buf[2])[0] = rslt.getLong(3);
               return;
            case 2 :
               ((DateTime[]) buf[0])[0] = rslt.getGXDate(1);
@@ -3203,7 +3212,8 @@ namespace GeneXus.Programs {
            case 4 :
               ((long[]) buf[0])[0] = rslt.getLong(1);
               ((decimal[]) buf[1])[0] = rslt.getDecimal(2);
-              ((long[]) buf[2])[0] = rslt.getLong(3);
+              ((bool[]) buf[2])[0] = rslt.getBool(3);
+              ((long[]) buf[3])[0] = rslt.getLong(4);
               return;
            case 5 :
               ((long[]) buf[0])[0] = rslt.getLong(1);

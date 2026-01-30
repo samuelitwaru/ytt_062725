@@ -135,9 +135,9 @@ namespace GeneXus.Programs {
          /* Output device settings */
          if ( (0==AV8EmployeeId) && (DateTime.MinValue==AV10FromDate) && (DateTime.MinValue==AV11ToDate) )
          {
-            AV8EmployeeId = 238;
-            AV10FromDate = context.localUtil.YMDToD( 2025, 12, 22);
-            AV11ToDate = context.localUtil.YMDToD( 2025, 12, 26);
+            AV8EmployeeId = 90;
+            AV10FromDate = context.localUtil.YMDToD( 2025, 12, 29);
+            AV11ToDate = context.localUtil.YMDToD( 2026, 1, 4);
          }
          /* Using cursor P009Y2 */
          pr_default.execute(0, new Object[] {AV8EmployeeId});
@@ -236,7 +236,7 @@ namespace GeneXus.Programs {
          if ( AV29GXLvl35 == 0 )
          {
          }
-         AV26HoursPerDay = (short)(AV25EmployeeFTEHours/ (decimal)(5));
+         AV26HoursPerDay = (decimal)(AV25EmployeeFTEHours/ (decimal)(5));
          AV14Duration = (decimal)(AV14Duration*AV26HoursPerDay*60);
          cleanup();
       }
@@ -302,7 +302,6 @@ namespace GeneXus.Programs {
       private short AV25EmployeeFTEHours ;
       private short AV9Count ;
       private short AV29GXLvl35 ;
-      private short AV26HoursPerDay ;
       private long AV8EmployeeId ;
       private long A100CompanyId ;
       private long A106EmployeeId ;
@@ -313,6 +312,7 @@ namespace GeneXus.Programs {
       private long A127LeaveRequestId ;
       private decimal AV14Duration ;
       private decimal A131LeaveRequestDuration ;
+      private decimal AV26HoursPerDay ;
       private string A148EmployeeName ;
       private string AV20EmployeeName ;
       private string A132LeaveRequestStatus ;

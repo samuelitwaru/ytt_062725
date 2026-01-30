@@ -1410,7 +1410,7 @@ namespace GeneXus.Programs {
             }
          }
          GXt_objcol_SdtSDTLeaveEvent7 = AV15LeaveEvents;
-         new dpleaveevent(context ).execute(  AV8DateRange,  AV11DateRange_To,  AV6CompanyLocationId,  AV26EmployeeIds, out  GXt_objcol_SdtSDTLeaveEvent7) ;
+         new prc_getleaveevents(context ).execute(  AV8DateRange,  AV11DateRange_To,  AV6CompanyLocationId,  AV26EmployeeIds, out  GXt_objcol_SdtSDTLeaveEvent7) ;
          AV15LeaveEvents = GXt_objcol_SdtSDTLeaveEvent7;
          GXt_objcol_SdtSDTLeaveEventGroup8 = AV14LeaveEventGroups;
          new dpleaveeventgroup(context ).execute(  AV8DateRange,  AV11DateRange_To,  AV6CompanyLocationId,  AV26EmployeeIds, out  GXt_objcol_SdtSDTLeaveEventGroup8) ;
@@ -1523,7 +1523,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026182483066", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026130233576", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1539,7 +1539,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("leavecalendar.js", "?2026182483067", false, true);
+         context.AddJavascriptSource("leavecalendar.js", "?2026130233577", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
