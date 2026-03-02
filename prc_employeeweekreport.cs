@@ -178,6 +178,7 @@ namespace GeneXus.Programs {
                AV20Blank = (long)(Math.Round(GXt_decimal4, 18, MidpointRounding.ToEven));
                AV21Total = (short)(AV13Mon+AV14Tue+AV15Wed+AV16Thu+AV17Fri+AV18Sat+AV19Sun);
                AV22Expected = (long)((A188EmployeeFTEHours*60)-AV33Leave);
+               AV38ExpectedPerDay = (decimal)(AV22Expected/ (decimal)(5));
                AV23SDTEmployeeWeekReport.gxTpr_Employeename = StringUtil.Trim( A148EmployeeName);
                AV23SDTEmployeeWeekReport.gxTpr_Mon = AV13Mon;
                AV35SDT_DayLogReport.gxTpr_Hours = AV13Mon;
@@ -190,6 +191,7 @@ namespace GeneXus.Programs {
                AV23SDTEmployeeWeekReport.gxTpr_Leave = AV33Leave;
                AV23SDTEmployeeWeekReport.gxTpr_Total = AV21Total;
                AV23SDTEmployeeWeekReport.gxTpr_Expected = AV22Expected;
+               AV23SDTEmployeeWeekReport.gxTpr_Expectedperday = AV38ExpectedPerDay;
                GXt_boolean6 = false;
                new isdateholiday(context ).execute(  AV11FromDate,  A106EmployeeId, out  AV25MonHolidayName, out  GXt_boolean6) ;
                AV23SDTEmployeeWeekReport.gxTpr_Mon_isholiday = GXt_boolean6;
@@ -336,8 +338,10 @@ namespace GeneXus.Programs {
          }
          else if ( AV37FilledStatus == 2 )
          {
-            if ( ( ( AV13Mon == 0 ) && AV23SDTEmployeeWeekReport.gxTpr_Mon_isholiday ) || ( ( AV14Tue == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Tue_isholiday ) || ( ( AV15Wed == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Wed_isholiday ) || ( ( AV16Thu == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Thu_isholiday ) || ( ( AV17Fri == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Fri_isholiday ) )
+            if ( ( ( AV13Mon == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Mon_isholiday ) || ( ( AV14Tue == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Tue_isholiday ) || ( ( AV15Wed == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Wed_isholiday ) || ( ( AV16Thu == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Thu_isholiday ) || ( ( AV17Fri == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Fri_isholiday ) )
             {
+               new logtofile(context ).execute(  StringUtil.Trim( A148EmployeeName)+": "+StringUtil.Str( (decimal)(AV13Mon), 10, 0)+" "+StringUtil.Str( (decimal)(AV14Tue), 10, 0)+" "+StringUtil.Str( (decimal)(AV15Wed), 10, 0)+" "+StringUtil.Str( (decimal)(AV16Thu), 10, 0)+" "+StringUtil.Str( (decimal)(AV17Fri), 10, 0)) ;
+               new logtofile(context ).execute(  StringUtil.Trim( A148EmployeeName)+": "+StringUtil.BoolToStr( AV23SDTEmployeeWeekReport.gxTpr_Mon_isholiday)+" "+StringUtil.BoolToStr( AV23SDTEmployeeWeekReport.gxTpr_Tue_isholiday)+" "+StringUtil.BoolToStr( AV23SDTEmployeeWeekReport.gxTpr_Wed_isholiday)+" "+StringUtil.BoolToStr( AV23SDTEmployeeWeekReport.gxTpr_Thu_isholiday)+" "+StringUtil.BoolToStr( AV23SDTEmployeeWeekReport.gxTpr_Thu_isholiday)) ;
                AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
             }
          }
@@ -426,6 +430,7 @@ namespace GeneXus.Programs {
       private long AV22Expected ;
       private decimal GXt_decimal4 ;
       private decimal GXt_decimal5 ;
+      private decimal AV38ExpectedPerDay ;
       private string A148EmployeeName ;
       private string AV25MonHolidayName ;
       private string AV26TueHolidayName ;
