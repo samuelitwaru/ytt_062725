@@ -239,6 +239,8 @@ namespace GeneXus.Programs {
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
          context.AddJavascriptSource("UserControls/UCToolTipRender.js", "", false, true);
          context.AddJavascriptSource("UserControls/UCVISTimelineRender.js", "", false, true);
+         context.AddJavascriptSource("UserControls/UC_CalendarNavigationRender.js", "", false, true);
+         context.AddJavascriptSource("UserControls/UC_PreventBlankScreenErrorRender.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/daterangepicker/locales.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/daterangepicker/wwp-daterangepicker.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/daterangepicker/moment.min.js", "", false, true);
@@ -286,8 +288,8 @@ namespace GeneXus.Programs {
       {
          GxWebStd.gx_boolean_hidden_field( context, "vISPROJECTMANAGER", AV27IsProjectManager);
          GxWebStd.gx_hidden_field( context, "gxhash_vISPROJECTMANAGER", GetSecureSignedToken( "", AV27IsProjectManager, context));
-         GxWebStd.gx_hidden_field( context, "vUDPARG1", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV45Udparg1), 10, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "gxhash_vUDPARG1", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV45Udparg1), "9999999999"), context));
+         GxWebStd.gx_hidden_field( context, "vUDPARG1", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV48Udparg1), 10, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "gxhash_vUDPARG1", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV48Udparg1), "9999999999"), context));
          GxWebStd.gx_hidden_field( context, "vTODAY", context.localUtil.DToC( Gx_date, 0, "/"));
          GxWebStd.gx_hidden_field( context, "gxhash_vTODAY", GetSecureSignedToken( "", Gx_date, context));
          GxWebStd.gx_boolean_hidden_field( context, "vISCOLORED", AV28IsColored);
@@ -366,8 +368,8 @@ namespace GeneXus.Programs {
          }
          GxWebStd.gx_hidden_field( context, "HOLIDAYID", StringUtil.LTrim( StringUtil.NToC( (decimal)(A113HolidayId), 10, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "PROJECTMANAGERID", StringUtil.LTrim( StringUtil.NToC( (decimal)(A162ProjectManagerId), 10, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "vUDPARG1", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV45Udparg1), 10, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "gxhash_vUDPARG1", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV45Udparg1), "9999999999"), context));
+         GxWebStd.gx_hidden_field( context, "vUDPARG1", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV48Udparg1), 10, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "gxhash_vUDPARG1", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV48Udparg1), "9999999999"), context));
          GxWebStd.gx_hidden_field( context, "PROJECTID", StringUtil.LTrim( StringUtil.NToC( (decimal)(A102ProjectId), 10, 0, ".", "")));
          if ( context.isAjaxRequest( ) )
          {
@@ -392,6 +394,7 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "UCVISTIMELINE1_Stopdate", StringUtil.RTrim( Ucvistimeline1_Stopdate));
          GxWebStd.gx_hidden_field( context, "UCVISTIMELINE1_Holidaynamecollection", StringUtil.RTrim( Ucvistimeline1_Holidaynamecollection));
          GxWebStd.gx_hidden_field( context, "UCVISTIMELINE1_Holidayvaluecollection", StringUtil.RTrim( Ucvistimeline1_Holidayvaluecollection));
+         GxWebStd.gx_hidden_field( context, "PREVENTBLANKSCREENERROR_Value", StringUtil.RTrim( Preventblankscreenerror_Value));
          GxWebStd.gx_hidden_field( context, "COMBO_PROJECTID_Selectedvalue_get", StringUtil.RTrim( Combo_projectid_Selectedvalue_get));
          GxWebStd.gx_hidden_field( context, "UCVISTIMELINE1_Item", StringUtil.LTrim( StringUtil.NToC( (decimal)(Ucvistimeline1_Item), 9, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "COMBO_PROJECTID_Selectedvalue_get", StringUtil.RTrim( Combo_projectid_Selectedvalue_get));
@@ -624,6 +627,23 @@ namespace GeneXus.Programs {
             ucUcvistimeline1.Render(context, "ucvistimeline", Ucvistimeline1_Internalname, "UCVISTIMELINE1Container");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
+            /* User Defined Control */
+            ucCalendarnavigation.Render(context, "uc_calendarnavigation", Calendarnavigation_Internalname, "CALENDARNAVIGATIONContainer");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
+            /* Div Control */
+            GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
+            /* User Defined Control */
+            ucPreventblankscreenerror.SetProperty("Value", Preventblankscreenerror_Value);
+            ucPreventblankscreenerror.Render(context, "uc_preventblankscreenerror", Preventblankscreenerror_Internalname, "PREVENTBLANKSCREENERRORContainer");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
+            GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -639,8 +659,8 @@ namespace GeneXus.Programs {
             ucDaterange_rangepicker.SetProperty("PickerOptions", AV9DateRange_RangePickerOptions);
             ucDaterange_rangepicker.Render(context, "wwp.daterangepicker", Daterange_rangepicker_Internalname, "DATERANGE_RANGEPICKERContainer");
             /* Single line edit */
-            TempTags = "  onfocus=\"gx.evt.onfocus(this, 56,'',false,'',0)\"";
-            GxWebStd.gx_single_line_edit( context, edtavProjectid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV24ProjectId), 10, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(AV24ProjectId), "ZZZZZZZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,56);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavProjectid_Jsonclick, 0, "Attribute", "", "", "", "", edtavProjectid_Visible, 1, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_LeaveCalendar.htm");
+            TempTags = "  onfocus=\"gx.evt.onfocus(this, 62,'',false,'',0)\"";
+            GxWebStd.gx_single_line_edit( context, edtavProjectid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV24ProjectId), 10, 0, ".", "")), StringUtil.LTrim( context.localUtil.Format( (decimal)(AV24ProjectId), "ZZZZZZZZZ9")), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,62);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavProjectid_Jsonclick, 0, "Attribute", "", "", "", "", edtavProjectid_Visible, 1, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_LeaveCalendar.htm");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
             GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -987,8 +1007,8 @@ namespace GeneXus.Programs {
       {
          GxWebStd.gx_boolean_hidden_field( context, "vISPROJECTMANAGER", AV27IsProjectManager);
          GxWebStd.gx_hidden_field( context, "gxhash_vISPROJECTMANAGER", GetSecureSignedToken( "", AV27IsProjectManager, context));
-         GxWebStd.gx_hidden_field( context, "vUDPARG1", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV45Udparg1), 10, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "gxhash_vUDPARG1", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV45Udparg1), "9999999999"), context));
+         GxWebStd.gx_hidden_field( context, "vUDPARG1", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV48Udparg1), 10, 0, ".", "")));
+         GxWebStd.gx_hidden_field( context, "gxhash_vUDPARG1", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV48Udparg1), "9999999999"), context));
          GxWebStd.gx_hidden_field( context, "vTODAY", context.localUtil.DToC( Gx_date, 0, "/"));
          GxWebStd.gx_hidden_field( context, "gxhash_vTODAY", GetSecureSignedToken( "", Gx_date, context));
          GxWebStd.gx_boolean_hidden_field( context, "vISCOLORED", AV28IsColored);
@@ -1030,6 +1050,7 @@ namespace GeneXus.Programs {
             Ucvistimeline1_Stopdate = cgiGet( "UCVISTIMELINE1_Stopdate");
             Ucvistimeline1_Holidaynamecollection = cgiGet( "UCVISTIMELINE1_Holidaynamecollection");
             Ucvistimeline1_Holidayvaluecollection = cgiGet( "UCVISTIMELINE1_Holidayvaluecollection");
+            Preventblankscreenerror_Value = cgiGet( "PREVENTBLANKSCREENERROR_Value");
             Combo_projectid_Selectedvalue_get = cgiGet( "COMBO_PROJECTID_Selectedvalue_get");
             /* Read variables values. */
             AV10DateRange_RangeText = cgiGet( edtavDaterange_rangetext_Internalname);
@@ -1119,7 +1140,9 @@ namespace GeneXus.Programs {
                pr_default.close(3);
             }
          }
-         if ( AV30ProjectIdCollection.Count > 0 )
+         AV24ProjectId = (long)(Math.Round(NumberUtil.Val( AV38Session.Get("LeaveCalendarProjectId"), "."), 18, MidpointRounding.ToEven));
+         AssignAttri("", false, "AV24ProjectId", StringUtil.LTrimStr( (decimal)(AV24ProjectId), 10, 0));
+         if ( (0==AV24ProjectId) && ( AV30ProjectIdCollection.Count > 0 ) )
          {
             AV24ProjectId = (long)(AV30ProjectIdCollection.GetNumeric(1));
             AssignAttri("", false, "AV24ProjectId", StringUtil.LTrimStr( (decimal)(AV24ProjectId), 10, 0));
@@ -1181,6 +1204,9 @@ namespace GeneXus.Programs {
          GXt_SdtWWPDateRangePickerOptions5 = AV9DateRange_RangePickerOptions;
          new GeneXus.Programs.wwpbaseobjects.wwp_rangepicker_getoptionsreports(context ).execute( out  GXt_SdtWWPDateRangePickerOptions5) ;
          AV9DateRange_RangePickerOptions = GXt_SdtWWPDateRangePickerOptions5;
+         AV39WebSession.Set("location", "calendar");
+         AV40Url = AV39WebSession.Get("location");
+         new logtofile(context ).execute(  "URL: "+AV40Url) ;
       }
 
       protected void E144X2( )
@@ -1391,6 +1417,9 @@ namespace GeneXus.Programs {
       {
          /* 'GETDATA' Routine */
          returnInSub = false;
+         AV38Session.Set("LeaveCalendarProjectId", StringUtil.Str( (decimal)(AV24ProjectId), 10, 0));
+         AV24ProjectId = (long)(Math.Round(NumberUtil.Val( AV38Session.Get("LeaveCalendarProjectId"), "."), 18, MidpointRounding.ToEven));
+         AssignAttri("", false, "AV24ProjectId", StringUtil.LTrimStr( (decimal)(AV24ProjectId), 10, 0));
          AV26EmployeeIds.Clear();
          AV25ProjectIds.Clear();
          if ( ! (0==AV24ProjectId) )
@@ -1456,9 +1485,9 @@ namespace GeneXus.Programs {
       {
          /* 'GETEMPLOYEEIDSBYPROJECT' Routine */
          returnInSub = false;
-         AV45Udparg1 = new getloggedinemployeeid(context).executeUdp( );
+         AV48Udparg1 = new getloggedinemployeeid(context).executeUdp( );
          /* Using cursor H004X9 */
-         pr_default.execute(7, new Object[] {AV45Udparg1});
+         pr_default.execute(7, new Object[] {AV48Udparg1});
          while ( (pr_default.getStatus(7) != 101) )
          {
             A162ProjectManagerId = H004X9_A162ProjectManagerId[0];
@@ -1523,7 +1552,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026130233576", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202638747695", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -1539,12 +1568,14 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("leavecalendar.js", "?2026130233577", false, true);
+         context.AddJavascriptSource("leavecalendar.js", "?202638747696", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
          context.AddJavascriptSource("UserControls/UCToolTipRender.js", "", false, true);
          context.AddJavascriptSource("UserControls/UCVISTimelineRender.js", "", false, true);
+         context.AddJavascriptSource("UserControls/UC_CalendarNavigationRender.js", "", false, true);
+         context.AddJavascriptSource("UserControls/UC_PreventBlankScreenErrorRender.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/daterangepicker/locales.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/daterangepicker/wwp-daterangepicker.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/daterangepicker/moment.min.js", "", false, true);
@@ -1594,6 +1625,8 @@ namespace GeneXus.Programs {
          divUnnamedtable1_Internalname = "UNNAMEDTABLE1";
          divTablecontent_Internalname = "TABLECONTENT";
          Ucvistimeline1_Internalname = "UCVISTIMELINE1";
+         Calendarnavigation_Internalname = "CALENDARNAVIGATION";
+         Preventblankscreenerror_Internalname = "PREVENTBLANKSCREENERROR";
          divMaintable_Internalname = "MAINTABLE";
          Daterange_rangepicker_Internalname = "DATERANGE_RANGEPICKER";
          edtavProjectid_Internalname = "vPROJECTID";
@@ -1617,6 +1650,7 @@ namespace GeneXus.Programs {
          edtavDaterange_rangetext_Jsonclick = "";
          edtavDaterange_rangetext_Enabled = 1;
          Ucvistimeline1_Item = 0;
+         Preventblankscreenerror_Value = "leavecalendar";
          Ucvistimeline1_Holidayvaluecollection = "";
          Ucvistimeline1_Holidaynamecollection = "";
          Ucvistimeline1_Stopdate = "";
@@ -1645,20 +1679,20 @@ namespace GeneXus.Programs {
 
       public override void InitializeDynEvents( )
       {
-         setEventMetadata("REFRESH","""{"handler":"Refresh","iparms":[{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"AV45Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"Gx_date","fld":"vTODAY","hsh":true},{"av":"AV28IsColored","fld":"vISCOLORED","hsh":true}]}""");
+         setEventMetadata("REFRESH","""{"handler":"Refresh","iparms":[{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"AV48Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"Gx_date","fld":"vTODAY","hsh":true},{"av":"AV28IsColored","fld":"vISCOLORED","hsh":true}]}""");
          setEventMetadata("'DOREPORT'","""{"handler":"E144X2","iparms":[{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV8DateRange","fld":"vDATERANGE"}]""");
          setEventMetadata("'DOREPORT'",""","oparms":[{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"}]}""");
          setEventMetadata("'DOEXPORTICS'","""{"handler":"E154X2","iparms":[{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"}]}""");
-         setEventMetadata("COMBO_PROJECTID.ONOPTIONCLICKED","""{"handler":"E114X2","iparms":[{"av":"Combo_projectid_Selectedvalue_get","ctrl":"COMBO_PROJECTID","prop":"SelectedValue_get"},{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A157CompanyLocationId","fld":"COMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"A113HolidayId","fld":"HOLIDAYID","pic":"ZZZZZZZZZ9"},{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"AV45Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"}]""");
+         setEventMetadata("COMBO_PROJECTID.ONOPTIONCLICKED","""{"handler":"E114X2","iparms":[{"av":"Combo_projectid_Selectedvalue_get","ctrl":"COMBO_PROJECTID","prop":"SelectedValue_get"},{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A157CompanyLocationId","fld":"COMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"A113HolidayId","fld":"HOLIDAYID","pic":"ZZZZZZZZZ9"},{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"AV48Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"}]""");
          setEventMetadata("COMBO_PROJECTID.ONOPTIONCLICKED",""","oparms":[{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"Ucvistimeline1_Startdate","ctrl":"UCVISTIMELINE1","prop":"startDate"},{"av":"Ucvistimeline1_Stopdate","ctrl":"UCVISTIMELINE1","prop":"stopDate"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"Ucvistimeline1_Holidaynamecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayNameCollection"},{"av":"Ucvistimeline1_Holidayvaluecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayValueCollection"},{"av":"Ucvistimeline1_Holidayevents","ctrl":"UCVISTIMELINE1","prop":"holidayEvents"}]}""");
-         setEventMetadata("VPROJECTID.CONTROLVALUECHANGED","""{"handler":"E164X2","iparms":[{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A157CompanyLocationId","fld":"COMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"A113HolidayId","fld":"HOLIDAYID","pic":"ZZZZZZZZZ9"},{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"AV45Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"}]""");
-         setEventMetadata("VPROJECTID.CONTROLVALUECHANGED",""","oparms":[{"av":"Ucvistimeline1_Startdate","ctrl":"UCVISTIMELINE1","prop":"startDate"},{"av":"Ucvistimeline1_Stopdate","ctrl":"UCVISTIMELINE1","prop":"stopDate"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"Ucvistimeline1_Holidaynamecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayNameCollection"},{"av":"Ucvistimeline1_Holidayvaluecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayValueCollection"},{"av":"Ucvistimeline1_Holidayevents","ctrl":"UCVISTIMELINE1","prop":"holidayEvents"}]}""");
-         setEventMetadata("DATERANGE_RANGEPICKER.DATERANGECHANGED","""{"handler":"E124X2","iparms":[{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"Gx_date","fld":"vTODAY","hsh":true},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A157CompanyLocationId","fld":"COMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"A113HolidayId","fld":"HOLIDAYID","pic":"ZZZZZZZZZ9"},{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"AV45Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"}]""");
-         setEventMetadata("DATERANGE_RANGEPICKER.DATERANGECHANGED",""","oparms":[{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"Ucvistimeline1_Startdate","ctrl":"UCVISTIMELINE1","prop":"startDate"},{"av":"Ucvistimeline1_Stopdate","ctrl":"UCVISTIMELINE1","prop":"stopDate"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"Ucvistimeline1_Holidaynamecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayNameCollection"},{"av":"Ucvistimeline1_Holidayvaluecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayValueCollection"},{"av":"Ucvistimeline1_Holidayevents","ctrl":"UCVISTIMELINE1","prop":"holidayEvents"}]}""");
-         setEventMetadata("VCOMPANYLOCATIONID.CONTROLVALUECHANGED","""{"handler":"E174X2","iparms":[{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"AV28IsColored","fld":"vISCOLORED","hsh":true},{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"A157CompanyLocationId","fld":"COMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"A113HolidayId","fld":"HOLIDAYID","pic":"ZZZZZZZZZ9"},{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"AV45Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"}]""");
-         setEventMetadata("VCOMPANYLOCATIONID.CONTROLVALUECHANGED",""","oparms":[{"av":"Ucvistimeline1_Leavetypes","ctrl":"UCVISTIMELINE1","prop":"leavetypes"},{"av":"Ucvistimeline1_Startdate","ctrl":"UCVISTIMELINE1","prop":"startDate"},{"av":"Ucvistimeline1_Stopdate","ctrl":"UCVISTIMELINE1","prop":"stopDate"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"Ucvistimeline1_Holidaynamecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayNameCollection"},{"av":"Ucvistimeline1_Holidayvaluecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayValueCollection"},{"av":"Ucvistimeline1_Holidayevents","ctrl":"UCVISTIMELINE1","prop":"holidayEvents"}]}""");
-         setEventMetadata("GLOBALEVENTS.LEAVEREQUESTSTATUSCHANGED","""{"handler":"E184X2","iparms":[{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A157CompanyLocationId","fld":"COMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"A113HolidayId","fld":"HOLIDAYID","pic":"ZZZZZZZZZ9"},{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"AV45Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"}]""");
-         setEventMetadata("GLOBALEVENTS.LEAVEREQUESTSTATUSCHANGED",""","oparms":[{"av":"Ucvistimeline1_Startdate","ctrl":"UCVISTIMELINE1","prop":"startDate"},{"av":"Ucvistimeline1_Stopdate","ctrl":"UCVISTIMELINE1","prop":"stopDate"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"Ucvistimeline1_Holidaynamecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayNameCollection"},{"av":"Ucvistimeline1_Holidayvaluecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayValueCollection"},{"av":"Ucvistimeline1_Holidayevents","ctrl":"UCVISTIMELINE1","prop":"holidayEvents"}]}""");
+         setEventMetadata("VPROJECTID.CONTROLVALUECHANGED","""{"handler":"E164X2","iparms":[{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A157CompanyLocationId","fld":"COMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"A113HolidayId","fld":"HOLIDAYID","pic":"ZZZZZZZZZ9"},{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"AV48Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"}]""");
+         setEventMetadata("VPROJECTID.CONTROLVALUECHANGED",""","oparms":[{"av":"Ucvistimeline1_Startdate","ctrl":"UCVISTIMELINE1","prop":"startDate"},{"av":"Ucvistimeline1_Stopdate","ctrl":"UCVISTIMELINE1","prop":"stopDate"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"Ucvistimeline1_Holidaynamecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayNameCollection"},{"av":"Ucvistimeline1_Holidayvaluecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayValueCollection"},{"av":"Ucvistimeline1_Holidayevents","ctrl":"UCVISTIMELINE1","prop":"holidayEvents"}]}""");
+         setEventMetadata("DATERANGE_RANGEPICKER.DATERANGECHANGED","""{"handler":"E124X2","iparms":[{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"Gx_date","fld":"vTODAY","hsh":true},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A157CompanyLocationId","fld":"COMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"A113HolidayId","fld":"HOLIDAYID","pic":"ZZZZZZZZZ9"},{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"AV48Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"}]""");
+         setEventMetadata("DATERANGE_RANGEPICKER.DATERANGECHANGED",""","oparms":[{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"Ucvistimeline1_Startdate","ctrl":"UCVISTIMELINE1","prop":"startDate"},{"av":"Ucvistimeline1_Stopdate","ctrl":"UCVISTIMELINE1","prop":"stopDate"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"Ucvistimeline1_Holidaynamecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayNameCollection"},{"av":"Ucvistimeline1_Holidayvaluecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayValueCollection"},{"av":"Ucvistimeline1_Holidayevents","ctrl":"UCVISTIMELINE1","prop":"holidayEvents"}]}""");
+         setEventMetadata("VCOMPANYLOCATIONID.CONTROLVALUECHANGED","""{"handler":"E174X2","iparms":[{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"AV28IsColored","fld":"vISCOLORED","hsh":true},{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"A157CompanyLocationId","fld":"COMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"A113HolidayId","fld":"HOLIDAYID","pic":"ZZZZZZZZZ9"},{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"AV48Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"}]""");
+         setEventMetadata("VCOMPANYLOCATIONID.CONTROLVALUECHANGED",""","oparms":[{"av":"Ucvistimeline1_Leavetypes","ctrl":"UCVISTIMELINE1","prop":"leavetypes"},{"av":"Ucvistimeline1_Startdate","ctrl":"UCVISTIMELINE1","prop":"startDate"},{"av":"Ucvistimeline1_Stopdate","ctrl":"UCVISTIMELINE1","prop":"stopDate"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"Ucvistimeline1_Holidaynamecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayNameCollection"},{"av":"Ucvistimeline1_Holidayvaluecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayValueCollection"},{"av":"Ucvistimeline1_Holidayevents","ctrl":"UCVISTIMELINE1","prop":"holidayEvents"}]}""");
+         setEventMetadata("GLOBALEVENTS.LEAVEREQUESTSTATUSCHANGED","""{"handler":"E184X2","iparms":[{"av":"AV8DateRange","fld":"vDATERANGE"},{"av":"AV11DateRange_To","fld":"vDATERANGE_TO"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV27IsProjectManager","fld":"vISPROJECTMANAGER","hsh":true},{"av":"dynavCompanylocationid"},{"av":"AV6CompanyLocationId","fld":"vCOMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A157CompanyLocationId","fld":"COMPANYLOCATIONID","pic":"ZZZZZZZZZ9"},{"av":"A139HolidayIsActive","fld":"HOLIDAYISACTIVE"},{"av":"A115HolidayStartDate","fld":"HOLIDAYSTARTDATE"},{"av":"A114HolidayName","fld":"HOLIDAYNAME"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"A113HolidayId","fld":"HOLIDAYID","pic":"ZZZZZZZZZ9"},{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"AV48Udparg1","fld":"vUDPARG1","pic":"9999999999","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"}]""");
+         setEventMetadata("GLOBALEVENTS.LEAVEREQUESTSTATUSCHANGED",""","oparms":[{"av":"Ucvistimeline1_Startdate","ctrl":"UCVISTIMELINE1","prop":"startDate"},{"av":"Ucvistimeline1_Stopdate","ctrl":"UCVISTIMELINE1","prop":"stopDate"},{"av":"AV24ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV25ProjectIds","fld":"vPROJECTIDS"},{"av":"AV15LeaveEvents","fld":"vLEAVEEVENTS"},{"av":"AV14LeaveEventGroups","fld":"vLEAVEEVENTGROUPS"},{"av":"AV33HolidayNameCollection","fld":"vHOLIDAYNAMECOLLECTION"},{"av":"AV34HolidayValueCollection","fld":"vHOLIDAYVALUECOLLECTION"},{"av":"Ucvistimeline1_Holidaynamecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayNameCollection"},{"av":"Ucvistimeline1_Holidayvaluecollection","ctrl":"UCVISTIMELINE1","prop":"HolidayValueCollection"},{"av":"Ucvistimeline1_Holidayevents","ctrl":"UCVISTIMELINE1","prop":"holidayEvents"}]}""");
          return  ;
       }
 
@@ -1710,6 +1744,8 @@ namespace GeneXus.Programs {
          bttBtnreport_Jsonclick = "";
          bttBtnexportics_Jsonclick = "";
          ucUcvistimeline1 = new GXUserControl();
+         ucCalendarnavigation = new GXUserControl();
+         ucPreventblankscreenerror = new GXUserControl();
          ucDaterange_rangepicker = new GXUserControl();
          sEvt = "";
          EvtGridId = "";
@@ -1728,10 +1764,13 @@ namespace GeneXus.Programs {
          AV30ProjectIdCollection = new GxSimpleCollection<long>();
          H004X5_A106EmployeeId = new long[1] ;
          H004X5_A102ProjectId = new long[1] ;
+         AV38Session = context.GetSession();
          H004X6_A100CompanyId = new long[1] ;
          H004X6_A157CompanyLocationId = new long[1] ;
          AV21SDTLeaveTypes = new GXBaseCollection<SdtSDTLeaveType>( context, "SDTLeaveType", "YTT_version4");
          GXt_SdtWWPDateRangePickerOptions5 = new WorkWithPlus.workwithplus_web.SdtWWPDateRangePickerOptions(context);
+         AV39WebSession = context.GetSession();
+         AV40Url = "";
          AV19ExcelFilename = "";
          AV18ErrorMessage = "";
          H004X7_A102ProjectId = new long[1] ;
@@ -1819,7 +1858,7 @@ namespace GeneXus.Programs {
       private int edtavProjectid_Visible ;
       private int gxdynajaxindex ;
       private int idxLst ;
-      private long AV45Udparg1 ;
+      private long AV48Udparg1 ;
       private long A157CompanyLocationId ;
       private long A113HolidayId ;
       private long A162ProjectManagerId ;
@@ -1850,6 +1889,7 @@ namespace GeneXus.Programs {
       private string Ucvistimeline1_Stopdate ;
       private string Ucvistimeline1_Holidaynamecollection ;
       private string Ucvistimeline1_Holidayvaluecollection ;
+      private string Preventblankscreenerror_Value ;
       private string GX_FocusControl ;
       private string sPrefix ;
       private string divLayoutmaintable_Internalname ;
@@ -1882,6 +1922,8 @@ namespace GeneXus.Programs {
       private string bttBtnexportics_Jsonclick ;
       private string divTablecontent_Internalname ;
       private string Ucvistimeline1_Internalname ;
+      private string Calendarnavigation_Internalname ;
+      private string Preventblankscreenerror_Internalname ;
       private string divHtml_bottomauxiliarcontrols_Internalname ;
       private string Daterange_rangepicker_Internalname ;
       private string edtavProjectid_Internalname ;
@@ -1911,14 +1953,19 @@ namespace GeneXus.Programs {
       private bool GXt_boolean2 ;
       private bool n162ProjectManagerId ;
       private string AV10DateRange_RangeText ;
+      private string AV40Url ;
       private string AV19ExcelFilename ;
       private string AV18ErrorMessage ;
+      private IGxSession AV38Session ;
       private GeneXus.Utils.GxStringCollection gxdynajaxctrlcodr ;
       private GeneXus.Utils.GxStringCollection gxdynajaxctrldescr ;
       private GXUserControl ucCombo_projectid ;
       private GXUserControl ucUsercontrol1 ;
       private GXUserControl ucUcvistimeline1 ;
+      private GXUserControl ucCalendarnavigation ;
+      private GXUserControl ucPreventblankscreenerror ;
       private GXUserControl ucDaterange_rangepicker ;
+      private IGxSession AV39WebSession ;
       private GXWebForm Form ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
@@ -2046,7 +2093,7 @@ namespace GeneXus.Programs {
           };
           Object[] prmH004X9;
           prmH004X9 = new Object[] {
-          new ParDef("AV45Udparg1",GXType.Int64,10,0)
+          new ParDef("AV48Udparg1",GXType.Int64,10,0)
           };
           Object[] prmH004X10;
           prmH004X10 = new Object[] {
@@ -2062,7 +2109,7 @@ namespace GeneXus.Programs {
              ,new CursorDef("H004X6", "SELECT CompanyId, CompanyLocationId FROM Company WHERE CompanyId = :AV17CompanyId ORDER BY CompanyId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH004X6,1, GxCacheFrequency.OFF ,false,true )
              ,new CursorDef("H004X7", "scmdbuf",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH004X7,100, GxCacheFrequency.OFF ,false,false )
              ,new CursorDef("H004X8", "SELECT T1.CompanyId, T1.HolidayStartDate, T1.HolidayIsActive, T2.CompanyLocationId, T1.HolidayName, T1.HolidayId FROM (Holiday T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId) WHERE (T1.HolidayStartDate > (CAST(:AV8DateRange AS date) + CAST (( -150) || ' DAY' AS INTERVAL))) AND (T1.HolidayStartDate < (CAST(:AV11DateRange_To AS date) + CAST (( 150) || ' DAY' AS INTERVAL))) AND (T2.CompanyLocationId = :AV6CompanyLocationId) AND (T1.HolidayIsActive = TRUE) ORDER BY T1.HolidayId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH004X8,100, GxCacheFrequency.OFF ,true,false )
-             ,new CursorDef("H004X9", "SELECT ProjectManagerId, ProjectId FROM Project WHERE ProjectManagerId = :AV45Udparg1 ORDER BY ProjectManagerId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH004X9,100, GxCacheFrequency.OFF ,false,false )
+             ,new CursorDef("H004X9", "SELECT ProjectManagerId, ProjectId FROM Project WHERE ProjectManagerId = :AV48Udparg1 ORDER BY ProjectManagerId ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH004X9,100, GxCacheFrequency.OFF ,false,false )
              ,new CursorDef("H004X10", "SELECT CompanyLocationId, CompanyLocationName FROM CompanyLocation ORDER BY CompanyLocationName ",false, GxErrorMask.GX_NOMASK | GxErrorMask.GX_MASKLOOPLOCK, false, this,prmH004X10,0, GxCacheFrequency.OFF ,true,false )
           };
        }

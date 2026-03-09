@@ -340,8 +340,6 @@ namespace GeneXus.Programs {
          {
             if ( ( ( AV13Mon == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Mon_isholiday ) || ( ( AV14Tue == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Tue_isholiday ) || ( ( AV15Wed == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Wed_isholiday ) || ( ( AV16Thu == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Thu_isholiday ) || ( ( AV17Fri == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Fri_isholiday ) )
             {
-               new logtofile(context ).execute(  StringUtil.Trim( A148EmployeeName)+": "+StringUtil.Str( (decimal)(AV13Mon), 10, 0)+" "+StringUtil.Str( (decimal)(AV14Tue), 10, 0)+" "+StringUtil.Str( (decimal)(AV15Wed), 10, 0)+" "+StringUtil.Str( (decimal)(AV16Thu), 10, 0)+" "+StringUtil.Str( (decimal)(AV17Fri), 10, 0)) ;
-               new logtofile(context ).execute(  StringUtil.Trim( A148EmployeeName)+": "+StringUtil.BoolToStr( AV23SDTEmployeeWeekReport.gxTpr_Mon_isholiday)+" "+StringUtil.BoolToStr( AV23SDTEmployeeWeekReport.gxTpr_Tue_isholiday)+" "+StringUtil.BoolToStr( AV23SDTEmployeeWeekReport.gxTpr_Wed_isholiday)+" "+StringUtil.BoolToStr( AV23SDTEmployeeWeekReport.gxTpr_Thu_isholiday)+" "+StringUtil.BoolToStr( AV23SDTEmployeeWeekReport.gxTpr_Thu_isholiday)) ;
                AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
             }
          }

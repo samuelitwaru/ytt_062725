@@ -1,4 +1,91 @@
+<style>
+    .record-header {
+      cursor: pointer;
+    }
 
+    .child-row {
+      display: none;
+    }
+
+    .child-content {
+      padding: 15px;
+      border-radius: 6px;
+    }
+
+    .arrow {
+      transition: transform 0.2s ease;
+    }
+
+    .arrow.rotate {
+      transform: rotate(90deg);
+    }
+ </style>
+
+
+
+<div class="">
+    <table class="my-sticky-column-table gx-tab-spacing-fix-2 GridWithPaginationBar GridWithBorderColor WorkWith table-responsive">
+        <thead class="table-light">
+			<tr>
+				<th>Employee</th>
+				<th>Leave Request Count</th>
+				<th>Leave Request Total</th>
+				<th>Leave Balance</th>
+			</tr>
+        </thead>
+        <tbody>
+			{{#SDTEmployeeLeaveDetailsCollection}}
+          	<!-- Record 1 -->
+			<tr class="WorkWithOdd record-header" data-id="{{gxTpr_EmployeeId}}{{EmployeeId}}">
+				<td>
+					<a style='cursor:pointer' id="Employee-{{gxTpr_EmployeeId}}{{EmployeeId}}" class="employee" >{{gxTpr_EmployeeName}}{{EmployeeName}}</a>
+				</td>
+				<td>{{gxTpr_LeaveCount}}{{LeaveCount}}</td>
+				<td>{{gxTpr_LeaveTotal}}{{LeaveTotal}}</td>
+				<td>{{gxTpr_EmployeeBalance}}{{EmployeeBalance}}</td>
+			</tr>
+			
+			
+			<tr class="child-row" id="child-{{gxTpr_EmployeeId}}{{EmployeeId}}">
+				<td></td>
+				<td colspan="3">
+					
+					<div class="child-content" {{#NotShowDetail}}style="display:none"{{/NotShowDetail}}{{#gxTpr_NotShowDetail}}style="display:none"{{/gxTpr_NotShowDetail}}>
+						<table class="WorkWith">
+							<thead>
+								<th style="border: 1px solid #dddddd; border-collapse: collapse;padding: 5px; background:#f5f5f5;" scope="col" class="text-center">
+									Leave Date
+								</th>
+								{{#LeaveTypeCollection}}
+									<th style="border: 1px solid #dddddd; border-collapse: collapse;padding: 5px; background:#f5f5f5;" scope="col" class="text-center"><a id='LeaveType-{{gxTpr_LeaveTypeId}}{{LeaveTypeId}}' style='cursor:pointer' class='leave-type' >{{gxTpr_LeaveTypeName}}{{LeaveTypeName}}</a></th>
+								{{/LeaveTypeCollection}}
+							</thead>
+							<tbody>
+								{{#LeaveRequest}}
+								<tr class="GridWithPaginationBar GridNoBorder WorkWithOdd text-center">
+									
+									<td style="border: 1px solid #dddddd; border-collapse: collapse;padding: 4px" class="text-center">{{gxTpr_LeaveRequestStartDateString}}{{LeaveRequestStartDateString}}</td>
+									
+									{{#LeaveTypeCollection}}
+									<td id='id-{{gxTpr_EmployeeId}}{{EmployeeId}}-{{gxTpr_LeaveTypeId}}{{LeaveTypeId}}-{{gxTpr_LeaveRequestId}}{{LeaveRequestId}}' style='border: 1px solid #dddddd; border-collapse: collapse;' class="leave-duration text-center">  </td>
+									{{/LeaveTypeCollection}}
+									
+								</tr>
+								{{/LeaveRequest}}
+							</tbody>
+						</table>
+					</div>
+					
+				</td>
+			</tr>
+			{{/SDTEmployeeLeaveDetailsCollection}}
+        </tbody>
+    </table>
+</div>
+	
+
+<hr />
+<!--
 <div id="print" style="padding-top:1px;overflow:scroll; scrollbar-width:none; border-right: 1px solid #dddddd; border-left: 1px solid #dddddd">
 	<table class="my-sticky-column-table gx-tab-spacing-fix-2 GridWithPaginationBar GridWithBorderColor WorkWith table-responsive" style='border: 1px solid #dddddd; border-collapse: collapse;'>
 		<thead  style="border-collapse: collapse; position:sticky; top:0; z-index:10">
@@ -26,6 +113,7 @@
 				<td rowspan='{{gxTpr_LeaveRequestCount}}{{LeaveRequestCount}}' class="work text-center" style='border: 1px solid #dddddd; border-collapse: collapse;font-weight: bold;background:#f5f5f5;'>
 					{{gxTpr_EmployeeBalance}}{{EmployeeBalance}}
 				</td>
+				<td rowspan='{{gxTpr_LeaveRequestCount}}{{LeaveRequestCount}}'>s</td>
 			</tr>
 			{{#LeaveRequest}}
 			<tr class="GridWithPaginationBar GridNoBorder WorkWithOdd text-center">
@@ -36,9 +124,7 @@
 				<td id='{{gxTpr_EmployeeId}}{{EmployeeId}}-{{gxTpr_LeaveTypeId}}{{LeaveTypeId}}-{{gxTpr_LeaveRequestId}}{{LeaveRequestId}}' style='border: 1px solid #dddddd; border-collapse: collapse;' class="leave-duration text-center">  </td>
 				{{/LeaveTypeCollection}}
 				
-				<td class="work text-center" style='border: 1px solid #dddddd; border-collapse: collapse;font-weight: bold;background:#f5f5f5;'>
-					
-				</td>
+				
 			</tr>
 			{{/LeaveRequest}}
 			
@@ -60,3 +146,4 @@
 		});
  	});
  </script>
+-->

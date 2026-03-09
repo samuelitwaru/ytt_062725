@@ -123,19 +123,26 @@ namespace GeneXus.Programs {
          returnInSub = false;
          new GeneXus.Programs.wwpbaseobjects.loadwwpcontext(context ).execute( out  AV8WWPContext) ;
          AV11TrnContext.FromXml(AV12WebSession.Get("TrnContext"), null, "", "");
-         if ( ( StringUtil.StrCmp(AV11TrnContext.gxTpr_Transactionname, AV32Pgmname) == 0 ) && ( StringUtil.StrCmp(Gx_mode, "INS") == 0 ) )
+         if ( ( StringUtil.StrCmp(AV11TrnContext.gxTpr_Transactionname, AV40Pgmname) == 0 ) && ( StringUtil.StrCmp(Gx_mode, "INS") == 0 ) )
          {
-            AV33GXV1 = 1;
-            while ( AV33GXV1 <= AV11TrnContext.gxTpr_Attributes.Count )
+            AV41GXV1 = 1;
+            while ( AV41GXV1 <= AV11TrnContext.gxTpr_Attributes.Count )
             {
-               AV14TrnContextAtt = ((WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute)AV11TrnContext.gxTpr_Attributes.Item(AV33GXV1));
+               AV14TrnContextAtt = ((WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute)AV11TrnContext.gxTpr_Attributes.Item(AV41GXV1));
                if ( StringUtil.StrCmp(AV14TrnContextAtt.gxTpr_Attributename, "ProjectManagerId") == 0 )
                {
                   AV20Insert_ProjectManagerId = (long)(Math.Round(NumberUtil.Val( AV14TrnContextAtt.gxTpr_Attributevalue, "."), 18, MidpointRounding.ToEven));
                }
-               AV33GXV1 = (int)(AV33GXV1+1);
+               AV41GXV1 = (int)(AV41GXV1+1);
             }
          }
+         AV29ProjectIds.Add(AV7ProjectId, 0);
+         new getemployeeidsbyproject(context ).execute(  AV29ProjectIds, out  AV26EmployeeIds) ;
+         new logtofile(context ).execute(  "&EmployeeIds: "+AV26EmployeeIds.ToJSonString(false)) ;
+         AV32EmployeeIdCollection.FromJSonString(AV26EmployeeIds.ToJSonString(false), null);
+         GXt_objcol_SdtEmployee1 = AV34BC_EmployeeCollection;
+         new prc_getprojectemployees(context ).execute(  AV7ProjectId, out  GXt_objcol_SdtEmployee1) ;
+         AV34BC_EmployeeCollection = GXt_objcol_SdtEmployee1;
       }
 
       protected void E110E2( )
@@ -178,7 +185,7 @@ namespace GeneXus.Programs {
 
       protected void standaloneNotModal( )
       {
-         AV32Pgmname = "Project_BC";
+         AV40Pgmname = "Project_BC";
          Gx_BScreen = 0;
       }
 
@@ -1234,8 +1241,13 @@ namespace GeneXus.Programs {
          AV8WWPContext = new GeneXus.Programs.wwpbaseobjects.SdtWWPContext(context);
          AV11TrnContext = new WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext(context);
          AV12WebSession = context.GetSession();
-         AV32Pgmname = "";
+         AV40Pgmname = "";
          AV14TrnContextAtt = new WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute(context);
+         AV29ProjectIds = new GxSimpleCollection<long>();
+         AV26EmployeeIds = new GxSimpleCollection<long>();
+         AV32EmployeeIdCollection = new GxSimpleCollection<long>();
+         AV34BC_EmployeeCollection = new GXBCCollection<SdtEmployee>( context, "Employee", "YTT_version4");
+         GXt_objcol_SdtEmployee1 = new GXBCCollection<SdtEmployee>( context, "Employee", "YTT_version4");
          Z103ProjectName = "";
          A103ProjectName = "";
          Z104ProjectDescription = "";
@@ -1339,7 +1351,7 @@ namespace GeneXus.Programs {
                }
             }
          );
-         AV32Pgmname = "Project_BC";
+         AV40Pgmname = "Project_BC";
          Z105ProjectStatus = "Active";
          A105ProjectStatus = "Active";
          i105ProjectStatus = "Active";
@@ -1354,10 +1366,11 @@ namespace GeneXus.Programs {
       private short Gx_BScreen ;
       private short RcdFound15 ;
       private int trnEnded ;
-      private int AV33GXV1 ;
+      private int AV41GXV1 ;
       private long Z102ProjectId ;
       private long A102ProjectId ;
       private long AV20Insert_ProjectManagerId ;
+      private long AV7ProjectId ;
       private long AV22ComboProjectManagerId ;
       private long Z162ProjectManagerId ;
       private long A162ProjectManagerId ;
@@ -1365,7 +1378,7 @@ namespace GeneXus.Programs {
       private string Gx_mode ;
       private string endTrnMsgTxt ;
       private string endTrnMsgCod ;
-      private string AV32Pgmname ;
+      private string AV40Pgmname ;
       private string Z103ProjectName ;
       private string A103ProjectName ;
       private string Z105ProjectStatus ;
@@ -1388,6 +1401,11 @@ namespace GeneXus.Programs {
       private GeneXus.Programs.wwpbaseobjects.SdtWWPContext AV8WWPContext ;
       private WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext AV11TrnContext ;
       private WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute AV14TrnContextAtt ;
+      private GxSimpleCollection<long> AV29ProjectIds ;
+      private GxSimpleCollection<long> AV26EmployeeIds ;
+      private GxSimpleCollection<long> AV32EmployeeIdCollection ;
+      private GXBCCollection<SdtEmployee> AV34BC_EmployeeCollection ;
+      private GXBCCollection<SdtEmployee> GXt_objcol_SdtEmployee1 ;
       private IDataStoreProvider pr_default ;
       private string[] BC000E6_A103ProjectName ;
       private string[] BC000E6_A104ProjectDescription ;

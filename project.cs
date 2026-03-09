@@ -135,7 +135,6 @@ namespace GeneXus.Programs {
             {
                AV7ProjectId = (long)(Math.Round(NumberUtil.Val( GetPar( "ProjectId"), "."), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "AV7ProjectId", StringUtil.LTrimStr( (decimal)(AV7ProjectId), 10, 0));
-               GxWebStd.gx_hidden_field( context, "gxhash_vPROJECTID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV7ProjectId), "ZZZZZZZZZ9"), context));
             }
          }
          if ( toggleJsOutput )
@@ -455,7 +454,29 @@ namespace GeneXus.Programs {
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
+         /* Div Control */
+         GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
+         /* Div Control */
+         GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12", "start", "top", "", "", "div");
+         /* User Defined Control */
+         ucUc_projectemployees1.SetProperty("BC_EmployeeCollection", AV34BC_EmployeeCollection);
+         ucUc_projectemployees1.Render(context, "uc_projectemployees", Uc_projectemployees1_Internalname, "UC_PROJECTEMPLOYEES1Container");
          GxWebStd.gx_div_end( context, "start", "top", "div");
+         GxWebStd.gx_div_end( context, "start", "top", "div");
+         GxWebStd.gx_div_end( context, "start", "top", "div");
+         GxWebStd.gx_div_end( context, "start", "top", "div");
+         GxWebStd.gx_div_end( context, "start", "top", "div");
+         /* Div Control */
+         GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "row", "start", "top", "", "", "div");
+         /* Div Control */
+         GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "col-xs-12 DataContentCell ExtendedComboCell", "start", "top", "", "", "div");
+         /* User Defined Control */
+         ucCombo_employeeid.SetProperty("Caption", Combo_employeeid_Caption);
+         ucCombo_employeeid.SetProperty("Cls", Combo_employeeid_Cls);
+         ucCombo_employeeid.SetProperty("EmptyItem", Combo_employeeid_Emptyitem);
+         ucCombo_employeeid.SetProperty("DropDownOptionsTitleSettingsIcons", AV24DDO_TitleSettingsIcons);
+         ucCombo_employeeid.SetProperty("DropDownOptionsData", AV15EmployeeId_Data);
+         ucCombo_employeeid.Render(context, "dvelop.gxbootstrap.ddoextendedcombo", Combo_employeeid_Internalname, "COMBO_EMPLOYEEIDContainer");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -469,21 +490,21 @@ namespace GeneXus.Programs {
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-action-group CellMarginTop10", "start", "top", " "+"data-gx-actiongroup-type=\"toolbar\""+" ", "", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
-         TempTags = "  onfocus=\"gx.evt.onfocus(this, 49,'',false,'',0)\"";
+         TempTags = "  onfocus=\"gx.evt.onfocus(this, 55,'',false,'',0)\"";
          ClassString = "Button";
          StyleString = "";
          GxWebStd.gx_button_ctrl( context, bttBtntrn_enter_Internalname, "", "Confirm", bttBtntrn_enter_Jsonclick, 5, "Confirm", "", StyleString, ClassString, bttBtntrn_enter_Visible, bttBtntrn_enter_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EENTER."+"'", TempTags, "", context.GetButtonType( ), "HLP_Project.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
-         TempTags = "  onfocus=\"gx.evt.onfocus(this, 51,'',false,'',0)\"";
+         TempTags = "  onfocus=\"gx.evt.onfocus(this, 57,'',false,'',0)\"";
          ClassString = "BtnDefault";
          StyleString = "";
          GxWebStd.gx_button_ctrl( context, bttBtntrn_cancel_Internalname, "", "Cancel", bttBtntrn_cancel_Jsonclick, 1, "Cancel", "", StyleString, ClassString, bttBtntrn_cancel_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"ECANCEL."+"'", TempTags, "", context.GetButtonType( ), "HLP_Project.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Div Control */
          GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
-         TempTags = "  onfocus=\"gx.evt.onfocus(this, 53,'',false,'',0)\"";
+         TempTags = "  onfocus=\"gx.evt.onfocus(this, 59,'',false,'',0)\"";
          ClassString = "BtnDefault";
          StyleString = "";
          GxWebStd.gx_button_ctrl( context, bttBtntrn_delete_Internalname, "", "Delete", bttBtntrn_delete_Jsonclick, 5, "Delete", "", StyleString, ClassString, bttBtntrn_delete_Visible, bttBtntrn_delete_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EDELETE."+"'", TempTags, "", context.GetButtonType( ), "HLP_Project.htm");
@@ -512,12 +533,15 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, divSectionattribute_projectmanagerid_Internalname, 1, 0, "px", 0, "px", "Section", "start", "top", "", "", "div");
          /* Single line edit */
-         TempTags = "  onfocus=\"gx.evt.onfocus(this, 60,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtavComboprojectmanagerid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV22ComboProjectManagerId), 10, 0, ".", "")), StringUtil.LTrim( ((edtavComboprojectmanagerid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV22ComboProjectManagerId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(AV22ComboProjectManagerId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,60);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavComboprojectmanagerid_Jsonclick, 0, "Attribute", "", "", "", "", edtavComboprojectmanagerid_Visible, edtavComboprojectmanagerid_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Project.htm");
+         TempTags = "  onfocus=\"gx.evt.onfocus(this, 66,'',false,'',0)\"";
+         GxWebStd.gx_single_line_edit( context, edtavComboprojectmanagerid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV22ComboProjectManagerId), 10, 0, ".", "")), StringUtil.LTrim( ((edtavComboprojectmanagerid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV22ComboProjectManagerId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(AV22ComboProjectManagerId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,66);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavComboprojectmanagerid_Jsonclick, 0, "Attribute", "", "", "", "", edtavComboprojectmanagerid_Visible, edtavComboprojectmanagerid_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Project.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Single line edit */
-         TempTags = "  onfocus=\"gx.evt.onfocus(this, 61,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtProjectId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A102ProjectId), 10, 0, ".", "")), StringUtil.LTrim( ((edtProjectId_Enabled!=0) ? context.localUtil.Format( (decimal)(A102ProjectId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(A102ProjectId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,61);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtProjectId_Jsonclick, 0, "Attribute", "", "", "", "", edtProjectId_Visible, edtProjectId_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_Project.htm");
+         TempTags = "  onfocus=\"gx.evt.onfocus(this, 67,'',false,'',0)\"";
+         GxWebStd.gx_single_line_edit( context, edtavEmployeeid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV31EmployeeId), 10, 0, ".", "")), StringUtil.LTrim( ((edtavEmployeeid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV31EmployeeId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(AV31EmployeeId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,67);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEmployeeid_Jsonclick, 0, "Attribute", "", "", "", "", edtavEmployeeid_Visible, edtavEmployeeid_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Project.htm");
+         /* Single line edit */
+         TempTags = "  onfocus=\"gx.evt.onfocus(this, 68,'',false,'',0)\"";
+         GxWebStd.gx_single_line_edit( context, edtProjectId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A102ProjectId), 10, 0, ".", "")), StringUtil.LTrim( ((edtProjectId_Enabled!=0) ? context.localUtil.Format( (decimal)(A102ProjectId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(A102ProjectId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,68);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtProjectId_Jsonclick, 0, "Attribute", "", "", "", "", edtProjectId_Visible, edtProjectId_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_Project.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -562,6 +586,8 @@ namespace GeneXus.Programs {
                /* Read saved SDTs. */
                ajax_req_read_hidden_sdt(cgiGet( "vDDO_TITLESETTINGSICONS"), AV24DDO_TitleSettingsIcons);
                ajax_req_read_hidden_sdt(cgiGet( "vPROJECTMANAGERID_DATA"), AV21ProjectManagerId_Data);
+               ajax_req_read_hidden_sdt(cgiGet( "vBC_EMPLOYEECOLLECTION"), AV34BC_EmployeeCollection);
+               ajax_req_read_hidden_sdt(cgiGet( "vEMPLOYEEID_DATA"), AV15EmployeeId_Data);
                /* Read saved values. */
                Z102ProjectId = (long)(Math.Round(context.localUtil.CToN( cgiGet( "Z102ProjectId"), ".", ","), 18, MidpointRounding.ToEven));
                Z103ProjectName = cgiGet( "Z103ProjectName");
@@ -580,7 +606,7 @@ namespace GeneXus.Programs {
                A163ProjectManagerName = cgiGet( "PROJECTMANAGERNAME");
                A175ProjectManagerEmail = cgiGet( "PROJECTMANAGEREMAIL");
                A176ProjectManagerIsActive = StringUtil.StrToBool( cgiGet( "PROJECTMANAGERISACTIVE"));
-               AV32Pgmname = cgiGet( "vPGMNAME");
+               AV40Pgmname = cgiGet( "vPGMNAME");
                Combo_projectmanagerid_Objectcall = cgiGet( "COMBO_PROJECTMANAGERID_Objectcall");
                Combo_projectmanagerid_Class = cgiGet( "COMBO_PROJECTMANAGERID_Class");
                Combo_projectmanagerid_Icontype = cgiGet( "COMBO_PROJECTMANAGERID_Icontype");
@@ -622,6 +648,52 @@ namespace GeneXus.Programs {
                Combo_projectmanagerid_Multiplevaluesseparator = cgiGet( "COMBO_PROJECTMANAGERID_Multiplevaluesseparator");
                Combo_projectmanagerid_Addnewoptiontext = cgiGet( "COMBO_PROJECTMANAGERID_Addnewoptiontext");
                Combo_projectmanagerid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_PROJECTMANAGERID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
+               Uc_projectemployees1_Objectcall = cgiGet( "UC_PROJECTEMPLOYEES1_Objectcall");
+               Uc_projectemployees1_Class = cgiGet( "UC_PROJECTEMPLOYEES1_Class");
+               Uc_projectemployees1_Enabled = StringUtil.StrToBool( cgiGet( "UC_PROJECTEMPLOYEES1_Enabled"));
+               Uc_projectemployees1_Currentemployeeid = cgiGet( "UC_PROJECTEMPLOYEES1_Currentemployeeid");
+               Uc_projectemployees1_Visible = StringUtil.StrToBool( cgiGet( "UC_PROJECTEMPLOYEES1_Visible"));
+               Combo_employeeid_Objectcall = cgiGet( "COMBO_EMPLOYEEID_Objectcall");
+               Combo_employeeid_Class = cgiGet( "COMBO_EMPLOYEEID_Class");
+               Combo_employeeid_Icontype = cgiGet( "COMBO_EMPLOYEEID_Icontype");
+               Combo_employeeid_Icon = cgiGet( "COMBO_EMPLOYEEID_Icon");
+               Combo_employeeid_Caption = cgiGet( "COMBO_EMPLOYEEID_Caption");
+               Combo_employeeid_Tooltip = cgiGet( "COMBO_EMPLOYEEID_Tooltip");
+               Combo_employeeid_Cls = cgiGet( "COMBO_EMPLOYEEID_Cls");
+               Combo_employeeid_Selectedvalue_set = cgiGet( "COMBO_EMPLOYEEID_Selectedvalue_set");
+               Combo_employeeid_Selectedvalue_get = cgiGet( "COMBO_EMPLOYEEID_Selectedvalue_get");
+               Combo_employeeid_Selectedtext_set = cgiGet( "COMBO_EMPLOYEEID_Selectedtext_set");
+               Combo_employeeid_Selectedtext_get = cgiGet( "COMBO_EMPLOYEEID_Selectedtext_get");
+               Combo_employeeid_Gamoauthtoken = cgiGet( "COMBO_EMPLOYEEID_Gamoauthtoken");
+               Combo_employeeid_Ddointernalname = cgiGet( "COMBO_EMPLOYEEID_Ddointernalname");
+               Combo_employeeid_Titlecontrolalign = cgiGet( "COMBO_EMPLOYEEID_Titlecontrolalign");
+               Combo_employeeid_Dropdownoptionstype = cgiGet( "COMBO_EMPLOYEEID_Dropdownoptionstype");
+               Combo_employeeid_Enabled = StringUtil.StrToBool( cgiGet( "COMBO_EMPLOYEEID_Enabled"));
+               Combo_employeeid_Visible = StringUtil.StrToBool( cgiGet( "COMBO_EMPLOYEEID_Visible"));
+               Combo_employeeid_Titlecontrolidtoreplace = cgiGet( "COMBO_EMPLOYEEID_Titlecontrolidtoreplace");
+               Combo_employeeid_Datalisttype = cgiGet( "COMBO_EMPLOYEEID_Datalisttype");
+               Combo_employeeid_Allowmultipleselection = StringUtil.StrToBool( cgiGet( "COMBO_EMPLOYEEID_Allowmultipleselection"));
+               Combo_employeeid_Datalistfixedvalues = cgiGet( "COMBO_EMPLOYEEID_Datalistfixedvalues");
+               Combo_employeeid_Isgriditem = StringUtil.StrToBool( cgiGet( "COMBO_EMPLOYEEID_Isgriditem"));
+               Combo_employeeid_Hasdescription = StringUtil.StrToBool( cgiGet( "COMBO_EMPLOYEEID_Hasdescription"));
+               Combo_employeeid_Datalistproc = cgiGet( "COMBO_EMPLOYEEID_Datalistproc");
+               Combo_employeeid_Datalistprocparametersprefix = cgiGet( "COMBO_EMPLOYEEID_Datalistprocparametersprefix");
+               Combo_employeeid_Remoteservicesparameters = cgiGet( "COMBO_EMPLOYEEID_Remoteservicesparameters");
+               Combo_employeeid_Datalistupdateminimumcharacters = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_EMPLOYEEID_Datalistupdateminimumcharacters"), ".", ","), 18, MidpointRounding.ToEven));
+               Combo_employeeid_Includeonlyselectedoption = StringUtil.StrToBool( cgiGet( "COMBO_EMPLOYEEID_Includeonlyselectedoption"));
+               Combo_employeeid_Includeselectalloption = StringUtil.StrToBool( cgiGet( "COMBO_EMPLOYEEID_Includeselectalloption"));
+               Combo_employeeid_Emptyitem = StringUtil.StrToBool( cgiGet( "COMBO_EMPLOYEEID_Emptyitem"));
+               Combo_employeeid_Includeaddnewoption = StringUtil.StrToBool( cgiGet( "COMBO_EMPLOYEEID_Includeaddnewoption"));
+               Combo_employeeid_Htmltemplate = cgiGet( "COMBO_EMPLOYEEID_Htmltemplate");
+               Combo_employeeid_Multiplevaluestype = cgiGet( "COMBO_EMPLOYEEID_Multiplevaluestype");
+               Combo_employeeid_Loadingdata = cgiGet( "COMBO_EMPLOYEEID_Loadingdata");
+               Combo_employeeid_Noresultsfound = cgiGet( "COMBO_EMPLOYEEID_Noresultsfound");
+               Combo_employeeid_Emptyitemtext = cgiGet( "COMBO_EMPLOYEEID_Emptyitemtext");
+               Combo_employeeid_Onlyselectedvalues = cgiGet( "COMBO_EMPLOYEEID_Onlyselectedvalues");
+               Combo_employeeid_Selectalltext = cgiGet( "COMBO_EMPLOYEEID_Selectalltext");
+               Combo_employeeid_Multiplevaluesseparator = cgiGet( "COMBO_EMPLOYEEID_Multiplevaluesseparator");
+               Combo_employeeid_Addnewoptiontext = cgiGet( "COMBO_EMPLOYEEID_Addnewoptiontext");
+               Combo_employeeid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_EMPLOYEEID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
                /* Read variables values. */
                A103ProjectName = cgiGet( edtProjectName_Internalname);
                AssignAttri("", false, "A103ProjectName", A103ProjectName);
@@ -650,6 +722,8 @@ namespace GeneXus.Programs {
                n162ProjectManagerId = ((0==A162ProjectManagerId) ? true : false);
                AV22ComboProjectManagerId = (long)(Math.Round(context.localUtil.CToN( cgiGet( edtavComboprojectmanagerid_Internalname), ".", ","), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "AV22ComboProjectManagerId", StringUtil.LTrimStr( (decimal)(AV22ComboProjectManagerId), 10, 0));
+               AV31EmployeeId = (long)(Math.Round(context.localUtil.CToN( cgiGet( edtavEmployeeid_Internalname), ".", ","), 18, MidpointRounding.ToEven));
+               AssignAttri("", false, "AV31EmployeeId", StringUtil.LTrimStr( (decimal)(AV31EmployeeId), 10, 0));
                A102ProjectId = (long)(Math.Round(context.localUtil.CToN( cgiGet( edtProjectId_Internalname), ".", ","), 18, MidpointRounding.ToEven));
                AssignAttri("", false, "A102ProjectId", StringUtil.LTrimStr( (decimal)(A102ProjectId), 10, 0));
                /* Read subfile selected row values. */
@@ -751,7 +825,21 @@ namespace GeneXus.Programs {
                      if ( StringUtil.StrCmp(sEvtType, ".") == 0 )
                      {
                         sEvt = StringUtil.Left( sEvt, (short)(StringUtil.Len( sEvt)-1));
-                        if ( StringUtil.StrCmp(sEvt, "START") == 0 )
+                        if ( StringUtil.StrCmp(sEvt, "UC_PROJECTEMPLOYEES1.ONREMOVEEMPLOYEE") == 0 )
+                        {
+                           context.wbHandled = 1;
+                           dynload_actions( ) ;
+                           /* Execute user event: Uc_projectemployees1.Onremoveemployee */
+                           E120E2 ();
+                        }
+                        else if ( StringUtil.StrCmp(sEvt, "COMBO_EMPLOYEEID.ONOPTIONCLICKED") == 0 )
+                        {
+                           context.wbHandled = 1;
+                           dynload_actions( ) ;
+                           /* Execute user event: Combo_employeeid.Onoptionclicked */
+                           E130E2 ();
+                        }
+                        else if ( StringUtil.StrCmp(sEvt, "START") == 0 )
                         {
                            context.wbHandled = 1;
                            dynload_actions( ) ;
@@ -763,7 +851,7 @@ namespace GeneXus.Programs {
                            context.wbHandled = 1;
                            dynload_actions( ) ;
                            /* Execute user event: After Trn */
-                           E120E2 ();
+                           E140E2 ();
                         }
                         else if ( StringUtil.StrCmp(sEvt, "ENTER") == 0 )
                         {
@@ -794,7 +882,7 @@ namespace GeneXus.Programs {
                GX_msglist.addItem(endTrnMsgTxt, endTrnMsgCod, 0, "", true);
             }
             /* Execute user event: After Trn */
-            E120E2 ();
+            E140E2 ();
             trnEnded = 0;
             standaloneNotModal( ) ;
             standaloneModal( ) ;
@@ -835,6 +923,7 @@ namespace GeneXus.Programs {
             DisableAttributes0E15( ) ;
          }
          AssignProp("", false, edtavComboprojectmanagerid_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtavComboprojectmanagerid_Enabled), 5, 0), true);
+         AssignProp("", false, edtavEmployeeid_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtavEmployeeid_Enabled), 5, 0), true);
       }
 
       protected void set_caption( )
@@ -888,6 +977,8 @@ namespace GeneXus.Programs {
          GXt_SdtDVB_SDTDropDownOptionsTitleSettingsIcons1 = AV24DDO_TitleSettingsIcons;
          new GeneXus.Programs.wwpbaseobjects.getwwptitlesettingsicons(context ).execute( out  GXt_SdtDVB_SDTDropDownOptionsTitleSettingsIcons1) ;
          AV24DDO_TitleSettingsIcons = GXt_SdtDVB_SDTDropDownOptionsTitleSettingsIcons1;
+         edtavEmployeeid_Visible = 0;
+         AssignProp("", false, edtavEmployeeid_Internalname, "Visible", StringUtil.LTrimStr( (decimal)(edtavEmployeeid_Visible), 5, 0), true);
          edtProjectManagerId_Visible = 0;
          AssignProp("", false, edtProjectManagerId_Internalname, "Visible", StringUtil.LTrimStr( (decimal)(edtProjectManagerId_Visible), 5, 0), true);
          AV22ComboProjectManagerId = 0;
@@ -901,14 +992,21 @@ namespace GeneXus.Programs {
             returnInSub = true;
             if (true) return;
          }
-         AV11TrnContext.FromXml(AV12WebSession.Get("TrnContext"), null, "", "");
-         if ( ( StringUtil.StrCmp(AV11TrnContext.gxTpr_Transactionname, AV32Pgmname) == 0 ) && ( StringUtil.StrCmp(Gx_mode, "INS") == 0 ) )
+         /* Execute user subroutine: 'LOADCOMBOEMPLOYEEID' */
+         S122 ();
+         if ( returnInSub )
          {
-            AV33GXV1 = 1;
-            AssignAttri("", false, "AV33GXV1", StringUtil.LTrimStr( (decimal)(AV33GXV1), 8, 0));
-            while ( AV33GXV1 <= AV11TrnContext.gxTpr_Attributes.Count )
+            returnInSub = true;
+            if (true) return;
+         }
+         AV11TrnContext.FromXml(AV12WebSession.Get("TrnContext"), null, "", "");
+         if ( ( StringUtil.StrCmp(AV11TrnContext.gxTpr_Transactionname, AV40Pgmname) == 0 ) && ( StringUtil.StrCmp(Gx_mode, "INS") == 0 ) )
+         {
+            AV41GXV1 = 1;
+            AssignAttri("", false, "AV41GXV1", StringUtil.LTrimStr( (decimal)(AV41GXV1), 8, 0));
+            while ( AV41GXV1 <= AV11TrnContext.gxTpr_Attributes.Count )
             {
-               AV14TrnContextAtt = ((WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute)AV11TrnContext.gxTpr_Attributes.Item(AV33GXV1));
+               AV14TrnContextAtt = ((WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute)AV11TrnContext.gxTpr_Attributes.Item(AV41GXV1));
                if ( StringUtil.StrCmp(AV14TrnContextAtt.gxTpr_Attributename, "ProjectManagerId") == 0 )
                {
                   AV20Insert_ProjectManagerId = (long)(Math.Round(NumberUtil.Val( AV14TrnContextAtt.gxTpr_Attributevalue, "."), 18, MidpointRounding.ToEven));
@@ -923,15 +1021,22 @@ namespace GeneXus.Programs {
                      ucCombo_projectmanagerid.SendProperty(context, "", false, Combo_projectmanagerid_Internalname, "Enabled", StringUtil.BoolToStr( Combo_projectmanagerid_Enabled));
                   }
                }
-               AV33GXV1 = (int)(AV33GXV1+1);
-               AssignAttri("", false, "AV33GXV1", StringUtil.LTrimStr( (decimal)(AV33GXV1), 8, 0));
+               AV41GXV1 = (int)(AV41GXV1+1);
+               AssignAttri("", false, "AV41GXV1", StringUtil.LTrimStr( (decimal)(AV41GXV1), 8, 0));
             }
          }
          edtProjectId_Visible = 0;
          AssignProp("", false, edtProjectId_Internalname, "Visible", StringUtil.LTrimStr( (decimal)(edtProjectId_Visible), 5, 0), true);
+         AV29ProjectIds.Add(AV7ProjectId, 0);
+         new getemployeeidsbyproject(context ).execute(  AV29ProjectIds, out  AV26EmployeeIds) ;
+         new logtofile(context ).execute(  "&EmployeeIds: "+AV26EmployeeIds.ToJSonString(false)) ;
+         AV32EmployeeIdCollection.FromJSonString(AV26EmployeeIds.ToJSonString(false), null);
+         GXt_objcol_SdtEmployee2 = AV34BC_EmployeeCollection;
+         new prc_getprojectemployees(context ).execute(  AV7ProjectId, out  GXt_objcol_SdtEmployee2) ;
+         AV34BC_EmployeeCollection = GXt_objcol_SdtEmployee2;
       }
 
-      protected void E120E2( )
+      protected void E140E2( )
       {
          /* After Trn Routine */
          returnInSub = false;
@@ -949,13 +1054,64 @@ namespace GeneXus.Programs {
          if (true) return;
       }
 
+      protected void E130E2( )
+      {
+         /* Combo_employeeid_Onoptionclicked Routine */
+         returnInSub = false;
+         AV31EmployeeId = (long)(Math.Round(NumberUtil.Val( Combo_employeeid_Selectedvalue_get, "."), 18, MidpointRounding.ToEven));
+         AssignAttri("", false, "AV31EmployeeId", StringUtil.LTrimStr( (decimal)(AV31EmployeeId), 10, 0));
+         new prc_addemployeetoproject(context ).execute(  AV31EmployeeId, ref  AV7ProjectId, ref  AV37IsSuccessful) ;
+         AssignAttri("", false, "AV7ProjectId", StringUtil.LTrimStr( (decimal)(AV7ProjectId), 10, 0));
+         AssignAttri("", false, "AV37IsSuccessful", AV37IsSuccessful);
+         if ( AV37IsSuccessful )
+         {
+            GXt_objcol_SdtEmployee2 = AV34BC_EmployeeCollection;
+            new prc_getprojectemployees(context ).execute(  AV7ProjectId, out  GXt_objcol_SdtEmployee2) ;
+            AV34BC_EmployeeCollection = GXt_objcol_SdtEmployee2;
+            AV31EmployeeId = 0;
+            AssignAttri("", false, "AV31EmployeeId", StringUtil.LTrimStr( (decimal)(AV31EmployeeId), 10, 0));
+            new getemployeeidsbyproject(context ).execute(  AV29ProjectIds, out  AV26EmployeeIds) ;
+         }
+         /* Execute user subroutine: 'LOADCOMBOEMPLOYEEID' */
+         S122 ();
+         if ( returnInSub )
+         {
+            returnInSub = true;
+            if (true) return;
+         }
+         /*  Sending Event outputs  */
+         context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV34BC_EmployeeCollection", AV34BC_EmployeeCollection);
+         context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV26EmployeeIds", AV26EmployeeIds);
+         context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV15EmployeeId_Data", AV15EmployeeId_Data);
+      }
+
+      protected void S122( )
+      {
+         /* 'LOADCOMBOEMPLOYEEID' Routine */
+         returnInSub = false;
+         GXt_objcol_SdtDVB_SDTComboData_Item3 = AV15EmployeeId_Data;
+         new projectloaddvcombo(context ).execute(  "EmployeeId",  Gx_mode,  AV7ProjectId, out  AV16ComboSelectedValue, out  AV23ComboSelectedText, out  GXt_objcol_SdtDVB_SDTComboData_Item3) ;
+         AV15EmployeeId_Data = GXt_objcol_SdtDVB_SDTComboData_Item3;
+         Combo_employeeid_Selectedvalue_set = AV16ComboSelectedValue;
+         ucCombo_employeeid.SendProperty(context, "", false, Combo_employeeid_Internalname, "SelectedValue_set", Combo_employeeid_Selectedvalue_set);
+         AV31EmployeeId = (long)(Math.Round(NumberUtil.Val( AV16ComboSelectedValue, "."), 18, MidpointRounding.ToEven));
+         AssignAttri("", false, "AV31EmployeeId", StringUtil.LTrimStr( (decimal)(AV31EmployeeId), 10, 0));
+         if ( ( StringUtil.StrCmp(Gx_mode, "DSP") == 0 ) || ( StringUtil.StrCmp(Gx_mode, "DLT") == 0 ) )
+         {
+            Combo_employeeid_Enabled = false;
+            ucCombo_employeeid.SendProperty(context, "", false, Combo_employeeid_Internalname, "Enabled", StringUtil.BoolToStr( Combo_employeeid_Enabled));
+         }
+         Combo_employeeid_Selectedvalue_set = "";
+         ucCombo_employeeid.SendProperty(context, "", false, Combo_employeeid_Internalname, "SelectedValue_set", Combo_employeeid_Selectedvalue_set);
+      }
+
       protected void S112( )
       {
          /* 'LOADCOMBOPROJECTMANAGERID' Routine */
          returnInSub = false;
-         GXt_objcol_SdtDVB_SDTComboData_Item2 = AV21ProjectManagerId_Data;
-         new projectloaddvcombo(context ).execute(  "ProjectManagerId",  Gx_mode,  AV7ProjectId, out  AV16ComboSelectedValue, out  AV23ComboSelectedText, out  GXt_objcol_SdtDVB_SDTComboData_Item2) ;
-         AV21ProjectManagerId_Data = GXt_objcol_SdtDVB_SDTComboData_Item2;
+         GXt_objcol_SdtDVB_SDTComboData_Item3 = AV21ProjectManagerId_Data;
+         new projectloaddvcombo(context ).execute(  "ProjectManagerId",  Gx_mode,  AV7ProjectId, out  AV16ComboSelectedValue, out  AV23ComboSelectedText, out  GXt_objcol_SdtDVB_SDTComboData_Item3) ;
+         AV21ProjectManagerId_Data = GXt_objcol_SdtDVB_SDTComboData_Item3;
          Combo_projectmanagerid_Selectedvalue_set = AV16ComboSelectedValue;
          ucCombo_projectmanagerid.SendProperty(context, "", false, Combo_projectmanagerid_Internalname, "SelectedValue_set", Combo_projectmanagerid_Selectedvalue_set);
          AV22ComboProjectManagerId = (long)(Math.Round(NumberUtil.Val( AV16ComboSelectedValue, "."), 18, MidpointRounding.ToEven));
@@ -965,6 +1121,24 @@ namespace GeneXus.Programs {
             Combo_projectmanagerid_Enabled = false;
             ucCombo_projectmanagerid.SendProperty(context, "", false, Combo_projectmanagerid_Internalname, "Enabled", StringUtil.BoolToStr( Combo_projectmanagerid_Enabled));
          }
+      }
+
+      protected void E120E2( )
+      {
+         /* Uc_projectemployees1_Onremoveemployee Routine */
+         returnInSub = false;
+         AV38SelectedEmployeeId = (long)(Math.Round(NumberUtil.Val( Uc_projectemployees1_Currentemployeeid, "."), 18, MidpointRounding.ToEven));
+         new prc_deactivateemployeeinproject(context ).execute(  AV38SelectedEmployeeId, ref  AV7ProjectId, ref  AV37IsSuccessful) ;
+         AssignAttri("", false, "AV7ProjectId", StringUtil.LTrimStr( (decimal)(AV7ProjectId), 10, 0));
+         AssignAttri("", false, "AV37IsSuccessful", AV37IsSuccessful);
+         if ( AV37IsSuccessful )
+         {
+            GXt_objcol_SdtEmployee2 = AV34BC_EmployeeCollection;
+            new prc_getprojectemployees(context ).execute(  AV7ProjectId, out  GXt_objcol_SdtEmployee2) ;
+            AV34BC_EmployeeCollection = GXt_objcol_SdtEmployee2;
+         }
+         /*  Sending Event outputs  */
+         context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV34BC_EmployeeCollection", AV34BC_EmployeeCollection);
       }
 
       protected void ZM0E15( short GX_JID )
@@ -1003,8 +1177,8 @@ namespace GeneXus.Programs {
       {
          edtProjectId_Enabled = 0;
          AssignProp("", false, edtProjectId_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtProjectId_Enabled), 5, 0), true);
-         AV32Pgmname = "Project";
-         AssignAttri("", false, "AV32Pgmname", AV32Pgmname);
+         AV40Pgmname = "Project";
+         AssignAttri("", false, "AV40Pgmname", AV40Pgmname);
          Gx_BScreen = 0;
          AssignAttri("", false, "Gx_BScreen", StringUtil.Str( (decimal)(Gx_BScreen), 1, 0));
          edtProjectId_Enabled = 0;
@@ -1897,6 +2071,10 @@ namespace GeneXus.Programs {
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
+         context.AddJavascriptSource("UserControls/UC_ProjectEmployeesRender.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
          context.WriteHtmlText( Form.Headerrawhtml) ;
          context.CloseHtmlHeader();
          if ( context.isSpaRequest( ) )
@@ -1973,6 +2151,22 @@ namespace GeneXus.Programs {
          {
             context.httpAjaxContext.ajax_rsp_assign_hidden_sdt("vPROJECTMANAGERID_DATA", AV21ProjectManagerId_Data);
          }
+         if ( context.isAjaxRequest( ) )
+         {
+            context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "vBC_EMPLOYEECOLLECTION", AV34BC_EmployeeCollection);
+         }
+         else
+         {
+            context.httpAjaxContext.ajax_rsp_assign_hidden_sdt("vBC_EMPLOYEECOLLECTION", AV34BC_EmployeeCollection);
+         }
+         if ( context.isAjaxRequest( ) )
+         {
+            context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "vEMPLOYEEID_DATA", AV15EmployeeId_Data);
+         }
+         else
+         {
+            context.httpAjaxContext.ajax_rsp_assign_hidden_sdt("vEMPLOYEEID_DATA", AV15EmployeeId_Data);
+         }
          GxWebStd.gx_hidden_field( context, "vMODE", StringUtil.RTrim( Gx_mode));
          GxWebStd.gx_hidden_field( context, "gxhash_vMODE", GetSecureSignedToken( "", StringUtil.RTrim( context.localUtil.Format( Gx_mode, "@!")), context));
          if ( context.isAjaxRequest( ) )
@@ -1984,19 +2178,35 @@ namespace GeneXus.Programs {
             context.httpAjaxContext.ajax_rsp_assign_hidden_sdt("vTRNCONTEXT", AV11TrnContext);
          }
          GxWebStd.gx_hidden_field( context, "gxhash_vTRNCONTEXT", GetSecureSignedToken( "", AV11TrnContext, context));
+         GxWebStd.gx_boolean_hidden_field( context, "vISSUCCESSFUL", AV37IsSuccessful);
+         if ( context.isAjaxRequest( ) )
+         {
+            context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "vPROJECTIDS", AV29ProjectIds);
+         }
+         else
+         {
+            context.httpAjaxContext.ajax_rsp_assign_hidden_sdt("vPROJECTIDS", AV29ProjectIds);
+         }
+         GxWebStd.gx_hidden_field( context, "gxhash_vPROJECTIDS", GetSecureSignedToken( "", AV29ProjectIds, context));
          GxWebStd.gx_hidden_field( context, "vPROJECTID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV7ProjectId), 10, 0, ".", "")));
-         GxWebStd.gx_hidden_field( context, "gxhash_vPROJECTID", GetSecureSignedToken( "", context.localUtil.Format( (decimal)(AV7ProjectId), "ZZZZZZZZZ9"), context));
          GxWebStd.gx_hidden_field( context, "vINSERT_PROJECTMANAGERID", StringUtil.LTrim( StringUtil.NToC( (decimal)(AV20Insert_ProjectManagerId), 10, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "vGXBSCREEN", StringUtil.LTrim( StringUtil.NToC( (decimal)(Gx_BScreen), 1, 0, ".", "")));
          GxWebStd.gx_hidden_field( context, "PROJECTMANAGERNAME", StringUtil.RTrim( A163ProjectManagerName));
          GxWebStd.gx_hidden_field( context, "PROJECTMANAGEREMAIL", A175ProjectManagerEmail);
          GxWebStd.gx_boolean_hidden_field( context, "PROJECTMANAGERISACTIVE", A176ProjectManagerIsActive);
-         GxWebStd.gx_hidden_field( context, "vPGMNAME", StringUtil.RTrim( AV32Pgmname));
+         GxWebStd.gx_hidden_field( context, "vPGMNAME", StringUtil.RTrim( AV40Pgmname));
          GxWebStd.gx_hidden_field( context, "COMBO_PROJECTMANAGERID_Objectcall", StringUtil.RTrim( Combo_projectmanagerid_Objectcall));
          GxWebStd.gx_hidden_field( context, "COMBO_PROJECTMANAGERID_Cls", StringUtil.RTrim( Combo_projectmanagerid_Cls));
          GxWebStd.gx_hidden_field( context, "COMBO_PROJECTMANAGERID_Selectedvalue_set", StringUtil.RTrim( Combo_projectmanagerid_Selectedvalue_set));
          GxWebStd.gx_hidden_field( context, "COMBO_PROJECTMANAGERID_Enabled", StringUtil.BoolToStr( Combo_projectmanagerid_Enabled));
          GxWebStd.gx_hidden_field( context, "COMBO_PROJECTMANAGERID_Emptyitem", StringUtil.BoolToStr( Combo_projectmanagerid_Emptyitem));
+         GxWebStd.gx_hidden_field( context, "UC_PROJECTEMPLOYEES1_Objectcall", StringUtil.RTrim( Uc_projectemployees1_Objectcall));
+         GxWebStd.gx_hidden_field( context, "UC_PROJECTEMPLOYEES1_Enabled", StringUtil.BoolToStr( Uc_projectemployees1_Enabled));
+         GxWebStd.gx_hidden_field( context, "COMBO_EMPLOYEEID_Objectcall", StringUtil.RTrim( Combo_employeeid_Objectcall));
+         GxWebStd.gx_hidden_field( context, "COMBO_EMPLOYEEID_Cls", StringUtil.RTrim( Combo_employeeid_Cls));
+         GxWebStd.gx_hidden_field( context, "COMBO_EMPLOYEEID_Selectedvalue_set", StringUtil.RTrim( Combo_employeeid_Selectedvalue_set));
+         GxWebStd.gx_hidden_field( context, "COMBO_EMPLOYEEID_Enabled", StringUtil.BoolToStr( Combo_employeeid_Enabled));
+         GxWebStd.gx_hidden_field( context, "COMBO_EMPLOYEEID_Emptyitem", StringUtil.BoolToStr( Combo_employeeid_Emptyitem));
       }
 
       public override void RenderHtmlCloseForm( )
@@ -2116,7 +2326,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026186541583", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026341420638", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2132,7 +2342,11 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("project.js", "?2026186541583", false, true);
+         context.AddJavascriptSource("project.js", "?2026341420638", false, true);
+         context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
+         context.AddJavascriptSource("UserControls/UC_ProjectEmployeesRender.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2149,7 +2363,9 @@ namespace GeneXus.Programs {
          Combo_projectmanagerid_Internalname = "COMBO_PROJECTMANAGERID";
          edtProjectManagerId_Internalname = "PROJECTMANAGERID";
          divTablesplittedprojectmanagerid_Internalname = "TABLESPLITTEDPROJECTMANAGERID";
+         Uc_projectemployees1_Internalname = "UC_PROJECTEMPLOYEES1";
          divTableattributes_Internalname = "TABLEATTRIBUTES";
+         Combo_employeeid_Internalname = "COMBO_EMPLOYEEID";
          divTablecontent_Internalname = "TABLECONTENT";
          bttBtntrn_enter_Internalname = "BTNTRN_ENTER";
          bttBtntrn_cancel_Internalname = "BTNTRN_CANCEL";
@@ -2159,6 +2375,7 @@ namespace GeneXus.Programs {
          divTablemain_Internalname = "TABLEMAIN";
          edtavComboprojectmanagerid_Internalname = "vCOMBOPROJECTMANAGERID";
          divSectionattribute_projectmanagerid_Internalname = "SECTIONATTRIBUTE_PROJECTMANAGERID";
+         edtavEmployeeid_Internalname = "vEMPLOYEEID";
          edtProjectId_Internalname = "PROJECTID";
          divHtml_bottomauxiliarcontrols_Internalname = "HTML_BOTTOMAUXILIARCONTROLS";
          divLayoutmaintable_Internalname = "LAYOUTMAINTABLE";
@@ -2178,9 +2395,13 @@ namespace GeneXus.Programs {
          Form.Textcolor = 0;
          Form.Backcolor = (int)(0xFFFFFF);
          Form.Caption = "Project";
+         Uc_projectemployees1_Currentemployeeid = "";
          edtProjectId_Jsonclick = "";
          edtProjectId_Enabled = 0;
          edtProjectId_Visible = 1;
+         edtavEmployeeid_Jsonclick = "";
+         edtavEmployeeid_Enabled = 0;
+         edtavEmployeeid_Visible = 1;
          edtavComboprojectmanagerid_Jsonclick = "";
          edtavComboprojectmanagerid_Enabled = 0;
          edtavComboprojectmanagerid_Visible = 1;
@@ -2189,6 +2410,10 @@ namespace GeneXus.Programs {
          bttBtntrn_cancel_Visible = 1;
          bttBtntrn_enter_Enabled = 1;
          bttBtntrn_enter_Visible = 1;
+         Combo_employeeid_Emptyitem = Convert.ToBoolean( 0);
+         Combo_employeeid_Cls = "ExtendedCombo ProjectEmployeeSelector";
+         Combo_employeeid_Caption = "";
+         Combo_employeeid_Enabled = Convert.ToBoolean( -1);
          edtProjectManagerId_Jsonclick = "";
          edtProjectManagerId_Enabled = 1;
          edtProjectManagerId_Visible = 1;
@@ -2331,9 +2556,13 @@ namespace GeneXus.Programs {
 
       public override void InitializeDynEvents( )
       {
-         setEventMetadata("ENTER","""{"handler":"UserMainFullajax","iparms":[{"postForm":true},{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9","hsh":true}]}""");
-         setEventMetadata("REFRESH","""{"handler":"Refresh","iparms":[{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV11TrnContext","fld":"vTRNCONTEXT","hsh":true},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"}]}""");
-         setEventMetadata("AFTER TRN","""{"handler":"E120E2","iparms":[{"av":"AV22ComboProjectManagerId","fld":"vCOMBOPROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV11TrnContext","fld":"vTRNCONTEXT","hsh":true}]}""");
+         setEventMetadata("ENTER","""{"handler":"UserMainFullajax","iparms":[{"postForm":true},{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"}]}""");
+         setEventMetadata("REFRESH","""{"handler":"Refresh","iparms":[{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV11TrnContext","fld":"vTRNCONTEXT","hsh":true},{"av":"AV29ProjectIds","fld":"vPROJECTIDS","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"}]}""");
+         setEventMetadata("AFTER TRN","""{"handler":"E140E2","iparms":[{"av":"AV22ComboProjectManagerId","fld":"vCOMBOPROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV11TrnContext","fld":"vTRNCONTEXT","hsh":true}]}""");
+         setEventMetadata("COMBO_EMPLOYEEID.ONOPTIONCLICKED","""{"handler":"E130E2","iparms":[{"av":"Combo_employeeid_Selectedvalue_get","ctrl":"COMBO_EMPLOYEEID","prop":"SelectedValue_get"},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV37IsSuccessful","fld":"vISSUCCESSFUL"},{"av":"AV29ProjectIds","fld":"vPROJECTIDS","hsh":true},{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true}]""");
+         setEventMetadata("COMBO_EMPLOYEEID.ONOPTIONCLICKED",""","oparms":[{"av":"AV31EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"AV37IsSuccessful","fld":"vISSUCCESSFUL"},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV34BC_EmployeeCollection","fld":"vBC_EMPLOYEECOLLECTION"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV15EmployeeId_Data","fld":"vEMPLOYEEID_DATA"},{"av":"Combo_employeeid_Selectedvalue_set","ctrl":"COMBO_EMPLOYEEID","prop":"SelectedValue_set"},{"av":"Combo_employeeid_Enabled","ctrl":"COMBO_EMPLOYEEID","prop":"Enabled"}]}""");
+         setEventMetadata("UC_PROJECTEMPLOYEES1.ONREMOVEEMPLOYEE","""{"handler":"E120E2","iparms":[{"av":"Uc_projectemployees1_Currentemployeeid","ctrl":"UC_PROJECTEMPLOYEES1","prop":"CurrentEmployeeId"},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV37IsSuccessful","fld":"vISSUCCESSFUL"}]""");
+         setEventMetadata("UC_PROJECTEMPLOYEES1.ONREMOVEEMPLOYEE",""","oparms":[{"av":"AV37IsSuccessful","fld":"vISSUCCESSFUL"},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV34BC_EmployeeCollection","fld":"vBC_EMPLOYEECOLLECTION"}]}""");
          setEventMetadata("VALID_PROJECTNAME","""{"handler":"Valid_Projectname","iparms":[{"av":"A103ProjectName","fld":"PROJECTNAME"},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"}]}""");
          setEventMetadata("VALID_PROJECTSTATUS","""{"handler":"Valid_Projectstatus","iparms":[]}""");
          setEventMetadata("VALID_PROJECTMANAGERID","""{"handler":"Valid_Projectmanagerid","iparms":[{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"A163ProjectManagerName","fld":"PROJECTMANAGERNAME"},{"av":"A175ProjectManagerEmail","fld":"PROJECTMANAGEREMAIL"},{"av":"A176ProjectManagerIsActive","fld":"PROJECTMANAGERISACTIVE"}]""");
@@ -2366,6 +2595,7 @@ namespace GeneXus.Programs {
          Z103ProjectName = "";
          Z104ProjectDescription = "";
          Z105ProjectStatus = "";
+         Combo_employeeid_Selectedvalue_get = "";
          Combo_projectmanagerid_Selectedvalue_get = "";
          gxfirstwebparm = "";
          gxfirstwebparm_bkp = "";
@@ -2384,12 +2614,16 @@ namespace GeneXus.Programs {
          ucCombo_projectmanagerid = new GXUserControl();
          AV24DDO_TitleSettingsIcons = new WorkWithPlus.workwithplus_web.SdtDVB_SDTDropDownOptionsTitleSettingsIcons(context);
          AV21ProjectManagerId_Data = new GXBaseCollection<WorkWithPlus.workwithplus_web.SdtDVB_SDTComboData_Item>( context, "Item", "");
+         ucUc_projectemployees1 = new GXUserControl();
+         AV34BC_EmployeeCollection = new GXBCCollection<SdtEmployee>( context, "Employee", "YTT_version4");
+         ucCombo_employeeid = new GXUserControl();
+         AV15EmployeeId_Data = new GXBaseCollection<WorkWithPlus.workwithplus_web.SdtDVB_SDTComboData_Item>( context, "Item", "");
          bttBtntrn_enter_Jsonclick = "";
          bttBtntrn_cancel_Jsonclick = "";
          bttBtntrn_delete_Jsonclick = "";
          A163ProjectManagerName = "";
          A175ProjectManagerEmail = "";
-         AV32Pgmname = "";
+         AV40Pgmname = "";
          Combo_projectmanagerid_Objectcall = "";
          Combo_projectmanagerid_Class = "";
          Combo_projectmanagerid_Icontype = "";
@@ -2417,6 +2651,35 @@ namespace GeneXus.Programs {
          Combo_projectmanagerid_Selectalltext = "";
          Combo_projectmanagerid_Multiplevaluesseparator = "";
          Combo_projectmanagerid_Addnewoptiontext = "";
+         Uc_projectemployees1_Objectcall = "";
+         Uc_projectemployees1_Class = "";
+         Combo_employeeid_Objectcall = "";
+         Combo_employeeid_Class = "";
+         Combo_employeeid_Icontype = "";
+         Combo_employeeid_Icon = "";
+         Combo_employeeid_Tooltip = "";
+         Combo_employeeid_Selectedvalue_set = "";
+         Combo_employeeid_Selectedtext_set = "";
+         Combo_employeeid_Selectedtext_get = "";
+         Combo_employeeid_Gamoauthtoken = "";
+         Combo_employeeid_Ddointernalname = "";
+         Combo_employeeid_Titlecontrolalign = "";
+         Combo_employeeid_Dropdownoptionstype = "";
+         Combo_employeeid_Titlecontrolidtoreplace = "";
+         Combo_employeeid_Datalisttype = "";
+         Combo_employeeid_Datalistfixedvalues = "";
+         Combo_employeeid_Datalistproc = "";
+         Combo_employeeid_Datalistprocparametersprefix = "";
+         Combo_employeeid_Remoteservicesparameters = "";
+         Combo_employeeid_Htmltemplate = "";
+         Combo_employeeid_Multiplevaluestype = "";
+         Combo_employeeid_Loadingdata = "";
+         Combo_employeeid_Noresultsfound = "";
+         Combo_employeeid_Emptyitemtext = "";
+         Combo_employeeid_Onlyselectedvalues = "";
+         Combo_employeeid_Selectalltext = "";
+         Combo_employeeid_Multiplevaluesseparator = "";
+         Combo_employeeid_Addnewoptiontext = "";
          forbiddenHiddens = new GXProperties();
          hsh = "";
          sMode15 = "";
@@ -2431,9 +2694,13 @@ namespace GeneXus.Programs {
          AV11TrnContext = new WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext(context);
          AV12WebSession = context.GetSession();
          AV14TrnContextAtt = new WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute(context);
-         GXt_objcol_SdtDVB_SDTComboData_Item2 = new GXBaseCollection<WorkWithPlus.workwithplus_web.SdtDVB_SDTComboData_Item>( context, "Item", "");
+         AV29ProjectIds = new GxSimpleCollection<long>();
+         AV26EmployeeIds = new GxSimpleCollection<long>();
+         AV32EmployeeIdCollection = new GxSimpleCollection<long>();
          AV16ComboSelectedValue = "";
          AV23ComboSelectedText = "";
+         GXt_objcol_SdtDVB_SDTComboData_Item3 = new GXBaseCollection<WorkWithPlus.workwithplus_web.SdtDVB_SDTComboData_Item>( context, "Item", "");
+         GXt_objcol_SdtEmployee2 = new GXBCCollection<SdtEmployee>( context, "Employee", "YTT_version4");
          Z163ProjectManagerName = "";
          Z175ProjectManagerEmail = "";
          T000E4_A163ProjectManagerName = new string[] {""} ;
@@ -2547,7 +2814,7 @@ namespace GeneXus.Programs {
                }
             }
          );
-         AV32Pgmname = "Project";
+         AV40Pgmname = "Project";
          Z105ProjectStatus = "Active";
          A105ProjectStatus = "Active";
          i105ProjectStatus = "Active";
@@ -2574,11 +2841,15 @@ namespace GeneXus.Programs {
       private int bttBtntrn_delete_Enabled ;
       private int edtavComboprojectmanagerid_Enabled ;
       private int edtavComboprojectmanagerid_Visible ;
+      private int edtavEmployeeid_Enabled ;
+      private int edtavEmployeeid_Visible ;
       private int edtProjectId_Enabled ;
       private int edtProjectId_Visible ;
       private int Combo_projectmanagerid_Datalistupdateminimumcharacters ;
       private int Combo_projectmanagerid_Gxcontroltype ;
-      private int AV33GXV1 ;
+      private int Combo_employeeid_Datalistupdateminimumcharacters ;
+      private int Combo_employeeid_Gxcontroltype ;
+      private int AV41GXV1 ;
       private int idxLst ;
       private long wcpOAV7ProjectId ;
       private long Z102ProjectId ;
@@ -2588,13 +2859,17 @@ namespace GeneXus.Programs {
       private long A102ProjectId ;
       private long AV7ProjectId ;
       private long AV22ComboProjectManagerId ;
+      private long AV31EmployeeId ;
       private long AV20Insert_ProjectManagerId ;
+      private long AV38SelectedEmployeeId ;
       private long A106EmployeeId ;
       private string sPrefix ;
       private string wcpOGx_mode ;
       private string Z103ProjectName ;
       private string Z105ProjectStatus ;
+      private string Combo_employeeid_Selectedvalue_get ;
       private string Combo_projectmanagerid_Selectedvalue_get ;
+      private string Uc_projectemployees1_Currentemployeeid ;
       private string gxfirstwebparm ;
       private string gxfirstwebparm_bkp ;
       private string Gx_mode ;
@@ -2627,6 +2902,10 @@ namespace GeneXus.Programs {
       private string Combo_projectmanagerid_Internalname ;
       private string edtProjectManagerId_Internalname ;
       private string edtProjectManagerId_Jsonclick ;
+      private string Uc_projectemployees1_Internalname ;
+      private string Combo_employeeid_Caption ;
+      private string Combo_employeeid_Cls ;
+      private string Combo_employeeid_Internalname ;
       private string bttBtntrn_enter_Internalname ;
       private string bttBtntrn_enter_Jsonclick ;
       private string bttBtntrn_cancel_Internalname ;
@@ -2638,10 +2917,12 @@ namespace GeneXus.Programs {
       private string divSectionattribute_projectmanagerid_Internalname ;
       private string edtavComboprojectmanagerid_Internalname ;
       private string edtavComboprojectmanagerid_Jsonclick ;
+      private string edtavEmployeeid_Internalname ;
+      private string edtavEmployeeid_Jsonclick ;
       private string edtProjectId_Internalname ;
       private string edtProjectId_Jsonclick ;
       private string A163ProjectManagerName ;
-      private string AV32Pgmname ;
+      private string AV40Pgmname ;
       private string Combo_projectmanagerid_Objectcall ;
       private string Combo_projectmanagerid_Class ;
       private string Combo_projectmanagerid_Icontype ;
@@ -2669,6 +2950,35 @@ namespace GeneXus.Programs {
       private string Combo_projectmanagerid_Selectalltext ;
       private string Combo_projectmanagerid_Multiplevaluesseparator ;
       private string Combo_projectmanagerid_Addnewoptiontext ;
+      private string Uc_projectemployees1_Objectcall ;
+      private string Uc_projectemployees1_Class ;
+      private string Combo_employeeid_Objectcall ;
+      private string Combo_employeeid_Class ;
+      private string Combo_employeeid_Icontype ;
+      private string Combo_employeeid_Icon ;
+      private string Combo_employeeid_Tooltip ;
+      private string Combo_employeeid_Selectedvalue_set ;
+      private string Combo_employeeid_Selectedtext_set ;
+      private string Combo_employeeid_Selectedtext_get ;
+      private string Combo_employeeid_Gamoauthtoken ;
+      private string Combo_employeeid_Ddointernalname ;
+      private string Combo_employeeid_Titlecontrolalign ;
+      private string Combo_employeeid_Dropdownoptionstype ;
+      private string Combo_employeeid_Titlecontrolidtoreplace ;
+      private string Combo_employeeid_Datalisttype ;
+      private string Combo_employeeid_Datalistfixedvalues ;
+      private string Combo_employeeid_Datalistproc ;
+      private string Combo_employeeid_Datalistprocparametersprefix ;
+      private string Combo_employeeid_Remoteservicesparameters ;
+      private string Combo_employeeid_Htmltemplate ;
+      private string Combo_employeeid_Multiplevaluestype ;
+      private string Combo_employeeid_Loadingdata ;
+      private string Combo_employeeid_Noresultsfound ;
+      private string Combo_employeeid_Emptyitemtext ;
+      private string Combo_employeeid_Onlyselectedvalues ;
+      private string Combo_employeeid_Selectalltext ;
+      private string Combo_employeeid_Multiplevaluesseparator ;
+      private string Combo_employeeid_Addnewoptiontext ;
       private string hsh ;
       private string sMode15 ;
       private string sEvt ;
@@ -2687,6 +2997,7 @@ namespace GeneXus.Programs {
       private bool n162ProjectManagerId ;
       private bool wbErr ;
       private bool Combo_projectmanagerid_Emptyitem ;
+      private bool Combo_employeeid_Emptyitem ;
       private bool A176ProjectManagerIsActive ;
       private bool Combo_projectmanagerid_Enabled ;
       private bool Combo_projectmanagerid_Visible ;
@@ -2696,7 +3007,18 @@ namespace GeneXus.Programs {
       private bool Combo_projectmanagerid_Includeonlyselectedoption ;
       private bool Combo_projectmanagerid_Includeselectalloption ;
       private bool Combo_projectmanagerid_Includeaddnewoption ;
+      private bool Uc_projectemployees1_Enabled ;
+      private bool Uc_projectemployees1_Visible ;
+      private bool Combo_employeeid_Enabled ;
+      private bool Combo_employeeid_Visible ;
+      private bool Combo_employeeid_Allowmultipleselection ;
+      private bool Combo_employeeid_Isgriditem ;
+      private bool Combo_employeeid_Hasdescription ;
+      private bool Combo_employeeid_Includeonlyselectedoption ;
+      private bool Combo_employeeid_Includeselectalloption ;
+      private bool Combo_employeeid_Includeaddnewoption ;
       private bool returnInSub ;
+      private bool AV37IsSuccessful ;
       private bool Z176ProjectManagerIsActive ;
       private string Z104ProjectDescription ;
       private string A104ProjectDescription ;
@@ -2707,17 +3029,25 @@ namespace GeneXus.Programs {
       private IGxSession AV12WebSession ;
       private GXProperties forbiddenHiddens ;
       private GXUserControl ucCombo_projectmanagerid ;
+      private GXUserControl ucUc_projectemployees1 ;
+      private GXUserControl ucCombo_employeeid ;
       private GXWebForm Form ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
       private GXCombobox cmbProjectStatus ;
       private WorkWithPlus.workwithplus_web.SdtDVB_SDTDropDownOptionsTitleSettingsIcons AV24DDO_TitleSettingsIcons ;
       private GXBaseCollection<WorkWithPlus.workwithplus_web.SdtDVB_SDTComboData_Item> AV21ProjectManagerId_Data ;
+      private GXBCCollection<SdtEmployee> AV34BC_EmployeeCollection ;
+      private GXBaseCollection<WorkWithPlus.workwithplus_web.SdtDVB_SDTComboData_Item> AV15EmployeeId_Data ;
       private GeneXus.Programs.wwpbaseobjects.SdtWWPContext AV8WWPContext ;
       private WorkWithPlus.workwithplus_web.SdtDVB_SDTDropDownOptionsTitleSettingsIcons GXt_SdtDVB_SDTDropDownOptionsTitleSettingsIcons1 ;
       private WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext AV11TrnContext ;
       private WorkWithPlus.workwithplus_commonobjects.SdtWWPTransactionContext_Attribute AV14TrnContextAtt ;
-      private GXBaseCollection<WorkWithPlus.workwithplus_web.SdtDVB_SDTComboData_Item> GXt_objcol_SdtDVB_SDTComboData_Item2 ;
+      private GxSimpleCollection<long> AV29ProjectIds ;
+      private GxSimpleCollection<long> AV26EmployeeIds ;
+      private GxSimpleCollection<long> AV32EmployeeIdCollection ;
+      private GXBaseCollection<WorkWithPlus.workwithplus_web.SdtDVB_SDTComboData_Item> GXt_objcol_SdtDVB_SDTComboData_Item3 ;
+      private GXBCCollection<SdtEmployee> GXt_objcol_SdtEmployee2 ;
       private IDataStoreProvider pr_default ;
       private string[] T000E4_A163ProjectManagerName ;
       private string[] T000E4_A175ProjectManagerEmail ;
