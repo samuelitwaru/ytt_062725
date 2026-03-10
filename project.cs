@@ -653,6 +653,7 @@ namespace GeneXus.Programs {
                Uc_projectemployees1_Enabled = StringUtil.StrToBool( cgiGet( "UC_PROJECTEMPLOYEES1_Enabled"));
                Uc_projectemployees1_Currentemployeeid = cgiGet( "UC_PROJECTEMPLOYEES1_Currentemployeeid");
                Uc_projectemployees1_Visible = StringUtil.StrToBool( cgiGet( "UC_PROJECTEMPLOYEES1_Visible"));
+               Uc_projectemployees1_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "UC_PROJECTEMPLOYEES1_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
                Combo_employeeid_Objectcall = cgiGet( "COMBO_EMPLOYEEID_Objectcall");
                Combo_employeeid_Class = cgiGet( "COMBO_EMPLOYEEID_Class");
                Combo_employeeid_Icontype = cgiGet( "COMBO_EMPLOYEEID_Icontype");
@@ -2326,7 +2327,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?2026341420638", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20263913374990", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2342,7 +2343,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("project.js", "?2026341420638", false, true);
+         context.AddJavascriptSource("project.js", "?20263913374991", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2847,6 +2848,7 @@ namespace GeneXus.Programs {
       private int edtProjectId_Visible ;
       private int Combo_projectmanagerid_Datalistupdateminimumcharacters ;
       private int Combo_projectmanagerid_Gxcontroltype ;
+      private int Uc_projectemployees1_Gxcontroltype ;
       private int Combo_employeeid_Datalistupdateminimumcharacters ;
       private int Combo_employeeid_Gxcontroltype ;
       private int AV41GXV1 ;

@@ -1,0 +1,69 @@
+URL: logworkours
+URL: logworkours
+URL: logworkours
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+GETTING >>        89
+&EmployeeWorkingDays["Mon","Tue","Fri"]
+&EmployeeWorkingDays["Mon","Tue","Fri"]
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+GETTING >>       156
+&EmployeeWorkingDays["Mon", "Tue", "Wed", "Thu", "Fri"]
+&EmployeeWorkingDays["Mon", "Tue", "Wed", "Thu", "Fri"]
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+&LeaveEvents: []
+URL: calendar
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+&LeaveEvents: []
+URL: calendar
+&LeaveEvents: []
+URL: calendar
+&LeaveEvents: []
+URL: calendar
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+Duration + 1:    1
+Duration + 1:    2
+&LeaveEvents: []
+URL: calendar
+&LeaveEvents: []
+URL: calendar

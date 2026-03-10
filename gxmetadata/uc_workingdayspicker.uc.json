@@ -1,0 +1,49 @@
+{
+	"Name": "UC_WorkingDaysPicker",
+	"Target": "",
+	"IsControlType": false,
+	"Template": "<style>	.weekday-selector {		display: inline-flex;		border: 1px solid #ced4da;		border-radius: 8px;		overflow: hidden;		background: white;		box-shadow: 0 1px 2px rgba(0,0,0,0.05);	}  	.day {		width: 40px;		height: 34px;		padding-top:4px;		display: flex;		align-items: center;		justify-content: center;		font-size: 14px;		cursor: pointer;		user-select: none;		border-right: 1px solid #dee2e6;		background: white;		color: #495057;		transition: all 0.2s ease;	}  	.day:last-child {		border-right: none;	}  	/* Hover (like Bootstrap buttons) */  	.day:hover {		background: #e9f2fb;	}  	/* Active / Selected */  	.day.active {		background: #4978b0;		color: white;	} 	/* Focus ring for accessibility */ 	/* Pressed animation */	.day:active {		transform: scale(0.95);	}</style><div class=\"weekday-selector\" id=\"weekdaySelector\">	<div class=\"day {{MonActive?}}active{{/MonActive}}\" tabindex=\"0\" data-day=\"Mon\">M</div>	<div class=\"day {{TueActive?}}active{{/TueActive}}\" tabindex=\"0\" data-day=\"Tue\">T</div>	<div class=\"day {{WedActive?}}active{{/WedActive}}\" tabindex=\"0\" data-day=\"Wed\">W</div>	<div class=\"day {{ThuActive?}}active{{/ThuActive}}\" tabindex=\"0\" data-day=\"Thu\">T</div>	<div class=\"day {{FriActive?}}active{{/FriActive}}\" tabindex=\"0\" data-day=\"Fri\">F</div></div>", 
+	"Events": [
+		{
+			"Name": "OnValueChange",
+			"On": "valuechange",
+			"Parameters": ""
+		} 
+	],
+	"Properties": [
+		{
+			"Id": "EmployeeWorkingDays",
+			"Name": "EmployeeWorkingDays",
+			"Type": "string",
+			"Default": ""
+		} 
+	],
+	"Methods": {
+		"Public": [
+		],
+		"Private": [
+		]
+	},
+	"Scripts": {
+		"AfterShow": [
+			{
+				"Name": "Start",
+				"Source": "		const selector = document.getElementById(\"weekdaySelector\");		const days = selector.querySelectorAll(\".day\");		const UC = this		days.forEach(day => {			day.addEventListener(\"click\", () => toggleDay(day));					// Keyboard support (Enter / Space)			day.addEventListener(\"keydown\", (e) => {			if (e.key === \"Enter\" || e.key === \" \") {				e.preventDefault();				toggleDay(day);			}			});		});				function toggleDay(day) {			day.classList.toggle(\"active\");			console.log(getWorkingDays())			UC.EmployeeWorkingDays = JSON.stringify(getWorkingDays());			const input = document.querySelector(\'#EMPLOYEEWORKINGDAYS\')			input.innerHTML = UC.EmployeeWorkingDays			UC.OnValueChange()		}				function getWorkingDays() {			return Array.from(days)			.filter(day => day.classList.contains(\"active\"))			.map(day => day.dataset.day);		}				window.getWorkingDays = getWorkingDays;	",
+				"AngularLocation": ""
+			} 
+		],
+		"BeforeShow": [
+			{
+				"Name": "Init",
+				"Source": "		try {			console.log(\'wd\', this.EmployeeWorkingDays)			const WorkingDays = JSON.parse(this.EmployeeWorkingDays)			this.MonActive = WorkingDays.includes(\"Mon\")			this.TueActive = WorkingDays.includes(\"Tue\")			this.WedActive = WorkingDays.includes(\"Wed\")			this.ThuActive = WorkingDays.includes(\"Thu\")			this.FriActive = WorkingDays.includes(\"Fri\")		}catch(e){			console.error(e)		}			",
+				"AngularLocation": ""
+			} 
+		]
+	},
+	"Dependencies": [
+	],
+	"Imports": [
+	],
+	"Styles": [
+	]
+}

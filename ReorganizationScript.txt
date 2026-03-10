@@ -1,2 +1,3 @@
-DROP TABLE LeaveRequestAction CASCADE;
+ALTER TABLE Employee ADD EmployeeWorkingDays TEXT DEFAULT '["Mon", "Tue", "Wed", "Thu", "Fri"]';
+ALTER TABLE Employee ALTER COLUMN EmployeeWorkingDays DROP DEFAULT;
 

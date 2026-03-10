@@ -268,6 +268,18 @@
               </Field>
             </Fields>
           </Field>
+          <Field name="EmployeeWorkingDays" description="Employee Working Days">
+            <Properties>
+              <Property>
+                <Name>Type</Name>
+                <Value>LongVarChar</Value>
+              </Property>
+              <Property>
+                <Name>Length</Name>
+                <Value>2097152</Value>
+              </Property>
+            </Properties>
+          </Field>
         </Fields>
       </Field>
     </Parameter>

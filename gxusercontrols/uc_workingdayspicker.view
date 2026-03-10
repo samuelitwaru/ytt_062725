@@ -1,0 +1,58 @@
+<style>
+	.weekday-selector {
+		display: inline-flex;
+		border: 1px solid #ced4da;
+		border-radius: 8px;
+		overflow: hidden;
+		background: white;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+	}
+
+  	.day {
+		width: 40px;
+		height: 34px;
+		padding-top:4px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 14px;
+		cursor: pointer;
+		user-select: none;
+		border-right: 1px solid #dee2e6;
+		background: white;
+		color: #495057;
+		transition: all 0.2s ease;
+	}
+
+  	.day:last-child {
+		border-right: none;
+	}
+
+  	/* Hover (like Bootstrap buttons) */
+  	.day:hover {
+		background: #e9f2fb;
+	}
+
+  	/* Active / Selected */
+  	.day.active {
+		background: #4978b0;
+		color: white;
+	}
+
+
+ 	/* Focus ring for accessibility */
+
+
+ 	/* Pressed animation */
+	.day:active {
+		transform: scale(0.95);
+	}
+</style>
+
+<div class="weekday-selector" id="weekdaySelector">
+	<div class="day {{#MonActive}}active{{/MonActive}}{{#gxTpr_MonActive}}active{{/gxTpr_MonActive}}" tabindex="0" data-day="Mon">M</div>
+	<div class="day {{#TueActive}}active{{/TueActive}}{{#gxTpr_TueActive}}active{{/gxTpr_TueActive}}" tabindex="0" data-day="Tue">T</div>
+	<div class="day {{#WedActive}}active{{/WedActive}}{{#gxTpr_WedActive}}active{{/gxTpr_WedActive}}" tabindex="0" data-day="Wed">W</div>
+	<div class="day {{#ThuActive}}active{{/ThuActive}}{{#gxTpr_ThuActive}}active{{/gxTpr_ThuActive}}" tabindex="0" data-day="Thu">T</div>
+	<div class="day {{#FriActive}}active{{/FriActive}}{{#gxTpr_FriActive}}active{{/gxTpr_FriActive}}" tabindex="0" data-day="Fri">F</div>
+</div>

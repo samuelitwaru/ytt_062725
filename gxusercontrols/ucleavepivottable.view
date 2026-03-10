@@ -19,12 +19,16 @@
     .arrow.rotate {
       transform: rotate(90deg);
     }
+	.collapse-table tbody tr.record-header:hover {
+		background-color: #f5f5f5; /* A light grey */
+		cursor: pointer;           /* Optional: makes it look clickable */
+	}
  </style>
 
 
 
 <div class="">
-    <table class="my-sticky-column-table gx-tab-spacing-fix-2 GridWithPaginationBar GridWithBorderColor WorkWith table-responsive">
+    <table class="collapse-table my-sticky-column-table gx-tab-spacing-fix-2 GridWithPaginationBar GridWithBorderColor WorkWith table-responsive">
         <thead class="table-light">
 			<tr>
 				<th>Employee</th>
