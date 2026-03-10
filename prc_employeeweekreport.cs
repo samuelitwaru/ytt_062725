@@ -128,6 +128,8 @@ namespace GeneXus.Programs {
             A106EmployeeId = P00BN2_A106EmployeeId[0];
             A188EmployeeFTEHours = P00BN2_A188EmployeeFTEHours[0];
             A148EmployeeName = P00BN2_A148EmployeeName[0];
+            A212EmployeeWorkingDays = P00BN2_A212EmployeeWorkingDays[0];
+            n212EmployeeWorkingDays = P00BN2_n212EmployeeWorkingDays[0];
             A112EmployeeIsActive = P00BN2_A112EmployeeIsActive[0];
             A157CompanyLocationId = P00BN2_A157CompanyLocationId[0];
             A157CompanyLocationId = P00BN2_A157CompanyLocationId[0];
@@ -178,7 +180,7 @@ namespace GeneXus.Programs {
                AV20Blank = (long)(Math.Round(GXt_decimal4, 18, MidpointRounding.ToEven));
                AV21Total = (short)(AV13Mon+AV14Tue+AV15Wed+AV16Thu+AV17Fri+AV18Sat+AV19Sun);
                AV22Expected = (long)((A188EmployeeFTEHours*60)-AV33Leave);
-               AV38ExpectedPerDay = (decimal)(AV22Expected/ (decimal)(5));
+               AV38ExpectedPerDay = (decimal)(480);
                AV23SDTEmployeeWeekReport.gxTpr_Employeename = StringUtil.Trim( A148EmployeeName);
                AV23SDTEmployeeWeekReport.gxTpr_Mon = AV13Mon;
                AV35SDT_DayLogReport.gxTpr_Hours = AV13Mon;
@@ -213,6 +215,11 @@ namespace GeneXus.Programs {
                GXt_boolean6 = false;
                new isdateholiday(context ).execute(  DateTimeUtil.DAdd( AV11FromDate, (6)),  A106EmployeeId, out  AV31SunHolidayName, out  GXt_boolean6) ;
                AV23SDTEmployeeWeekReport.gxTpr_Sun_isholiday = GXt_boolean6;
+               AV23SDTEmployeeWeekReport.gxTpr_Mon_isworkday = StringUtil.Contains( A212EmployeeWorkingDays, "Mon");
+               AV23SDTEmployeeWeekReport.gxTpr_Tue_isworkday = StringUtil.Contains( A212EmployeeWorkingDays, "Tue");
+               AV23SDTEmployeeWeekReport.gxTpr_Wed_isworkday = StringUtil.Contains( A212EmployeeWorkingDays, "Wed");
+               AV23SDTEmployeeWeekReport.gxTpr_Thu_isworkday = StringUtil.Contains( A212EmployeeWorkingDays, "Thu");
+               AV23SDTEmployeeWeekReport.gxTpr_Fri_isworkday = StringUtil.Contains( A212EmployeeWorkingDays, "Fri");
                GXt_char7 = "";
                new formattime(context ).execute(  AV13Mon, out  GXt_char7) ;
                GXt_char8 = "";
@@ -373,9 +380,12 @@ namespace GeneXus.Programs {
          P00BN2_A106EmployeeId = new long[1] ;
          P00BN2_A188EmployeeFTEHours = new short[1] ;
          P00BN2_A148EmployeeName = new string[] {""} ;
+         P00BN2_A212EmployeeWorkingDays = new string[] {""} ;
+         P00BN2_n212EmployeeWorkingDays = new bool[] {false} ;
          P00BN2_A112EmployeeIsActive = new bool[] {false} ;
          P00BN2_A157CompanyLocationId = new long[1] ;
          A148EmployeeName = "";
+         A212EmployeeWorkingDays = "";
          P00BN3_A106EmployeeId = new long[1] ;
          P00BN3_A102ProjectId = new long[1] ;
          AV23SDTEmployeeWeekReport = new SdtSDTEmployeeWeekReport(context);
@@ -396,7 +406,7 @@ namespace GeneXus.Programs {
          pr_default = new DataStoreProvider(context, new GeneXus.Programs.prc_employeeweekreport__default(),
             new Object[][] {
                 new Object[] {
-               P00BN2_A100CompanyId, P00BN2_A106EmployeeId, P00BN2_A188EmployeeFTEHours, P00BN2_A148EmployeeName, P00BN2_A112EmployeeIsActive, P00BN2_A157CompanyLocationId
+               P00BN2_A100CompanyId, P00BN2_A106EmployeeId, P00BN2_A188EmployeeFTEHours, P00BN2_A148EmployeeName, P00BN2_A212EmployeeWorkingDays, P00BN2_n212EmployeeWorkingDays, P00BN2_A112EmployeeIsActive, P00BN2_A157CompanyLocationId
                }
                , new Object[] {
                P00BN3_A106EmployeeId, P00BN3_A102ProjectId
@@ -445,8 +455,10 @@ namespace GeneXus.Programs {
       private DateTime GXt_date3 ;
       private DateTime GXt_date2 ;
       private bool A112EmployeeIsActive ;
+      private bool n212EmployeeWorkingDays ;
       private bool GXt_boolean6 ;
       private bool returnInSub ;
+      private string A212EmployeeWorkingDays ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
       private DateTime aP0_FromDate ;
@@ -464,6 +476,8 @@ namespace GeneXus.Programs {
       private long[] P00BN2_A106EmployeeId ;
       private short[] P00BN2_A188EmployeeFTEHours ;
       private string[] P00BN2_A148EmployeeName ;
+      private string[] P00BN2_A212EmployeeWorkingDays ;
+      private bool[] P00BN2_n212EmployeeWorkingDays ;
       private bool[] P00BN2_A112EmployeeIsActive ;
       private long[] P00BN2_A157CompanyLocationId ;
       private long[] P00BN3_A106EmployeeId ;
@@ -488,7 +502,7 @@ namespace GeneXus.Programs {
          System.Text.StringBuilder sWhereString = new System.Text.StringBuilder();
          string scmdbuf;
          Object[] GXv_Object10 = new Object[2];
-         scmdbuf = "SELECT T1.CompanyId, T1.EmployeeId, T1.EmployeeFTEHours, T1.EmployeeName, T1.EmployeeIsActive, T2.CompanyLocationId FROM (Employee T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId)";
+         scmdbuf = "SELECT T1.CompanyId, T1.EmployeeId, T1.EmployeeFTEHours, T1.EmployeeName, T1.EmployeeWorkingDays, T1.EmployeeIsActive, T2.CompanyLocationId FROM (Employee T1 INNER JOIN Company T2 ON T2.CompanyId = T1.CompanyId)";
          AddWhere(sWhereString, "(T1.EmployeeIsActive = TRUE)");
          if ( AV32CompanyLocationIdCollection_Count > 0 )
          {
@@ -555,8 +569,10 @@ namespace GeneXus.Programs {
                 ((long[]) buf[1])[0] = rslt.getLong(2);
                 ((short[]) buf[2])[0] = rslt.getShort(3);
                 ((string[]) buf[3])[0] = rslt.getString(4, 100);
-                ((bool[]) buf[4])[0] = rslt.getBool(5);
-                ((long[]) buf[5])[0] = rslt.getLong(6);
+                ((string[]) buf[4])[0] = rslt.getLongVarchar(5);
+                ((bool[]) buf[5])[0] = rslt.wasNull(5);
+                ((bool[]) buf[6])[0] = rslt.getBool(6);
+                ((long[]) buf[7])[0] = rslt.getLong(7);
                 return;
              case 1 :
                 ((long[]) buf[0])[0] = rslt.getLong(1);

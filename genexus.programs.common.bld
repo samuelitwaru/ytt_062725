@@ -46,11 +46,11 @@ type_SdtProject.cs
 type_SdtProject_Employee.cs
 type_SdtCompany.cs
 type_SdtWorkHourLog.cs
-type_SdtLeaveRequest.cs
 type_SdtAudit.cs
 type_SdtEmployee.cs
 type_SdtEmployee_Project.cs
 type_SdtEmployee_VacationSet.cs
+type_SdtLeaveRequest.cs
 gxdomainexporttype.cs
 gxdomainpage.cs
 gxdomainactiontexts.cs

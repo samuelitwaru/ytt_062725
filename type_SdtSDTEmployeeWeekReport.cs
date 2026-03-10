@@ -136,6 +136,21 @@ namespace GeneXus.Programs
 			AddObjectProperty("Sun_IsHoliday", gxTpr_Sun_isholiday, false);
 
 
+			AddObjectProperty("Mon_IsWorkDay", gxTpr_Mon_isworkday, false);
+
+
+			AddObjectProperty("Tue_IsWorkDay", gxTpr_Tue_isworkday, false);
+
+
+			AddObjectProperty("Wed_IsWorkDay", gxTpr_Wed_isworkday, false);
+
+
+			AddObjectProperty("Thu_IsWorkDay", gxTpr_Thu_isworkday, false);
+
+
+			AddObjectProperty("Fri_IsWorkDay", gxTpr_Fri_isworkday, false);
+
+
 			AddObjectProperty("Mon_Formatted", gxTpr_Mon_formatted, false);
 
 
@@ -488,6 +503,86 @@ namespace GeneXus.Programs
 
 
 
+		[SoapElement(ElementName="Mon_IsWorkDay")]
+		[XmlElement(ElementName="Mon_IsWorkDay")]
+		public bool gxTpr_Mon_isworkday
+		{
+			get {
+				return gxTv_SdtSDTEmployeeWeekReport_Mon_isworkday; 
+			}
+			set {
+				gxTv_SdtSDTEmployeeWeekReport_Mon_isworkday = value;
+				SetDirty("Mon_isworkday");
+			}
+		}
+
+
+
+
+		[SoapElement(ElementName="Tue_IsWorkDay")]
+		[XmlElement(ElementName="Tue_IsWorkDay")]
+		public bool gxTpr_Tue_isworkday
+		{
+			get {
+				return gxTv_SdtSDTEmployeeWeekReport_Tue_isworkday; 
+			}
+			set {
+				gxTv_SdtSDTEmployeeWeekReport_Tue_isworkday = value;
+				SetDirty("Tue_isworkday");
+			}
+		}
+
+
+
+
+		[SoapElement(ElementName="Wed_IsWorkDay")]
+		[XmlElement(ElementName="Wed_IsWorkDay")]
+		public bool gxTpr_Wed_isworkday
+		{
+			get {
+				return gxTv_SdtSDTEmployeeWeekReport_Wed_isworkday; 
+			}
+			set {
+				gxTv_SdtSDTEmployeeWeekReport_Wed_isworkday = value;
+				SetDirty("Wed_isworkday");
+			}
+		}
+
+
+
+
+		[SoapElement(ElementName="Thu_IsWorkDay")]
+		[XmlElement(ElementName="Thu_IsWorkDay")]
+		public bool gxTpr_Thu_isworkday
+		{
+			get {
+				return gxTv_SdtSDTEmployeeWeekReport_Thu_isworkday; 
+			}
+			set {
+				gxTv_SdtSDTEmployeeWeekReport_Thu_isworkday = value;
+				SetDirty("Thu_isworkday");
+			}
+		}
+
+
+
+
+		[SoapElement(ElementName="Fri_IsWorkDay")]
+		[XmlElement(ElementName="Fri_IsWorkDay")]
+		public bool gxTpr_Fri_isworkday
+		{
+			get {
+				return gxTv_SdtSDTEmployeeWeekReport_Fri_isworkday; 
+			}
+			set {
+				gxTv_SdtSDTEmployeeWeekReport_Fri_isworkday = value;
+				SetDirty("Fri_isworkday");
+			}
+		}
+
+
+
+
 		[SoapElement(ElementName="Mon_Formatted")]
 		[XmlElement(ElementName="Mon_Formatted")]
 		public string gxTpr_Mon_formatted
@@ -740,6 +835,11 @@ namespace GeneXus.Programs
 
 
 
+
+
+
+
+
 			gxTv_SdtSDTEmployeeWeekReport_Mon_formatted = "";
 			gxTv_SdtSDTEmployeeWeekReport_Tue_formatted = "";
 			gxTv_SdtSDTEmployeeWeekReport_Wed_formatted = "";
@@ -817,6 +917,21 @@ namespace GeneXus.Programs
 		 
 
 		protected bool gxTv_SdtSDTEmployeeWeekReport_Sun_isholiday;
+		 
+
+		protected bool gxTv_SdtSDTEmployeeWeekReport_Mon_isworkday;
+		 
+
+		protected bool gxTv_SdtSDTEmployeeWeekReport_Tue_isworkday;
+		 
+
+		protected bool gxTv_SdtSDTEmployeeWeekReport_Wed_isworkday;
+		 
+
+		protected bool gxTv_SdtSDTEmployeeWeekReport_Thu_isworkday;
+		 
+
+		protected bool gxTv_SdtSDTEmployeeWeekReport_Fri_isworkday;
 		 
 
 		protected string gxTv_SdtSDTEmployeeWeekReport_Mon_formatted;
@@ -1096,7 +1211,67 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="Mon_Formatted", Order=19)]
+		[DataMember(Name="Mon_IsWorkDay", Order=19)]
+		public bool gxTpr_Mon_isworkday
+		{
+			get { 
+				return sdt.gxTpr_Mon_isworkday;
+
+			}
+			set { 
+				sdt.gxTpr_Mon_isworkday = value;
+			}
+		}
+
+		[DataMember(Name="Tue_IsWorkDay", Order=20)]
+		public bool gxTpr_Tue_isworkday
+		{
+			get { 
+				return sdt.gxTpr_Tue_isworkday;
+
+			}
+			set { 
+				sdt.gxTpr_Tue_isworkday = value;
+			}
+		}
+
+		[DataMember(Name="Wed_IsWorkDay", Order=21)]
+		public bool gxTpr_Wed_isworkday
+		{
+			get { 
+				return sdt.gxTpr_Wed_isworkday;
+
+			}
+			set { 
+				sdt.gxTpr_Wed_isworkday = value;
+			}
+		}
+
+		[DataMember(Name="Thu_IsWorkDay", Order=22)]
+		public bool gxTpr_Thu_isworkday
+		{
+			get { 
+				return sdt.gxTpr_Thu_isworkday;
+
+			}
+			set { 
+				sdt.gxTpr_Thu_isworkday = value;
+			}
+		}
+
+		[DataMember(Name="Fri_IsWorkDay", Order=23)]
+		public bool gxTpr_Fri_isworkday
+		{
+			get { 
+				return sdt.gxTpr_Fri_isworkday;
+
+			}
+			set { 
+				sdt.gxTpr_Fri_isworkday = value;
+			}
+		}
+
+		[DataMember(Name="Mon_Formatted", Order=24)]
 		public  string gxTpr_Mon_formatted
 		{
 			get { 
@@ -1108,7 +1283,7 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="Tue_Formatted", Order=20)]
+		[DataMember(Name="Tue_Formatted", Order=25)]
 		public  string gxTpr_Tue_formatted
 		{
 			get { 
@@ -1120,7 +1295,7 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="Wed_Formatted", Order=21)]
+		[DataMember(Name="Wed_Formatted", Order=26)]
 		public  string gxTpr_Wed_formatted
 		{
 			get { 
@@ -1132,7 +1307,7 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="Thu_Formatted", Order=22)]
+		[DataMember(Name="Thu_Formatted", Order=27)]
 		public  string gxTpr_Thu_formatted
 		{
 			get { 
@@ -1144,7 +1319,7 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="Fri_Formatted", Order=23)]
+		[DataMember(Name="Fri_Formatted", Order=28)]
 		public  string gxTpr_Fri_formatted
 		{
 			get { 
@@ -1156,7 +1331,7 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="Sat_Formatted", Order=24)]
+		[DataMember(Name="Sat_Formatted", Order=29)]
 		public  string gxTpr_Sat_formatted
 		{
 			get { 
@@ -1168,7 +1343,7 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="Sun_Formatted", Order=25)]
+		[DataMember(Name="Sun_Formatted", Order=30)]
 		public  string gxTpr_Sun_formatted
 		{
 			get { 
@@ -1180,7 +1355,7 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="Leave_Formatted", Order=26)]
+		[DataMember(Name="Leave_Formatted", Order=31)]
 		public  string gxTpr_Leave_formatted
 		{
 			get { 
@@ -1192,7 +1367,7 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="Total_Formatted", Order=27)]
+		[DataMember(Name="Total_Formatted", Order=32)]
 		public  string gxTpr_Total_formatted
 		{
 			get { 
@@ -1204,7 +1379,7 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="Expected_Formatted", Order=28)]
+		[DataMember(Name="Expected_Formatted", Order=33)]
 		public  string gxTpr_Expected_formatted
 		{
 			get { 
@@ -1216,7 +1391,7 @@ namespace GeneXus.Programs
 			}
 		}
 
-		[DataMember(Name="DayLogReports", Order=29, EmitDefaultValue=false)]
+		[DataMember(Name="DayLogReports", Order=34, EmitDefaultValue=false)]
 		public  GxGenericCollection<GeneXus.Programs.SdtSDT_DayLogReport_RESTInterface> gxTpr_Daylogreports
 		{
 			get { 

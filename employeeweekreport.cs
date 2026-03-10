@@ -1724,7 +1724,7 @@ namespace GeneXus.Programs {
          while ( AV75GXV1 <= AV41SDTEmployeeWeekReports.Count )
          {
             AV41SDTEmployeeWeekReports.CurrentItem = ((SdtSDTEmployeeWeekReport)AV41SDTEmployeeWeekReports.Item(AV75GXV1));
-            if ( ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Mon_isholiday )
+            if ( ( ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Mon_isholiday ) || ! ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Mon_isworkday )
             {
                edtavSdtemployeeweekreports__mon_formatted_Columnclass = "WWColumn ColumnAlignCenter WeekDay WWColumnWarning WWColumnWarningSingleCell";
             }
@@ -1740,7 +1740,7 @@ namespace GeneXus.Programs {
             {
                edtavSdtemployeeweekreports__mon_formatted_Columnclass = "WWColumn ColumnAlignCenter WeekDay";
             }
-            if ( ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Tue_isholiday )
+            if ( ( ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Tue_isholiday ) || ! ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Tue_isworkday )
             {
                edtavSdtemployeeweekreports__tue_formatted_Columnclass = "WWColumn ColumnAlignCenter WeekDay WWColumnWarning WWColumnWarningSingleCell";
             }
@@ -1756,7 +1756,7 @@ namespace GeneXus.Programs {
             {
                edtavSdtemployeeweekreports__tue_formatted_Columnclass = "WWColumn ColumnAlignCenter WeekDay";
             }
-            if ( ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Wed_isholiday )
+            if ( ( ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Wed_isholiday ) || ! ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Wed_isworkday )
             {
                edtavSdtemployeeweekreports__wed_formatted_Columnclass = "WWColumn ColumnAlignCenter WeekDay WWColumnWarning WWColumnWarningSingleCell";
             }
@@ -1772,7 +1772,7 @@ namespace GeneXus.Programs {
             {
                edtavSdtemployeeweekreports__wed_formatted_Columnclass = "WWColumn ColumnAlignCenter WeekDay";
             }
-            if ( ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Thu_isholiday )
+            if ( ( ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Thu_isholiday ) || ! ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Thu_isworkday )
             {
                edtavSdtemployeeweekreports__thu_formatted_Columnclass = "WWColumn ColumnAlignCenter WeekDay WWColumnWarning WWColumnWarningSingleCell";
             }
@@ -1788,7 +1788,7 @@ namespace GeneXus.Programs {
             {
                edtavSdtemployeeweekreports__thu_formatted_Columnclass = "WWColumn ColumnAlignCenter WeekDay";
             }
-            if ( ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Fri_isholiday )
+            if ( ( ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Fri_isholiday ) || ! ((SdtSDTEmployeeWeekReport)(AV41SDTEmployeeWeekReports.CurrentItem)).gxTpr_Fri_isworkday )
             {
                edtavSdtemployeeweekreports__fri_formatted_Columnclass = "WWColumn ColumnAlignCenter WeekDay WWColumnWarning WWColumnWarningSingleCell";
             }
@@ -2171,6 +2171,7 @@ namespace GeneXus.Programs {
          AssignAttri("", false, "AV74FilledStatus_1", StringUtil.LTrimStr( (decimal)(AV74FilledStatus_1), 4, 0));
          AV41SDTEmployeeWeekReports = GXt_objcol_SdtSDTEmployeeWeekReport8;
          gx_BV51 = true;
+         new logtofile(context ).execute(  "&SDTEmployeeWeekReports"+AV41SDTEmployeeWeekReports.ToJSonString(false)) ;
          GXt_char5 = "";
          new formatdatetime(context ).execute(  AV17DateRange,  "YYYY-MM-DD", out  GXt_char5) ;
          Usercontrol1_Fromdate = GXt_char5;
@@ -2231,7 +2232,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20263913395076", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202631010145770", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2249,7 +2250,7 @@ namespace GeneXus.Programs {
          if ( nGXWrapped != 1 )
          {
             context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-            context.AddJavascriptSource("employeeweekreport.js", "?20263913395077", false, true);
+            context.AddJavascriptSource("employeeweekreport.js", "?202631010145772", false, true);
             context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
             context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
             context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
