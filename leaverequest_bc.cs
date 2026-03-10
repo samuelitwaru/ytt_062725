@@ -180,8 +180,8 @@ namespace GeneXus.Programs {
                CheckExtendedTable0J21( ) ;
                if ( AnyError == 0 )
                {
-                  ZM0J21( 24) ;
                   ZM0J21( 25) ;
+                  ZM0J21( 26) ;
                }
                CloseExtendedTableCursors0J21( ) ;
             }
@@ -320,7 +320,7 @@ namespace GeneXus.Programs {
 
       protected void ZM0J21( short GX_JID )
       {
-         if ( ( GX_JID == 23 ) || ( GX_JID == 0 ) )
+         if ( ( GX_JID == 24 ) || ( GX_JID == 0 ) )
          {
             Z131LeaveRequestDuration = A131LeaveRequestDuration;
             Z130LeaveRequestEndDate = A130LeaveRequestEndDate;
@@ -333,18 +333,18 @@ namespace GeneXus.Programs {
             Z124LeaveTypeId = A124LeaveTypeId;
             Z106EmployeeId = A106EmployeeId;
          }
-         if ( ( GX_JID == 24 ) || ( GX_JID == 0 ) )
+         if ( ( GX_JID == 25 ) || ( GX_JID == 0 ) )
          {
             Z125LeaveTypeName = A125LeaveTypeName;
             Z144LeaveTypeVacationLeave = A144LeaveTypeVacationLeave;
             Z145LeaveTypeLoggingWorkHours = A145LeaveTypeLoggingWorkHours;
          }
-         if ( ( GX_JID == 25 ) || ( GX_JID == 0 ) )
+         if ( ( GX_JID == 26 ) || ( GX_JID == 0 ) )
          {
             Z147EmployeeBalance = A147EmployeeBalance;
             Z148EmployeeName = A148EmployeeName;
          }
-         if ( GX_JID == -23 )
+         if ( GX_JID == -24 )
          {
             Z127LeaveRequestId = A127LeaveRequestId;
             Z131LeaveRequestDuration = A131LeaveRequestDuration;
@@ -426,7 +426,7 @@ namespace GeneXus.Programs {
             A145LeaveTypeLoggingWorkHours = BC000J7_A145LeaveTypeLoggingWorkHours[0];
             A124LeaveTypeId = BC000J7_A124LeaveTypeId[0];
             A106EmployeeId = BC000J7_A106EmployeeId[0];
-            ZM0J21( -23) ;
+            ZM0J21( -24) ;
          }
          pr_default.close(5);
          OnLoadActions0J21( ) ;
@@ -509,6 +509,11 @@ namespace GeneXus.Programs {
          A147EmployeeBalance = BC000J5_A147EmployeeBalance[0];
          A148EmployeeName = BC000J5_A148EmployeeName[0];
          pr_default.close(3);
+         if ( IsIns( )  && ! AV51IsAvailable )
+         {
+            GX_msglist.addItem(A148EmployeeName+" already has a leave request in this date range!", 1, "");
+            AnyError = 1;
+         }
          GXt_decimal1 = AV49EmployeeBalance;
          new prc_getemployeebalance(context ).execute(  A106EmployeeId, out  GXt_decimal1) ;
          AV49EmployeeBalance = GXt_decimal1;
@@ -550,7 +555,7 @@ namespace GeneXus.Programs {
          pr_default.execute(1, new Object[] {A127LeaveRequestId});
          if ( (pr_default.getStatus(1) != 101) )
          {
-            ZM0J21( 23) ;
+            ZM0J21( 24) ;
             RcdFound21 = 1;
             A127LeaveRequestId = BC000J3_A127LeaveRequestId[0];
             A131LeaveRequestDuration = BC000J3_A131LeaveRequestDuration[0];
@@ -1156,7 +1161,7 @@ namespace GeneXus.Programs {
             Gx_mode = "UPD";
             Z127LeaveRequestId = A127LeaveRequestId;
          }
-         ZM0J21( -23) ;
+         ZM0J21( -24) ;
          OnLoadActions0J21( ) ;
          AddRow0J21( ) ;
          ScanKeyEnd0J21( ) ;
@@ -1185,7 +1190,7 @@ namespace GeneXus.Programs {
             Gx_mode = "UPD";
             Z127LeaveRequestId = A127LeaveRequestId;
          }
-         ZM0J21( -23) ;
+         ZM0J21( -24) ;
          OnLoadActions0J21( ) ;
          AddRow0J21( ) ;
          ScanKeyEnd0J21( ) ;

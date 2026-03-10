@@ -67,7 +67,6 @@ function UCVISTimeline($) {
 
 					try {
 						
-						
 						const style = document.createElement('style');
 						// append holiday styling
 						var styleString = `
