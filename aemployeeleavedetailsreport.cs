@@ -196,6 +196,7 @@ namespace GeneXus.Programs {
                   GXt_char1 = "";
                   new formatdatetime(context ).execute(  A129LeaveRequestStartDate,  "DD/MM/YYYY", out  GXt_char1) ;
                   AV17SDTEmployeeLeaveDetails.gxTpr_Firstleaverequeststartdatestring = GXt_char1;
+                  AV17SDTEmployeeLeaveDetails.gxTpr_Leaverequest.Add(AV20LeaveRequestItem, 0);
                }
                else
                {

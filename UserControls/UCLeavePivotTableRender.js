@@ -145,12 +145,12 @@ function UCLeavePivotTable($) {
 		}
 		this.Before = function() {
 
+
 				this.SDTEmployeeLeaveDetailsCollection.map(item=>{
-					item.LeaveCount = item.LeaveRequestCount - 1
+					item.LeaveCount = item.LeaveRequestCount
 					item.NotShowDetail = item.LeaveCount == 0
 					item.LeaveTotal = 0
 					const requests = item.LeaveRequest||[] 
-					console.log(requests)
 					for (let i = 0; i < requests.length; i++) {
 						const req = requests[i]
 						item.LeaveTotal += req.LeaveRequestDuration
