@@ -345,7 +345,7 @@ namespace GeneXus.Programs {
          }
          else if ( AV37FilledStatus == 2 )
          {
-            if ( ( ( AV13Mon == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Mon_isholiday ) || ( ( AV14Tue == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Tue_isholiday ) || ( ( AV15Wed == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Wed_isholiday ) || ( ( AV16Thu == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Thu_isholiday ) || ( ( AV17Fri == 0 ) && ! AV23SDTEmployeeWeekReport.gxTpr_Fri_isholiday ) )
+            if ( ( ( AV13Mon == 0 ) && AV23SDTEmployeeWeekReport.gxTpr_Mon_isworkday && ! AV23SDTEmployeeWeekReport.gxTpr_Mon_isholiday ) || ( ( AV14Tue == 0 ) && AV23SDTEmployeeWeekReport.gxTpr_Tue_isworkday && ! AV23SDTEmployeeWeekReport.gxTpr_Tue_isholiday ) || ( ( AV15Wed == 0 ) && AV23SDTEmployeeWeekReport.gxTpr_Wed_isworkday && ! AV23SDTEmployeeWeekReport.gxTpr_Wed_isholiday ) || ( ( AV16Thu == 0 ) && AV23SDTEmployeeWeekReport.gxTpr_Thu_isworkday && ! AV23SDTEmployeeWeekReport.gxTpr_Thu_isholiday ) || ( ( AV17Fri == 0 ) && AV23SDTEmployeeWeekReport.gxTpr_Fri_isworkday && ! AV23SDTEmployeeWeekReport.gxTpr_Fri_isholiday ) )
             {
                AV24SDTEmployeeWeekReportCollection.Add(AV23SDTEmployeeWeekReport, 0);
             }

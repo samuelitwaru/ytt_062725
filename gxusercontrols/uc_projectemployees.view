@@ -42,7 +42,7 @@
 				<tr class="WorkWithOdd">
 					<td class="gx-tab-padding-fix-1 gx-remove-row gx-remove-row-center gx-remove-row-middle" style="text-align:center;vertical-align:middle">
 						<button class='remove-button' id="{{gxTpr_EmployeeId}}{{EmployeeId}}">
-							<img id="deleteGridlevel_project_0001" src="http://localhost:8082/YTT_version4NETPostgreSQL14/Resources/DeleteRow.gif" title=" Delete row"
+							<img id="deleteGridlevel_project_0001" src="/Resources/DeleteRow.gif" title=" Delete row"
 								style="border-style: none;" class="gx-grid__row-delete">
 						</button>
 					</td>
@@ -56,3 +56,6 @@
 			</tbody>
 	</table>
 </div>
+
+
+

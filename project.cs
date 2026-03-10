@@ -53,7 +53,7 @@ namespace GeneXus.Programs {
             dyncall( GetNextPar( )) ;
             return  ;
          }
-         else if ( StringUtil.StrCmp(gxfirstwebparm, "gxJX_Action12") == 0 )
+         else if ( StringUtil.StrCmp(gxfirstwebparm, "gxJX_Action13") == 0 )
          {
             A162ProjectManagerId = (long)(Math.Round(NumberUtil.Val( GetPar( "ProjectManagerId"), "."), 18, MidpointRounding.ToEven));
             n162ProjectManagerId = false;
@@ -66,7 +66,23 @@ namespace GeneXus.Programs {
                GxWebError = 1;
                return  ;
             }
-            XC_12_0E15( A162ProjectManagerId, A102ProjectId) ;
+            XC_13_0E15( A162ProjectManagerId, A102ProjectId) ;
+            return  ;
+         }
+         else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxExecAct_"+"gxLoad_17") == 0 )
+         {
+            A162ProjectManagerId = (long)(Math.Round(NumberUtil.Val( GetPar( "ProjectManagerId"), "."), 18, MidpointRounding.ToEven));
+            n162ProjectManagerId = false;
+            AssignAttri("", false, "A162ProjectManagerId", StringUtil.LTrimStr( (decimal)(A162ProjectManagerId), 10, 0));
+            A102ProjectId = (long)(Math.Round(NumberUtil.Val( GetPar( "ProjectId"), "."), 18, MidpointRounding.ToEven));
+            AssignAttri("", false, "A102ProjectId", StringUtil.LTrimStr( (decimal)(A102ProjectId), 10, 0));
+            setAjaxCallMode();
+            if ( ! IsValidAjaxCall( true) )
+            {
+               GxWebError = 1;
+               return  ;
+            }
+            gxLoad_17( A162ProjectManagerId, A102ProjectId) ;
             return  ;
          }
          else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxExecAct_"+"gxLoad_16") == 0 )
@@ -74,29 +90,13 @@ namespace GeneXus.Programs {
             A162ProjectManagerId = (long)(Math.Round(NumberUtil.Val( GetPar( "ProjectManagerId"), "."), 18, MidpointRounding.ToEven));
             n162ProjectManagerId = false;
             AssignAttri("", false, "A162ProjectManagerId", StringUtil.LTrimStr( (decimal)(A162ProjectManagerId), 10, 0));
-            A102ProjectId = (long)(Math.Round(NumberUtil.Val( GetPar( "ProjectId"), "."), 18, MidpointRounding.ToEven));
-            AssignAttri("", false, "A102ProjectId", StringUtil.LTrimStr( (decimal)(A102ProjectId), 10, 0));
             setAjaxCallMode();
             if ( ! IsValidAjaxCall( true) )
             {
                GxWebError = 1;
                return  ;
             }
-            gxLoad_16( A162ProjectManagerId, A102ProjectId) ;
-            return  ;
-         }
-         else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxExecAct_"+"gxLoad_15") == 0 )
-         {
-            A162ProjectManagerId = (long)(Math.Round(NumberUtil.Val( GetPar( "ProjectManagerId"), "."), 18, MidpointRounding.ToEven));
-            n162ProjectManagerId = false;
-            AssignAttri("", false, "A162ProjectManagerId", StringUtil.LTrimStr( (decimal)(A162ProjectManagerId), 10, 0));
-            setAjaxCallMode();
-            if ( ! IsValidAjaxCall( true) )
-            {
-               GxWebError = 1;
-               return  ;
-            }
-            gxLoad_15( A162ProjectManagerId) ;
+            gxLoad_16( A162ProjectManagerId) ;
             return  ;
          }
          else if ( StringUtil.StrCmp(gxfirstwebparm, "gxajaxEvt") == 0 )
@@ -509,6 +509,13 @@ namespace GeneXus.Programs {
          StyleString = "";
          GxWebStd.gx_button_ctrl( context, bttBtntrn_delete_Internalname, "", "Delete", bttBtntrn_delete_Jsonclick, 5, "Delete", "", StyleString, ClassString, bttBtntrn_delete_Visible, bttBtntrn_delete_Enabled, "standard", "'"+""+"'"+",false,"+"'"+"EDELETE."+"'", TempTags, "", context.GetButtonType( ), "HLP_Project.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
+         /* Div Control */
+         GxWebStd.gx_div_start( context, "", 1, 0, "px", 0, "px", "gx-button", "start", "top", "", "", "div");
+         TempTags = "  onfocus=\"gx.evt.onfocus(this, 61,'',false,'',0)\"";
+         ClassString = "Button";
+         StyleString = "";
+         GxWebStd.gx_button_ctrl( context, bttBtncomformdeleteemployee_Internalname, "", "ComformDeleteEmployee", bttBtncomformdeleteemployee_Jsonclick, 7, "ComformDeleteEmployee", "", StyleString, ClassString, bttBtncomformdeleteemployee_Visible, 1, "standard", "'"+""+"'"+",false,"+"'"+"e110e15_client"+"'", TempTags, "", 2, "HLP_Project.htm");
+         GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -533,15 +540,37 @@ namespace GeneXus.Programs {
          /* Div Control */
          GxWebStd.gx_div_start( context, divSectionattribute_projectmanagerid_Internalname, 1, 0, "px", 0, "px", "Section", "start", "top", "", "", "div");
          /* Single line edit */
-         TempTags = "  onfocus=\"gx.evt.onfocus(this, 66,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtavComboprojectmanagerid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV22ComboProjectManagerId), 10, 0, ".", "")), StringUtil.LTrim( ((edtavComboprojectmanagerid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV22ComboProjectManagerId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(AV22ComboProjectManagerId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,66);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavComboprojectmanagerid_Jsonclick, 0, "Attribute", "", "", "", "", edtavComboprojectmanagerid_Visible, edtavComboprojectmanagerid_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Project.htm");
+         TempTags = "  onfocus=\"gx.evt.onfocus(this, 68,'',false,'',0)\"";
+         GxWebStd.gx_single_line_edit( context, edtavComboprojectmanagerid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV22ComboProjectManagerId), 10, 0, ".", "")), StringUtil.LTrim( ((edtavComboprojectmanagerid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV22ComboProjectManagerId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(AV22ComboProjectManagerId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,68);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavComboprojectmanagerid_Jsonclick, 0, "Attribute", "", "", "", "", edtavComboprojectmanagerid_Visible, edtavComboprojectmanagerid_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Project.htm");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          /* Single line edit */
-         TempTags = "  onfocus=\"gx.evt.onfocus(this, 67,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtavEmployeeid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV31EmployeeId), 10, 0, ".", "")), StringUtil.LTrim( ((edtavEmployeeid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV31EmployeeId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(AV31EmployeeId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,67);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEmployeeid_Jsonclick, 0, "Attribute", "", "", "", "", edtavEmployeeid_Visible, edtavEmployeeid_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Project.htm");
+         TempTags = "  onfocus=\"gx.evt.onfocus(this, 69,'',false,'',0)\"";
+         GxWebStd.gx_single_line_edit( context, edtavEmployeeid_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(AV31EmployeeId), 10, 0, ".", "")), StringUtil.LTrim( ((edtavEmployeeid_Enabled!=0) ? context.localUtil.Format( (decimal)(AV31EmployeeId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(AV31EmployeeId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,69);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtavEmployeeid_Jsonclick, 0, "Attribute", "", "", "", "", edtavEmployeeid_Visible, edtavEmployeeid_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "", "end", false, "", "HLP_Project.htm");
          /* Single line edit */
-         TempTags = "  onfocus=\"gx.evt.onfocus(this, 68,'',false,'',0)\"";
-         GxWebStd.gx_single_line_edit( context, edtProjectId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A102ProjectId), 10, 0, ".", "")), StringUtil.LTrim( ((edtProjectId_Enabled!=0) ? context.localUtil.Format( (decimal)(A102ProjectId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(A102ProjectId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,68);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtProjectId_Jsonclick, 0, "Attribute", "", "", "", "", edtProjectId_Visible, edtProjectId_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_Project.htm");
+         TempTags = "  onfocus=\"gx.evt.onfocus(this, 70,'',false,'',0)\"";
+         GxWebStd.gx_single_line_edit( context, edtProjectId_Internalname, StringUtil.LTrim( StringUtil.NToC( (decimal)(A102ProjectId), 10, 0, ".", "")), StringUtil.LTrim( ((edtProjectId_Enabled!=0) ? context.localUtil.Format( (decimal)(A102ProjectId), "ZZZZZZZZZ9") : context.localUtil.Format( (decimal)(A102ProjectId), "ZZZZZZZZZ9"))), " dir=\"ltr\" inputmode=\"numeric\" pattern=\"[0-9]*\""+TempTags+" onchange=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onchange(this, event)\" "+" onblur=\""+"gx.num.valid_integer( this,',');"+";gx.evt.onblur(this,70);\"", "'"+""+"'"+",false,"+"'"+""+"'", "", "", "", "", edtProjectId_Jsonclick, 0, "Attribute", "", "", "", "", edtProjectId_Visible, edtProjectId_Enabled, 0, "text", "1", 10, "chr", 1, "row", 10, 0, 0, 0, 0, -1, 0, true, "Id", "end", false, "", "HLP_Project.htm");
+         /* Table start */
+         sStyleString = "";
+         GxWebStd.gx_table_start( context, tblTabledvelop_confirmpanel_comformdeleteemployee_Internalname, tblTabledvelop_confirmpanel_comformdeleteemployee_Internalname, "", "Table", 0, "", "", 1, 2, sStyleString, "", "", 0);
+         context.WriteHtmlText( "<tbody>") ;
+         context.WriteHtmlText( "<tr>") ;
+         context.WriteHtmlText( "<td data-align=\"center\"  style=\""+CSSHelper.Prettify( "text-align:-khtml-center;text-align:-moz-center;text-align:-webkit-center")+"\">") ;
+         /* User Defined Control */
+         ucDvelop_confirmpanel_comformdeleteemployee.SetProperty("Title", Dvelop_confirmpanel_comformdeleteemployee_Title);
+         ucDvelop_confirmpanel_comformdeleteemployee.SetProperty("ConfirmationText", Dvelop_confirmpanel_comformdeleteemployee_Confirmationtext);
+         ucDvelop_confirmpanel_comformdeleteemployee.SetProperty("YesButtonCaption", Dvelop_confirmpanel_comformdeleteemployee_Yesbuttoncaption);
+         ucDvelop_confirmpanel_comformdeleteemployee.SetProperty("NoButtonCaption", Dvelop_confirmpanel_comformdeleteemployee_Nobuttoncaption);
+         ucDvelop_confirmpanel_comformdeleteemployee.SetProperty("CancelButtonCaption", Dvelop_confirmpanel_comformdeleteemployee_Cancelbuttoncaption);
+         ucDvelop_confirmpanel_comformdeleteemployee.SetProperty("YesButtonPosition", Dvelop_confirmpanel_comformdeleteemployee_Yesbuttonposition);
+         ucDvelop_confirmpanel_comformdeleteemployee.SetProperty("ConfirmType", Dvelop_confirmpanel_comformdeleteemployee_Confirmtype);
+         ucDvelop_confirmpanel_comformdeleteemployee.Render(context, "dvelop.gxbootstrap.confirmpanel", Dvelop_confirmpanel_comformdeleteemployee_Internalname, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEEContainer");
+         context.WriteHtmlText( "<div class=\"gx_usercontrol_child\" id=\""+"DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEEContainer"+"Body"+"\" style=\"display:none;\">") ;
+         context.WriteHtmlText( "</div>") ;
+         context.WriteHtmlText( "</td>") ;
+         context.WriteHtmlText( "</tr>") ;
+         context.WriteHtmlText( "</tbody>") ;
+         /* End of table */
+         context.WriteHtmlText( "</table>") ;
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
          GxWebStd.gx_div_end( context, "start", "top", "div");
@@ -576,7 +605,7 @@ namespace GeneXus.Programs {
          /* Execute Start event if defined. */
          context.wbGlbDoneStart = 0;
          /* Execute user event: Start */
-         E110E2 ();
+         E120E2 ();
          context.wbGlbDoneStart = 1;
          assign_properties_default( ) ;
          if ( AnyError == 0 )
@@ -695,6 +724,26 @@ namespace GeneXus.Programs {
                Combo_employeeid_Multiplevaluesseparator = cgiGet( "COMBO_EMPLOYEEID_Multiplevaluesseparator");
                Combo_employeeid_Addnewoptiontext = cgiGet( "COMBO_EMPLOYEEID_Addnewoptiontext");
                Combo_employeeid_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "COMBO_EMPLOYEEID_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
+               Dvelop_confirmpanel_comformdeleteemployee_Objectcall = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Objectcall");
+               Dvelop_confirmpanel_comformdeleteemployee_Enabled = StringUtil.StrToBool( cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Enabled"));
+               Dvelop_confirmpanel_comformdeleteemployee_Width = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Width");
+               Dvelop_confirmpanel_comformdeleteemployee_Height = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Height");
+               Dvelop_confirmpanel_comformdeleteemployee_Class = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Class");
+               Dvelop_confirmpanel_comformdeleteemployee_Title = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Title");
+               Dvelop_confirmpanel_comformdeleteemployee_Confirmationtext = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Confirmationtext");
+               Dvelop_confirmpanel_comformdeleteemployee_Yesbuttoncaption = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Yesbuttoncaption");
+               Dvelop_confirmpanel_comformdeleteemployee_Nobuttoncaption = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Nobuttoncaption");
+               Dvelop_confirmpanel_comformdeleteemployee_Cancelbuttoncaption = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Cancelbuttoncaption");
+               Dvelop_confirmpanel_comformdeleteemployee_Yesbuttonposition = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Yesbuttonposition");
+               Dvelop_confirmpanel_comformdeleteemployee_Confirmtype = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Confirmtype");
+               Dvelop_confirmpanel_comformdeleteemployee_Comment = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Comment");
+               Dvelop_confirmpanel_comformdeleteemployee_Bodytype = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Bodytype");
+               Dvelop_confirmpanel_comformdeleteemployee_Bodycontentinternalname = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Bodycontentinternalname");
+               Dvelop_confirmpanel_comformdeleteemployee_Result = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Result");
+               Dvelop_confirmpanel_comformdeleteemployee_Texttype = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Texttype");
+               Dvelop_confirmpanel_comformdeleteemployee_Focusedbutton = cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Focusedbutton");
+               Dvelop_confirmpanel_comformdeleteemployee_Visible = StringUtil.StrToBool( cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Visible"));
+               Dvelop_confirmpanel_comformdeleteemployee_Gxcontroltype = (int)(Math.Round(context.localUtil.CToN( cgiGet( "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Gxcontroltype"), ".", ","), 18, MidpointRounding.ToEven));
                /* Read variables values. */
                A103ProjectName = cgiGet( edtProjectName_Internalname);
                AssignAttri("", false, "A103ProjectName", A103ProjectName);
@@ -826,33 +875,33 @@ namespace GeneXus.Programs {
                      if ( StringUtil.StrCmp(sEvtType, ".") == 0 )
                      {
                         sEvt = StringUtil.Left( sEvt, (short)(StringUtil.Len( sEvt)-1));
-                        if ( StringUtil.StrCmp(sEvt, "UC_PROJECTEMPLOYEES1.ONREMOVEEMPLOYEE") == 0 )
-                        {
-                           context.wbHandled = 1;
-                           dynload_actions( ) ;
-                           /* Execute user event: Uc_projectemployees1.Onremoveemployee */
-                           E120E2 ();
-                        }
-                        else if ( StringUtil.StrCmp(sEvt, "COMBO_EMPLOYEEID.ONOPTIONCLICKED") == 0 )
+                        if ( StringUtil.StrCmp(sEvt, "COMBO_EMPLOYEEID.ONOPTIONCLICKED") == 0 )
                         {
                            context.wbHandled = 1;
                            dynload_actions( ) ;
                            /* Execute user event: Combo_employeeid.Onoptionclicked */
                            E130E2 ();
                         }
+                        else if ( StringUtil.StrCmp(sEvt, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE.ONYES") == 0 )
+                        {
+                           context.wbHandled = 1;
+                           dynload_actions( ) ;
+                           /* Execute user event: Dvelop_confirmpanel_comformdeleteemployee.Onyes */
+                           E140E2 ();
+                        }
                         else if ( StringUtil.StrCmp(sEvt, "START") == 0 )
                         {
                            context.wbHandled = 1;
                            dynload_actions( ) ;
                            /* Execute user event: Start */
-                           E110E2 ();
+                           E120E2 ();
                         }
                         else if ( StringUtil.StrCmp(sEvt, "AFTER TRN") == 0 )
                         {
                            context.wbHandled = 1;
                            dynload_actions( ) ;
                            /* Execute user event: After Trn */
-                           E140E2 ();
+                           E150E2 ();
                         }
                         else if ( StringUtil.StrCmp(sEvt, "ENTER") == 0 )
                         {
@@ -883,7 +932,7 @@ namespace GeneXus.Programs {
                GX_msglist.addItem(endTrnMsgTxt, endTrnMsgCod, 0, "", true);
             }
             /* Execute user event: After Trn */
-            E140E2 ();
+            E150E2 ();
             trnEnded = 0;
             standaloneNotModal( ) ;
             standaloneModal( ) ;
@@ -968,7 +1017,7 @@ namespace GeneXus.Programs {
       {
       }
 
-      protected void E110E2( )
+      protected void E120E2( )
       {
          /* Start Routine */
          returnInSub = false;
@@ -1037,7 +1086,7 @@ namespace GeneXus.Programs {
          AV34BC_EmployeeCollection = GXt_objcol_SdtEmployee2;
       }
 
-      protected void E140E2( )
+      protected void E150E2( )
       {
          /* After Trn Routine */
          returnInSub = false;
@@ -1086,6 +1135,12 @@ namespace GeneXus.Programs {
          context.httpAjaxContext.ajax_rsp_assign_sdt_attri("", false, "AV15EmployeeId_Data", AV15EmployeeId_Data);
       }
 
+      protected void S132( )
+      {
+         /* 'DO ACTION COMFORMDELETEEMPLOYEE' Routine */
+         returnInSub = false;
+      }
+
       protected void S122( )
       {
          /* 'LOADCOMBOEMPLOYEEID' Routine */
@@ -1124,9 +1179,9 @@ namespace GeneXus.Programs {
          }
       }
 
-      protected void E120E2( )
+      protected void E140E2( )
       {
-         /* Uc_projectemployees1_Onremoveemployee Routine */
+         /* Dvelop_confirmpanel_comformdeleteemployee_Onyes Routine */
          returnInSub = false;
          AV38SelectedEmployeeId = (long)(Math.Round(NumberUtil.Val( Uc_projectemployees1_Currentemployeeid, "."), 18, MidpointRounding.ToEven));
          new prc_deactivateemployeeinproject(context ).execute(  AV38SelectedEmployeeId, ref  AV7ProjectId, ref  AV37IsSuccessful) ;
@@ -1144,7 +1199,7 @@ namespace GeneXus.Programs {
 
       protected void ZM0E15( short GX_JID )
       {
-         if ( ( GX_JID == 13 ) || ( GX_JID == 0 ) )
+         if ( ( GX_JID == 14 ) || ( GX_JID == 0 ) )
          {
             if ( ! IsIns( ) )
             {
@@ -1161,7 +1216,7 @@ namespace GeneXus.Programs {
                Z162ProjectManagerId = A162ProjectManagerId;
             }
          }
-         if ( GX_JID == -13 )
+         if ( GX_JID == -14 )
          {
             Z103ProjectName = A103ProjectName;
             Z104ProjectDescription = A104ProjectDescription;
@@ -1178,6 +1233,19 @@ namespace GeneXus.Programs {
       {
          edtProjectId_Enabled = 0;
          AssignProp("", false, edtProjectId_Internalname, "Enabled", StringUtil.LTrimStr( (decimal)(edtProjectId_Enabled), 5, 0), true);
+         if ( 1 == 0 )
+         {
+            bttBtncomformdeleteemployee_Visible = 1;
+            AssignProp("", false, bttBtncomformdeleteemployee_Internalname, "Visible", StringUtil.LTrimStr( (decimal)(bttBtncomformdeleteemployee_Visible), 5, 0), true);
+         }
+         else
+         {
+            if ( ! ( ( 1 == 0 ) ) )
+            {
+               bttBtncomformdeleteemployee_Visible = 0;
+               AssignProp("", false, bttBtncomformdeleteemployee_Internalname, "Visible", StringUtil.LTrimStr( (decimal)(bttBtncomformdeleteemployee_Visible), 5, 0), true);
+            }
+         }
          AV40Pgmname = "Project";
          AssignAttri("", false, "AV40Pgmname", AV40Pgmname);
          Gx_BScreen = 0;
@@ -1276,7 +1344,7 @@ namespace GeneXus.Programs {
             A162ProjectManagerId = T000E6_A162ProjectManagerId[0];
             n162ProjectManagerId = T000E6_n162ProjectManagerId[0];
             AssignAttri("", false, "A162ProjectManagerId", StringUtil.LTrimStr( (decimal)(A162ProjectManagerId), 10, 0));
-            ZM0E15( -13) ;
+            ZM0E15( -14) ;
          }
          pr_default.close(4);
          OnLoadActions0E15( ) ;
@@ -1356,7 +1424,7 @@ namespace GeneXus.Programs {
       {
       }
 
-      protected void gxLoad_16( long A162ProjectManagerId ,
+      protected void gxLoad_17( long A162ProjectManagerId ,
                                 long A102ProjectId )
       {
          /* Using cursor T000E8 */
@@ -1383,7 +1451,7 @@ namespace GeneXus.Programs {
          pr_default.close(6);
       }
 
-      protected void gxLoad_15( long A162ProjectManagerId )
+      protected void gxLoad_16( long A162ProjectManagerId )
       {
          /* Using cursor T000E9 */
          pr_default.execute(7, new Object[] {n162ProjectManagerId, A162ProjectManagerId});
@@ -1434,7 +1502,7 @@ namespace GeneXus.Programs {
          pr_default.execute(1, new Object[] {A102ProjectId});
          if ( (pr_default.getStatus(1) != 101) )
          {
-            ZM0E15( 13) ;
+            ZM0E15( 14) ;
             RcdFound15 = 1;
             A103ProjectName = T000E3_A103ProjectName[0];
             AssignAttri("", false, "A103ProjectName", A103ProjectName);
@@ -2076,6 +2144,9 @@ namespace GeneXus.Programs {
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Bootstrap/ConfirmPanel/BootstrapConfirmPanelRender.js", "", false, true);
          context.WriteHtmlText( Form.Headerrawhtml) ;
          context.CloseHtmlHeader();
          if ( context.isSpaRequest( ) )
@@ -2208,6 +2279,15 @@ namespace GeneXus.Programs {
          GxWebStd.gx_hidden_field( context, "COMBO_EMPLOYEEID_Selectedvalue_set", StringUtil.RTrim( Combo_employeeid_Selectedvalue_set));
          GxWebStd.gx_hidden_field( context, "COMBO_EMPLOYEEID_Enabled", StringUtil.BoolToStr( Combo_employeeid_Enabled));
          GxWebStd.gx_hidden_field( context, "COMBO_EMPLOYEEID_Emptyitem", StringUtil.BoolToStr( Combo_employeeid_Emptyitem));
+         GxWebStd.gx_hidden_field( context, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Objectcall", StringUtil.RTrim( Dvelop_confirmpanel_comformdeleteemployee_Objectcall));
+         GxWebStd.gx_hidden_field( context, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Enabled", StringUtil.BoolToStr( Dvelop_confirmpanel_comformdeleteemployee_Enabled));
+         GxWebStd.gx_hidden_field( context, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Title", StringUtil.RTrim( Dvelop_confirmpanel_comformdeleteemployee_Title));
+         GxWebStd.gx_hidden_field( context, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Confirmationtext", StringUtil.RTrim( Dvelop_confirmpanel_comformdeleteemployee_Confirmationtext));
+         GxWebStd.gx_hidden_field( context, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Yesbuttoncaption", StringUtil.RTrim( Dvelop_confirmpanel_comformdeleteemployee_Yesbuttoncaption));
+         GxWebStd.gx_hidden_field( context, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Nobuttoncaption", StringUtil.RTrim( Dvelop_confirmpanel_comformdeleteemployee_Nobuttoncaption));
+         GxWebStd.gx_hidden_field( context, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Cancelbuttoncaption", StringUtil.RTrim( Dvelop_confirmpanel_comformdeleteemployee_Cancelbuttoncaption));
+         GxWebStd.gx_hidden_field( context, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Yesbuttonposition", StringUtil.RTrim( Dvelop_confirmpanel_comformdeleteemployee_Yesbuttonposition));
+         GxWebStd.gx_hidden_field( context, "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE_Confirmtype", StringUtil.RTrim( Dvelop_confirmpanel_comformdeleteemployee_Confirmtype));
       }
 
       public override void RenderHtmlCloseForm( )
@@ -2318,6 +2398,7 @@ namespace GeneXus.Programs {
 
       protected void define_styles( )
       {
+         AddStyleSheetFile("DVelop/Bootstrap/Shared/DVelopBootstrap.css", "");
          AddThemeStyleSheetFile("", context.GetTheme( )+".css", "?"+GetCacheInvalidationToken( ));
          bool outputEnabled = isOutputEnabled( );
          if ( context.isSpaRequest( ) )
@@ -2327,7 +2408,7 @@ namespace GeneXus.Programs {
          idxLst = 1;
          while ( idxLst <= Form.Jscriptsrc.Count )
          {
-            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?20263913374990", true, true);
+            context.AddJavascriptSource(StringUtil.RTrim( ((string)Form.Jscriptsrc.Item(idxLst))), "?202631020212879", true, true);
             idxLst = (int)(idxLst+1);
          }
          if ( ! outputEnabled )
@@ -2343,7 +2424,7 @@ namespace GeneXus.Programs {
       protected void include_jscripts( )
       {
          context.AddJavascriptSource("messages.eng.js", "?"+GetCacheInvalidationToken( ), false, true);
-         context.AddJavascriptSource("project.js", "?20263913374991", false, true);
+         context.AddJavascriptSource("project.js", "?202631020212879", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
@@ -2351,6 +2432,9 @@ namespace GeneXus.Programs {
          context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
          context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
          context.AddJavascriptSource("DVelop/Bootstrap/DropDownOptions/BootstrapDropDownOptionsRender.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Bootstrap/Shared/DVelopBootstrap.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Shared/WorkWithPlusCommon.js", "", false, true);
+         context.AddJavascriptSource("DVelop/Bootstrap/ConfirmPanel/BootstrapConfirmPanelRender.js", "", false, true);
          /* End function include_jscripts */
       }
 
@@ -2371,6 +2455,7 @@ namespace GeneXus.Programs {
          bttBtntrn_enter_Internalname = "BTNTRN_ENTER";
          bttBtntrn_cancel_Internalname = "BTNTRN_CANCEL";
          bttBtntrn_delete_Internalname = "BTNTRN_DELETE";
+         bttBtncomformdeleteemployee_Internalname = "BTNCOMFORMDELETEEMPLOYEE";
          divMaintable_Internalname = "MAINTABLE";
          divRighttable_Internalname = "RIGHTTABLE";
          divTablemain_Internalname = "TABLEMAIN";
@@ -2378,6 +2463,8 @@ namespace GeneXus.Programs {
          divSectionattribute_projectmanagerid_Internalname = "SECTIONATTRIBUTE_PROJECTMANAGERID";
          edtavEmployeeid_Internalname = "vEMPLOYEEID";
          edtProjectId_Internalname = "PROJECTID";
+         Dvelop_confirmpanel_comformdeleteemployee_Internalname = "DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE";
+         tblTabledvelop_confirmpanel_comformdeleteemployee_Internalname = "TABLEDVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE";
          divHtml_bottomauxiliarcontrols_Internalname = "HTML_BOTTOMAUXILIARCONTROLS";
          divLayoutmaintable_Internalname = "LAYOUTMAINTABLE";
          Form.Internalname = "FORM";
@@ -2397,6 +2484,13 @@ namespace GeneXus.Programs {
          Form.Backcolor = (int)(0xFFFFFF);
          Form.Caption = "Project";
          Uc_projectemployees1_Currentemployeeid = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Confirmtype = "1";
+         Dvelop_confirmpanel_comformdeleteemployee_Yesbuttonposition = "left";
+         Dvelop_confirmpanel_comformdeleteemployee_Cancelbuttoncaption = "WWP_ConfirmTextCancel";
+         Dvelop_confirmpanel_comformdeleteemployee_Nobuttoncaption = "WWP_ConfirmTextNo";
+         Dvelop_confirmpanel_comformdeleteemployee_Yesbuttoncaption = "WWP_ConfirmTextYes";
+         Dvelop_confirmpanel_comformdeleteemployee_Confirmationtext = "Remove employee?";
+         Dvelop_confirmpanel_comformdeleteemployee_Title = "Confirm";
          edtProjectId_Jsonclick = "";
          edtProjectId_Enabled = 0;
          edtProjectId_Visible = 1;
@@ -2406,6 +2500,7 @@ namespace GeneXus.Programs {
          edtavComboprojectmanagerid_Jsonclick = "";
          edtavComboprojectmanagerid_Enabled = 0;
          edtavComboprojectmanagerid_Visible = 1;
+         bttBtncomformdeleteemployee_Visible = 1;
          bttBtntrn_delete_Enabled = 0;
          bttBtntrn_delete_Visible = 1;
          bttBtntrn_cancel_Visible = 1;
@@ -2440,7 +2535,7 @@ namespace GeneXus.Programs {
          /* End function dynload_actions */
       }
 
-      protected void XC_12_0E15( long A162ProjectManagerId ,
+      protected void XC_13_0E15( long A162ProjectManagerId ,
                                  long A102ProjectId )
       {
          new assignprojectmanagerrole(context ).execute(  A162ProjectManagerId,  A102ProjectId) ;
@@ -2559,11 +2654,12 @@ namespace GeneXus.Programs {
       {
          setEventMetadata("ENTER","""{"handler":"UserMainFullajax","iparms":[{"postForm":true},{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"}]}""");
          setEventMetadata("REFRESH","""{"handler":"Refresh","iparms":[{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV11TrnContext","fld":"vTRNCONTEXT","hsh":true},{"av":"AV29ProjectIds","fld":"vPROJECTIDS","hsh":true},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"}]}""");
-         setEventMetadata("AFTER TRN","""{"handler":"E140E2","iparms":[{"av":"AV22ComboProjectManagerId","fld":"vCOMBOPROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV11TrnContext","fld":"vTRNCONTEXT","hsh":true}]}""");
+         setEventMetadata("AFTER TRN","""{"handler":"E150E2","iparms":[{"av":"AV22ComboProjectManagerId","fld":"vCOMBOPROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true},{"av":"AV11TrnContext","fld":"vTRNCONTEXT","hsh":true}]}""");
+         setEventMetadata("'DOCOMFORMDELETEEMPLOYEE'","""{"handler":"E110E15","iparms":[]}""");
          setEventMetadata("COMBO_EMPLOYEEID.ONOPTIONCLICKED","""{"handler":"E130E2","iparms":[{"av":"Combo_employeeid_Selectedvalue_get","ctrl":"COMBO_EMPLOYEEID","prop":"SelectedValue_get"},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV37IsSuccessful","fld":"vISSUCCESSFUL"},{"av":"AV29ProjectIds","fld":"vPROJECTIDS","hsh":true},{"av":"Gx_mode","fld":"vMODE","pic":"@!","hsh":true}]""");
          setEventMetadata("COMBO_EMPLOYEEID.ONOPTIONCLICKED",""","oparms":[{"av":"AV31EmployeeId","fld":"vEMPLOYEEID","pic":"ZZZZZZZZZ9"},{"av":"AV37IsSuccessful","fld":"vISSUCCESSFUL"},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV34BC_EmployeeCollection","fld":"vBC_EMPLOYEECOLLECTION"},{"av":"AV26EmployeeIds","fld":"vEMPLOYEEIDS"},{"av":"AV15EmployeeId_Data","fld":"vEMPLOYEEID_DATA"},{"av":"Combo_employeeid_Selectedvalue_set","ctrl":"COMBO_EMPLOYEEID","prop":"SelectedValue_set"},{"av":"Combo_employeeid_Enabled","ctrl":"COMBO_EMPLOYEEID","prop":"Enabled"}]}""");
-         setEventMetadata("UC_PROJECTEMPLOYEES1.ONREMOVEEMPLOYEE","""{"handler":"E120E2","iparms":[{"av":"Uc_projectemployees1_Currentemployeeid","ctrl":"UC_PROJECTEMPLOYEES1","prop":"CurrentEmployeeId"},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV37IsSuccessful","fld":"vISSUCCESSFUL"}]""");
-         setEventMetadata("UC_PROJECTEMPLOYEES1.ONREMOVEEMPLOYEE",""","oparms":[{"av":"AV37IsSuccessful","fld":"vISSUCCESSFUL"},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV34BC_EmployeeCollection","fld":"vBC_EMPLOYEECOLLECTION"}]}""");
+         setEventMetadata("DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE.ONYES","""{"handler":"E140E2","iparms":[{"av":"Uc_projectemployees1_Currentemployeeid","ctrl":"UC_PROJECTEMPLOYEES1","prop":"CurrentEmployeeId"},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV37IsSuccessful","fld":"vISSUCCESSFUL"}]""");
+         setEventMetadata("DVELOP_CONFIRMPANEL_COMFORMDELETEEMPLOYEE.ONYES",""","oparms":[{"av":"AV37IsSuccessful","fld":"vISSUCCESSFUL"},{"av":"AV7ProjectId","fld":"vPROJECTID","pic":"ZZZZZZZZZ9"},{"av":"AV34BC_EmployeeCollection","fld":"vBC_EMPLOYEECOLLECTION"}]}""");
          setEventMetadata("VALID_PROJECTNAME","""{"handler":"Valid_Projectname","iparms":[{"av":"A103ProjectName","fld":"PROJECTNAME"},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"}]}""");
          setEventMetadata("VALID_PROJECTSTATUS","""{"handler":"Valid_Projectstatus","iparms":[]}""");
          setEventMetadata("VALID_PROJECTMANAGERID","""{"handler":"Valid_Projectmanagerid","iparms":[{"av":"A162ProjectManagerId","fld":"PROJECTMANAGERID","pic":"ZZZZZZZZZ9"},{"av":"A102ProjectId","fld":"PROJECTID","pic":"ZZZZZZZZZ9"},{"av":"A163ProjectManagerName","fld":"PROJECTMANAGERNAME"},{"av":"A175ProjectManagerEmail","fld":"PROJECTMANAGEREMAIL"},{"av":"A176ProjectManagerIsActive","fld":"PROJECTMANAGERISACTIVE"}]""");
@@ -2596,6 +2692,7 @@ namespace GeneXus.Programs {
          Z103ProjectName = "";
          Z104ProjectDescription = "";
          Z105ProjectStatus = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Result = "";
          Combo_employeeid_Selectedvalue_get = "";
          Combo_projectmanagerid_Selectedvalue_get = "";
          gxfirstwebparm = "";
@@ -2622,6 +2719,9 @@ namespace GeneXus.Programs {
          bttBtntrn_enter_Jsonclick = "";
          bttBtntrn_cancel_Jsonclick = "";
          bttBtntrn_delete_Jsonclick = "";
+         bttBtncomformdeleteemployee_Jsonclick = "";
+         sStyleString = "";
+         ucDvelop_confirmpanel_comformdeleteemployee = new GXUserControl();
          A163ProjectManagerName = "";
          A175ProjectManagerEmail = "";
          AV40Pgmname = "";
@@ -2681,6 +2781,15 @@ namespace GeneXus.Programs {
          Combo_employeeid_Selectalltext = "";
          Combo_employeeid_Multiplevaluesseparator = "";
          Combo_employeeid_Addnewoptiontext = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Objectcall = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Width = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Height = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Class = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Comment = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Bodytype = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Bodycontentinternalname = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Texttype = "";
+         Dvelop_confirmpanel_comformdeleteemployee_Focusedbutton = "";
          forbiddenHiddens = new GXProperties();
          hsh = "";
          sMode15 = "";
@@ -2840,6 +2949,7 @@ namespace GeneXus.Programs {
       private int bttBtntrn_cancel_Visible ;
       private int bttBtntrn_delete_Visible ;
       private int bttBtntrn_delete_Enabled ;
+      private int bttBtncomformdeleteemployee_Visible ;
       private int edtavComboprojectmanagerid_Enabled ;
       private int edtavComboprojectmanagerid_Visible ;
       private int edtavEmployeeid_Enabled ;
@@ -2851,6 +2961,7 @@ namespace GeneXus.Programs {
       private int Uc_projectemployees1_Gxcontroltype ;
       private int Combo_employeeid_Datalistupdateminimumcharacters ;
       private int Combo_employeeid_Gxcontroltype ;
+      private int Dvelop_confirmpanel_comformdeleteemployee_Gxcontroltype ;
       private int AV41GXV1 ;
       private int idxLst ;
       private long wcpOAV7ProjectId ;
@@ -2869,6 +2980,7 @@ namespace GeneXus.Programs {
       private string wcpOGx_mode ;
       private string Z103ProjectName ;
       private string Z105ProjectStatus ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Result ;
       private string Combo_employeeid_Selectedvalue_get ;
       private string Combo_projectmanagerid_Selectedvalue_get ;
       private string Uc_projectemployees1_Currentemployeeid ;
@@ -2914,6 +3026,8 @@ namespace GeneXus.Programs {
       private string bttBtntrn_cancel_Jsonclick ;
       private string bttBtntrn_delete_Internalname ;
       private string bttBtntrn_delete_Jsonclick ;
+      private string bttBtncomformdeleteemployee_Internalname ;
+      private string bttBtncomformdeleteemployee_Jsonclick ;
       private string divRighttable_Internalname ;
       private string divHtml_bottomauxiliarcontrols_Internalname ;
       private string divSectionattribute_projectmanagerid_Internalname ;
@@ -2923,6 +3037,16 @@ namespace GeneXus.Programs {
       private string edtavEmployeeid_Jsonclick ;
       private string edtProjectId_Internalname ;
       private string edtProjectId_Jsonclick ;
+      private string sStyleString ;
+      private string tblTabledvelop_confirmpanel_comformdeleteemployee_Internalname ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Title ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Confirmationtext ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Yesbuttoncaption ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Nobuttoncaption ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Cancelbuttoncaption ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Yesbuttonposition ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Confirmtype ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Internalname ;
       private string A163ProjectManagerName ;
       private string AV40Pgmname ;
       private string Combo_projectmanagerid_Objectcall ;
@@ -2981,6 +3105,15 @@ namespace GeneXus.Programs {
       private string Combo_employeeid_Selectalltext ;
       private string Combo_employeeid_Multiplevaluesseparator ;
       private string Combo_employeeid_Addnewoptiontext ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Objectcall ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Width ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Height ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Class ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Comment ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Bodytype ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Bodycontentinternalname ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Texttype ;
+      private string Dvelop_confirmpanel_comformdeleteemployee_Focusedbutton ;
       private string hsh ;
       private string sMode15 ;
       private string sEvt ;
@@ -3019,6 +3152,8 @@ namespace GeneXus.Programs {
       private bool Combo_employeeid_Includeonlyselectedoption ;
       private bool Combo_employeeid_Includeselectalloption ;
       private bool Combo_employeeid_Includeaddnewoption ;
+      private bool Dvelop_confirmpanel_comformdeleteemployee_Enabled ;
+      private bool Dvelop_confirmpanel_comformdeleteemployee_Visible ;
       private bool returnInSub ;
       private bool AV37IsSuccessful ;
       private bool Z176ProjectManagerIsActive ;
@@ -3033,6 +3168,7 @@ namespace GeneXus.Programs {
       private GXUserControl ucCombo_projectmanagerid ;
       private GXUserControl ucUc_projectemployees1 ;
       private GXUserControl ucCombo_employeeid ;
+      private GXUserControl ucDvelop_confirmpanel_comformdeleteemployee ;
       private GXWebForm Form ;
       private IGxDataStore dsGAM ;
       private IGxDataStore dsDefault ;
