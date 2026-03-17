@@ -174,3 +174,18 @@ GETTING >>       222
 GETTING >>       222
 &EmployeeWorkingDays["Tue","Wed","Thu","Fri"]
 &EmployeeWorkingDays["Tue","Wed","Thu","Fri"]
+URL: logworkours
+&LeaveEvents: []
+URL: calendar
+&LeaveEvents: []
+URL: calendar
+&LeaveEvents: []
+URL: calendar
+&LeaveEvents: []
+URL: calendar
+&LeaveEvents: []
+URL: calendar
+&LeaveEvents: []
+URL: calendar
+&LeaveEvents: []
+URL: calendar
